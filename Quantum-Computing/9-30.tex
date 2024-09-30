@@ -1,0 +1,61 @@
+\section{Overview}
+Quantum Computers are slower overall but with better asymptotic complexity. \\
+There are many kinds of quantum computers (Superconducting, vacancy center, traped ion, photonic). \\
+Peter Shor showed that you can factorize large products of primes can be computed faster on a quantum computer. \\
+IBM was one of the first companies to try and build a quantum computer. \\
+\subsection{Why Quantum Computers}
+Why is a quantum computer more powerful? We look at the space we need to describe such a system:\\
+For a system of 3 spins we can see
+\begin{align*}
+	\ket{\psi_1} &= \alpha\ket{\uparrow_1} + \beta\ket{\downarrow_1} \\
+	\ket{\psi} &= \alpha_1\ket{\uparrow\uparrow\uparrow} + \alpha_2\ket{\uparrow\uparrow\downarrow} + \ldots
+\end{align*}
+We can see that in order to represent $N$ terms, we need $2^N$ complex coefficients. The Hamiltonian needs $2^{2N}$ coefficients to represent the systems evolution. \\
+Measurement only gives us $N$ bits of information on the output, therefore we kinda lose our advantage :(
+\section{Classical Computing}
+\subsection{Computation as a physical process}
+All information used by a classical computer is stored as a sequence of zeroes and ones. These two must be physically different. In a classical computer we typically store a zero by a low voltage, and a 1 by a high voltage (these voltages should be quite different). This can done by switching between $100 \Sigma$ and $10k\Sigma$ resistances. \\
+For a single bit we can construct four distinct gates. Of these two of these are reversable and two are irreversable. These gates can be represented by truth tables.\\
+A reversable gate may be the not gate.
+\begin{displaymath}
+\begin{array}{| c | c |}
+	\text{in} & \text{out} \\
+	\hline
+	0 & 1 \\
+	1 & 0
+\end{array}
+\end{displaymath}
+An irreversable gate may be a zero gate:
+\begin{displaymath}
+\begin{array}{| c | c |}
+	\text{in} & \text{out} \\
+	\hline
+	0 & 0 \\
+	1 & 0
+\end{array}
+\end{displaymath}
+This is thermodynamically irreversable as the zero gate lowers the entropy. Since entropy should increase then in order to do this operation we must produce heat elsewhere.
+\begin{align*}
+	\Delta Q &= k_B T\ln Z
+\end{align*}
+We also generate heat since we don't make any transformations adiabatically, since adiabatic transformations would be much slower. \\
+Moving on to two-bit gates. We first look at:
+\begin{displaymath}
+\begin{array}{| c c | c c |}
+	\text{input 1} & \text{input 2} & \text{out 1} & \text{out 2} \\
+	\hline
+	0 & 0 & 0 & 0\\
+	0 & 1 & 0 & 1\\
+	1 & 0 & 1 & 1\\
+	1 & 1 & 1 & 0
+\end{array}
+\end{displaymath}
+How many 2-bit gates are there? \\
+There are $256$ total gates ($4^4$) and then $24$ reversable gates  ($4!$ aka the number of permutations of the gates). Product operations make up $16$ total states and $4$ reversable states. Any computation can be constructed from single bit and controled not gates. \\
+You can do classical computations reversably? This can be done by storing some of the input as the output, i.e. $2 \cross 5 = 10,2$. For generalized computation we will need all the reversable single bit gates and the controlled controlled not. \\
+In a quantum computer all gates must be reversable. On a quantum computer you only need single bit gates, controlled nots and measurements.
+\subsection{Complexity classes}
+A complexity class determines the scaling of an algorithm as the input asymptotically increases. This is typically thought of in terms of the aveage, or worst case complexity. We don't include any prefactos here. \\
+Example: schoolyard multiplication scales as $O(n^2)$ \\
+Simulating a quantum system grows exponentially. \\
+Example: For a databse with n elements, sorting the database can be done using the simole swapping method. For an upper bound we can say it takes $n^2$ assuming that we do a sort of insertion sort. For a lower bound we assume the list is already sorted, so the complexity must be between $O(n^2)$ and $O(n)$
