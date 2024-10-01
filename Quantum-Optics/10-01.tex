@@ -86,3 +86,61 @@ So our equation of motion becomes:
 \begin{align*}
 	i \hbar \partial_t \begin{pmatrix}\bar{c_1} \\ \bar{c_2} \end{pmatrix} &= V_I \begin{pmatrix}\bar{c_1} \\ \bar{c_2}\end{pmatrix}
 \end{align*}
+We know from our definitions for the interaction picture:
+\begin{align*}
+	\bar{c_n} &= c_n e^{i\omega_n t} \\
+	\dot{\bar{c_n}} &= \dot{c_n} e^{i\omega_n t} + i\omega_n c_n e^{i\omega_n t} \\
+	\dot{\bar{c_1}} &= \left(i \frac{\omega_0}{2} c_1 - i\Omega_0\cos\omega t c_2 \right) e^{-i\frac{\omega_0}{2} t} -\frac{i\omega_0}{2}c_1 e^{-i\frac{\omega_0}{2} t} \\
+	\dot{\bar{c_1}} &= - i\Omega_0\cos\omega t c_2  e^{-i\frac{\omega_0}{2} t} \\
+	\dot{\bar{c_1}} &= -i\Omega_0\cos\omega t \bar{c_2}e^{-i\omega_0 t} \\
+	\dot{\bar{c_2}} &= -i\Omega_0\cos\omega t \bar{c_1} e^{i\omega_0 t}
+\end{align*}
+Therefore:
+\begin{align*}
+	V_I &= \hbar \Omega_0 \cos\omega t \begin{pmatrix}
+		0 & e^{-i\omega_0 t} \\
+		e^{i\omega_0 t} & 0
+		\end{pmatrix}
+\end{align*}
+So working in the interaction picture here has simply removed the diagonal part of the Hamiltonian. \\
+We now seek to solve our equations for our amplitudes here, we start be rewriting cosine in terms of complex exponentials:
+\begin{align*}
+	\dot{\bar{c_1}} &= -i\frac{\Omega_0}{2}\left(e^{i\omega t} + e^{-i\omega t}\right)e^{-i\omega_0 t}\bar{c_2} \\
+	\dot{\bar{c_1}} &= -i\frac{\Omega_0}{2}\left(e^{i(\omega-\omega_0) t} + e^{-i(\omega+\omega_0) t}\right)\bar{c_2} \\
+	\dot{\bar{c_2}} &= -i\frac{\Omega_0}{2}\left(e^{i\omega t} + e^{-i\omega t}\right)e^{i\omega_0 t}\bar{c_1} \\
+	\dot{\bar{c_2}} &= -i\frac{\Omega_0}{2}\left(e^{i(\omega_0-\omega) t} + e^{i(\omega + \omega_0)t}\right)\bar{c_1}
+\end{align*}
+We now break this into a perurbation series:
+\begin{align*}
+	\bar{c_n} &= \bar{c}_n^{(0)} + \bar{c}_n^{(1)} +\bar{c}_n^{(2)} + \ldots \\
+	\bar{c}_n^{(m)} &\propto E_0^m 
+\end{align*}
+If we start in state 1:
+\begin{align*}
+	\dot{\bar{c}_1^{(1)}} &\propto \bar{c}_2^{(0)} = 0 \\
+	\dot{\bar{c}_2^{(1)}} &=-i\frac{\Omega_0}{2}\left(e^{i(\omega_0 - \omega) t} + e^{i(\omega_0 + \omega)t}\right)
+\end{align*}
+So we have after integration:
+\begin{align*}
+	\bar{c}_2^{(1)}(t) &= -i\frac{\Omega_0}{2} \left[ \frac{e^{i\omega_0-\omega)t} -1 }{i(\omega_0-\omega} + \frac{e^{i(\omega_0 + \omega) t} - 1}{i(\omega_0 + \omega)}\right]
+\end{align*}
+If we are near resonance the second term is much smaller, and $\Omega_0 << \omega_0$ we use the rotating wave approximation:
+\begin{align*}
+	\bar{c}_2^{(1)}(t) &= -i\frac{\Omega_0}{2}\frac{e^{i\omega_0-\omega)t} -1 }{i(\omega_0-\omega} 
+\end{align*}
+Which equivalently in the hamiltonian has:
+\begin{align*}
+	V_I &= \hbar \frac{\Omega_0}{2} \begin{pmatrix}
+		0 & e^{-i\delta t} \\
+		e^{i\delta t} & 0
+		\end{pmatrix}
+\end{align*}
+If we generalize we have (with some phase on $\Omega_0$):
+\begin{align*}
+	V_I &= \frac{\hbar }{2} \begin{pmatrix}
+		0 & \Omega_0^*e^{-i\delta t} \\
+		\Omega_0e^{i\delta t} & 0
+		\end{pmatrix}
+\end{align*}
+\subsection{The exact solution of the Rabi problem (with rotating wave approximation)}
+Next class we will solve this, we will get $\pi$ pulses, Rabi oscilations, etc.
