@@ -1,0 +1,88 @@
+\chapter{Fall Term, Hailin Wang}
+\section{Overview}
+The start of the course will mainly focus on two level states (5-6 weeks) and then we move on to 3 level states and the mechanical effects of light. \\
+This course will focus on how does light interact with matter.\\
+This interaction can be done in terms of semi-classical physics, where we have classical light and quantum mechanical matter, or a pure quantum approach which treats both light and matter quantum mechanically.\\
+
+\section{Two-Level quantum systems (aka the Rabi problem)}
+In a simple system we have discrete atomic energy levels and a single opticla mode of light:
+\begin{align*}
+	\frac{1}{2} E_0 e^{-i\omega t} + \text{c.c.}
+\end{align*}
+But this discrete set of atomic energy levels is still too complicated since there are an infinite number of states for the atom. In order to further simplify things we limit ourselves to two-level systems where our atom can be in state $\ket{1}$ or $\ket{2}$.\\
+If we have transition energy between the two states that has a corresponding energy $\omega_0$ and an optical field at $\omega$, we then have a detuning $\delta = \omega_0-\omega$, resonance when $\omega=\omega_0$, and near resonance when $\omega\approx\omega_0$.\\
+When we are near resonance we ignore all off-resonant interactions.\\
+We now come up with our Hamiltonian (after which we will try to solve the Schroedinger equation).
+\begin{align*}
+	H &= H_0 + V \\
+	H_0 &= \begin{pmatrix} E_1 & 0 \\ 0 & E_2\end{pmatrix} \\
+	H_0 &= \hbar\begin{pmatrix} \omega_1 & 0 \\ 0 & \omega_2\end{pmatrix}
+\end{align*}
+We now use the fact that $\omega_1 - \omega_2 = \omega_0$, so we rewrite this as:
+\begin{align*}
+	H_0 &= \frac{\hbar}{2}\begin{pmatrix} -\omega_0 & 0 \\ 0 & \omega_0\end{pmatrix} \\
+	H_0 &= -\frac{\hbar\omega_0}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}
+\end{align*}
+Since atoms are neutral, if our wavelength is much larger than the bohr radius we can model this with a dipole interaction.\\
+Our dipole potential is:
+\begin{align*}
+	V &= -\bm{\mu}\cdot\bm{E} \\
+	\bm{\mu} &= -e\bm{r} \\
+	\bm{E} &= |E_0| \cos(\omega t-\phi)\hat{\epsilon}
+\end{align*}
+We could in principle add a quadrapole, magnetic dipole interaction, etc.\\
+If we have our field point allong the z axis we can write:
+\begin{align*}
+	V_{12} &= \bra{1} V\ket{2} \\
+	V_{12} &= e Z_{12} |E_0| \cos(\omega t -\phi) \\
+	V_{11} &= \bra{1} V\ket{1} \\
+	V_{11} &= e Z_{11} |E_0| \cos(\omega t -\phi) \\
+	V_{22} &= \bra{2} V\ket{2} \\
+	V_{22} &= e Z_{22} |E_0| \cos(\omega t -\phi)
+\end{align*}
+But we know $Z_{11} = Z_{22} = 0$ by symettry (though this may not hold inside some crystals). \\
+Therefore we can then write:
+\begin{align*}
+	V &= \begin{pmatrix} V_{12} & 0 \\ 0 & V_{21} \end{pmatrix}
+\end{align*}
+We define $\Omega_0$ (the Rabi frequency).
+\begin{align*}
+	\Omega_0 &= -\frac{\mu_{12} E_0}{\hbar}
+\end{align*}
+By convention we choose the phase of $\mu_{12} = -e Z_{12}$ to make it real. Therefore we have:
+\begin{align*}
+	V_{12} &= \hbar |\Omega_0| \cos (\omega t -\phi) \\
+	V &= \hbar |\Omega_0| \cos (\omega t - \phi)\begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+      \end{pmatrix}
+\end{align*}
+In terms o the Pauli matricies we then have:
+\begin{align*}
+	H_0 &= -\frac{\hbar\omega_0}{2} \sigma_z \\
+	V &= \hbar |\Omega_0|\cos(\omega t - \phi) \sigma_x \\
+	H &= -\frac{\hbar\omega_0}{2} \sigma_z + \hbar |\Omega_0|\cos(\omega t - \phi) \sigma_x
+\end{align*}
+The key parameters in question for this hamiltonian are the detuning, $\delta=\omega_0-\omega$ and the Rabi frequency $\Omega_0$. \\
+\subsection{Interaction representation and rotating wave approximation}
+In the Schroedinger representation:
+\begin{align*}
+	\ket{\psi(t)} &= \sum_n c_n(t) \ket{n} \\
+	i\hbar \partial_t \ket{\psi(t)} &= H\ket{\phi(t)}
+\end{align*}
+If we assume that we have a phase of zero, so $\Omega_0$ is real:
+\begin{align*}
+	i\hbar \partial_t \begin{pmatrix}c_1 \\ c_2\end{pmatrix} &= H \begin{pmatrix}c_1 \\ c_2\end{pmatrix} \\
+	i\hbar \partial_t \begin{pmatrix}c_1 \\ c_2\end{pmatrix} &= \hbar \begin{pmatrix} -\frac{\omega_0}{2} & \Omega_0 \cos\omega t \\ \Omega_0\cos\omega t & \frac{\omega_0}{2}\end{pmatrix} \begin{pmatrix}c_1 \\ c_2\end{pmatrix} \\
+	\dot{c_1} &= i \frac{\omega_0}{2} c_1 - i\Omega_0\cos\omega t c_2 \\
+	\dot{c_2} &= i \frac{\omega_0}{2} c_2 - i\Omega_0\cos\omega t c_1
+\end{align*}
+If $\Omega_0 = 0$ we just get free evolution, so we only have phase evolution for both terms. \\
+In the interaction representation we put the evolution from $H_0$ into the states, so:
+\begin{align*}
+	\ket{\psi(t)} &= \sum_n \bar{c_n}(t) e^{-i \omega_n t} \ket{n}
+\end{align*}
+So our equation of motion becomes:
+\begin{align*}
+	i \hbar \partial_t \begin{pmatrix}\bar{c_1} \\ \bar{c_2} \end{pmatrix} &= V_I \begin{pmatrix}\bar{c_1} \\ \bar{c_2}\end{pmatrix}
+\end{align*}
