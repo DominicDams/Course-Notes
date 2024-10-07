@@ -1,0 +1,34 @@
+\subsection{Introduction to Hilbert Spaces}
+A vector space $V$, will be defined as normal, with addition, scalar multiplication, inverses and the identity.\\
+We add an inner product with the following properties:
+\begin{align*}
+	(v,w) &\in \mathbb{C} &
+	(v,w) &= (w,v)^* \\
+	(v.v) &\geq 0 &
+	(v,v) = 0 &\leftrightarrow v = 0
+\end{align*}
+In quantum mechanics we work inside Hilbert Space $H$, which is a completed complex inner product space. We write these vectors in bra-ket notation $\ket{v}$. We choose the standard basis of $\ket{0}$ and $\ket{1}$. We write our inner products in terms of bra-ket notation as well (this corresponds to vectors and covectors in actuallity) $(v,w) = \bra{v}\ket{w}$. \\
+These vectors in Hilbert space represent the state of a particle. If two vectors are orthogonal, then the two states are distinguishable states. If we have an overall phase shift to our state $\ket{\psi} \to e^{i\phi}\ket{\psi}$ then there is no measurable change to our system. We restrict ourselves additionally to vectors of unit length, because theres no physical impact of large vectors. There are multiple ways to construct things that are analagous to the classical not gate:
+\begin{displaymath}
+\begin{array}{|c | c|}
+	\text{in} & \text{Not} \\
+	\hline
+	\ket{0} & \ket{1} \\
+	\ket{1} & \ket{0}
+\end{array}
+\end{displaymath}
+\begin{displaymath}
+\begin{array}{|c | c|}
+	\text{in} & \text{Not'} \\
+	\hline
+	\ket{0} & -\ket{1} \\
+	\ket{1} & \ket{0}
+\end{array}
+\end{displaymath}
+Although these two act the same on the basis states, they have different effects in the $\ket{+}$, $\ket{-}$ basis. These gates can also be represented by the Pauli matricies, i.e. $\sigma_x$ and $\sigma_y$.\\
+To represent a qubit we can use the Bloch sphere. This corresponds to a representation by two real parameters:
+\begin{align*}
+	0 \leq \theta \leq \pi && 0 \leq \phi \leq 2\pi \\
+	\ket{\psi} &= \cos \frac{\theta}{2} \ket{0} + e^{i\phi} \sin\frac{\theta}{2} \ket{1}
+\end{align*}
+Which is of course the same as drawing a point on a sphere defined by the two angles we selected. All gates will be represented by unitary operators i.e. $U^\dagger U = 1$.
