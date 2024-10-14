@@ -1,0 +1,172 @@
+\subsection{Recap}
+In the field interaction representation we have a Hamiltonian:
+\begin{align*}
+	\tilde{H} &= \frac{\hbar}{2} \begin{pmatrix}
+		-\delta & \Omega_0^* \\
+		\Omega_0 & \delta
+			      \end{pmatrix}
+\end{align*}
+For constant $\delta$ and $\Omega_0$ we can solve this, and we find our solutions are the dressed states:
+\begin{align*}
+	\ket{+} &= \begin{pmatrix}
+		\sin\theta \\
+		\cos\theta
+	    \end{pmatrix} \\
+	\ket{-} &= \begin{pmatrix}
+		\cos\theta \\
+		-\sin\theta
+	    \end{pmatrix} \\
+	\tan 2\theta &= \frac{\Omega_0}{\delta}
+\end{align*}
+\subsection{Adiabatic following continued}
+At a given time we can find instantaneous eigenstates, by solving the Hamiltonian at that point in time. In general the system will not stay in eigenstates, but in the case of adiabatic following it will. For adiabatic following we require that $\tilde{H}$ varies slowly, and that at $t=0$ we start in an instantaneous eigenstate. \\
+What do we mean when we say slowly varying? If we have e general time dependant Rabi frequency:
+\begin{align*}
+	\Omega_0(t) &= |\Omega_0(t)| e^{i\varphi(t)} \\
+	\ket{\psi(t)} &= \tilde{c}_1 e^{i\frac{\omega t - \varphi(t)}{2}} \ket{1} + \tilde{c}_2 e^{-i \frac{\omega t - \varphi(t)}{2}} \ket{2}
+\end{align*}
+If we define our deturning:
+\begin{align*}
+	\delta(t) &= \omega_0 - \omega + \dot{\phi}(t)
+\end{align*}
+Then:
+\begin{align*}
+	\tilde{H} &= \frac{\hbar}{2} \begin{pmatrix}
+		-\delta(t) & |\Omega_0(t)| \\
+		|\Omega_0(t)| & \delta(t)
+			      \end{pmatrix}
+\end{align*}
+We now move to the dressed state basis $H_d$, in the case of adiabatic following this is almost diagonal, and so the off diagonal elements make a negligible contribution to the evolution of the system. In order to make this change of basis, we do a transformation:
+\begin{align*}
+	\begin{pmatrix}
+		c_- \\
+		c_+
+	\end{pmatrix} &= U_d \begin{pmatrix}
+		\tilde{c}_1 \\
+		\tilde{c}_2
+		    \end{pmatrix} \\
+	H_d &= U_d\tilde{H}U_d^\dagger - i\hbar U_d\dot{U}_d^\dagger
+\end{align*}
+If $U_d$ had no time dependance then $H_d$ will be diagonal, as $U_d$ is the operator that diagonalizes our instantaneous $\tilde{H}$. \\
+We know that $U_d$ must be given by:
+\begin{align*}
+	U_d &= \begin{pmatrix}
+		\cos\theta & -\sin\theta \\
+		\sin\theta & \cos\theta
+	\end{pmatrix}
+\end{align*}
+We know look for the term corresponding to the time variance:
+\begin{align*}
+	U_d^\dagger &= \begin{pmatrix}
+		\cos\theta & \sin\theta \\
+		-\sin\theta & \cos\theta
+		\end{pmatrix}\\
+	\dot{U}_d &= \begin{pmatrix}
+		-\sin\theta & \cos\theta \\
+		-\cos\theta & -\sin\theta
+	\end{pmatrix}\dot{\theta} \\
+		U_d\dot{U}_d^\dagger &= \begin{pmatrix}
+			0 & 1 \\
+			-1 & 0
+		\end{pmatrix} \dot{\theta}
+\end{align*}
+So:
+\begin{align*}
+	H_d &= \hbar \begin{pmatrix}
+		-\frac{\Omega(t)}{2} & -i\dot{\theta} \\
+		i\dot{\theta} & \frac{\Omega(t)}{2}
+	      \end{pmatrix}
+\end{align*}
+In order to have adiabatic evolution we must have $|\dot{\theta}| \ll \frac{|\Omega|}{2}$. Intuitively we would expect our condition to be $|\frac{\dot{\Omega}}{\Omega} \ll |\Omega|$. \\
+We now calculate $\dot{\theta}$:
+\begin{align*}
+	\partial_t \tan 2\theta &= \partial_t \frac{|\Omega_0|}{\delta} &
+	\frac{2}{\cos^2 2\theta} \dot{\theta} &= \frac{1}{\delta^2}\left(|\dot{\Omega}_0|\delta 0 |\Omega_0|\dot{\delta}\right) \\
+	\frac{2\Omega^2}{\delta^2} \dot{\theta} &= \frac{1}{\delta^2}\left(|\dot{\Omega}_0|\delta 0 |\Omega_0|\dot{\delta}\right) &
+	2\Omega^2\dot{\theta} &= \left(|\dot{\Omega}_0|\delta 0 |\Omega_0|\dot{\delta}\right) \\
+	2\Omega^2\dot{\theta} &= \left(|\dot{\Omega}_0|\delta 0 |\Omega_0|\dot{\delta}\right) &
+	2\frac{\dot{\theta}}{\Omega} &= \frac{\delta}{\Omega} \frac{|\dot{\Omega_0}|}{\Omega^2} - \frac{|\Omega_0|}{\Omega} \frac{\dot{\delta}}{\Omega^2}  \\
+	\frac{\dot{\Omega}}{\Omega^2} &\ll 1 &
+	\frac{\dot{\delta}}{\omega^2} &\ll 1
+\end{align*}
+Which is exactly what we expect, plus another condition. \\
+If we now have a gaussian pulse with a a sigmoid detuning, we examine the evolution. At $t=-\infty$ we have opposite eigenstates than $t=\infty$, so we swap states over time in adiabatic following.
+\subsection{Summary}
+RWA: rapid oscialations can be ignored when compared to slow oscillations.\\
+Rabi oscilations: $\pi$ pulses etc. \\
+Field interaction representation \\
+Semiclassical dressed states \\
+Adiabatic following \\
+\section{Decoherence and damping}
+So far we have focused on probability amplitudes and the Schroedinger equation to solve the two level system. Now we want to include damping and decoherence. We add population decay rates $\gamma_1$ and a spontaneous emmission rate $\gamma_2$. Our proposed ad-hoc solutions are all:
+\begin{align*}
+	\partial_t c_2 &= -\frac{\gamma_1}{2} c_2  \\
+	\partial_t c_1 &= -\frac{\gamma_1}{2} c_1 \\
+	\partial_t c_1 &= \frac{\gamma_2}{2} c_2
+\end{align*}
+But our ad-hoc solution for spontaneous emission is wrong! We want to now handle the spontaneous emission properly and the deay of indecue diple coherence. 
+\begin{align*}
+	V &= -\bm{\mu}\cdot \bm{E} \\
+	\expval{\bm{\mu}} &= \expval{-e\bm{r}} \\
+	\expval{\bm{\mu}} &= -ec_1^*c_2\bm{r}_{12} + c_1c_2^*\bm{r}_21 \\
+	\expval{\bm{\mu}} &= -e\bm{r}_12 (c_1^*c_2 + \text{c.c.}) \\
+	\expval{\bm{\mu}} &\propto |c_1||c_2|(e^{i(\theta_2 - \theta_1)} + \text{c.c.})
+\end{align*}
+So we see the relative phases of our amplitudes therefore become important here in the induced dipole interaction. If we have a full dephasing rate we have:
+\begin{align*}
+	\partial_t \expval{e^{i(\theta_1 - \theta_2)}} &= -\Gamma\expval{e^{i(\theta_1 - \theta_2)}} 
+\end{align*}
+In order to determine this we move on to the density operator representation:
+\subsection{Density Matrix of a single atom}
+\begin{align*}
+	\hat{\rho} &= \ket{\psi}\bra{\psi}
+	\hat{\rho} &= \sum_{n,m} c_n c_m ^* \ket{n}\bra{m} \\
+	\hat{\rho} &= \sum_{n,m} \rho_{nm} \ket{n}\bra{m} \\
+	\rho_nm &= c_n c_m^*
+\end{align*}
+The basic properties of the density operator are (for pure states):
+\begin{align*}
+	\hat{\rho}^2 &= \hat{\rho} \\
+	\expval{\hat{O}} &= \Tr{\hat{O}\hat{\rho}}
+\end{align*}
+The equivalent of the Schroedinger equation for the density operator is:
+\begin{align*}
+	\partial_t \hat{\rho} &= \frac{1}{i\hbar} \left(\hat{H}\hat{\rho} - \hat{\rho}\hat{H}\right) \\
+	\partial_t \hat{\rho} &= \frac{1}{i\hbar} [\hat{H},\hat{\rho}]
+\end{align*}
+This is the opposite of the Heisenberg evolution of operators $\partial_t \hat{O} = \frac{1}{i\hbar} [\hat{O},\hat{H}]$. Our diagonal elements give us the populations in a given state:
+\begin{align*}
+	\rho_{11} &= |c_1|^2 \\
+	\rho_{22} &= |c_2|^2
+\end{align*}
+Meanwhile the off diagonal elements give us the coherences:
+\begin{align*}
+	\rho_{12} &= c_1 c_2^* \\
+	\rho_{21} &= c_2 c_1*
+\end{align*}
+Which for a two level system is the induced dipole coherences.
+\section{Density matrix equations for two level systems}
+\begin{align*}
+	i\hbar\dot{\rho}_{11} &= \bra{1}[H_0 + V, \hat{rho}]\ket{1} \\
+	i\hbar\dot{\rho}_{11} &= \bra{1}[H_0, \hat{rho}]\ket{1} + \bra{1}[V, \hat{rho}]\ket{1} \\
+	i\hbar\dot{\rho}_{11} &= \bra{1}[V, \hat{rho}]\ket{1} \\
+	i\hbar\dot{\rho}_{11} &= \bra{1}V\hat{rho}\ket{1} + \bra{1}\hat{rho}V\ket{1} \\
+	\bra{1}V\hat{\rho}\ket{1} &= \bra{1}V\sum_n\ket{n}\bra{n}\hat{\rho}\ket{1} \\
+	\bra{1}V\hat{\rho}\ket{1} &= V_{12}\bra{2}\hat{\rho}\ket{1} \\
+	\bra{1}V\hat{\rho}\ket{1} &= V_{12}\rho_{21} \\
+	i\hbar\dot{\rho}_{11} &= V_{12}\rho_{21} - \rho_{12}V_{21}
+\end{align*}
+In the rotating wave approximation we know:
+\begin{align*}
+	V &= \frac{\hbar}{2} \begin{pmatrix}
+		0 & \Omega_0^* e^{i\omega t} \\
+		\Omega_0 e^{-i\omega t} & 0
+		      \end{pmatrix}
+\end{align*}
+So:
+\begin{align*}
+	\dot{\rho}_{11} &= \frac{\hbar}{2i\hbar}\left(\Omega_0^* e^{i\omega t}\rho_{21} - \Omega_0 e^{-i\omega t} \rho_{12}\right) \\ 
+	\dot{\rho}_{11} &= \frac{i}{2}\Omega_0 e^{-i\omega t} \rho_{12} + \text{c.c.} \\
+	\dot{\rho}_{22} &= -\dot{\rho}_{11}
+\end{align*}
+

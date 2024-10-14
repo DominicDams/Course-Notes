@@ -1,0 +1,89 @@
+\subsection{State estimation}
+Working in the $\ket{0}$, $\ket{1}$ basis, a measurement of the state $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$, gives us $0$ with probability $|\alpha|^2$ and $1$ with probability $|\beta|^2$.\\
+Conventional quantum computers only let you do meaurements in 1 basis (typically z). In order to do an arbitrary measurement we need a gate that maps our states we want to measure onto the states we can measure.
+\subsection{Entanglement}
+When looking at more than one qubit we encounter the phenomena of entanglement. \\
+We write our state in the order $\ket{\psi_2 \psi_1 \psi_0}$, in order to be able too write our states in binary such that:
+\begin{align*}
+	\ket{n} &= \prod_j \left(\left\lfloor\frac{n}{2^j}\right\rfloor \mod 2\right)\ket{1_n} + \left(\left\lfloor\frac{n}{2^j}\right\rfloor + 1 \mod 2\right)\ket{0_n}
+\end{align*}
+We can have product states defined by $\ket{\psi_1}\otimes\ket{\psi_0} = \ket{\psi_1\psi_0}$. Not all states can ve written as a product state. \\
+An example of a product state that isn't immediately obvious is $\frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{01} = \ket{0} \otimes \ket{+}$ \\
+An entangled state is one that can not be written as a product state, ex. $\ket{\psi} = \frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{11}$. \\
+How many real parameters describe N product states? $2N$\\
+How many real parameters for N arbitrary states? $2^{N+1} -2$ \\
+The power of a quantum computer is derived from the larger space that arbitrary entangled states cover. \\
+In order to get entanglement we need 2-bit gates, the canonical way of getting this is the CNOT gate:
+\begin{displaymath}
+	\begin{array}{|c | c|}
+		\text{In} & \text{CNOT} \\
+		\hline
+		\ket{00} & \ket{00} \\
+		\ket{01} & \ket{01} \\
+		\ket{10} & \ket{11} \\
+		\ket{11} & \ket{10}
+       \end{array}
+\end{displaymath}
+Or by a column matrix:
+\begin{align*}
+	\begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0
+ \end{pmatrix}
+\end{align*}
+Or by the gate: \\
+\begin{quantikz}
+&  \targ{} & \\
+& \ctrl{-1}  &
+\end{quantikz}\\
+If we flip the order we find:
+\begin{displaymath}
+	\begin{array}{|c | c|}
+		\text{In} & \text{CNOT-F} \\
+		\hline
+		\ket{00} & \ket{00} \\
+		\ket{01} & \ket{11} \\
+		\ket{10} & \ket{10} \\
+		\ket{11} & \ket{01}
+       \end{array}
+\end{displaymath}
+\begin{align*}
+	\begin{pmatrix}
+		1 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 1 \\
+		0 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 0
+ \end{pmatrix}
+\end{align*} \\
+\begin{quantikz}
+&  \ctrl{1} & \\
+& \targ{}  &
+\end{quantikz}\\
+We can see that the order of gates can have very serious implications to the result of the circuit. Consider the following two circuits: \\
+\begin{quantikz}
+& \gate{H} & \targ{} & \\
+& 	   & \ctrl{-1} &
+\end{quantikz}
+\begin{quantikz}
+& \gate{H} & \ctrl{1} & \\
+& 	   & \targ{} &
+\end{quantikz}\\
+The first will not create entanglement, while the second does create entanglement. \\
+\subsection{Grover's Algorithm}
+This was invented in 1996, and is the simplest algorithm that beats a classical computer.\\
+We start by considering an oracle that calculates a function $f$, where the input is an $N$ bit string. The output is one bit. We also know that $\exists! \omega : f(\omega) = 1$. The problem we want to solve is finding the input such that $f(\omega) = 1$. \\
+Classically the solution is to randomly sample the input and look until we find the correct input. Clearly this algorithm is $O(2^N)$. \\
+We now consider a quantum oracle, which does the operation: $\ket{x} \to (-1)^{f(x)} \ket{x}$. \\
+This can be written as a unitary matrix:
+\begin{align*}
+	U_\omega\ket{x} &= \ket{x} - 2\ket{\omega}\bra{\omega}\ket{x} \\
+	U_\omega &= 1 - 2\ket{\omega}\bra{\omega}
+\end{align*}
+We pick two special vectors in our hilbert space (which is in general $2^{N+1} -2$ dimensional). By dealing with only these two states we simplify to a 2-D space. Our states are:
+\begin{align*}
+	\ket{s} &= \frac{1}{2^\frac{N}{2}} \sum_x \ket{x} \\
+	\ket{s'} &= \frac{1}{\sqrt{2^N-1}} \sum_{x\neq\omega} \ket{x}
+\end{align*}
+Our two orthogonal states are $\ket{\omega}$ and $\ket{s'}$.
