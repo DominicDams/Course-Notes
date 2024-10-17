@@ -1,0 +1,150 @@
+\subsection{Review}
+In order to better describe decay and dephasing we use density operators, where:
+\begin{align*}
+	\hat{\rho} &= \ket{\psi}\bra{\psi} \\
+	\partial_t \hat{\rho} &= \frac{1}{i\hbar} [H,\hat{\rho}] \\
+	\dot{\rho_{11}} &= i\frac{\Omega_0}{2} e^{i\omega t} \rho_{12} + \text{c.c.}
+\end{align*}
+\subsection{Density matrix cont.}
+Now looking at $\rho_{12}$:
+\begin{align*}
+	i\hbar \dot{\rho}_{12} &= \bra{1}[H,\hat{\rho}]\ket{2} \\
+	i\hbar \dot{\rho}_{12} &= \bra{1}H\hat{\rho} - \hat{\rho} H\ket{2} \\
+	i\hbar \dot{\rho}_{12} &= \bra{1}H\hat{\rho} - \hat{\rho} H\ket{2} \\
+	i\hbar \dot{\rho}_{12} &= \bra{1}V\hat{\rho} - \hat{\rho} V\ket{2} -\hbar\omega_0\rho_{12}\\
+	i\hbar \dot{\rho}_{12} &= V_{12}\rho_{22} - \rho_{11} V_{12} \\
+	i\hbar \dot{\rho}_{12} &= -\hbar\omega_0 \rho_{12} + \frac{\hbar}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11}) \\
+	\dot{\rho}_{12} &= i\omega_0 \rho_{12} - \frac{i}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11})
+\end{align*}
+Now how do we add a decay process to our equation? Assume we have two systems, system A is the two level system with an optical field like we are used to. System B is the rest of the universe, including vaccuum fluctuations, lattice vibrations, atomic collisions, etc.\\
+These two systems are coupled so we can say our Hamiltonian is therefore $H = H_A + H_B + V_{AB}$. If we can solve this we can say:
+\begin{align*}
+	\ket{\psi} &= \sum_{n_A,n_B} c_{n_A,n_B} \ket{n_A}\otimes\ket{n_B}
+\end{align*}
+We can say our density operator is then:
+\begin{align*}
+	\hat{\rho} &= \sum_{n_A,n_B,m_A,m_B} c_{n_A,n_B}c_{m_A,m_B}^* \ket{m_Am_B}\bra{n_An_B}
+\end{align*}
+Of course we don't know how to solve the schroedinger equation for the entire universe! Luckily that information isn't important to us. In fact it turns our we don't need that information, we get rid of that information in our model by using a partial trace:
+\begin{align*}
+	\rho^A &= \Tr_B\left\{\hat{\rho}\right\} \\
+	\rho^A &= \sum_{l_B} \bra{l_B}\hat{\rho}\ket{l_B} \\
+	\rho^A &= \sum_{l_B} \bra{l_B}\sum_{n_A,n_B,m_A,m_B} c_{n_A,n_B}c_{m_A,m_B}^* \ket{m_Am_B}\bra{n_An_B}\ket{l_B} \\
+	\rho^A &= \sum_{l_B} \sum_{n_A,n_B,m_A,m_B} \bra{l_B}c_{n_A,n_B}c_{m_A,m_B}^* \ket{m_Am_B}\bra{n_An_B}\ket{l_B} \\
+	\rho^A &= \sum_{l_B} \sum_{n_A,n_B,m_A,m_B} c_{n_A,n_B}c_{m_A,m_B}^* \delta_{l_Bm_B}\ket{m_A}\bra{n_A}\delta_{l_Bn_B} \\
+	\rho^A &= \sum_{l_B} \sum_{n_A,m_A} c_{n_A,l_B}c_{m_A,l_B}^* \ket{m_A}\bra{n_A} \\
+	\rho^A &=  \sum_{n_A,m_A} \left(\sum_{l_B}c_{n_A,l_B}c_{m_A,l_B}^*\right) \ket{m_A}\bra{n_A} \\
+	\rho^A &=  \sum_{n_A,m_A} \rho^A_{n_A,m_A} \ket{m_A}\bra{n_A}
+\end{align*}
+We call $\rho^A$ the reduced density operator. This will now have all the information we need on system A and no info on system B. \\
+We consider a physical variable in system A. Since we can only measure:
+\begin{align*}
+	\expval{\hat{O}} &= \bra{\psi}\hat{O}\ket{\psi} \\
+	\expval{\hat{O}} &= \sum_{n_A,n_B,m_A,m_B} c_{n_A,n_B}c_{m_A,m_B}^*\bra{m_Am_B}\hat{O}\ket{n_An_B} \\
+	\expval{\hat{O}} &= \sum_{n_A,m_A} \sum_{n_B}c_{n_A,n_B}c_{m_A,n_B}^*\bra{m_A}\hat{O}\ket{n_A} \\
+	\expval{\hat{O}} &= \sum_{n_A,m_A} \rho^A_{m_A,n_A}\bra{m_A}\hat{O}\ket{n_A}
+\end{align*}
+Which allows us to make our calculations for all quantities in system A with no information on system B. This will still include the effects of interaction between A and B! We typically will refer to this as the density operator $\hat{\rho}$. Our evolution is therefore:
+\begin{align*}
+	\partial_t \hat{\rho} &= \frac{1}{i\hbar}[H,\hat{\rho}] + \text{decay terms}
+\end{align*}
+In order to derive this we can take a number of approaches. One such approach is the master equation approach, though we will not be employing that approach in this course. Instead we are going to guess these terms. For spontaneous emission:
+\begin{align*}
+	\dot{\rho}_{22} &= -\gamma_2 \rho_{22} \\
+	\dot{\rho}_{11} &= \gamma_2 \rho_{22} \\
+	\dot{\rho}_{12} &= -\frac{\gamma_2}{2}\rho_{12}
+\end{align*}
+This does not involve losing particles, but does lead to decoherence. For phase interacting collision:
+\begin{align*}
+	\dot{\rho}_{12} - \Gamma\rho_{12}
+\end{align*}
+So:
+\begin{align*}
+	\dot{\rho_{11}} &= i\frac{\Omega_0}{2} e^{i\omega t} \rho_{12} + \text{c.c.} + \gamma_2\rho_{22} \\
+	\dot{\rho}_{12} &= i\omega_0 \rho_{12} - \frac{i}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11}) -\left(\frac{\gamma_2}{2} + \Gamma\right)\rho_{21} \\
+	\dot{\rho}_{22} &= -\dot{\rho}_{11}
+\end{align*}
+\subsection{Linblad master equation}
+We can write our density matricx in several representations. In the interaction representation:
+\begin{align*}
+	\bar{\rho}_{11} &= \rho_{11} \\
+	\bar{\rho}_{22} &= \rho_{22} \\
+	\bar{\rho}_{12} &= \bar{c}_1\bar{c}_2^* \\
+	\bar{\rho}_{12} &= e^{-i\omega_0 t}\rho_{12} \\
+	\bar{\rho}_{21} &= e^{i\omega_0 t}\rho_{21} \\
+	\gamma &= \frac{\gamma_2}{2} = \Gamma
+\end{align*}
+So our equation becomes:
+\begin{align*}
+	\dot{\bar{\rho}}_{21} &= i\omega_0 e^{i\omega_0 t}\rho_{21} + e^{i\omega_0 t} \dot{\rho}_{21} \\
+	\dot{\bar{\rho}}_{21} &= i\omega_0 \bar{\rho}_{21} + e^{i\omega_0 t} \left[-i\omega_0\rho_{21} - \gamma\rho_{21} + \frac{i}{2} \Omega_0 e^{-i\omega t}(\rho_{22} - \rho_{11})\right] \\
+	\dot{\bar{\rho}}_{21} &= -\gamma\bar{\rho}_{21} + \frac{i}{2}\Omega_0 e^{i(\omega_0-\omega)t}(\rho_{22}-\rho_{11})
+\end{align*}
+Instead in the field interaction representation:
+\begin{align*}
+	\tilde{\rho}_{12} &= \tilde{c}_1\tilde{c}_2^* \\
+	\tilde{\rho}_{12} &= c_1c_2^* e^{-i\omega t} \\
+	\tilde{\rho}_{12} &= \rho_{12} e^{-i\omega t} \\
+	\tilde{\rho}_{21} &= \rho_{21} e^{i\omega t}
+\end{align*}
+Again we see:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21} &= i\omega\tilde{\rho}_{21} + e^{i\omega t} \dot{\rho}_{21} \\
+	\dot{\tilde{\rho}}_{21} &= -i(\omega_0-\omega)\tilde{\rho}_{21} + \frac{i}{2} \Omega_0 (\rho_{22} - \rho_{11}) -\gamma\tilde{\rho}_{21}
+\end{align*}
+Alternatively we could have derived these directly from the Hamiltonian (exluding the ad-hoc decay terms we added). These decay terms are the same in all our common pictures other than the dressed state basis.
+\subsection{Bloch vectors and Bloch equations}
+Originally these terms come from NMR.\\
+Consider the a nucleus with angular momentum $\bm{J}$ in a magnetic field $\bm{B}$. The magnetic moment of this nucleus is $\bm{\mu} = \gamma_B \bm{J}$. We know from classical mechanics that this will cause a precession of $\bm{J}$ around $\bm{B}$.
+The torque on this is $\bm{\tau} = \bm{\mu}\cross\bm{B}$. and $\partial_t \bm{J} = \bm{\tau}$, so:
+\begin{align*}
+	\partial_t \bm{J} &= \gamma_B \bm{J}\cross\bm{B}
+\end{align*}
+So our rate of precession becomes $\omega_B = \gamma_B B$. In the quantum version we say:
+\begin{align*}
+	V &= -\bm{\mu}\cdot\bm{B}
+\end{align*}
+For a spin $\frac{1}{2}$ nucleous $\bm{J} = \frac{\hbar}{2}\bm{\sigma}$. If we put the $\bm{B}$ field in the z direction then we can say:
+\begin{align*}
+	V &= -\frac{\hbar}{2}\gamma_B B \sigma_z
+\end{align*}
+This forms a two level system with a frequency $\omega_0 = \gamma_B B$. What happened to our precession here?
+\begin{align*}
+	\rho_{12} &= \rho_{12}(0) e^{i\omega_0 t}
+\end{align*}
+It appears this procession is related to the evoltion of our coherence (or dipole)! \\
+We make this clear by defining our Bloch vector:
+\begin{align*}
+	\bm{R} &= (u,v,w) \\
+	u &= \rho_{12} + \rho{21} \\
+	u &= \Re \rho_{12} \\
+	v &= -i(\rho_{12} -\rho_{21}) \\
+	v &= \Im\rho_{12} \\
+	w &= \rho_{22} - \rho_{11}
+\end{align*}
+For our free evolution we have (assuming $\rho_{12}(0)$ is real):
+\begin{align*}
+	w(t) &= w(0) \\
+	u(t) &= \rho_{12} \cos\omega_0 t \\
+	v(t) &= \rho_{12} \sin\omega_0 t
+\end{align*}
+And this corresponds to the exact precession we saw in classical mechanics! \\
+If we now add an optical field to drive transitions between our states, we see:
+\begin{align*}
+	V &= \frac{\hbar}{2} \begin{pmatrix}
+		0 & \Omega_0^* e^{i\omega t} \\
+		\Omega_0 e^{-i\omega t} & 0
+		      \end{pmatrix}
+\end{align*}
+If we now define:
+\begin{align*}
+	\tilde{\bm{R}} &= (\tilde{u},\tilde{v},\tilde{w}) \\
+	\tilde{u} &= \tilde{\rho}_{12} + \tilde{\rho}_{21} \\
+	\tilde{v} &= -i(\tilde{\rho}_{12} - \tilde{\rho}_{21}) \\
+	\tilde{w} &= \tilde{\rho}_{22} - \tilde{\rho}_{11}
+\end{align*}
+For free evolution:
+\begin{align*}
+	\tilde{\rho}_{12} &= \rho_{12} e^{i\delta t}
+\end{align*}
+This can be thought of as rotating our frame by a frequency $\omega$ about the $w$ axis.
