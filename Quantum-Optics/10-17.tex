@@ -1,0 +1,114 @@
+We now recast the density matrix equation as a "Bloch" equation. \\
+From now on, we will be assuming we're working in the rotating frame so we'll say $\bm{R} = (\tilde{u},\tilde{v},\tilde{w})$. We say:
+\begin{align*}
+	\partial_t \bm{R} &= \bm{\Omega} \cross \bm{R} \\
+	\bm{\Omega} &= (\Omega_0',-\Omega_0'',\delta) \\
+	\Omega_0 &= \Omega_0' + i\Omega_0''
+\end{align*}
+We look at the first derivitve of our Bloch vector in component form now:
+\begin{align*}
+	\dot{\tilde{u}} &= -\delta\tilde{v} - \Omega_0''w \\
+	\dot{\tilde{v}} &= \delta \tilde{u} - \Omega_0' w \\
+	\dot{\tilde{w}} &= \Omega_0' \tilde{v} + \Omega_0''\tilde{u}
+\end{align*}
+\subsection{Two-level dynamics with $\bm{R}$}
+In free evolution we can say:
+\begin{align*}
+	\Omega_0 &= 0 \\
+	\bm{\Omega} &= (0,0,\delta)
+\end{align*}
+If we choose $\delta = 0$ then $\bm{R}$ is stationary.\\
+If we instead look at constant and real $\Omega_0$:
+\begin{align*}
+	\bm{\Omega} &= (\Omega_0,0,\delta)
+\end{align*}
+We can choose $\delta = 0$, so then we have rotation about the $\tilde{u}$ axis. Starting in the $\ket{1}$ state corresponds to a Bloch vector $\bm{R} = (0,0,-1)$. This will then precess about the $\tilde{u}$ axis, which corresponds to Rabi oscilations. \\
+If we instead consider a real, time dependant $\Omega_0$ and choose $\delta = 0$, we can see that as before:
+\begin{align*}
+	A(t) &= \int_0^t \Omega_0(t') dt'
+\end{align*}
+This will be a rotation about the $\tilde{u}$ axis, which is not at a constant rate, but depends on how $\Omega_0$ varies with time. These rotations can be described by an $x$ rotation matrix:
+\begin{align*}
+	\bm{R}(t) &= \begin{pmatrix}
+		1 &0 &0 \\
+		0 & \cos\Omega_0 t & -\sin\Omega_0 t \\
+		0 & \sin\Omega_0t & \cos\Omega_0 t
+	\end{pmatrix} \bm{R}
+\end{align*}
+If we instead start with a complex $\Omega_0$, but choose our detuning to still be zero, we then can see this corresponds to a rotation about an axis in the $\tilde{u}-\tilde{v}$ frame, which will still give us Rabi oscilations.\\
+Now we look at constant, real $\Omega_0$ but $\delta \neq 0$, so our rotation will be about an axis in the $\tilde{u}-\tilde{w}$ plane. This will be an angle $\phi$ above the $\tilde{u}$ axis, where:
+\begin{align*}
+	\tan\phi &= \frac{\delta}{\Omega_0} & \sin\phi &= \frac{\delta}{\Omega}
+\end{align*}
+In order to simplify this we rotate our frame, apply the rotation we derive from this, and then rotate back. Our first rotation is a rotation of $-\phi$ about the $\tilde{v}$ axis, while our last is a rotation of $\phi$ about the $\tilde{v}$ axis. Our evolution is thus:
+\begin{align*}
+	\bm{R}(t) &= \begin{pmatrix}
+			\cos\phi & 0 & -\sin\phi \\
+			0 & 1 & 0 \\
+			\sin\phi & 0 & \cos\phi
+		     \end{pmatrix}
+		     \begin{pmatrix}
+		1 &0 &0 \\
+		0 & \cos\Omega_0 t & -\sin\Omega_0 t \\
+		0 & \sin\Omega_0t & \cos\Omega_0 t
+		\end{pmatrix}\
+		\begin{pmatrix}
+			\cos\phi & 0 & \sin\phi \\
+			0 & 1 & 0 \\
+			-\sin\phi & 0 & \cos\phi
+		\end{pmatrix} \bm{R}(0)
+\end{align*}
+In the sepecial case where $\tilde{u}(0) = \tilde{v}(0)$:
+\begin{align*}
+	\tilde{u} (t) &= \frac{\Omega_0\delta}{\Omega^2}w(0)\left[1-\cos\Omega t\right] \\
+	\tilde{v} (t) &= -\frac{\Omega_0}{\Omega}w(0)\sin\Omega t \\
+	\tilde{w} (t) &= w(0)\left\{1 + \frac{\Omega_0^2}{\Omega^2} \left[\cos\Omega t -1\right]\right\}
+\end{align*}
+\subsection{Decay in the Bloch equation}
+Without the decay term, we have our dynamics described by the Bloch equation:
+\begin{align*}
+	\partial_t \bm{R} &= \bm{\Omega} \cross \bm{R}
+\end{align*}
+If we now add decay terms to the systeam, we say:
+\begin{align*}
+	\dot{\rho}_{12} &= -\gamma\rho_{12}
+\end{align*}
+So then:
+\begin{align*}
+	\dot{u} &= -\gamma u \\
+	\dot{v} &= -\gamma v
+\end{align*}
+We then say:
+\begin{align*}
+	w &= \rho_{22} -\rho_{11} &
+	\dot{\rho}_{22} &= -\gamma_2\rho_{22} \\
+	\dot{\rho}_{11} &= \gamma_2\rho_{22} &
+	\dot{\rho}_{11} &= \gamma_2(1-\rho_{11}) \\
+	\dot{w} &= \dot{\rho}_22 - \dot{\rho}_{11} &
+	\dot{w} &= -\gamma_2\dot{\rho}_22 - \gamma_2\rho_{22} \\
+	\dot{w} &= -\gamma_2 w - \gamma_2 &
+	\dot{w} &= -\gamma_2 (w +1)
+\end{align*}
+Which implies that the steady state solution for this is our entire sysyem in the lower state. \\
+Quick review of NMR termonology:
+\begin{align*}
+	\bm{R}_\perp &= \frac{1}{2}\rho_{12} \\
+	\gamma\text{: Transverse relaxation rate(NMR)} &= \text{Decoherence rate(AMO)} \\
+	\bm{R}_\parallel/R_z &= w \\
+	\gamma_2\text{: longitudinal relaxation rate(NMR)} &= \text{population relaxation rate(AMO)}
+\end{align*}
+\subsection{Adiabatic following for the Bloch vector}
+We know:
+\begin{align*}
+	\partial_t \bm{R} &= \bm{\Omega}\cross\bm{R}
+\end{align*}
+This tells us there are two types of dynamic process: Procession of $\bm{R}$ around $\bm{\Omega}$ and evolution of $\bm{\Omega}$ in both amplitude and direction. \\
+In this picture the adiabatic condition is that $\Omega$ varies slowly (compared to the speed of the procession). The adiabatic process is then that the dynamics of $\bm{R}$ follows $\bm{\Omega}$ except for the additional procession. Writing our adiabatic term explicitly:
+\begin{align*}
+	\frac{|\Delta\bm{\Omega}|}{\Delta t} \frac{2\pi}{\Omega} & \ll \Omega \\
+	\dot{\Omega} \ll \Omega^2
+\end{align*}
+This can be described as a fixed cone following around $\bm{\Omega}$ on which our Bloch vector $\bm{R}$ must always lie. In other words this cone has a constant cone angle $\theta$. \\
+We now again turn our attention to the Lanau-Zener crossing. We know at $t=-\infty$, $\bm{\Omega} = (0,0, \delta_{-\infty}$ (with $\delta_{-\infty} > 0$. Choosing initial conditions such that $\bm{R} = -\hat{w}$. Therefore our Bloch vector is anti-parallel to $\Omega$.\\
+Now looking at $t=0$, $\bm{\Omega} = (\Omega_0,0,0)$ so $\bm{R} = -\hat{u}$. This is because in adiabatic follwing we expect this to stay on the same cone (in this case $\theta = \pi$).\\
+Finally looking at $t=\infty$, $\bm{\Omega} = (0,0,\delta_\infty)$ (with $\delta_\infty < 0$), so $\bm{R} = \hat{w}$.
