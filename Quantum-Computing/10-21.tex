@@ -1,0 +1,102 @@
+The Trace operator can be cyclically permutted, proof:
+\begin{align*}
+	\Tr{ABC} &= \sum_n \bra{n}ABC\ket{n}\\
+	\Tr{ABC} &= \sum_n \bra{n}A\sum_m\ket{m}\bra{m}BC\ket{n}\\
+	\Tr{ABC} &= \sum_n \sum_m\bra{n}A\ket{m}\bra{m}BC\ket{n}\\
+	\Tr{ABC} &=  \sum_n\sum_m\bra{m}BC\ket{n}\bra{n}A\ket{m}\\
+	\Tr{ABC} &=  \sum_m\bra{m}BC\sum_n\ket{n}\bra{n}A\ket{m}\\
+	\Tr{ABC} &=  \sum_m\bra{m}BCA\ket{m} \\
+	\Tr{ABC} &=  \Tr{BCA}
+\end{align*}
+So this is clearly cyclic! \\
+We can use the density operator to calculate any thing that we can predict with a regular state. These are probabilities of measurement outcomes and expectation values of measurements. We calculate these via:
+\begin{align*}
+	\expval{H} &= \Tr{H\rho} &
+	p_n &= \Tr{P_n\rho}
+\end{align*}
+One clear advantage is that this treats our observables/projectors on the same footing as our density operators. So the things we are trying to measure are treated symmetrically with the state of our system. Additionally we no longer have global phases. \\
+We now seek to use this to generalize our possible states. We do this by introducing a classical sort of uncertainty. So we will either be in state $\ket{\psi}$ with probability $p$ and state $\ket{\phi}$ with probability $1-p$.
+To represent this we say our density operator is then:
+\begin{align*}
+	\rho &= p\ket{\psi}\bra{\psi} + (1-p)\ket{\phi}\bra{\phi}
+\end{align*}
+You can see this because our physical measurements can be simply shown via weighted averages (for simplicity I only show the expectation value, but the same logic applies to the probability of measurement outcomes):
+\begin{align*}
+	\expval{H} &= p\expval{H}_\psi + (1-p)\expval{H}_\phi \\
+	\expval{H} &= p\Tr{H\rho_\psi} + (1-p)\Tr{H\rho_\phi} \\
+	\expval{H} &= \Tr{H(p\rho_\psi + (1-p)\rho_\phi)} \\
+	\expval{H} &= \Tr{H(p\rho}
+\end{align*}
+Which is the exact prediction we would then expect. Generalizing this again to many probabilities follows naturally. We call these new states mixed quantum states. \\
+These density operators have 3 important properties:
+\begin{align*}
+	\rho^\dagger &= \rho &
+	\Tr{\rho} &= 1 &
+	\rho \geq 0
+\end{align*}
+The last criteria is equivalent to saying that all eignevalues are $\geq 0$. In fact any operator that has these properties is a valid density operator that can describe a (in general mixed) state. \\
+We can recognize that thermal states are mixed states:
+\begin{align*}
+	\rho &= \frac{1}{Z} \sum_n e^{-\beta E_n} \ket{E_n}\bra{E_n} &
+	Z &= \sum_n e^{-\beta E_n} &
+	\beta &= \frac{1}{k_B T}
+\end{align*}
+We can clearly see that $\rho$ must be hermitian and have unit trace immediately from the definition, but to see that it has all positive eigenvalues requires a bit more effort.\\
+To prove this we begin by saying that since $\rho$ is hermitian it must be able to represent an observable. So the outcome of a measurement of $\rho$ when in the state described by $\rho$. \\
+Clearly we must have eigenvalues and eigenvectors described by $\{\ket{\phi_i}\}$ and $\lambda_i$ as our measurement results, so:
+\begin{align*}
+	P(\lambda_i) &= \Tr{\rho P_i} \\
+	P(\lambda_i) &= \Tr{\lambda_i P_i} \\
+	P(\lambda_i) &= \lambda_i \Tr{P_i} \\
+	P(\lambda_i) &= \lambda_i
+\end{align*}
+So these eigenvalues must correspond to probabilities, and thus $\rho$ must be positive semi-defininte. \\
+We know for a pure state (in a $D$ dimensional Hilbert space) we can describe this by $2D-2$. For our mixed state instead $D^2 -1$ ($2D^2$ parameters minus $D^2$ for Hermiticity and minus $1$ for the unit trace).\\
+Since all pure states can be represented by projectors, we can check if we are in a pure state, by checking if:
+\begin{align*}
+	\Tr{\rho^2} &= 1
+\end{align*}
+Because by definition for projectors $\rho^2 = \rho$, and so $\Tr{\rho^2} =1$. If we are not in a pure state (and thus we aren't a projector):
+\begin{align*}
+	\Tr{\rho^2} &= 1 \\
+	\Tr{\rho^2} - 1 &= 0 \\
+	\Tr{\rho^2} - \Tr{\rho} &= 0 \\
+	\Tr{\rho^2} -\Tr{\rho} &= \sum_i \lambda_i^2 -\sum_i\lambda_i\\
+	\Tr{\rho^2} -\Tr{\rho}&= \sum_i \lambda_i(\lambda_i -1) \\
+	0 &= \sum_i \lambda_i(\lambda_i -1)
+\end{align*}
+Which is only satisfied when $\lambda_i = \delta_{ij}$, which is a projector, so we know that this is only true for pure states!. We call the quantity $\Tr{\rho^2}$ the purity of the state. \\
+The maximally mixed state has a purity $\frac{1}{D}$, which is represented by:
+\begin{align*}
+	\begin{pmatrix}
+		\frac{1}{D} & 0 & 0 & \ldots & 0 \\
+		0 & \frac{1}{D} & 0 & \ldots & 0 \\
+		0 & 0& \ddots & 0 & \vdots \\
+		\vdots & 0& 0 & \ddots & \vdots \\
+		0 & \ldots & 0  & 0 &\frac{1}{D}
+	\end{pmatrix}
+\end{align*}
+Now looking at our arbitrary mixed single qubit state, we start with our basis vectors $1,\sigma_x,\sigma_y,\sigma_z$, where we can say:
+\begin{align*}
+	\rho &= a1+ b\sigma_x + c\sigma_y + d\sigma_z \\
+	\Tr{\rho} &= a2+ b0 + c0 + d0 \\
+	\Tr{\rho} &= a2 \\
+	a &= \frac{1}{2}
+\end{align*}
+So then:
+\begin{align*}
+	\rho = \frac{1}{2}(1 + \bm{r}\cdot\bm{\sigma})
+\end{align*}
+We now look at the purity:
+\begin{align*}
+	\rho^2 &= \frac{1}{4}(1 + 2\bm{r}\cdot\bm{\sigma} + (\bm{r}\cdot\bm{\sigma})^2) \\
+	\rho^2 &= \frac{1}{4}(1 + 2\bm{r}\cdot\bm{\sigma} + (r_x\sigma_x + r_y\sigma_y + r_z\sigma_z)^2) \\
+	\rho^2 &= \frac{1}{4}(1 + 2\bm{r}\cdot\bm{\sigma} + (r_x^2\sigma_x^2 + r_y^2\sigma_y^2 + r_z^2\sigma_z^2 + r_xr_y(\sigma_x\sigma_y + \sigma_y\sigma_x) + r_xr_z(\sigma_x\sigma_z + \sigma_z\sigma_x) + r_yr_z(\sigma_y\sigma_z + \sigma_z\sigma_y))) \\
+	\rho^2 &= \frac{1}{4}(1 + 2\bm{r}\cdot\bm{\sigma} + (r_x^2 + r_y^2 + r_z^2)) \\
+	\rho^2 &= \frac{1}{4}(1 + 2\bm{r}\cdot\bm{\sigma} + r^2) \\
+\end{align*}
+\begin{align*}
+	\Tr{\rho^2} &= \frac{2}{4}(1 +  r^2) \\
+	\Tr{\rho^2} &= \frac{1}{2}(1 +  r^2)
+\end{align*}
+Since our purity must be on the range $\frac{1}{2}$ to $1$, we must say $r \leq 1$.
