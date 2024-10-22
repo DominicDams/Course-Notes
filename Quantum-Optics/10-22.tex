@@ -1,0 +1,156 @@
+\subsection{Denstiy Matrix as an ensemble state}
+We define an ensemble state in terms of a mixture of density operators:
+\begin{align*}
+	\hat{\rho} &= \frac{1}{N} \sum_i \hat{\rho}_i
+\end{align*}
+Where each $\hat{\rho}_i$ is a pure state. This should evolve acording to:
+\begin{align*}
+	i\hbar \partial_t \hat{\rho} &= [H,\hat{\rho}]
+\end{align*}
+This should behave much like we have seen before. With the sort of decay and dephasing we expect for a two level system.
+\subsection{Summary}
+In this section we have used $\rho$ to describe and atom. We focused on reduced density operators to describe states where we don't have total information. We also used mixed density operators to describe ensembles of atoms.
+
+We used off diagonal elements to describe our coherences of our states.
+
+We also described our system using Bloch vectors, and the evolution using Bloch equations.
+\section{Fields in two level systems}
+\subsection{Review of Maxwell's equations}
+We consider Maxwell's equations in a dielectric (no free charge or current, but not vaccuum):
+\begin{align*}
+	\del\cdot\bm{D} &= 0 &
+	\del\cdot\bm{B} &= 0 \\
+	\del\cross\bm{E} &= -\partial_t\bm{B} &
+	\del\cross\bm{H} &= -\partial_t\bm{D}
+\end{align*}
+Where we have:
+\begin{align*}
+	\bm{D} &= \epsilon_0\bm{E} + \bm{P} &
+	\bm{H} &= \frac{1}{\mu_0}\bm{B} - \bm{M}
+\end{align*}
+For a dielectric $\bm{M} = 0$ so $\bm{H} = \frac{1}{\mu_0}\bm{B}$ \\
+We now derive the wave equations:
+\begin{align*}
+	\del\cross(\del\cross\bm{E}) &= -\partial_t\del\cross\bm{B} \\
+	\del(\del\cross\bm{E}) - \del^2\bm{E}  &= -\mu_0\partial_t^2\bm{D}
+\end{align*}
+If we have no spatial variation in electric succeptibility $\del(\del\cross\bm{E}) =0$, so:
+\begin{align*}
+	\del^2\bm{E}  &= \mu_0\partial_t^2\bm{D} \\
+	\left(\del^2 - \frac{1}{c^2}\right)\bm{E} &= \mu_0\partial_t^2\bm{P}
+\end{align*}
+Which is a wave equation with a sourcing term determined by $\bm{P}$. We know that $\bm{P} = \frac{N}{V} \expval{\mu}$ which is the density of dipoles. We can then write this as:
+\begin{align*}
+	\bm{P} &= \frac{N}{V} \Tr{\hat{\rho}\bm{\mu}} \\
+	\bm{P} &= \frac{N}{V} \Tr{\rho_{12}\bm{\mu}_{12} + \text{c.c.}}
+\end{align*}
+Where we've dropped the diagonal terms since $\bm{\mu}$ has $0$ for diagonal elements. \\
+\subsection{Slowly varying amplitude and phase approximation}
+We now make approximations to convert our second order PDE into a first order PDE.\\
+We assume we're interacting with a single mode optical field. This mode is a plane wave polarized along $\hat{e}_x$ and propogating along $\hat{e}_z$. So:
+\begin{align*}
+	\bm{E}(\bm{r},t) &= \frac{1}{2}\hat{e}_xE_0(z,t)e^{-i[\omega t-zk-\phi(z,t)]} + \text{c.c.} \\
+	\bm{E}(\bm{r},t) &= \bm{E}_+ + \bm{E}_-
+\end{align*}
+We then say our polarization is:
+\begin{align*}
+	\bm{P}(\bm{r},t) &= \frac{1}{2}\hat{e}_xP_0(z,t)e^{-i[\omega t-zk-\phi(z,t)]} + \text{c.c.} \\
+	\bm{P}(\bm{r},t) &= \bm{P}_+ + \bm{P}_-
+\end{align*}
+Where $E_0$ is real and $P_0$ is complex. Additionally $\frac{\omega}{k} = c$ \\
+We say this is slowly varying so these variables remain nearly unchanged during one spatial or temporal period. I.e.:
+\begin{align*}
+	|T\partial_t E_0 | \ll |E_0| &
+	|\frac{1}{E_0}\partial_t E_0 | \ll \omega  \\
+	|\lambda \partial_z E_0| \ll |E_0| &
+	|\frac{1}{E_0} \partial_z E_0| \ll k \\
+	|\frac{1}{\phi}\partial_t\phi | \ll \omega &
+	|\frac{1}{\phi}\partial_z\phi | \ll k
+\end{align*}
+We now use the trick that:
+\begin{align*}
+	\left(\partial_z^2 - \frac{1}{c^2}\partial_t^2\right) &= \left(\partial_z + \frac{1}{c}\partial_t\right)\left(\partial_z - \frac{1}{c}\partial_t\right)
+\end{align*}
+So we then say:
+\begin{align*}
+	\left(\partial_z - \frac{1}{c}\partial_t\right)\bm{E}_+ &= \left(ik + \frac{i\omega}{c}\right)\bm{E}_+ + O(\dot{\bm{E}_0}, \dot{\bm{P}_0},\ldots) \\
+	\left(\partial_z - \frac{1}{c}\partial_t\right)\bm{E}_+ &\approx 2ik\bm{E}_+ \\
+	\left(\partial_z + \frac{1}{c}\partial_t\right)\bm{E}_+ &= e^{i\phi}E_0 \left(\partial_z + \frac{1}{c}\partial_t\right)e^{i(\omega t - kz)} + \ldots (\text{Product rule})
+\end{align*}
+For the polarization:
+\begin{align*}
+	\partial_t^2\bm{P}_+ &\approx -\omega^2\bm{P}_+
+\end{align*}
+If we work through the math we find:
+\begin{align*}
+	\left(\partial_z + \frac{1}{c}\partial_t\right)E_0 + iE_0\left(\partial_z + \frac{1}{c}\partial_t\right)\phi &= -\frac{\omega^2}{2ik}\mu_0P_0 \\
+	\left(\partial_z + \frac{1}{c}\partial_t\right)E_0 + iE_0\left(\partial_z + \frac{1}{c}\partial_t\right)\phi &= -\frac{k}{2i\epsilon_0}P_0
+\end{align*}
+Looking at this in terms of the real and imaginary parts:
+\begin{align*}
+	\left(\partial_z + \frac{1}{c}\partial_t\right)E_0 &= -\frac{k}{2\epsilon_0} \Im P_0 \\
+	E_0\left(\partial_z + \frac{1}{c}\partial_t\right)\phi &= \frac{k}{2\epsilon_0} \Re P_0 \\
+\end{align*}
+Therefore we can say the Imaginary part of $P_0$ determines our absorption/gain, and the real part determines the dispersion.\\
+We now imagine our system, as an electric field incident on a ensemble of a large number of two level systems, where the ourput field is modified by the two level systems. \\
+We know that our polarization is generated by our electric field, so we can write this diagramatically as:
+\begin{align*}
+	\bm{E} \to_{\text{Bloch}} \bm{P} \to_{\text{Maxwell}} \bm{E} \to_\text{Bloch} \ldots
+\end{align*}
+So these connections must be self-cosnsitent. \\
+\subsection{Linear absorption/dispersion}
+This is the simplest form we can imagine, where $P_0 \propto E_0$. We also assume that this isotropic so $\bm{P}_0\propto\bm{E}_0$. \\
+We start by defining a linear susceptibility:
+\begin{align*}
+	P_0 &= \epsilon_0\chi(\omega)E_0
+\end{align*}
+Where then:
+\begin{align*}
+	\chi(\omega) &= \chi'(\omega) + i\chi''(\omega)
+\end{align*}
+So $\chi'$ describes dispersion and $\chi''$ describes absorption. \\
+We can now solve our first order differential equations:
+\begin{align*}
+	\left(\partial_z + \frac{1}{c}\partial_t\right)E_0 &= -\frac{k}{2} \chi'' E_0 \\
+	E_0\left(\partial_z + \frac{1}{c}\partial_t\right)\phi &= \frac{k}{2} \chi' E_0
+\end{align*}
+Our steady state solutions(i.e. the behavior after the system has settled so $\partial_t E_0 =0$) are then:
+\begin{align*}
+	\partial_z E_0 &= -\frac{k}{2}\chi''E_0
+\end{align*}
+If we say $\alpha = k\chi''$ and $I \propto E_0^2$, then:
+\begin{align*}
+	\partial_z I &= -\alpha I &
+	I &= I_0 e^{-\alpha z}
+\end{align*}
+Four our dispersion we can then see:
+\begin{align*}
+	\left(\partial_z + \frac{1}{c}\partial_t\right)\phi &= \frac{k}{2} \chi'
+\end{align*}
+Looking at the steady state again $\partial_t\phi =0$:
+\begin{align*}
+	\partial_z\phi &= \frac{k}{2} \chi' &
+	\phi &= \frac{k}{2} \chi'z 
+\end{align*}
+Now looking at how this impacts the overall phase we see:
+\begin{align*}
+	e^{-i[\omega t- kz -\phi]} &= e^{-i\left[\omega t -k\left(1+\frac{\chi'}{2}\right)z\right]}
+\end{align*}
+And so we can then see our phase velocity is then:
+\begin{align*}
+	\nu_{ph} &= \frac{\omega}{k\left(1+\frac{x'}{2}\right)} \\
+	\nu_{ph} &= \frac{c}{1+\frac{x'}{2}} \\
+	\nu_{ph} &= \frac{c}{\eta} \\
+	\eta &= 1 \frac{\chi'}{2}
+\end{align*}
+Which defines our index of refraction in terms of the susceptibility. \\
+In order to determine $\chi$ we need to calculate $\rho_{12}$ which requires us to solve the optical Bloch equation:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21} &= -\gamma \tilde{\rho}_{21} -i\delta\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11})
+\end{align*}
+Since this is in a steady state we can say $\tilde{\rho}_{21} = 0$. Also since this is linear we can say $\rho_{21} \propto E_0$. So we want only the first order solution in $E_0$:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21}^{(1)} &= -\gamma \tilde{\rho}_{21}^{(1)} - i\delta\tilde{\rho}_{21}^{(1)} + i\frac{\Omega_0}{2}(\rho_{22}^{(0)} - \rho_{11}^{(0)}) \\
+	0 &= -\gamma \tilde{\rho}_{21}^{(1)} - i\delta\tilde{\rho}_{21}^{(1)} + i\frac{\Omega_0}{2}(\rho_{22}^{(0)} - \rho_{11}^{(0)}) \\
+	\tilde{\rho}_{21}^{(1)} &= \frac{\Omega_0}{2} \frac{\rho_{22}^{(0)} - \rho_{11}^{(0)}}{\delta - i\gamma}
+\end{align*}
