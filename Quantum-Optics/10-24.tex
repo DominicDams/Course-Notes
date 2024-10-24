@@ -1,0 +1,93 @@
+The zeroeth order for $\rho_{22}$ and $\rho_{11}$ are the initial populations, because theres no field interaction contribution to zeroeth order. Therefore (assuming our dipole matrix elements are real):
+\begin{align*}
+	P &= \frac{N}{V}\mu \frac{\Omega_0}{2} \frac{\rho_{22}^{(0)} - \rho_{11}^{(0)}}{\delta - i\gamma} e^{-i\omega t} + \text{c.c.}
+\end{align*}
+We absorb our spatial variations into $\Omega_0$, so:
+\begin{align*}
+	\Omega_0 &= -\frac{\mu E_0 e^{-i(kz + \phi)}}{\hbar}\\
+	P &= \frac{N}{V}\mu \frac{\mu E_0 e^{-i(kz + \phi)}}{2\hbar} \frac{\rho_{11}^{(0)} - \rho_{22}^{(0)}}{\delta - i\gamma} e^{-i\omega t} + \text{c.c.} \\
+	P &= \frac{1}{2}\frac{N}{V}\frac{\mu^2 }{2\hbar} \frac{\rho_{11}^{(0)} - \rho_{22}^{(0)}}{\delta - i\gamma} e^{-i\omega t}E_0 e^{-i(kz + \phi)} + \text{c.c.} \\
+	P &= \frac{1}{2}P_0 e^{-i(kz + \phi)} + \text{c.c.} \\
+	P_0 &= \frac{N}{V} \frac{\mu^2}{\hbar}\frac{\rho_{11}^{(0)} - \rho_{22}^{(0)}}{\delta - i\gamma}E_0 \\
+	\epsilon_0\chi E_0 &= \frac{N}{V} \frac{\mu^2}{\hbar}\frac{\rho_{11}^{(0)} - \rho_{22}^{(0)}}{\delta - i\gamma}E_0 \\
+	\chi &= \frac{N}{V} \frac{\mu^2}{\epsilon_0\hbar}\frac{\rho_{11}^{(0)} - \rho_{22}^{(0)}}{\delta - i\gamma}
+\end{align*}
+So we now know what our susceptability should be in terms of parameters of our problem and our initial populations. Starting in the lower state we see:
+\begin{align*}
+	\chi' &= \frac{N}{V} \frac{\mu^2}{\epsilon_0\hbar}\frac{\delta}{\delta^2 + \gamma^2} \\
+	\chi'' &= \frac{N}{V} \frac{\mu^2}{\epsilon_0\hbar}\frac{\gamma}{\delta^2 + \gamma^2}
+\end{align*}
+As functions of $\omega$ we see that our $\chi''$ is a Lorentzian and $\chi'$ exhibits anomalous disperion behavior, where the sign of the detuning causes differing behavior near zero. \\
+We can quickly determine a cross section related to our absorption coefficient:
+\begin{align*}
+	\alpha &= k\chi'' \\
+	\alpha &= \frac{N}{V}\sigma
+\end{align*}
+Where $\sigma$ is our absorption corss section. Looking at exact resonance, so $\delta = 0$:
+\begin{align*}
+	\alpha_0 &= \frac{\omega_0}{c} \frac{N}{V} \frac{\mu^2}{\epsilon_0\hbar} \frac{2}{\gamma_2} \\
+	\sigma &= \frac{\omega_0}{c} \frac{\mu^2}{\epsilon_0\hbar} \frac{2}{\frac{\mu^2\omega_0^3}{3\pi\epsilon_0\hbar c^3}} \\
+	\sigma &= \frac{6\pi c^2}{\omega_0^2} \\
+	\sigma &= \left(\frac{\lambda_0}{2\pi}\right)6\pi \\
+	\sigma &= \frac{3}{2\pi}\lambda_0^2
+\end{align*}
+So our cross section only depends on the wavelength! \\
+Additionally we can see that since $\alpha \propto \rho_{11}^{(0)} - \rho_{22}^{(0)}$ we can see as we increase $\rho_{22}$ we decrease our absorption! This will give us absorption saturation and thus non-linear absorption effects.
+This leads us to the question: How strong does $E_0$ need to be for us to see absorption saturation? We can ask this equivalently by asking how large a $\Omega_0$ we need. We see this requires a Rabi frequency on at least the order of our decay rate $\gamma$.\\
+We now seek to solve the optical Bloch equation exactly for the steady state behavior.
+\begin{align*}
+	\dot{\tilde{\rho}}_{21} &= -\gamma\tilde{\rho}_{21} - i\delta\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11}) \\
+	\dot{\rho}_{22} &= -\gamma_2\rho_{22} + \left(i\frac{\Omega_0^*}{2}\tilde{\rho}_{21} +\text{c.c.}\right) \\
+	0 &= -\gamma\tilde{\rho}_{21} - i\delta\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11}) \\
+	0 &= -\gamma_2\rho_{22} + \left(i\frac{\Omega_0^*}{2}\tilde{\rho}_{21} +\text{c.c.}\right) \\
+	\rho_{22} &= \frac{\Omega_0^2\gamma}{2\gamma_2} \frac{1}{\delta^2 + \gamma^2 + \Omega_0^2\frac{\gamma}{\gamma_2}}
+\end{align*}
+If we let $\Gamma = 0$:
+\begin{align*}
+	\rho_{22} &= \frac{\Omega_0^2}{4} \frac{1}{\delta^2 + \gamma^2 + \frac{\Omega_0^2}{2}}
+\end{align*}
+Therefore when $\Omega_0 ~ \gamma$ we start to see a significant impact from $\rho_{22}$. The maximum value of $\rho_{22}$ we can achieve is then $\frac{1}{2}$. \\
+In order to get gain (negative absorption) we need to have $\rho_{22} >\rho_{11}$, but this is impossible for a steady state solution. \\
+We now consider the case of non-linear polarization. In our current model we have the polarization associated with the exchange between the atoms and the fields. This system though should be perfectly lossless according to our current model.
+In order to get loss we have to assume that all energy lost must be scattered into a direction other than the propogation along the same direction as the field. This loss must then be due to spontaneous emission.\\
+Our energy loss rate per atom is clearly then $\rho_{22}\gamma_2\hbar\omega$, so the total energy loss rate is $N\rho_{22}\gamma_2\hbar\omega$.
+We want to look at our intensity loss rather than our energy loss, since we know $I = uc =\frac{1}{2} UE_0^2 c$ where $U$ is our energy and $u$ is our energy density. Therefore:
+\begin{align*}
+	-\Delta I &= -\Delta u c \\
+	-\Delta u &= -\frac{1}{V} \frac{\Delta U}{\Delta t}\Delta t \\
+	-\Delta u &= -\frac{1}{V} \frac{\Delta U}{\Delta t}\frac{\Delta z}{c} \\
+	-\Delta I &= \frac{N}{V} \frac{\Delta U}{\Delta t}\Delta z \\
+	-\Delta I &= \frac{N}{V} \rho_{22}\gamma_2\hbar\omega\Delta z \\
+	-\partial_z I &= \frac{N}{V} \rho_{22}\gamma_2\hbar\omega
+\end{align*}
+So then:
+\begin{align*}
+	-\partial_z I &= \alpha I \\
+	\alpha I &= \frac{N}{V} \rho_{22}\gamma_2\hbar\omega\\
+	\alpha &= \frac{N}{V} \rho_{22}\frac{2\gamma_2\hbar\omega}{\epsilon_0E_0^2 c}\\
+	\alpha &= \frac{N}{V} \frac{\omega}{c} \frac{\mu^2}{\epsilon_0\hbar} \frac{\gamma}{\delta^2 + \gamma^2\left(1 + \frac{\Omega_0^2}{\gamma\gamma_2}\right)} 
+\end{align*}
+We can then see that absorption saturation also comes with power broadening, i.e our full width at half max starts as $2\gamma\sqrt{1+ \frac{\Omega_)^2}{\gamma\gamma_2}}$, which when $\Omega_0 \gg \gamma$ goes as $\Omega_0$.
+\subsection{Rate Equation Approximation}
+We say:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21} &= -(\gamma + i\delta) \tilde{\rho}_{21} + i\frac{\Omega_0}{2} (\rho_{22} - \rho_{11}) \\
+	\gamma &= \Gamma + \frac{\gamma_2}{2}
+\end{align*}
+When $\Gamma \gg \frac{\gamma_2}{2}$ we can say:
+\begin{align*}
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} + \left[i\frac{\Omega_0^*}{2} \tilde{\rho}_{21} + \text{c.c.}\right]
+\end{align*}
+If we say $\tilde{\rho}_{21}$ reaches steady state much faster than $\rho_{22}$ (which imposes the additional requirement that $\Gamma \gg \Omega_0$) we can see:
+\begin{align*}
+	\tilde{\rho}_{21} &= i\frac{\Omega_0}{2} \frac{\rho_{22} - \rho_{11}}{\gamma + i\delta} \\
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} - \frac{|\Omega_0|^2}{4} (\rho_{22} - \rho_{11}) \frac{2}{\gamma^2 + \delta^2} \\
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} - \frac{|\Omega_0|^2}{2} (\rho_{22} - \rho_{11}) \frac{1}{\gamma^2 + \delta^2} \\
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} - \frac{|\Omega_0|^2}{2(\gamma^2 + \delta^2)} (\rho_{22} - \rho_{11}) \\
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} - w (\rho_{22} - \rho_{11}) \\
+	\dot{\tilde{\rho}}_{22} &= -\gamma_2\rho_{22} - w \rho_{22} + w\rho_{11}
+\end{align*}
+This then describes transition rates between different states, and these rates depend on the intensity of the field. We call $w$ the stimulated emission/absorption rate. Clearly we must have (in order to preserve the trace):
+\begin{align*}
+	\dot{\rho}_{11} &= \gamma\rho_{22} + w\rho_{22} - w\rho_{11}
+\end{align*}
