@@ -1,0 +1,39 @@
+We can say that pure states lay on the surface of the Bloch sphere, and mixed states can be represented by points within the Bloch ball. If we write our state as $\rho = \frac{1}{2}(1 + \bm{r}\cdot\bm{\sigma})$, where $\bm{r}$ describes the point on the Bloch sphere.\\
+We can additionally see that the expectation value of our pauli vector is:
+\begin{align*}
+	\expval{\bm{\sigma}} &= \Tr{\rho\bm{\sigma}} \\
+	\expval{\bm{\sigma}} &= \frac{1}{2}\Tr{(1+ \bm{r}\cdot\bm{\sigma})\bm{\sigma}} \\
+	\expval{\bm{\sigma}} &= \frac{1}{2}\Tr{\bm{r}\cdot\bm{\sigma}\bm{\sigma}} \\
+	\expval{\bm{\sigma}} &= \frac{1}{2}\Tr{(r_x\sigma_x + r_y\sigma_y + r_z\sigma_z)(\hat{e}_x\sigma_x + \hat{e}_y\sigma_y + \hat{e}_z\sigma_z)} \\
+	\expval{\bm{\sigma}} &= \frac{1}{2}\Tr{r_x\hat{e}_x + r_y\hat{e}_y + r_z\hat{e}_z} \\
+	\expval{\bm{\sigma}} &= \bm{r}
+\end{align*}
+We can also arrive at mixed state without using our lack of knowledge as a basis for it's introduction. If we look at the entangled state:
+\begin{align*}
+	\ket{\psi} &= \frac{1}{\sqrt{2}} \left(\ket{00} + \ket{11}\right)
+\end{align*}
+If we only have access to the first qubit we can then arrive at this by taking a partial trace over the density operator corresponding to this state. This will give us a mixed state!\\
+For a totally general state $\ket{\psi}_{AB}$ where can only make measurements on A. We say that our operators corresponding to observables only on A, will be representable by operators from the Hilbert space of A.
+We can use this to construct an operator that acts on $H_A\otimes H_B$. We say this operator can be defined as $O_A\otimes \unit_B$. Using this we can calculate our expectation values:
+\begin{align*}
+	\expval{O_{AB}} &= \Tr{\rho O_A\otimes\unit_B} \\
+	\expval{O_{AB}} &= \sum_{nm}\bra{nm}\rho O_A\otimes\unit_B \ket{nm} \\
+	\expval{O_{AB}} &= \sum_{n}\bra{n}\sum_m\bra{m}\rho\ket{m} O_A \ket{n} \\
+	\expval{O_{AB}} &= \Tr_A\{\rho_AO_A\} \\
+	\rho_A &= \Tr_B\{\rho\}
+\end{align*}
+We call $\rho_A$ the reduced density operator.\\
+We define the entanglement of the system in terms of the Von-Neuman entropy of the reduced density matrix:
+\begin{align*}
+	S(\rho_A) &= - \sum_k \lambda_k \log \lambda_k \\
+	S(\rho_A) &= - \Tr{\rho_A\log\rho_A}
+\end{align*}
+There additionally exists a Schmidt decomposition for any pure state:
+\begin{align*}
+	\ket{\psi}_{AB} &= \sum_n \sqrt{\lambda_n} \ket{\phi_n}_A \otimes\ket{\tilde{\phi}_n}_B
+\end{align*}
+We also say for a 2 qubit system we can make a basis out of maximally entangled states, we call these the bell states:
+\begin{align*}
+	\ket{\psi^\pm} &= \frac{1}{\sqrt{2}}\left(\ket{01} \pm \ket{10}\right) \\
+	\ket{\phi^\pm} &= \frac{1}{\sqrt{2}}\left(\ket{00} \pm \ket{11}\right)
+\end{align*}
