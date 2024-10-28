@@ -1,0 +1,41 @@
+name: Build
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build-project:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install LaTeX
+        run: |
+          wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+          tar -xvf install-tl-unx.tar.gz
+          cd install-tl-*/
+          sudo perl ./install-tl --no-interaction --scheme basic --texdir /usr/local/texlive/
+          echo "/usr/local/texlive/bin/x86_64-linux" >> "$GITHUB_PATH"
+          sudo apt install ghostscript poppler-utils
+          cd ..
+      - name: Install LaTeX packages
+        run: |
+          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr init-usertree
+          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber
+      - name: Checkout Project
+        uses: actions/checkout@v4.2.1
+        with:
+          submodules: true
+          path: src
+      - name: Directory setup
+        run:
+          mkdir build
+      - name: Build Project
+        uses: threeal/cmake-action@v2.0.0
+        with:
+          build-dir: build
+          source-dir: src
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4.4.3
+        with:
+         path: build/*
