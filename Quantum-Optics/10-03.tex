@@ -1,7 +1,7 @@
 \subsection{Review of last class}
-In the interaction between a 2 level system and an optical field, we have an interaction potential $V= -\bm{\mu}\cdot\bm{E}$. We worked in the interaction picture, which removed the free interaction dependance from our states (at the cost of making our interaction potential slightly more complicated). We then made the rotating wave approximation, where we drop all counter rotating terms from the interaction potantial.
+In the interaction between a 2 level system and an optical field, we have an interaction potential $V= -\bm{\mu}\cdot\bm{E}$. We worked in the interaction picture, which removed the free interaction dependence from our states (at the cost of making our interaction potential slightly more complicated). We then made the rotating wave approximation, where we drop all counter rotating terms from the interaction potential.
 \subsection{Rabi Problem and the exact solution}
-We define the spin-flip opertors:
+We define the spin-flip operators:
 \begin{align*}
 	\sigma_+ &= \begin{pmatrix}
 		0 & 0 \\
@@ -35,7 +35,7 @@ This emits solutions in the form of sines and cosines. If we assume the populati
 	\bar{c}_1 &= \cos\left(\frac{\Omega_0}{2} t\right) \\
 	\bar{c}_2 &= -i\sin\left(\frac{\Omega_0}{2} t\right)
 \end{align*}
-Since the probability is the square of the amplitude we have oscilations between the states with frequency $\Omega_0$.
+Since the probability is the square of the amplitude we have oscillations between the states with frequency $\Omega_0$.
 
 If instead we have a variable $\Omega_0$ but exact resonance we have a more difficult problem to solve. In order to solve this we define:
 \begin{align*}
@@ -71,7 +71,7 @@ So then:
 			  \bar{c}_2(0)
     \end{pmatrix}
 \end{align*}
-Which corresponds to oscilatory behavior, but with respect to the pulse area rather than time.\\
+Which corresponds to oscillatory behavior, but with respect to the pulse area rather than time.\\
 We can therefore talk about a $\pi$ pulse, which has a total pulse area of $\pi$, aka $\lim_{t\to\infty} A(t) = \pi$. This will cause the population to swap and gain a phase of $-i$.\\
 Similarly a $2\pi$ pulse will only add an overall $-1$ phase to both $\bar{c}_1$. This is a Berry phase. \\
 We finally consider a non-zero detuning with a constant Rabi frequency:
@@ -95,13 +95,13 @@ If we start with our population in state 1, then:
 \begin{align*}
 	|\bar{c}_2(t)|^2 &= \left(\frac{\Omega_0}{\Omega}\right)^2 \sin \frac{\Omega t}{2} \\
 \end{align*}
-If we return to the Schroedinger represntation, we see that the energy levels appear to be shifting due to this applied optical field. This is known as the optical Stark shift.\\
+If we return to the Schrodinger representation, we see that the energy levels appear to be shifting due to this applied optical field. This is known as the optical Stark shift.\\
 So far we have assumed this is a perfect system, if we assume that we can actually decay out of the system, we have:
 \begin{align*}
 	\partial_t |\bar{c}_1|^2 &= -\gamma_2|\bar{c}_1|^2 \\
 	\partial_t |\bar{c}_2|^2 &= -\gamma_2|\bar{c}_2|^2
 \end{align*}
-This corresponds to a decay term that is half the given rate in the amplitude. We can seey this bay taking the onsatz that it is half and quckly see this is true:
+This corresponds to a decay term that is half the given rate in the amplitude. We can see this bay taking the onsatz that it is half and quickly see this is true:
 \begin{align*}
 	\partial_t \bar{c}_1 &= -\frac{\gamma_1}{2} \bar{c}_1 \\
 	\partial_t |\bar{c}_1|^2 &= \dot{\bar{c}}_1\bar{c}_1^* + \bar{c}_1 \dot{\bar{c}}_1^* \\
@@ -109,12 +109,12 @@ This corresponds to a decay term that is half the given rate in the amplitude. W
 	\partial_t |\bar{c}_1|^2 &= \gamma |\bar{c}_1|^2
 \end{align*}
 \subsection{Field interaction representation/ rotating frame}
-In the Schroedinger represntation:
+In the Schrodinger representation:
 \begin{align*}
 	\ket{\psi} &= \sum_n c_n \ket{n} \\
 	H\ket{n} &= \hbar\omega_n\ket{n}
 \end{align*}
-In the interaction represntation
+In the interaction representation
 \begin{align*}
 	\ket{\psi} &= \sum_n \bar{c}_n e^{-i\omega_n t}\ket{n} \\
 \end{align*}
@@ -132,7 +132,7 @@ In a two level system:
 		\Omega_0 e^{i\delta t} & 0
 			\end{pmatrix}
 \end{align*}
-In order to work with a time-independant H, we pick a new set of coefficients:
+In order to work with a time-independent H, we pick a new set of coefficients:
 \begin{align*}
 	\ket{\psi} \tilde{c}_1 e^{i\frac{\omega}{2} t} \ket{1} + \tilde{c}_2 e^{i\frac{\omega}{2} t}\ket{2}
 \end{align*}
@@ -160,6 +160,6 @@ So our Hamiltonian becomes:
 		\Omega_0 & 0
 				 \end{pmatrix}
 \end{align*}
-This looks like a frequency difference between the two states, but with a D.C. coupling between the states. This is different from the interaction picture where we remove the frequency difference but keep an ac transition, or the Schroedinger picture where we have a frequncy difference and AC coupling.
+This looks like a frequency difference between the two states, but with a D.C. coupling between the states. This is different from the interaction picture where we remove the frequency difference but keep an ac transition, or the Schrodinger picture where we have a frequency difference and AC coupling.
 \subsection{Next week}
 Unitary transformations, solving $\tilde{H}$ to find it's eigenstates (in the field interaction representation). These states are the semi-classical dressed states. This also relates to optical stark effects and optical stark splitting.

@@ -18,7 +18,7 @@ So starting from our untransformed term:
 \end{align*}
 For the interaction rep $U = e^{i\frac{H_0}{\hbar} t} = e^{-i\frac{\omega_0}{2}\sigma_z t}$ and for the field interaction rep $U = e^{i\frac{\omega}{2}\sigma_z t}$
 \subsection{Semiclassical dressed states}
-Working in the field interaction representation. If we assume $\Omega_0$ is time independant:
+Working in the field interaction representation. If we assume $\Omega_0$ is time independent:
 \begin{align*}
 	\tilde{H} &= -\frac{\hbar \delta}{2}\sigma_z + \frac{\hbar}{2}\Re \Omega_0 \sigma_x +\frac{\hbar}{2}\Im \Omega_0 \sigma_y \\
 	\tilde{H} \ket{\pm} &= E_\pm \ket{pm}
@@ -51,7 +51,7 @@ With the initial condition $c_1(0) = 1$ and $c_2(0) = 0$ we know $c_+ = c_- = \f
 	\ket{\psi} &= \frac{1}{\sqrt{2}} \left(e^{-i\frac{\Omega_0}{2} t}(\ket{\tilde{1}} + \ket{\tilde{2}}) +  e^{i\frac{\Omega_0}{2} t} (\ket{\tilde{1}} + \ket{\tilde{2}})\right) \\
 	\ket{\psi} &= \frac{1}{\sqrt{2}}\left(\cos\frac{\Omega_0 t}{2} \ket{\tilde{1}} - i\sin\frac{\Omega_0 t}{2} \ket{\tilde{2}}\right)
 \end{align*}
-Which gives us exactly the same behavior of Rabi oscilations, that we see in other representations.\\
+Which gives us exactly the same behavior of Rabi oscillations, that we see in other representations.\\
 If we now pick a large detuning $|\delta| \gg \Omega_0$. We first consider positive detuning (red detuning) $\omega_0 > \omega$. We again look at the states $\ket{\pm}$:
 \begin{align*}
 	\Omega &= \sqrt{\delta^2 + \Omega_0^2} \\
@@ -69,9 +69,9 @@ We have our $\Omega \approx -\delta -\frac{\Omega_0^2}{2\delta}$. Additionally w
 	\ket{+} &\approx \ket{\tilde{1}} \\
 	\ket{-} &\approx -\ket{\tilde{2}} \\
 \end{align*}
-So we have bare states, but swapped from the red detuning. Our energies are shifted as before by $\frac{\Omega_0^2}{4|\delta|}$ with $\ket{+}$ being upshifted and $\ket{-}$ being downshifted. In terms of the initial states $\ket{1}$ and $\ket{2}$, we have our energies pulled closer together. In other words the blue-detuned case leads to a red-shift for the transition, and the red-detuned case leads to a blue-shift for the transition. \\
+So we have bare states, but swapped from the red detuning. Our energies are shifted as before by $\frac{\Omega_0^2}{4|\delta|}$ with $\ket{+}$ being up-shifted and $\ket{-}$ being downshifted. In terms of the initial states $\ket{1}$ and $\ket{2}$, we have our energies pulled closer together. In other words the blue-detuned case leads to a red-shift for the transition, and the red-detuned case leads to a blue-shift for the transition. \\
 When $\delta$ is small we see strong mixing between our states, and when $\delta$ is large we see small amounts of mixing. \\
 \subsection{Adiabatic Following}
-We now consider the case of time dependant $\Omega_0$ and $\delta$. If we say our time dependance is sufficiently slow, then we have adiabatic following. \\
-For a time independant following we can solve for the eigenstates of a system. A particle in an eigenstate stays in the eigenstate. For a time dependant hamiltonian, we have a set of (instantaneous) eigenstates at every time $t$, but we don't have a guarantee that we will stay in those eigenstates. \\
+We now consider the case of time dependent $\Omega_0$ and $\delta$. If we say our time dependence is sufficiently slow, then we have adiabatic following. \\
+For a time independent following we can solve for the eigenstates of a system. A particle in an eigenstate stays in the eigenstate. For a time dependent Hamiltonian, we have a set of (instantaneous) eigenstates at every time $t$, but we don't have a guarantee that we will stay in those eigenstates. \\
 In adiabatic following we evolve our Hamiltonian slowly, and start in an eigenstate at the start, as a result of this we remain in the instantaneous eigenstate of the system as that eigenstate evolves. Using this in our system you can drive the system from a lower state into a higher state (Landen Zener crossing). This can sometimes be more practical than a $\pi$ pulse.

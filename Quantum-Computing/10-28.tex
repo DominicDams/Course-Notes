@@ -1,0 +1,44 @@
+We know from the Schmidt decomposition that the partial traces of our system must have identical eigenvalues such that:
+\begin{align*}
+	\rho_A \ket{\psi_i} &= \lambda_i \ket{\psi_i} &
+	\rho_B \ket{\phi_i} &= \lambda_i \ket{\phi_i}
+\end{align*}
+We often will take an impure state and invent a higher dimensional Hilbert space such that we can say that this is a pure state in that system. 
+I.e. given $\rho_A$, we invent a system $F$ such that there is a pure state $\ket{\psi}_{AF} = \sqrt{\lambda_i}\ket{\varphi_i}_A\ket{i}_F$.
+\subsection{Variational Quantum Eigensolver}
+We want to develop an algorithm to estimate the ground state energy of a quantum system. This has applications for protean folding and various other system. \\
+Given our Hamiltonian $H$, we search for our solution by first picking some state $\ket{\psi}$. We know that clearly $\bra{\psi}H\ket{\psi} \geq E_g$. we can rewrite this as:
+\begin{align*}
+	H\ket{E_n} &= E_n\ket{E_n} \\
+	\ket{\psi} &= \sum_n \alpha_n \ket{E_n} \\
+	\bra{\psi}H\ket{\psi} &= \sum_n |\alpha_n|^2 E_n
+\end{align*}
+If we start with a family of states $\ket{\psi(s)}$ we can then state that:
+\begin{align*}
+	E(s) &= \bra{\psi(s)}H\ket{\psi(s)} \\
+	\text{min}_S E(s) \geq E_g
+\end{align*}
+This is better than picking a random state, but gives us no guarantee that we will be close to the actual ground energy. So we need a method of picking a good family of states. \\
+We can see that we need something smart, since a bad family will give us a very bad result. For example looking at the Hydrogen atom, if we choos the family:
+\begin{align*}
+	\bra{x,y,z}\ket{\psi(s)} &= N_s \cos sx \sin sy \cos sz e^{-s|y|}
+\end{align*}
+We can see that this function has many issues. First it doesn't have the right symmetries, second it isn't normalizable, and third, while we expect there to be zero "nodes" in the ground state, this has an infinite number of nodes. 
+Better guesses are both the Gaussian states and the exponential decay states. Our algorithm will require us to invent a good set of states classicaly as input. Additionally we need to translate the Hamiltonian into a Hamiltonian that acts on a state of N qubits.\\
+In order to do this we invent a set of states and indicate ocupation of a given state as a $1$ and the lack of ocupation as $0$. We also say there should be some number of occupied states in our system (i.e we can have 18 states where 6 are filled). 
+We can then calculate our Hamiltonian for each of our occupied states (and their interactions with other occupied states). Once this is done we can convert this into a Hamiltonian to be used with our quantum computer. \\
+Given an example hamiltonian $H = E(\sigma_z\sigma_z - \frac{1}{2}\sigma_x\sigma_x)$, we have a circuit: \\
+\begin{quantikz}
+& \gate{H} & \ctrl{1} & \\
+& \gate{H} & \ctrl{-1} &
+\end{quantikz}\\
+This generates a state we want to measure. We then measure things terms by term that show up in the Hamiltonian, for the $\sigma_z$ terms: \\
+\begin{quantikz}
+& \gate{H} & \ctrl{1} & \meter{}\\
+& \gate{H} & \ctrl{-1} & \meter{}
+\end{quantikz}\\
+And for the $\sigma_x$ terms: \\
+\begin{quantikz}
+& \gate{H} & \ctrl{1} & \gate{Y^\frac{-1}{2}}& \meter{}\\
+& \gate{H} & \ctrl{-1} & \gate{Y^\frac{-1}{2}}&\meter{}
+\end{quantikz}\\

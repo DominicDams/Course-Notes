@@ -9,6 +9,10 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     steps:
+      - name: Install Packages
+        uses: ConorMacBride/install-package@v1
+        with:
+          apt: ghostscript poppler-utils cmake
       - name: Install LaTeX
         run: |
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
@@ -16,12 +20,11 @@ jobs:
           cd install-tl-*/
           sudo perl ./install-tl --no-interaction --scheme basic --texdir /usr/local/texlive/
           echo "/usr/local/texlive/bin/x86_64-linux" >> "$GITHUB_PATH"
-          sudo apt install ghostscript poppler-utils
           cd ..
       - name: Install LaTeX packages
         run: |
           sudo /usr/local/texlive/bin/x86_64-linux/tlmgr init-usertree
-          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber
+          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber accents
       - name: Checkout Project
         uses: actions/checkout@v4.2.1
         with:

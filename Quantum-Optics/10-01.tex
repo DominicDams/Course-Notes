@@ -5,14 +5,14 @@ This course will focus on how does light interact with matter.\\
 This interaction can be done in terms of semi-classical physics, where we have classical light and quantum mechanical matter, or a pure quantum approach which treats both light and matter quantum mechanically.\\
 
 \section{Two-Level quantum systems (aka the Rabi problem)}
-In a simple system we have discrete atomic energy levels and a single opticla mode of light:
+In a simple system we have discrete atomic energy levels and a single optical mode of light:
 \begin{align*}
 	\frac{1}{2} E_0 e^{-i\omega t} + \text{c.c.}
 \end{align*}
 But this discrete set of atomic energy levels is still too complicated since there are an infinite number of states for the atom. In order to further simplify things we limit ourselves to two-level systems where our atom can be in state $\ket{1}$ or $\ket{2}$.\\
 If we have transition energy between the two states that has a corresponding energy $\omega_0$ and an optical field at $\omega$, we then have a detuning $\delta = \omega_0-\omega$, resonance when $\omega=\omega_0$, and near resonance when $\omega\approx\omega_0$.\\
 When we are near resonance we ignore all off-resonant interactions.\\
-We now come up with our Hamiltonian (after which we will try to solve the Schroedinger equation).
+We now come up with our Hamiltonian (after which we will try to solve the Schrodinger equation).
 \begin{align*}
 	H &= H_0 + V \\
 	H_0 &= \begin{pmatrix} E_1 & 0 \\ 0 & E_2\end{pmatrix} \\
@@ -23,7 +23,7 @@ We now use the fact that $\omega_1 - \omega_2 = \omega_0$, so we rewrite this as
 	H_0 &= \frac{\hbar}{2}\begin{pmatrix} -\omega_0 & 0 \\ 0 & \omega_0\end{pmatrix} \\
 	H_0 &= -\frac{\hbar\omega_0}{2}\begin{pmatrix} 1 & 0 \\ 0 & -1\end{pmatrix}
 \end{align*}
-Since atoms are neutral, if our wavelength is much larger than the bohr radius we can model this with a dipole interaction.\\
+Since atoms are neutral, if our wavelength is much larger than the Bohr radius we can model this with a dipole interaction.\\
 Our dipole potential is:
 \begin{align*}
 	V &= -\bm{\mu}\cdot\bm{E} \\
@@ -31,7 +31,7 @@ Our dipole potential is:
 	\bm{E} &= |E_0| \cos(\omega t-\phi)\hat{\epsilon}
 \end{align*}
 We could in principle add a quadrapole, magnetic dipole interaction, etc.\\
-If we have our field point allong the z axis we can write:
+If we have our field point along the z axis we can write:
 \begin{align*}
 	V_{12} &= \bra{1} V\ket{2} \\
 	V_{12} &= e Z_{12} |E_0| \cos(\omega t -\phi) \\
@@ -40,7 +40,7 @@ If we have our field point allong the z axis we can write:
 	V_{22} &= \bra{2} V\ket{2} \\
 	V_{22} &= e Z_{22} |E_0| \cos(\omega t -\phi)
 \end{align*}
-But we know $Z_{11} = Z_{22} = 0$ by symettry (though this may not hold inside some crystals). \\
+But we know $Z_{11} = Z_{22} = 0$ by symmetry (though this may not hold inside some crystals). \\
 Therefore we can then write:
 \begin{align*}
 	V &= \begin{pmatrix} V_{12} & 0 \\ 0 & V_{21} \end{pmatrix}
@@ -57,15 +57,15 @@ By convention we choose the phase of $\mu_{12} = -e Z_{12}$ to make it real. The
 		1 & 0
       \end{pmatrix}
 \end{align*}
-In terms o the Pauli matricies we then have:
+In terms o the Pauli matrices we then have:
 \begin{align*}
 	H_0 &= -\frac{\hbar\omega_0}{2} \sigma_z \\
 	V &= \hbar |\Omega_0|\cos(\omega t - \phi) \sigma_x \\
 	H &= -\frac{\hbar\omega_0}{2} \sigma_z + \hbar |\Omega_0|\cos(\omega t - \phi) \sigma_x
 \end{align*}
-The key parameters in question for this hamiltonian are the detuning, $\delta=\omega_0-\omega$ and the Rabi frequency $\Omega_0$. \\
+The key parameters in question for this Hamiltonian are the detuning, $\delta=\omega_0-\omega$ and the Rabi frequency $\Omega_0$. \\
 \subsection{Interaction representation and rotating wave approximation}
-In the Schroedinger representation:
+In the Schrodinger representation:
 \begin{align*}
 	\ket{\psi(t)} &= \sum_n c_n(t) \ket{n} \\
 	i\hbar \partial_t \ket{\psi(t)} &= H\ket{\phi(t)}
@@ -110,7 +110,7 @@ We now seek to solve our equations for our amplitudes here, we start be rewritin
 	\dot{\bar{c_2}} &= -i\frac{\Omega_0}{2}\left(e^{i\omega t} + e^{-i\omega t}\right)e^{i\omega_0 t}\bar{c_1} \\
 	\dot{\bar{c_2}} &= -i\frac{\Omega_0}{2}\left(e^{i(\omega_0-\omega) t} + e^{i(\omega + \omega_0)t}\right)\bar{c_1}
 \end{align*}
-We now break this into a perurbation series:
+We now break this into a perturbation series:
 \begin{align*}
 	\bar{c_n} &= \bar{c}_n^{(0)} + \bar{c}_n^{(1)} +\bar{c}_n^{(2)} + \ldots \\
 	\bar{c}_n^{(m)} &\propto E_0^m 
@@ -128,7 +128,7 @@ If we are near resonance the second term is much smaller, and $\Omega_0 << \omeg
 \begin{align*}
 	\bar{c}_2^{(1)}(t) &= -i\frac{\Omega_0}{2}\frac{e^{i\omega_0-\omega)t} -1 }{i(\omega_0-\omega} 
 \end{align*}
-Which equivalently in the hamiltonian has:
+Which equivalently in the Hamiltonian has:
 \begin{align*}
 	V_I &= \hbar \frac{\Omega_0}{2} \begin{pmatrix}
 		0 & e^{-i\delta t} \\
@@ -143,4 +143,4 @@ If we generalize we have (with some phase on $\Omega_0$):
 		\end{pmatrix}
 \end{align*}
 \subsection{The exact solution of the Rabi problem (with rotating wave approximation)}
-Next class we will solve this, we will get $\pi$ pulses, Rabi oscilations, etc.
+Next class we will solve this, we will get $\pi$ pulses, Rabi oscillations, etc.
