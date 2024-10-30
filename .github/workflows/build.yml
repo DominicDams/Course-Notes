@@ -16,23 +16,20 @@ jobs:
       - name: Install LaTeX
         run: |
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-          tar -xvf install-tl-unx.tar.gz
+          tar -xf install-tl-unx.tar.gz
           cd install-tl-*/
-          sudo perl ./install-tl --no-interaction --scheme basic --texdir /usr/local/texlive/
+          sudo perl ./install-tl --no-interaction --scheme basic --texdir /usr/local/texlive --no-doc-install
           echo "/usr/local/texlive/bin/x86_64-linux" >> "$GITHUB_PATH"
           cd ..
       - name: Install LaTeX packages
         run: |
           sudo /usr/local/texlive/bin/x86_64-linux/tlmgr init-usertree
-          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber accents
+          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber accents latexmk tex4ht mathtools pgfplots xargs xkeyval xstring etoolbox environ pgf tikz-cd
       - name: Checkout Project
         uses: actions/checkout@v4.2.1
         with:
           submodules: true
           path: src
-      - name: Directory setup
-        run:
-          mkdir build
       - name: Build Project
         uses: threeal/cmake-action@v2.0.0
         with:
