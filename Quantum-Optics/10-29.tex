@@ -126,13 +126,13 @@ We now calucluate $G_n$. We work in the rate equation appproximation $\gamma\gg\
 \end{align*}
 If we ignore spontaneous emiision (assuming stimulated emission is much stronger than spontaneous emission):
 \begin{align*}
-	\dot{\rho}_{11} &= \lambda_1 - \gamma_1\rho_{11} + \omega(\rho_{22} - \rho_{11}) \\
-	\dot{\rho}_{22} &= \lambda_2 - \gamma_2\rho_{22} - \omega(\rho_{22} - \rho_{11}) \\
+	\dot{\rho}_{11} &= \lambda_1 - \gamma_1\rho_{11} + w(\rho_{22} - \rho_{11}) \\
+	\dot{\rho}_{22} &= \lambda_2 - \gamma_2\rho_{22} - w(\rho_{22} - \rho_{11}) \\
 \end{align*}
 In steady state these are both zero so:
 \begin{align*}
-	0 &= \frac{\lambda_1}{\gamma_1} - \rho_{11} + \frac{\omega}{\gamma_1}(\rho_{22} - \rho_{11}) \\
-	0 &= \frac{\lambda_2}{\gamma_2} - \rho_{22} - \frac{\omega}{\gamma_2}(\rho_{22} - \rho_{11}) \\
+	0 &= \frac{\lambda_1}{\gamma_1} - \rho_{11} + \frac{w}{\gamma_1}(\rho_{22} - \rho_{11}) \\
+	0 &= \frac{\lambda_2}{\gamma_2} - \rho_{22} - \frac{w}{\gamma_2}(\rho_{22} - \rho_{11}) \\
 	\rho_{22} - \rho_{11} &= \frac{\frac{\lambda_2}{\gamma_2} - \frac{\lambda_1}{\gamma_1}}{1 + \frac{\omega}{\omega_s}} \\
 	\omega_s &= \left(\frac{1}{\gamma_1} + \frac{1}{\gamma_2}\right)^{-1}
 \end{align*}
@@ -143,5 +143,5 @@ We now look at:
 	P &= \frac{N}{V}(\mu\rho_{21} + \text{c.c.}) \\
 	P &= \frac{N}{V}(\mu\tilde{\rho}_{21}e^{-i\omega_n t} + \text{c.c.}) \\
 	P &= \frac{N}{V}(\mu \frac{i}{2}\Omega_0\frac{\frac{\lambda_2}{\gamma_2} - \frac{\lambda_1}{\gamma_1}}{1 + \frac{\omega}{\omega_s}} e^{-i\omega_n t} + \text{c.c.}) \\
-	\chi''_n &= -\frac{N\mu^2}{V\epsilon_0\hbar} \frac{\gamma}{\delta^2+\gamma^2} \frac{\frac{\lambda_2}{\gamma_2} - \frac{\lambda_1}{\gamma_1}}{1 + \frac{\omega}{\omega_s}}
+	\chi''_n &= -\frac{N\mu^2}{V\epsilon_0\hbar} \frac{\gamma}{\delta^2+\gamma^2} \frac{\frac{\lambda_2}{\gamma_2} - \frac{\lambda_1}{\gamma_1}}{1 + \frac{w}{w_s}}
 \end{align*}
