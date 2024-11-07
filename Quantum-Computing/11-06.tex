@@ -1,0 +1,128 @@
+\subsection*{Some questions}
+Are all enstangled states in Hilbert spaces (even uncountable Hilbert spaces) non-convex? All countable Hilbert spaces are by the argument we made earlier, and uncountable spcaes neer show up in quantum mechanics (if it looks like they do it's an illusion).
+
+\subsection*{Back to our regularly scheduled programing}
+We know that there is a hyperplane of states that obey this equation, within our space of state:
+\begin{align*}
+	\Tr{\rho W} &= 0
+\end{align*}
+Where we can then say that this space is divided by this plane into the region where this trace is positive and the region where this state is negative.
+We can choose this operator such that the case where this trace is negative describes only entangled states, and all seperable states are described by the negative trace case.
+
+We now look into how to construct such an operator $W$, which we will call a witness. 
+
+We can potentially do this by taking any pure entangled state $\ket{\psi}_{AB}$. We define the overlap with this state as the trace of the projector onto this state with the state in question, i.e.:
+\begin{align*}
+	P_{AB} &= \ket{\psi}_{AB}\bra{\psi}_{AB} \\
+	\text{Overlap} &= \Tr{\rho P_{AB}}
+\end{align*}
+This projector will clearly have eigenvalues of 0 and 1, and therefore this measurement must always give us a result between 0 and 1. We now define a value:
+\begin{align*}
+	\alpha &= \text{max}_\text{sep} \Tr{\rho_\text{sep}P_{AB}}
+\end{align*}
+This describes the maximum value we can see for our overlap for any seperable state. Because the seperable states are convex, we only need to search the boundry of the set of seperable states to find the maximum.
+Similarly we need to look only at pure states because a mixed state will be a sum of e-vals. Therefore we can look at only pure seperable staets, which are product states!
+
+Now we have the information we need to invent our witness, we can say our witness is defined as:
+\begin{align*}
+	W &= \alpha \unit - P_{AB}
+\end{align*}
+Where we can clearly see:
+\begin{align*}
+	\Tr{W\rho_\text{sep}} &= \alpha - \Tr{\rho_\text{sep} P_{AB}} \\
+	\Tr{W\rho_\text{sep}} &\geq \alpha - \alpha \\
+	\Tr{W\rho_\text{sep}} &\geq 0
+\end{align*}
+So we know that we can come up wutg tgese witnesses, which will be able to identify some states as entangled.
+
+For our next witness we start by just considering $\rho_A$. If we consider a matrix representation of our density operator:
+\begin{align*}
+	\rho_{n'n} &= \ket{n'}\rho\bra{n}
+\end{align*}
+Looking at the transpose of this matrix $\rho_{n' n}^T = \rho_{n n'}$. We can then say that this new matrix corresponds with another totally legitimate state in our space.
+
+Now if we take a separable state and take the transpose of all the operators corresponding to one of the subsystems (we call this a partial transpose), so:
+\begin{align*}
+	\rho_{AB}^{\ ^-|} &= \sum_i p_i\rho_A^{(i)}\ ^T \otimes \rho_B^{(i)}
+\end{align*}
+We now say that if $\rho_{AB}^{\ ^-|}$ has a negative eignevalue then this must be an entangled state! Clearly for seperable states this must not have any negative eigenvalues.
+How do we know that we have some negative eigenvalues for some entangled states?
+
+We start by picking a basis, which we choose as the lexigraphic basis for a single qubit for $A$ and a single qubit for $B$. For a product state we can say:
+\begin{align*}
+	\rho_A &= \begin{pmatrix}
+		a & b \\
+		c & d
+	\end{pmatrix} &
+	\rho_B &= \begin{pmatrix}
+		e & f \\
+		g & h
+		  \end{pmatrix} \\
+	\rho_{AB} &= \begin{pmatrix}
+		ae & af & be & bf \\
+		ag & ah & bg & bh \\
+		ce & cf & de & df \\
+		cg & ch & dg & dh
+	\end{pmatrix} &
+	\rho_{AB} &= \begin{pmatrix}
+		a\rho_B & b\rho_B \\
+		c\rho_B & d\rho_B
+		     \end{pmatrix} \\
+	\rho_{AB}^{\ ^-|} &= \begin{pmatrix}
+		a\rho_B & c\rho_B \\
+		b\rho_B & d\rho_B
+	\end{pmatrix} &
+	\rho_{AB}^{|^-} &= \begin{pmatrix}
+		a\rho_B^T & b\rho_B^T \\
+		c\rho_B^T & d\rho_B^T
+			   \end{pmatrix}
+\end{align*}
+We now look at the following state:
+\begin{align*}
+	\ket{\psi}_{AB} &= \frac{1}{\sqrt{2}}\left(\ket{01} - \ket{10}\right) \\
+	\rho_{AB} &= \begin{pmatrix}
+		0 & 0 & 0 & 0 \\
+		0 & \frac{1}{2} & -\frac{1}{2} & 0 \\
+		0 & -\frac{1}{2} & \frac{1}{2} & 0 \\
+		0 & 0 & 0 & 0
+		     \end{pmatrix} \\
+	\rho_{AB}^{\ ^-|} &= \begin{pmatrix}
+		0 & 0 & 0 & -\frac{1}{2} \\
+		0 & \frac{1}{2} & 0 & 0 \\
+		0 & 0 & \frac{1}{2} & 0 \\
+		-\frac{1}{2} & 0 & 0 & 0
+			     \end{pmatrix}
+\end{align*}
+This new operator clearly has eigenvalues of $\frac{1}{2}$ with associated staes $\ket{01}$, $\ket{10}$, and $\ket{00} - \ket{11}$ and $-\frac{1}{2}$ with associated eigenvector $\ket{00} + \ket{11}$.
+
+We now make the claim, that given an entangled state $\rho_{AB}$ we can immediately construct a witness $W = \rho_{AB}^{\ ^-|}$ which will satisfy:
+\begin{align*}
+	\Tr{\rho_\text{sep}W} &\geq 0 \\
+	\exists \rho: \Tr{\rho W} &< 0
+\end{align*}
+We first prove this by first starting with:
+\begin{align*}
+	\Tr{\rho_\text{sep} W} &= \Tr{(\rho_\text{sep} W)^T} \\
+	\Tr{\rho_\text{sep} W} &= \Tr{\rho_\text{sep} \rho_{AB}^{|^-}}
+\end{align*}
+This approach doesn't prove fruitful, so instead we look at splitting the trace into partial traces:
+\begin{align*}
+	\Tr{\rho_\text{sep} W} &= \Tr_B\{\Tr_A\{\rho_\text{sep} W\}\} \\
+	\Tr{\rho_\text{sep} W} &= \Tr_B\{\Tr_A\{(\rho_\text{sep} W)^{\ ^-|}\}\} \\
+	\Tr{\rho_\text{sep} W} &= \Tr_B\{\Tr_A\{\rho_\text{sep}^{\ ^-|} \rho_{AB}\}\} \\
+	\Tr{\rho_\text{sep} W} &= \Tr{\rho_\text{sep}^{\ ^-|} \rho_{AB}} \\
+	\Tr{\rho_\text{sep} W} &= \Tr{\rho_\text{sep'} \rho_{AB}} \\
+	\Tr{\rho_\text{sep} W} &\geq 0
+\end{align*}
+In order to prove the other condition, we need to prove that this has a negative eigenvalue. This is not guaranteed for anything above a qubit entangled with a qubit, or a qubit entangled with a qutrit.
+Given this has a negative eigenvalue, clearly we will get a negative value for this measurement so we can have this as a successful witness for this.
+
+Looking again at the witness generated by $\ket{\psi}_{AB} =  \frac{1}{\sqrt{2}}\left(\ket{01} - \ket{10}\right)$ we can say that our only negative eigenvector is $\ket{\phi} = \frac{1}{\sqrt{2}}\left(\ket{00} + \ket{11}\right)$.
+We can see that the hypersurface that divides our set along the surface defined by $\rho = \frac{1}{2} \ket{\phi}\bra{\phi} + \frac{1}{2} \ket{\phi^\perp}\bra{\phi^\perp}$. In general we can see that no single witness can detect all entangled states.
+In fact we would need a large number of witnesses to have a good chance of verifying that the state is entangled/not entangled.
+
+We can define two measures of entanglement for our state:
+\begin{align*}
+	N(\rho) &= 2\sum_{\lambda_n^- <0} |\lambda_n^- | \\
+	L(\rho) &= \sum_{\lambda_n^- <0 } \log(1 + 2|\lambda_n^-|)
+\end{align*}

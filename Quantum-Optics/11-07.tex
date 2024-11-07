@@ -1,0 +1,115 @@
+In summary, if we start with optical pulse in a two level system with inhomogeneous broadening where we assume we can ignore decay processes, then we can describe the pulse propogation using the pulse area:
+\begin{align*}
+	\partial_z A &= -\frac{\alpha}{2}\sin A
+\end{align*}
+In order for this to be valid we need the pulse duration to be much shorter than the decay time.
+
+We can say that if we send a pulse of length $2\pi m$ then the pulse will not be modified. While it looks like this is the case for $A = \pi(2m+1)$, that solution is actually unstable.
+
+We now consider whether or not the energy of the pulse can change with a steady state pulse area. Despite the pulse are not changing, the energy can change, because the pulse area doesn't uniquely determine the pulse energy.
+Despite this we can see that there are solutions under which not just are remains unchanged, but also the pulse shape (and thus the energy) remains unchanged. These solutions are called solitons.
+Additionally if $T_2$ is long enough the pulse will evolve towards a soluton solution. In fact to a soliton-like pulse the medium will look transparent.
+
+During such an interaction there will be coherent energy exchange between the fields and the medium. If the optical interaction is very strong then we see that the group velocity is greaatly reduced so $v_g \ll c$.
+If we work in a gain medium we can reverse this effect, so $v_g > c$. Although this appears to violate special relativity, it turns out that information cannot be transferred faster than light despite this.
+We can push this to the opposite extreme wheere we call the group velocity to become negative!
+\subsection{Spin Echoes}
+If we use a Bloch vector $\bm{R}$ to describe our two level system, then our ststem will obey:
+\begin{align*}
+	\partial_t \bm{R} &= \bm{\Omega}\cross\bm{R} &
+	\bm{\Omega} &= (\Omega_0, 0 , \delta)
+\end{align*}
+If $\delta = 0$ the we have precession about the x axis, with the length of the rotation determined by the pulse area. \\
+If $\Omega_0 = 0$ then there are no optical fields, and we find that this is free evolution (precession about the z axis). This can be thought of as oscilation of the induced dipole.
+
+Now moving onto spin echoes, we start with "Free polarization decay". If we apply a strong and short square pulse to a two level system.
+Directly after the pulse ends we will have our state simply rotated by an angle $A_1$ about the $x$ axis. After this we will see free precession (assuming we started in $1$):
+\begin{align*}
+	\bm{R}(t_1) &= \begin{pmatrix}
+		0 \\
+		\sin A_1 \\
+		-\cos A_1
+		       \end{pmatrix} \\
+	\bm{R}(t > t_1) &= \begin{pmatrix}
+		\cos\delta(t-t_1) & -\sin\delta(t-t_1) & 0 \\
+		\sin\delta(t-t_1) & \cos\delta(t-t_1) & 0 \\
+		0 & 0 & 1
+			   \end{pmatrix}
+	\begin{pmatrix}
+		0 \\
+		\sin A_1 \\
+		-\cos A_1
+		       \end{pmatrix} \\
+	\bm{R}(t>t_1) &= \begin{pmatrix}
+		-\sin\delta(t-t_1)\sin A_1 \\
+		\cos\delta(t-t_1)\sin A_1 \\
+		-\cos A_1
+			 \end{pmatrix} \\
+	\tilde{\rho}_{12} &= \frac{1}{2}\left[-\sin A_1 \sin \delta(t - t_1) + i\sin A_1 \cos\delta(t-t_1)\right]
+\end{align*}
+Using this we can say the density of the dipole moments is therefore:
+\begin{align*}
+	P &= \frac{N}{V}(\mu \rho_{12} + \text{c.c.}) \\
+	P &= \frac{N}{V}(\mu \tilde{\rho}_{12}e^{i\omega t} + \text{c.c.}) \\
+	P &= \frac{N}{V}\mu i\sin A_1 e^{i\delta(t - t_1)} e^{i\omega t} + \text{c.c.}
+\end{align*}
+In general we can say:
+\begin{align*}
+	P &= \frac{N}{V} \mu \frac{1}{2} i\sin A_1 e^{i\omega t}\int_0^\infty d\omega_0 g(\omega_0) e^{i(\omega-\omega_0)(t-t_1)} + \text{c.c.}
+\end{align*}
+If we consider three different values for our detunning then we see, until the end of the pulse the act essentially identically.
+After $t_1$ we see the three different systems will precess at three different frequencies. These different systems will get out of phase after a time $T_2^*$ which is proportional to the inverse of the spectral spread $\sigma_\omega$.
+We now calculate our integral (assuming a gaussian distribution of frequencies):
+\begin{align*}
+	\int_0^\infty g(\omega_0) e^{i(\omega_0 - \omega)\tau} d\omega_0 &= \frac{1}{\sqrt{\pi}\sigma_\omega} \int_0^\infty d\omega_0 e^{-\left[\left(\frac{\omega_0 - \bar{\omega}_0}{\sigma_\omega}\right)^2 - i(\omega_0 - \omega) \tau\right]} \\
+	\int_0^\infty g(\omega_0) e^{i(\omega_0 - \omega)\tau} d\omega_0 &= \frac{1}{\sqrt{\pi}\sigma_\omega} e^{-\frac{1}{4} \sigma_\omega^2\tau^2}
+	\int_0^\infty d\omega_0 e^{-\left[\frac{\omega_0 - \bar{\omega}_0}{\sigma_\omega} - i\frac{1}{2}\sigma_\omega \tau\right]^2} \\
+	\int_0^\infty g(\omega_0) e^{i(\omega_0 - \omega)\tau} d\omega_0 &= e^{-\frac{1}{4} \sigma_\omega^2\tau^2}
+\end{align*}
+So:
+\begin{align*}
+	P &= \frac{N}{V} \mu \frac{1}{2} i\sin A_1 e^{i\omega t} e^{-\frac{1}{4}\sigma_\omega^2\tau^2}
+\end{align*}
+If we put our decoherence from decay back in:
+\begin{align*}
+	P &= \frac{N}{V} \mu \frac{1}{2} i\sin A_1 e^{i\omega t} e^{-\frac{1}{4}\sigma_\omega^2\tau^2 - \gamma \tau}
+\end{align*}
+So we see that $P$ will decay due to both the dynamic process associated with $\gamma$ and due to our static inhomogeneous distribution.
+
+We now seek to revere the decays due to the static inhomogeneous distrivution. If we apply a very sharp $\pi$ pulse at some future time $t_2$. This will essentially (ignoring z axis effects) flip our staes across the $x$ axis.
+After this the states will continue to precess. After another free evolution of time $t_2 - t_1$. If our second pulse ended at $t_3$ then this will occur at time $t = t_3 + t_2 - t_1$.
+Since polarization typically induces an optical field, we will see a sudden increase in our optical field some time after the $\pi$ pulse, which is why this is known as an echo.
+Mathematically we have:
+\begin{align*}
+	\bm{R}(t_2) &= \begin{pmatrix}
+		-\sin\delta\tau\sin A_1\\
+		\cos\delta\tau\sin A_1 \\
+		-\cos A_1
+		       \end{pmatrix} \\
+	\bm{R}(t_3) &= \begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & -1
+	\end{pmatrix}\bm{R}(t_2) \\
+		\bm{R}(t_3) &= \begin{pmatrix}
+			-\sin\delta\tau\sin A_1 \\
+			-\cos\delta\tau \sin A_1 \\
+			\cos A_1
+			       \end{pmatrix} \\
+	\bm{R}(t_4) &= \begin{pmatrix}
+		\cos\delta\tau & -\sin\delta\tau & 0 \\
+		\sin\delta\tau & \cos\delta\tau & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}\bm{R}(t_3) \\
+		\bm{R}(t_4) &= \begin{pmatrix}
+			0 \\
+			-\sin A_1 \\
+			\cos A_1
+			       \end{pmatrix}
+\end{align*}
+We can say at time $t_4$:
+\begin{align*}
+	P(t_4) &\propto \sin A_1 e^{i\omega (t_4 - t_1) - \gamma (t_4 - t_1)} + \text{c.c.}
+\end{align*}
+So then the decay of the amplitude is just determined by $\gamma$, and therefore we can use this to measure $\gamma$. This can also be used to do nuclear magnetic resonance imaging for medical applications.
+This can also reverse the effects of quasi-static fluctuations in quantum computers. This is often known as dynamical decoupling, and is accomplished by doing many $\pi$ pulses close together in time.
