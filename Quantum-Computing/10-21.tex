@@ -1,4 +1,4 @@
-The Trace operator can be cyclically permutted, proof:
+The Trace operator can be cyclically permuted, proof:
 \begin{align*}
 	\Tr{ABC} &= \sum_n \bra{n}ABC\ket{n}\\
 	\Tr{ABC} &= \sum_n \bra{n}A\sum_m\ket{m}\bra{m}BC\ket{n}\\
@@ -34,7 +34,7 @@ These density operators have 3 important properties:
 	\Tr{\rho} &= 1 &
 	\rho \geq 0
 \end{align*}
-The last criteria is equivalent to saying that all eignevalues are $\geq 0$. In fact any operator that has these properties is a valid density operator that can describe a (in general mixed) state. \\
+The last criteria is equivalent to saying that all eigenvalues are $\geq 0$. In fact any operator that has these properties is a valid density operator that can describe a (in general mixed) state. \\
 We can recognize that thermal states are mixed states:
 \begin{align*}
 	\rho &= \frac{1}{Z} \sum_n e^{-\beta E_n} \ket{E_n}\bra{E_n} &
@@ -50,7 +50,7 @@ Clearly we must have eigenvalues and eigenvectors described by $\{\ket{\phi_i}\}
 	P(\lambda_i) &= \lambda_i \Tr{P_i} \\
 	P(\lambda_i) &= \lambda_i
 \end{align*}
-So these eigenvalues must correspond to probabilities, and thus $\rho$ must be positive semi-defininte. \\
+So these eigenvalues must correspond to probabilities, and thus $\rho$ must be positive semi-definite. \\
 We know for a pure state (in a $D$ dimensional Hilbert space) we can describe this by $2D-2$. For our mixed state instead $D^2 -1$ ($2D^2$ parameters minus $D^2$ for Hermiticity and minus $1$ for the unit trace).\\
 Since all pure states can be represented by projectors, we can check if we are in a pure state, by checking if:
 \begin{align*}

@@ -10,10 +10,10 @@ We can saw that by rearranging our single qubit $\rho$ into the shape of a vecto
 	\Tr{\mathcal{L}(\rho)} &= 1 \\
 	\Tr{\mathcal{L}(\rho)} \geq 0
 \end{align*}
-Note that $\mathcal{L}$ need not be hermitian, it just must preserve the hermiticity of matricies it operators on. We can see that $\mathcal{L}$ has some $D^2\cross D^2$ representation.
+Note that $\mathcal{L}$ need not be hermitian, it just must preserve the Hermiticity of matrices it operators on. We can see that $\mathcal{L}$ has some $D^2\cross D^2$ representation.
 Looking at the first condition we see it restricts us to 12 real numbers.
 
-For pure states $\ket{\psi}_{AB}$, we say this is a product state iff $\exists \ket{\tilde{\psi}}_A,\ket{\tilde{\phi}}_B: \ket{\psi}_{AB} = \ket{\tilde{\psi}}_A \otimes\ket{\tilde{\phi}}_B$. Otherwise it is in an entangled state.
+For pure states $\ket{\psi}_{AB}$, we say this is a product state if and only if $\exists \ket{\tilde{\psi}}_A,\ket{\tilde{\phi}}_B: \ket{\psi}_{AB} = \ket{\tilde{\psi}}_A \otimes\ket{\tilde{\phi}}_B$. Otherwise it is in an entangled state.
 We measure the level entanglement via:
 \begin{align*}
 	\rho_A &= \Tr_B \ket{\psi}_{AB}\bra{\psi}_AB \\
@@ -31,14 +31,14 @@ We can test this by saying:
 	\tilde{\rho_B} &= \Tr_A \rho_{AB} \\
 	\rho_{AB} = \rho_A \otimes \rho_B &\to \text{Product}
 \end{align*}
-If this is not a product state it is still not necessarilly an entangled state. We say $\rho_{AB}$ is seperable iff:
+If this is not a product state it is still not necessarily an entangled state. We say $\rho_{AB}$ is separable if and only if:
 \begin{align*}
 	\rho_{AB} &= \sum_i p_i \rho_A^{(i)}\otimes \rho_B^{(i)} & 
 	\sum_i p_i &= 1
 \end{align*}
-While any non-seperable state is called an entangled state. Here product states are a type of seperable states.
+While any non-separable state is called an entangled state. Here product states are a type of separable states.
 
-Tests to determine if we are in a seperable state scale exponentially with the number of qubits. Alternatively we can have reasonable certainty in whether or not this is a seperable state by using a quantum measurement on our system.
+Tests to determine if we are in a separable state scale exponentially with the number of qubits. Alternatively we can have reasonable certainty in whether or not this is a separable state by using a quantum measurement on our system.
 
 We can instead say this is a sum over pure states:
 \begin{align*}
@@ -46,13 +46,13 @@ We can instead say this is a sum over pure states:
 \end{align*}
 
 We say that the set of all states $\rho_{AB}$ is a convex set, which means if $\rho_1$ and $\rho_2$ are in the set, then all linear combinations $p\rho_1 + (1-p)\rho_2$ are in the set for all $0\leq p \leq 1$.
-Clearly the set of seperable states much also be a convex set. It turns out that the set of entangled states is not a convex set, since the seperable states remove a convex section of our set, and not one that is on the border of our set.
+Clearly the set of separable states much also be a convex set. It turns out that the set of entangled states is not a convex set, since the separable states remove a convex section of our set, and not one that is on the border of our set.
 
-We can prove the entangled states are not convex by combining two entangled states to generate a seperable states:
+We can prove the entangled states are not convex by combining two entangled states to generate a separable states:
 \begin{align*}
 	\ket{\psi^\pm} &= \frac{1}{\sqrt{2}}\left(\ket{00} \pm \ket{00}\right) \\
 	\rho_{AB} &= \frac{1}{2} \ket{\psi^+}\bra{\psi^+} +\frac{1}{2} \ket{\psi^-}\bra{\psi^-} \\
 	\rho_{AB} &= \frac{1}{4}\left(2\ket{00}\bra{00} + 2\ket{11}\bra{11}\right) \\
 	\rho_{AB} &= \frac{1}{2} \unit
 \end{align*}
-Which is a seperable state constructed from two entangled states. Therefore the set of entangled state must not be convex. Additionally the boundry of our set of states are the pure states. Additionally we can find states that are mixtures of two states on the boundry.
+Which is a separable state constructed from two entangled states. Therefore the set of entangled state must not be convex. Additionally the boundary of our set of states are the pure states. Additionally we can find states that are mixtures of two states on the boundary.

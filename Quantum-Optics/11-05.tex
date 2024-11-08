@@ -1,7 +1,7 @@
 \subsection*{Review: Pump-probe spectroscopy}
-THe pump saturates the optical transition, and then the probe measures the effects of the saturation.
-For an inhomogeneously broadened system saturation occurse only for atoms near $\omega_a$, which is related to spectral hole burning at $\omega_a$. 
-We found thaat:
+The pump saturates the optical transition, and then the probe measures the effects of the saturation.
+For an inhomogeneously broadened system saturation occurs only for atoms near $\omega_a$, which is related to spectral hole burning at $\omega_a$. 
+We found that:
 \begin{align*}
 	\chi^{NL}(\omega_b) &= - \frac{2N}{V} \frac{\mu^2}{\epsilon_0\hbar} |\Omega_0|^2 \frac{\gamma}{2\gamma_2} \int \frac{g(\omega_0) d\omega_0}{(\delta_b - i\gamma)(\delta_a^2 + \gamma'\ ^2)} &
 	\gamma' &= \gamma\sqrt{1 + \frac{|\Omega_0^2}{\gamma\gamma_2}}
@@ -10,7 +10,7 @@ We define:
 \begin{align*}
 	z(\gamma) &= \frac{i}{\sqrt{\pi}} \int_{-\infty}^\infty \frac{dx}{ix + \gamma} e^{-\left(\frac{x}{\sigma_\omega}\right)^2}
 \end{align*}
-For $\gamma \ll \sigma_\omega$ we ccan say $z(\gamma) \approx i\sqrt{\pi}$, so:
+For $\gamma \ll \sigma_\omega$ we can say $z(\gamma) \approx i\sqrt{\pi}$, so:
 \begin{align*}
 	\int g(\omega_0) \frac{d\omega_0}{i(\omega_0 -\omega) + \gamma} &\approx \frac{1}{i\sigma_\omega} \frac{i}{\sqrt{\pi}} \int dx \frac{1}{ix + \gamma} e ^{-\left(\frac{x}{\sigma_\omega}\right)^2} \\
 	\int g(\omega_0) \frac{d\omega_0}{i(\omega_0 -\omega) + \gamma} &\approx \frac{1}{i\sigma_\omega} \frac{1}{i\sigma_\omega} z(\gamma)
@@ -19,7 +19,7 @@ Similarly:
 \begin{align*}
 	\int g(\omega_0) \frac{d\omega_0}{-i(\omega_0 -\omega) + \gamma} &\approx \frac{1}{i\sigma_\omega} \frac{1}{i\sigma_\omega} z^*(\gamma)
 \end{align*}
-By partial fraction decomp we can say:
+By partial fraction decomposition we can say:
 \begin{align*}
 	\frac{1}{i\delta_b + \gamma} \frac{1}{\delta_a^2 + \gamma'\ ^2} &= \left( \frac{1}{i\delta_n + \gamma} + \frac{1}{i\delta_a + \gamma'}\right)\frac{1}{i(\omega_a - \omega_b) + (\gamma + \gamma')}
 \end{align*}
@@ -36,7 +36,7 @@ So we say:
 So then the linewidth of our spectral hole is $2(\gamma + \gamma')$ If we measure $\Delta\alpha = -(\alpha_\text{pump-on} - \alpha_\text{pump-off})$, we see the linewidth we would expect, except with a sharp peak at $\omega_a$, which isn't predicted by this theory.
 We can get this back if we consider coherent wave mixing
 \subsection{Coherent pump probe coupling/wave mixing}
-We consider this problem more carefully(in the Shro pic) so:
+We consider this problem more carefully(in the Schrodinger pic) so:
 \begin{align*}
 	\dot{\rho}_{21} &= -\left(i\omega_0 + \gamma\right)\rho_{21} - \frac{i}{\hbar} \mu E(\rho_{11} - \rho_{22}) \\
 	\dot{\rho}_{22} &= -\gamma_2\rho_{22} + \left[ \frac{i}{\hbar}\mu E \rho_{12} + \text{c.c.}\right] 
@@ -47,13 +47,13 @@ We solve this to first order in $E_b$ and all orders for $E_a$. This expansion g
 	\dot{\rho}_{21}^{(1)} &= -\left(i\omega_0 + \gamma\right)\rho_{21}^{(1)} - \frac{i}{\hbar} \mu E_b(\rho_{11}^{(0)} - \rho_{22}^{(0)}) - \frac{i}{\hbar} \mu E_a(\rho_{11}^{(1)} - \rho_{22}^{(1)}) \\
 	\dot{\rho}_{22}^{(1)} &= -\gamma_2\rho_{22}^{(1)} + \left[ \frac{i}{\hbar}\mu E_a \rho_{12}^{(1)} + \text{c.c.}\right] + \left[ \frac{i}{\hbar}\mu E_b \rho_{12}^{(0)} + \text{c.c.}\right] 
 \end{align*}
-Where we now say the terms involving $E_a$ and $E_b$ in $\rho_{22}$ here are called the wave mixing terms. The prescence of such mixing terms are obvious since we would expect for our total electric field classically $|E|^2 = |E_a|^2 + |E_b|^2 + E_aE_b^* + E_bE_a^*$.
+Where we now say the terms involving $E_a$ and $E_b$ in $\rho_{22}$ here are called the wave mixing terms. The presence of such mixing terms are obvious since we would expect for our total electric field classically $|E|^2 = |E_a|^2 + |E_b|^2 + E_aE_b^* + E_bE_a^*$.
 \section{Coherent transient phenomena}
 We assume here that our interaction time is much much smaller than our decay processes. In this limit we can describe our process in terms of the Bloch equation:
 \begin{align*}
 	\partial_t \bm{R} &= \bm{\Omega}\cross\bm{R}
 \end{align*}
-\subsection{Pulse propogation and area theorems}
+\subsection{Pulse propagation and area theorems}
 For a CW field and in steady state we know:
 \begin{align*}
 	I &= I_0 e^{-\alpha z} &
@@ -66,12 +66,12 @@ We look at the pulse area, so:
 	\Omega_0 &= -\frac{\mu E_0}{\hbar} \\
 	E &= \frac{1}{2} E_0 e^{-i(\omega t - kz - \phi)} + \text{c.c.}
 \end{align*}
-Knowning all this we considerhow the pulse area propogates. To do so we look at a $2\pi$ pulse for a homogeneously broadened system.
+Knowing all this we consider how the pulse area propagates. To do so we look at a $2\pi$ pulse for a homogeneously broadened system.
 We know there must be no net absorption for this pulse, as the first half is absorbed and then the second half causes stimulated emission. This leads to the guess:
 \begin{align*}
 	\partial_z A(z) &= -\frac{1}{2}\alpha\sin A
 \end{align*}
-This surprisingly is true for inhomogenously broadened systems as well!
+This surprisingly is true for inhomogeneously broadened systems as well!
 
 We start to prove this by using the wave equations:
 \begin{align*}

@@ -1,5 +1,5 @@
 \subsection*{Some questions}
-Are all enstangled states in Hilbert spaces (even uncountable Hilbert spaces) non-convex? All countable Hilbert spaces are by the argument we made earlier, and uncountable spcaes neer show up in quantum mechanics (if it looks like they do it's an illusion).
+Are all entangled states in Hilbert spaces (even uncountable Hilbert spaces) non-convex? All countable Hilbert spaces are by the argument we made earlier, and uncountable spaces near show up in quantum mechanics (if it looks like they do it's an illusion).
 
 \subsection*{Back to our regularly scheduled programing}
 We know that there is a hyperplane of states that obey this equation, within our space of state:
@@ -7,7 +7,7 @@ We know that there is a hyperplane of states that obey this equation, within our
 	\Tr{\rho W} &= 0
 \end{align*}
 Where we can then say that this space is divided by this plane into the region where this trace is positive and the region where this state is negative.
-We can choose this operator such that the case where this trace is negative describes only entangled states, and all seperable states are described by the negative trace case.
+We can choose this operator such that the case where this trace is negative describes only entangled states, and all separable states are described by the negative trace case.
 
 We now look into how to construct such an operator $W$, which we will call a witness. 
 
@@ -20,8 +20,8 @@ This projector will clearly have eigenvalues of 0 and 1, and therefore this meas
 \begin{align*}
 	\alpha &= \text{max}_\text{sep} \Tr{\rho_\text{sep}P_{AB}}
 \end{align*}
-This describes the maximum value we can see for our overlap for any seperable state. Because the seperable states are convex, we only need to search the boundry of the set of seperable states to find the maximum.
-Similarly we need to look only at pure states because a mixed state will be a sum of e-vals. Therefore we can look at only pure seperable staets, which are product states!
+This describes the maximum value we can see for our overlap for any separable state. Because the separable states are convex, we only need to search the boundary of the set of separable states to find the maximum.
+Similarly we need to look only at pure states because a mixed state will be a sum of e-vals. Therefore we can look at only pure separable states, which are product states!
 
 Now we have the information we need to invent our witness, we can say our witness is defined as:
 \begin{align*}
@@ -33,7 +33,7 @@ Where we can clearly see:
 	\Tr{W\rho_\text{sep}} &\geq \alpha - \alpha \\
 	\Tr{W\rho_\text{sep}} &\geq 0
 \end{align*}
-So we know that we can come up wutg tgese witnesses, which will be able to identify some states as entangled.
+So we know that we can come up with these witnesses, which will be able to identify some states as entangled.
 
 For our next witness we start by just considering $\rho_A$. If we consider a matrix representation of our density operator:
 \begin{align*}
@@ -45,10 +45,10 @@ Now if we take a separable state and take the transpose of all the operators cor
 \begin{align*}
 	\rho_{AB}^{\ ^-|} &= \sum_i p_i\rho_A^{(i)}\ ^T \otimes \rho_B^{(i)}
 \end{align*}
-We now say that if $\rho_{AB}^{\ ^-|}$ has a negative eignevalue then this must be an entangled state! Clearly for seperable states this must not have any negative eigenvalues.
+We now say that if $\rho_{AB}^{\ ^-|}$ has a negative eigenvalue then this must be an entangled state! Clearly for separable states this must not have any negative eigenvalues.
 How do we know that we have some negative eigenvalues for some entangled states?
 
-We start by picking a basis, which we choose as the lexigraphic basis for a single qubit for $A$ and a single qubit for $B$. For a product state we can say:
+We start by picking a basis, which we choose as the lexicographic basis for a single qubit for $A$ and a single qubit for $B$. For a product state we can say:
 \begin{align*}
 	\rho_A &= \begin{pmatrix}
 		a & b \\
@@ -93,7 +93,7 @@ We now look at the following state:
 		-\frac{1}{2} & 0 & 0 & 0
 			     \end{pmatrix}
 \end{align*}
-This new operator clearly has eigenvalues of $\frac{1}{2}$ with associated staes $\ket{01}$, $\ket{10}$, and $\ket{00} - \ket{11}$ and $-\frac{1}{2}$ with associated eigenvector $\ket{00} + \ket{11}$.
+This new operator clearly has eigenvalues of $\frac{1}{2}$ with associated sates $\ket{01}$, $\ket{10}$, and $\ket{00} - \ket{11}$ and $-\frac{1}{2}$ with associated eigenvector $\ket{00} + \ket{11}$.
 
 We now make the claim, that given an entangled state $\rho_{AB}$ we can immediately construct a witness $W = \rho_{AB}^{\ ^-|}$ which will satisfy:
 \begin{align*}

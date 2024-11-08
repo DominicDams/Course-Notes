@@ -20,12 +20,12 @@ For constant $\delta$ and $\Omega_0$ we can solve this, and we find our solution
 \end{align*}
 \subsection{Adiabatic following continued}
 At a given time we can find instantaneous eigenstates, by solving the Hamiltonian at that point in time. In general the system will not stay in eigenstates, but in the case of adiabatic following it will. For adiabatic following we require that $\tilde{H}$ varies slowly, and that at $t=0$ we start in an instantaneous eigenstate. \\
-What do we mean when we say slowly varying? If we have e general time dependant Rabi frequency:
+What do we mean when we say slowly varying? If we have e general time dependent Rabi frequency:
 \begin{align*}
 	\Omega_0(t) &= |\Omega_0(t)| e^{i\varphi(t)} \\
 	\ket{\psi(t)} &= \tilde{c}_1 e^{i\frac{\omega t - \varphi(t)}{2}} \ket{1} + \tilde{c}_2 e^{-i \frac{\omega t - \varphi(t)}{2}} \ket{2}
 \end{align*}
-If we define our deturning:
+If we define our detuning:
 \begin{align*}
 	\delta(t) &= \omega_0 - \omega + \dot{\phi}(t)
 \end{align*}
@@ -47,7 +47,7 @@ We now move to the dressed state basis $H_d$, in the case of adiabatic following
 		    \end{pmatrix} \\
 	H_d &= U_d\tilde{H}U_d^\dagger - i\hbar U_d\dot{U}_d^\dagger
 \end{align*}
-If $U_d$ had no time dependance then $H_d$ will be diagonal, as $U_d$ is the operator that diagonalizes our instantaneous $\tilde{H}$. \\
+If $U_d$ had no time dependence then $H_d$ will be diagonal, as $U_d$ is the operator that diagonalizes our instantaneous $\tilde{H}$. \\
 We know that $U_d$ must be given by:
 \begin{align*}
 	U_d &= \begin{pmatrix}
@@ -90,21 +90,21 @@ We now calculate $\dot{\theta}$:
 	\frac{\dot{\delta}}{\omega^2} &\ll 1
 \end{align*}
 Which is exactly what we expect, plus another condition. \\
-If we now have a gaussian pulse with a a sigmoid detuning, we examine the evolution. At $t=-\infty$ we have opposite eigenstates than $t=\infty$, so we swap states over time in adiabatic following.
+If we now have a Gaussian pulse with a a sigmoid detuning, we examine the evolution. At $t=-\infty$ we have opposite eigenstates than $t=\infty$, so we swap states over time in adiabatic following.
 \subsection{Summary}
-RWA: rapid oscialations can be ignored when compared to slow oscillations.\\
-Rabi oscilations: $\pi$ pulses etc. \\
+RWA: rapid oscillations can be ignored when compared to slow oscillations.\\
+Rabi oscillations: $\pi$ pulses etc. \\
 Field interaction representation \\
 Semiclassical dressed states \\
 Adiabatic following \\
 \subsection{Decoherence and damping}
-So far we have focused on probability amplitudes and the Schroedinger equation to solve the two level system. Now we want to include damping and decoherence. We add population decay rates $\gamma_1$ and a spontaneous emmission rate $\gamma_2$. Our proposed ad-hoc solutions are all:
+So far we have focused on probability amplitudes and the Schrodinger equation to solve the two level system. Now we want to include damping and decoherence. We add population decay rates $\gamma_1$ and a spontaneous emission rate $\gamma_2$. Our proposed ad-hoc solutions are all:
 \begin{align*}
 	\partial_t c_2 &= -\frac{\gamma_1}{2} c_2  \\
 	\partial_t c_1 &= -\frac{\gamma_1}{2} c_1 \\
 	\partial_t c_1 &= \frac{\gamma_2}{2} c_2
 \end{align*}
-But our ad-hoc solution for spontaneous emission is wrong! We want to now handle the spontaneous emission properly and the deay of indecue diple coherence. 
+But our ad-hoc solution for spontaneous emission is wrong! We want to now handle the spontaneous emission properly and the decay of induced dipole coherence. 
 \begin{align*}
 	V &= -\bm{\mu}\cdot \bm{E} \\
 	\expval{\bm{\mu}} &= \expval{-e\bm{r}} \\
@@ -129,7 +129,7 @@ The basic properties of the density operator are (for pure states):
 	\hat{\rho}^2 &= \hat{\rho} \\
 	\expval{\hat{O}} &= \Tr{\hat{O}\hat{\rho}}
 \end{align*}
-The equivalent of the Schroedinger equation for the density operator is:
+The equivalent of the Schrodinger equation for the density operator is:
 \begin{align*}
 	\partial_t \hat{\rho} &= \frac{1}{i\hbar} \left(\hat{H}\hat{\rho} - \hat{\rho}\hat{H}\right) \\
 	\partial_t \hat{\rho} &= \frac{1}{i\hbar} [\hat{H},\hat{\rho}]

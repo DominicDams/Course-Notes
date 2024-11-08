@@ -1,11 +1,11 @@
-Here $w$ is the stimulated emisssion rate which is proportional to the intensity We know:
+Here $w$ is the stimulated emission rate which is proportional to the intensity We know:
 \begin{align*}
 	G_n &= \frac{N}{V} \frac{\mu^2|}{\epsilon_0\hbar}\omega_n \frac{\gamma}{\delta^2 + \gamma^2} \frac{\frac{\lambda_2}{\gamma_2} - \frac{\lambda_1}{\gamma_1}}{1 + \frac{w}{w_s}} \\
 	G_n &= \frac{G_{n0}}{1 + \frac{w}{w_s}}
 \end{align*}
 Where $G_{n0}$ is the small signal gain (i.e. the gain when $I$ goes to 0).
 
-For Laser operation we have a lasing threshold, which occurs when $G_{n0} = \kappa_n$, whcih happens at a specific value for the pumping rate $\lambda_\text{th}$.
+For Laser operation we have a lasing threshold, which occurs when $G_{n0} = \kappa_n$, which happens at a specific value for the pumping rate $\lambda_\text{th}$.
 Beyond this threshold we have gain saturation, i.e. as we increase the pumping rate our gain increases until we reach the lasing threshold at which it becomes constant.
 Once we pass the lasing threshold our intensity will scale approximately linearly with the input pumping.
 This implies the laser is an energy conversion device which converts the pumping energy to optical energy.
@@ -26,16 +26,16 @@ We now look at the self-consistency condition for our optical cavity. This requi
 	\Delta\omega &= 2\pi \frac{c}{2Ln_\text{eff}} \\
 	\Delta \nu &= \frac{c}{2Ln_\text{eff}}
 \end{align*}
-So we have modes seperated by $\Delta\omega$, which can effectively live within the cavity, and other modes dies off rapidly.
+So we have modes separated by $\Delta\omega$, which can effectively live within the cavity, and other modes dies off rapidly.
 \subsection{Gain Spectrum and mode competition}
-For homogeneously braodened systems our gain spectrum has a FWHM of $2\gamma$ about our central frequency $\omega_0$. This will typically be wider than $\Delta\omega$ so this looks like it can support multiple modes.
+For homogeneously broadened systems our gain spectrum has a FWHM of $2\gamma$ about our central frequency $\omega_0$. This will typically be wider than $\Delta\omega$ so this looks like it can support multiple modes.
 This is not that case though, because of gain saturation! 
 Only one mode  will have the maximum of the gain spectrum, and that mode will be able to achieve gain saturation, for all the other modes, they will not be able to reach gain saturation and will thus not experience lasing.
 As a result in the "free-market" competing for the gain, the mode with an inherent advantage will get all the gain.
 
 If we want multi-mode lasers, we have two options:\\
 1) A "socialist" market, where we take some gain from the strongest mode and give it to others\\
-2) "Trade bariers" which involves inhomogeneous broadening
+2) "Trade barriers" which involves inhomogeneous broadening
 
 For the inhomogeneously broadened systems, atoms have a distribution of resonance frequencies. The spectrum is much broader so we will expect to see many more potentially supported modes in the gain spectrum.
 The key difference here however is that atoms with different resonance frequencies interact strongly with different resonant modes, this means that gain saturation will occur only for the atoms that are resonant with that mode.
@@ -45,14 +45,14 @@ This allows for multimode operation when we have a strong enough pumping.
 In this chapter we covered mechanisms to achieve population inversion, the lasing threshold, gain saturation, mode competition and spectral hole burning.
 \section{CW pump-probe spectroscopy}
 Pump-probe spectroscopy is a technique used extensively in physics, chemistry and biology. In this technique we have a strong pump with frequency $\omega_a$ and a weak probe with frequency $\omega_b$ incident on the sample.
-In operation the pump excites the sample, and the probe measurems the optical response of the system. This lets you measure the energy level structe and dynamics of the system in question.
-This can be done in the steady state(CW) or transient regiem. It can also be done with a coherent or incoherent pump probe pair.
+In operation the pump excites the sample, and the probe measures the optical response of the system. This lets you measure the energy level structure and dynamics of the system in question.
+This can be done in the steady state(CW) or transient regime. It can also be done with a coherent or incoherent pump probe pair.
 
 Now looking at the incoherent pump probe system:\\
 In many applications the homogeneous broadening $2\gamma$ is a physically important parameter to measure, but is inaccessible since the system is experiencing inhomogeneous broadening.
 In order to bypass this we perform saturation spectroscopy which is based on spectral hole burning.
 
-We start with a strong pump at $\omega_a$ which excites atoms with $\omega_0\approx\omega_a$. This strong pump will cause absorption saturation (analagous to gain saturation) for these atoms, but not for atoms with $\omega_0$ away from $\omega_a$.
+We start with a strong pump at $\omega_a$ which excites atoms with $\omega_0\approx\omega_a$. This strong pump will cause absorption saturation (analogous to gain saturation) for these atoms, but not for atoms with $\omega_0$ away from $\omega_a$.
 The width of the hole we've burned is related to $\gamma$.
 
 Our scheme is therefore a two step process, we first calculate the population difference $\rho_{11} - \rho_{22}$ of the system excited by the pump, and then we calculate the absorption detected by the probe.

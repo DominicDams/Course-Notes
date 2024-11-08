@@ -6,11 +6,11 @@ The Hadamard gate defined:
 		1 & -1
 			 \end{pmatrix}
 \end{align*}
-Which is clearly self-adjoint and unitary, and physically corresponds to a $\pi$ rotation about the x+z axis of the bloch sphere. \\
-All 1-bit unitrary matricies can be represented with rotations. We choose to represent our rotations by Pauli matricies.\\
-Since the Hermitian matricies are the lie algebra of the associated lie group of Unitary matricies, we can generate our unitary matricies by exponentiating hermitian matricies.\\
-We choose our basis in terms of the Pauli matricies so $U = e^{-i\theta \bm{\sigma} \cdot \hat{n}}$. \\
+Which is clearly self-adjoint and unitary, and physically corresponds to a $\pi$ rotation about the x+z axis of the Bloch sphere. \\
+All 1-bit unitary matrices can be represented with rotations. We choose to represent our rotations by Pauli matrices.\\
+Since the Hermitian matrices are the lie algebra of the associated lie group of Unitary matrices, we can generate our unitary matrices by exponentiating hermitian matrices.\\
+We choose our basis in terms of the Pauli matrices so $U = e^{-i\theta \bm{\sigma} \cdot \hat{n}}$. \\
 Interestingly the momentum operator is the generator of translations, i.e. $e^{-i\bm{a}\cdot\bm{p}/\hbar}$. \\
 Additionally angular momentum generates rotations. \\
-Since operations are unitary, they are all reversable, therefore the only operations we perform with our quantum computer that aren't reversable are the initial setup (done by cooling) and the measurements. \\
-Our states can be asymetric, because they shift from the $\ket{1}$ state to the $\ket{0}$ state spontaneously while the opposite is not true.
+Since operations are unitary, they are all reservable, therefore the only operations we perform with our quantum computer that aren't reservable are the initial setup (done by cooling) and the measurements. \\
+Our states can be asymmetric, because they shift from the $\ket{1}$ state to the $\ket{0}$ state spontaneously while the opposite is not true.

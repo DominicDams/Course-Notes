@@ -10,14 +10,14 @@ In order to determine the complexity of our algorithm we need to know the value 
 	\bra{s'}\ket{s} &= \sqrt{\frac{2^N-1}{2^N}} \\
 	\bra{s'}\ket{s} &= \sqrt{1- \frac{1}{2^N}}
 \end{align*}
-Doing a small angle aproximation for sine and some trig we see:
+Doing a small angle approximation for sine and some trig we see:
 \begin{align*}
 	\cos\frac{\theta}{2} &= \sqrt{1-\frac{\theta^2}{4}}
 \end{align*}
 So $\theta = 2^{1 -\frac{N}{2}}$, so we need to do $\frac{\pi}{4} 2^\frac{N}{2}$. Thus we have a square root speed up, this of course doesn't move complexity classes.
 \subsection{Requirements for quantum computing}
 We know that any quantum computation can be broken down into CNOT gates and single qubit gates. But given that we cannot generate arbitrary single qubit gates, what gates do we need?\\
-If we have the gates CNOT, Hadamard, $X$, $Y$, and $Z$, we cannot generate any general computation. These gates generate the Clifford group and do not allow any general compution.\\
+If we have the gates CNOT, Hadamard, $X$, $Y$, and $Z$, we cannot generate any general computation. These gates generate the Clifford group and do not allow any general computation.\\
 With the addition of the $T$ gate then we can do any computation, we define the $T$ gate:
 \begin{align*}
 	T &= \begin{pmatrix}
@@ -25,11 +25,11 @@ With the addition of the $T$ gate then we can do any computation, we define the 
 		0 & e^{i\frac{\pi}{4}}
       \end{pmatrix}
 \end{align*}
-Since $X$, $Y$ and $Z$ are not independant so we can also drop one of them if we would like. \\
+Since $X$, $Y$ and $Z$ are not independent so we can also drop one of them if we would like. \\
 It turns out that computations done with the Clifford group can be simulated. \\
 You can test the ability of a quantum computer by taking a quantum circuit, replacing all $T$ gates with other gates, testing that it worked correctly (by comparing with simulations) and then running it again with the $T$ gates, which should be as difficult as other gates. \\
 \section{Noisy Quantum states}
-We know that for a quaantm computer we expect to have noisy states, noisy measurements, and noisy gates. For states and measurements we can understand what noise looks like fairly intuitively, even if the mathamatics can be a bit complicated. Unfortunately gates can be quite complex. \\
+We know that for a quantum computer we expect to have noisy states, noisy measurements, and noisy gates. For states and measurements we can understand what noise looks like fairly intuitively, even if the mathematics can be a bit complicated. Unfortunately gates can be quite complex. \\
 we assume we have a Hilbert space of dimension $D$. We say our states are represented by normalized kets in our space. We now generalize this by saying these kets represent pure states. \\
 The bras additionally are our covectors, which linearly map kets into complex numbers. Writing something of the form $\ket{\psi}\bra{\psi}$, this is an operator, which will linearly map kets to kets.\\
 If we choose a basis we can represent an operator as a decomposition:
@@ -39,10 +39,10 @@ If we choose a basis we can represent an operator as a decomposition:
 	O_{nm} &= \bra{n}\hat{O}\ket{m}
 \end{align*}
 For instance the not gate can be written $\ket{1}\bra{0} + \ket{0}\bra{1}$. \\
-Given a basis, $\{\ket{n}\}$ we say it is orthonormal, iff $\bra{n}\ket{m} = \delta_{nm}$. We also require completeness for our basis in the form $\sum_n \ket{n}\bra{n} = 1$.\\
+Given a basis, $\{\ket{n}\}$ we say it is orthonormal, if and only if $\bra{n}\ket{m} = \delta_{nm}$. We also require completeness for our basis in the form $\sum_n \ket{n}\bra{n} = 1$.\\
 We now generalize our pure states by saying that we can instead represent them by an operator $\ket{\psi}\bra{\psi}$. In fact anything we can determine from a ket can be derived from an operator.\\
 One immediate advantage is global phases are immediately dropped by these operators (we call these density operators). This pure state density operator is a projector, i.e. $\rho^2 = \rho$. \\
-The trace of a matrix is independant of the basis chosen. For two different basis sets, labeled $m$ and $n$:
+The trace of a matrix is independent of the basis chosen. For two different basis sets, labeled $m$ and $n$:
 \begin{align*}
 	\Tr{A} &= \sum_m \bra{m}A\ket{m} \\
 	\Tr{A} &= \sum_m \bra{m}A\sum_n \ket{n}\bra{n}\ket{m} \\

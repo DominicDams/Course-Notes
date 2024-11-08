@@ -1,6 +1,6 @@
 \section{Overview}
 Quantum Computers are slower overall but with better asymptotic complexity. \\
-There are many kinds of quantum computers (Superconducting, vacancy center, traped ion, photonic). \\
+There are many kinds of quantum computers (Superconducting, vacancy center, trapped ion, photonic). \\
 Peter Shor showed that you can factorize large products of primes can be computed faster on a quantum computer. \\
 IBM was one of the first companies to try and build a quantum computer. \\
 \subsection{Why Quantum Computers}
@@ -15,8 +15,8 @@ Measurement only gives us $N$ bits of information on the output, therefore we ki
 \section{Classical Computing}
 \subsection{Computation as a physical process}
 All information used by a classical computer is stored as a sequence of zeroes and ones. These two must be physically different. In a classical computer we typically store a zero by a low voltage, and a 1 by a high voltage (these voltages should be quite different). This can done by switching between $100 \Sigma$ and $10k\Sigma$ resistances. \\
-For a single bit we can construct four distinct gates. Of these two of these are reversable and two are irreversable. These gates can be represented by truth tables.\\
-A reversable gate may be the not gate.
+For a single bit we can construct four distinct gates. Of these two of these are reservable and two are irreversible. These gates can be represented by truth tables.\\
+A reversible gate may be the not gate.
 \begin{displaymath}
 \begin{array}{| c | c |}
 	\text{in} & \text{out} \\
@@ -25,7 +25,7 @@ A reversable gate may be the not gate.
 	1 & 0
 \end{array}
 \end{displaymath}
-An irreversable gate may be a zero gate:
+An irreversible gate may be a zero gate:
 \begin{displaymath}
 \begin{array}{| c | c |}
 	\text{in} & \text{out} \\
@@ -34,7 +34,7 @@ An irreversable gate may be a zero gate:
 	1 & 0
 \end{array}
 \end{displaymath}
-This is thermodynamically irreversable as the zero gate lowers the entropy. Since entropy should increase then in order to do this operation we must produce heat elsewhere.
+This is thermodynamically irreversible as the zero gate lowers the entropy. Since entropy should increase then in order to do this operation we must produce heat elsewhere.
 \begin{align*}
 	\Delta Q &= k_B T\ln Z
 \end{align*}
@@ -51,11 +51,11 @@ Moving on to two-bit gates. We first look at:
 \end{array}
 \end{displaymath}
 How many 2-bit gates are there? \\
-There are $256$ total gates ($4^4$) and then $24$ reversable gates  ($4!$ aka the number of permutations of the gates). Product operations make up $16$ total states and $4$ reversable states. Any computation can be constructed from single bit and controled not gates. \\
-You can do classical computations reversably? This can be done by storing some of the input as the output, i.e. $2 \cross 5 = 10,2$. For generalized computation we will need all the reversable single bit gates and the controlled controlled not. \\
-In a quantum computer all gates must be reversable. On a quantum computer you only need single bit gates, controlled nots and measurements.
+There are $256$ total gates ($4^4$) and then $24$ reversible gates  ($4!$ aka the number of permutations of the gates). Product operations make up $16$ total states and $4$ reversible states. Any computation can be constructed from single bit and controlled not gates. \\
+You can do classical computations reversibly? This can be done by storing some of the input as the output, i.e. $2 \cross 5 = 10,2$. For generalized computation we will need all the reversible single bit gates and the controlled controlled not. \\
+In a quantum computer all gates must be reversible. On a quantum computer you only need single bit gates, controlled nots and measurements.
 \subsection{Complexity classes}
-A complexity class determines the scaling of an algorithm as the input asymptotically increases. This is typically thought of in terms of the aveage, or worst case complexity. We don't include any prefactos here. \\
+A complexity class determines the scaling of an algorithm as the input asymptotically increases. This is typically thought of in terms of the average, or worst case complexity. We don't include any prefactors here. \\
 Example: schoolyard multiplication scales as $O(n^2)$ \\
 Simulating a quantum system grows exponentially. \\
-Example: For a databse with n elements, sorting the database can be done using the simole swapping method. For an upper bound we can say it takes $n^2$ assuming that we do a sort of insertion sort. For a lower bound we assume the list is already sorted, so the complexity must be between $O(n^2)$ and $O(n)$
+Example: For a database with n elements, sorting the database can be done using the simple swapping method. For an upper bound we can say it takes $n^2$ assuming that we do a sort of insertion sort. For a lower bound we assume the list is already sorted, so the complexity must be between $O(n^2)$ and $O(n)$

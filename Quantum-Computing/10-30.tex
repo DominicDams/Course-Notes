@@ -1,16 +1,16 @@
-We can in principle measure multiple expectation values with a single circuit, assuming that these expectation values are somehow compatable. \\
+We can in principle measure multiple expectation values with a single circuit, assuming that these expectation values are somehow compatible. \\
 We have so far said that we only take into account the valence electrons and coulomb interactions for our model so far. Looking at the relativistic corrections, we say these tend to be of $O(\alpha^2)$.
 If we say our coulomb energies are $~1-10$ eV, our correction is then $~10^{-4}$ eV. If we consider the thermal energy at room temperature we have $k_B T~0.0026$ eV, so variations below this are not physically relevant for our models.
 Therefore we can ignore our relativistic corrections for applications in quantum chemistry.
 \subsection{Noisy quantum measurements}
-How do we describe noisy measurements on quantum computers? We start by modeling our measurement by saying we start by connecting our system S to a larger quantum system M and then doing a measurement on M. This measuremnt will be an ideal projective measurement.
+How do we describe noisy measurements on quantum computers? We start by modeling our measurement by saying we start by connecting our system S to a larger quantum system M and then doing a measurement on M. This measurement will be an ideal projective measurement.
 For an ideal measurement on a pure state, with an operator $O$ that satisfies $O\ket{\phi_i} = \lambda_i \ket{\phi_i}$. We will get the measurement result $\lambda_i$ with probability $|\bra{\phi_i}\ket{\psi}|^2$.
 In the language of density operators we would say we have a set of projectors $P_i = \ket{\phi_i}\bra{\phi_i}$, and we get the result $\lambda_i$ with probability $\Tr{\rho P_i}$.
 
-We now generalize the measurements, we say we get the result asssociated with the nth measurement result with probability $\Tr{\rho\Pi_n}$. We call these positive-operator valued measures (not measurements!).
-We require that our POVMs are both Hermitian $\Pi_n^\dagger = \Pi_n$, and $\Pi_n \geq 0$. We also have the requirement that all probabilities sum to one, which can only be satiesfied if $\sum_n \Pi_n = \unit$.
+We now generalize the measurements, we say we get the result associated with the nth measurement result with probability $\Tr{\rho\Pi_n}$. We call these positive-operator valued measures (not measurements!).
+We require that our POVMs are both Hermitian $\Pi_n^\dagger = \Pi_n$, and $\Pi_n \geq 0$. We also have the requirement that all probabilities sum to one, which can only be satisfied if $\sum_n \Pi_n = \unit$.
 
-We turn our attention to a qunit represented by an atom. We look at the states $\ket{0}$ and $\ket{1}$ as our two qubit states, and we say that there is also a third state $\ket{2}$ which is not part of our qubit. If we look at the three states:
+We turn our attention to a qubit represented by an atom. We look at the states $\ket{0}$ and $\ket{1}$ as our two qubit states, and we say that there is also a third state $\ket{2}$ which is not part of our qubit. If we look at the three states:
 \begin{align*}
 	\ket{a} &= \frac{1}{\sqrt{2}} \left(\ket{0} - \ket{2}\right) \\
 	\ket{b} &= \frac{1}{\sqrt{3}} \left(\ket{0} + \ket{1} + \ket{2}\right) \\
@@ -28,7 +28,7 @@ Applying this to our projectors for the system above we find:
 	\Pi_c &= \frac{5}{6} \left(\frac{\ket{0} - 2\ket{1}}{\sqrt{5}}\right)\left(\frac{\bra{0} - 2\bra{1}}{\sqrt{5}}\right)
 \end{align*}
 The sum of these POVMs is $\unit_\text{sub}$. After these measurement we now consider what the state is after measurement. It clearly doesn't work in the same way as our projective measurements from before.
-We get no information about eignevalues from this measurement, and the state coming out is quite confusing, as if we projected into our measurement outcome state, we would move out of the subspace of our Hilbert space we've been working in.
+We get no information about eigenvalues from this measurement, and the state coming out is quite confusing, as if we projected into our measurement outcome state, we would move out of the subspace of our Hilbert space we've been working in.
 
 If we have a noisy quantum computer we will have a pair of POVMs that are approximately our projectors, i.e. $\Pi_0 \approx P_0$ and $\Pi_1 \approx P_1$. 
 If we consider a measurement where there's a probability that the state $\ket{1}$ spontaneously decays to $\ket{0}$, we can model this with: $\Pi_1 = (1-\epsilon)P_1$ and $\Pi_0 = \epsilon P_1 + P_0$.

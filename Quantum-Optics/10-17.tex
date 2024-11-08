@@ -5,7 +5,7 @@ From now on, we will be assuming we're working in the rotating frame so we'll sa
 	\bm{\Omega} &= (\Omega_0',-\Omega_0'',\delta) \\
 	\Omega_0 &= \Omega_0' + i\Omega_0''
 \end{align*}
-We look at the first derivitve of our Bloch vector in component form now:
+We look at the first derivative of our Bloch vector in component form now:
 \begin{align*}
 	\dot{\tilde{u}} &= -\delta\tilde{v} - \Omega_0''w \\
 	\dot{\tilde{v}} &= \delta \tilde{u} - \Omega_0' w \\
@@ -22,8 +22,8 @@ If we instead look at constant and real $\Omega_0$:
 \begin{align*}
 	\bm{\Omega} &= (\Omega_0,0,\delta)
 \end{align*}
-We can choose $\delta = 0$, so then we have rotation about the $\tilde{u}$ axis. Starting in the $\ket{1}$ state corresponds to a Bloch vector $\bm{R} = (0,0,-1)$. This will then precess about the $\tilde{u}$ axis, which corresponds to Rabi oscilations. \\
-If we instead consider a real, time dependant $\Omega_0$ and choose $\delta = 0$, we can see that as before:
+We can choose $\delta = 0$, so then we have rotation about the $\tilde{u}$ axis. Starting in the $\ket{1}$ state corresponds to a Bloch vector $\bm{R} = (0,0,-1)$. This will then precess about the $\tilde{u}$ axis, which corresponds to Rabi oscillations. \\
+If we instead consider a real, time dependent $\Omega_0$ and choose $\delta = 0$, we can see that as before:
 \begin{align*}
 	A(t) &= \int_0^t \Omega_0(t') dt'
 \end{align*}
@@ -35,7 +35,7 @@ This will be a rotation about the $\tilde{u}$ axis, which is not at a constant r
 		0 & \sin\Omega_0t & \cos\Omega_0 t
 	\end{pmatrix} \bm{R}
 \end{align*}
-If we instead start with a complex $\Omega_0$, but choose our detuning to still be zero, we then can see this corresponds to a rotation about an axis in the $\tilde{u}-\tilde{v}$ frame, which will still give us Rabi oscilations.\\
+If we instead start with a complex $\Omega_0$, but choose our detuning to still be zero, we then can see this corresponds to a rotation about an axis in the $\tilde{u}-\tilde{v}$ frame, which will still give us Rabi oscillations.\\
 Now we look at constant, real $\Omega_0$ but $\delta \neq 0$, so our rotation will be about an axis in the $\tilde{u}-\tilde{w}$ plane. This will be an angle $\phi$ above the $\tilde{u}$ axis, where:
 \begin{align*}
 	\tan\phi &= \frac{\delta}{\Omega_0} & \sin\phi &= \frac{\delta}{\Omega}
@@ -58,7 +58,7 @@ In order to simplify this we rotate our frame, apply the rotation we derive from
 			-\sin\phi & 0 & \cos\phi
 		\end{pmatrix} \bm{R}(0)
 \end{align*}
-In the sepecial case where $\tilde{u}(0) = \tilde{v}(0)$:
+In the special case where $\tilde{u}(0) = \tilde{v}(0)$:
 \begin{align*}
 	\tilde{u} (t) &= \frac{\Omega_0\delta}{\Omega^2}w(0)\left[1-\cos\Omega t\right] \\
 	\tilde{v} (t) &= -\frac{\Omega_0}{\Omega}w(0)\sin\Omega t \\
@@ -69,7 +69,7 @@ Without the decay term, we have our dynamics described by the Bloch equation:
 \begin{align*}
 	\partial_t \bm{R} &= \bm{\Omega} \cross \bm{R}
 \end{align*}
-If we now add decay terms to the systeam, we say:
+If we now add decay terms to the system, we say:
 \begin{align*}
 	\dot{\rho}_{12} &= -\gamma\rho_{12}
 \end{align*}
@@ -89,8 +89,8 @@ We then say:
 	\dot{w} &= -\gamma_2 w - \gamma_2 &
 	\dot{w} &= -\gamma_2 (w +1)
 \end{align*}
-Which implies that the steady state solution for this is our entire sysyem in the lower state. \\
-Quick review of NMR termonology:
+Which implies that the steady state solution for this is our entire system in the lower state. \\
+Quick review of NMR terminology:
 \begin{align*}
 	\bm{R}_\perp &= \frac{1}{2}\rho_{12} \\
 	\gamma\text{: Transverse relaxation rate(NMR)} &= \text{Decoherence rate(AMO)} \\
@@ -110,5 +110,5 @@ In this picture the adiabatic condition is that $\Omega$ varies slowly (compared
 \end{align*}
 This can be described as a fixed cone following around $\bm{\Omega}$ on which our Bloch vector $\bm{R}$ must always lie. In other words this cone has a constant cone angle $\theta$. \\
 We now again turn our attention to the Lanau-Zener crossing. We know at $t=-\infty$, $\bm{\Omega} = (0,0, \delta_{-\infty}$ (with $\delta_{-\infty} > 0$. Choosing initial conditions such that $\bm{R} = -\hat{w}$. Therefore our Bloch vector is anti-parallel to $\Omega$.\\
-Now looking at $t=0$, $\bm{\Omega} = (\Omega_0,0,0)$ so $\bm{R} = -\hat{u}$. This is because in adiabatic follwing we expect this to stay on the same cone (in this case $\theta = \pi$).\\
+Now looking at $t=0$, $\bm{\Omega} = (\Omega_0,0,0)$ so $\bm{R} = -\hat{u}$. This is because in adiabatic following we expect this to stay on the same cone (in this case $\theta = \pi$).\\
 Finally looking at $t=\infty$, $\bm{\Omega} = (0,0,\delta_\infty)$ (with $\delta_\infty < 0$), so $\bm{R} = \hat{w}$.

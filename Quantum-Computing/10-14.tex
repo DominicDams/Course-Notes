@@ -1,13 +1,13 @@
 \subsection{State estimation}
 Working in the $\ket{0}$, $\ket{1}$ basis, a measurement of the state $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$, gives us $0$ with probability $|\alpha|^2$ and $1$ with probability $|\beta|^2$.\\
-Conventional quantum computers only let you do meaurements in 1 basis (typically z). In order to do an arbitrary measurement we need a gate that maps our states we want to measure onto the states we can measure.
+Conventional quantum computers only let you do measurements in 1 basis (typically z). In order to do an arbitrary measurement we need a gate that maps our states we want to measure onto the states we can measure.
 \subsection{Entanglement}
 When looking at more than one qubit we encounter the phenomena of entanglement. \\
 We write our state in the order $\ket{\psi_2 \psi_1 \psi_0}$, in order to be able too write our states in binary such that:
 \begin{align*}
 	\ket{n} &= \prod_j \left(\left\lfloor\frac{n}{2^j}\right\rfloor \mod 2\right)\ket{1_n} + \left(\left\lfloor\frac{n}{2^j}\right\rfloor + 1 \mod 2\right)\ket{0_n}
 \end{align*}
-We can have product states defined by $\ket{\psi_1}\otimes\ket{\psi_0} = \ket{\psi_1\psi_0}$. Not all states can ve written as a product state. \\
+We can have product states defined by $\ket{\psi_1}\otimes\ket{\psi_0} = \ket{\psi_1\psi_0}$. Not all states can be written as a product state. \\
 An example of a product state that isn't immediately obvious is $\frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{01} = \ket{0} \otimes \ket{+}$ \\
 An entangled state is one that can not be written as a product state, ex. $\ket{\psi} = \frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{11}$. \\
 How many real parameters describe N product states? $2N$\\
@@ -81,7 +81,7 @@ This can be written as a unitary matrix:
 	U_\omega\ket{x} &= \ket{x} - 2\ket{\omega}\bra{\omega}\ket{x} \\
 	U_\omega &= 1 - 2\ket{\omega}\bra{\omega}
 \end{align*}
-We pick two special vectors in our hilbert space (which is in general $2^{N+1} -2$ dimensional). By dealing with only these two states we simplify to a 2-D space. Our states are:
+We pick two special vectors in our Hilbert space (which is in general $2^{N+1} -2$ dimensional). By dealing with only these two states we simplify to a 2-D space. Our states are:
 \begin{align*}
 	\ket{s} &= \frac{1}{2^\frac{N}{2}} \sum_x \ket{x} \\
 	\ket{s'} &= \frac{1}{\sqrt{2^N-1}} \sum_{x\neq\omega} \ket{x}

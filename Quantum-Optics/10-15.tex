@@ -16,7 +16,7 @@ Now looking at $\rho_{12}$:
 	i\hbar \dot{\rho}_{12} &= -\hbar\omega_0 \rho_{12} + \frac{\hbar}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11}) \\
 	\dot{\rho}_{12} &= i\omega_0 \rho_{12} - \frac{i}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11})
 \end{align*}
-Now how do we add a decay process to our equation? Assume we have two systems, system A is the two level system with an optical field like we are used to. System B is the rest of the universe, including vaccuum fluctuations, lattice vibrations, atomic collisions, etc.\\
+Now how do we add a decay process to our equation? Assume we have two systems, system A is the two level system with an optical field like we are used to. System B is the rest of the universe, including vacuum fluctuations, lattice vibrations, atomic collisions, etc.\\
 These two systems are coupled so we can say our Hamiltonian is therefore $H = H_A + H_B + V_{AB}$. If we can solve this we can say:
 \begin{align*}
 	\ket{\psi} &= \sum_{n_A,n_B} c_{n_A,n_B} \ket{n_A}\otimes\ket{n_B}
@@ -25,7 +25,7 @@ We can say our density operator is then:
 \begin{align*}
 	\hat{\rho} &= \sum_{n_A,n_B,m_A,m_B} c_{n_A,n_B}c_{m_A,m_B}^* \ket{m_Am_B}\bra{n_An_B}
 \end{align*}
-Of course we don't know how to solve the schroedinger equation for the entire universe! Luckily that information isn't important to us. In fact it turns our we don't need that information, we get rid of that information in our model by using a partial trace:
+Of course we don't know how to solve the Schrodinger equation for the entire universe! Luckily that information isn't important to us. In fact it turns our we don't need that information, we get rid of that information in our model by using a partial trace:
 \begin{align*}
 	\rho^A &= \Tr_B\left\{\hat{\rho}\right\} \\
 	\rho^A &= \sum_{l_B} \bra{l_B}\hat{\rho}\ket{l_B} \\
@@ -64,8 +64,8 @@ So:
 	\dot{\rho}_{12} &= i\omega_0 \rho_{12} - \frac{i}{2}\Omega_0^* e^{i\omega t} (\rho_{22} - \rho_{11}) -\left(\frac{\gamma_2}{2} + \Gamma\right)\rho_{21} \\
 	\dot{\rho}_{22} &= -\dot{\rho}_{11}
 \end{align*}
-\subsection{Linblad master equation}
-We can write our density matricx in several representations. In the interaction representation:
+\subsection{Lindbladd master equation}
+We can write our density matrix in several representations. In the interaction representation:
 \begin{align*}
 	\bar{\rho}_{11} &= \rho_{11} \\
 	\bar{\rho}_{22} &= \rho_{22} \\
@@ -92,7 +92,7 @@ Again we see:
 	\dot{\tilde{\rho}}_{21} &= i\omega\tilde{\rho}_{21} + e^{i\omega t} \dot{\rho}_{21} \\
 	\dot{\tilde{\rho}}_{21} &= -i(\omega_0-\omega)\tilde{\rho}_{21} + \frac{i}{2} \Omega_0 (\rho_{22} - \rho_{11}) -\gamma\tilde{\rho}_{21}
 \end{align*}
-Alternatively we could have derived these directly from the Hamiltonian (exluding the ad-hoc decay terms we added). These decay terms are the same in all our common pictures other than the dressed state basis.
+Alternatively we could have derived these directly from the Hamiltonian (excluding the ad-hoc decay terms we added). These decay terms are the same in all our common pictures other than the dressed state basis.
 \subsection{Bloch vectors and Bloch equations}
 Originally these terms come from NMR.\\
 Consider the a nucleus with angular momentum $\bm{J}$ in a magnetic field $\bm{B}$. The magnetic moment of this nucleus is $\bm{\mu} = \gamma_B \bm{J}$. We know from classical mechanics that this will cause a precession of $\bm{J}$ around $\bm{B}$.
@@ -104,7 +104,7 @@ So our rate of precession becomes $\omega_B = \gamma_B B$. In the quantum versio
 \begin{align*}
 	V &= -\bm{\mu}\cdot\bm{B}
 \end{align*}
-For a spin $\frac{1}{2}$ nucleous $\bm{J} = \frac{\hbar}{2}\bm{\sigma}$. If we put the $\bm{B}$ field in the z direction then we can say:
+For a spin $\frac{1}{2}$ nucleus $\bm{J} = \frac{\hbar}{2}\bm{\sigma}$. If we put the $\bm{B}$ field in the z direction then we can say:
 \begin{align*}
 	V &= -\frac{\hbar}{2}\gamma_B B \sigma_z
 \end{align*}
@@ -112,7 +112,7 @@ This forms a two level system with a frequency $\omega_0 = \gamma_B B$. What hap
 \begin{align*}
 	\rho_{12} &= \rho_{12}(0) e^{i\omega_0 t}
 \end{align*}
-It appears this procession is related to the evoltion of our coherence (or dipole)! \\
+It appears this procession is related to the evolution of our coherence (or dipole)! \\
 We make this clear by defining our Bloch vector:
 \begin{align*}
 	\bm{R} &= (u,v,w) \\

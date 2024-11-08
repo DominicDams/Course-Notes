@@ -19,15 +19,15 @@ If we start with a family of states $\ket{\psi(s)}$ we can then state that:
 	\text{min}_S E(s) \geq E_g
 \end{align*}
 This is better than picking a random state, but gives us no guarantee that we will be close to the actual ground energy. So we need a method of picking a good family of states. \\
-We can see that we need something smart, since a bad family will give us a very bad result. For example looking at the Hydrogen atom, if we choos the family:
+We can see that we need something smart, since a bad family will give us a very bad result. For example looking at the Hydrogen atom, if we choose the family:
 \begin{align*}
 	\bra{x,y,z}\ket{\psi(s)} &= N_s \cos sx \sin sy \cos sz e^{-s|y|}
 \end{align*}
 We can see that this function has many issues. First it doesn't have the right symmetries, second it isn't normalizable, and third, while we expect there to be zero "nodes" in the ground state, this has an infinite number of nodes. 
-Better guesses are both the Gaussian states and the exponential decay states. Our algorithm will require us to invent a good set of states classicaly as input. Additionally we need to translate the Hamiltonian into a Hamiltonian that acts on a state of N qubits.\\
-In order to do this we invent a set of states and indicate ocupation of a given state as a $1$ and the lack of ocupation as $0$. We also say there should be some number of occupied states in our system (i.e we can have 18 states where 6 are filled). 
+Better guesses are both the Gaussian states and the exponential decay states. Our algorithm will require us to invent a good set of states classically as input. Additionally we need to translate the Hamiltonian into a Hamiltonian that acts on a state of N qubits.\\
+In order to do this we invent a set of states and indicate occupation of a given state as a $1$ and the lack of occupation as $0$. We also say there should be some number of occupied states in our system (i.e we can have 18 states where 6 are filled). 
 We can then calculate our Hamiltonian for each of our occupied states (and their interactions with other occupied states). Once this is done we can convert this into a Hamiltonian to be used with our quantum computer. \\
-Given an example hamiltonian $H = E(\sigma_z\sigma_z - \frac{1}{2}\sigma_x\sigma_x)$, we have a circuit: \\
+Given an example Hamiltonian $H = E(\sigma_z\sigma_z - \frac{1}{2}\sigma_x\sigma_x)$, we have a circuit: \\
 \begin{quantikz}
 & \gate{H} & \ctrl{1} & \\
 & \gate{H} & \ctrl{-1} &

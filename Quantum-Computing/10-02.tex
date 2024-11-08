@@ -6,12 +6,12 @@ The next set of complexities is $N-P$, which emits solutions that can be verifie
 Whether or not there is a difference between $P$ and $N-P$ is an unsolved problem (though intuitively they should be different). \\
 Inside NP there is a set of problems known as $N-Pc$ or $NP$ complete, which map to all other $N-P$ problems in polynomial time, i.e. if any $N-Pc$ problem was solved in polynomial time, then all $N-P$ problems can be solved in polynomial time. \\
 The SAT problem is inside $N-Pc$. This problem requires satisfying a set of boolean statements by choosing the correct set of input values. Clearly this can map to any problem in some polynomial time. \\
-3-SAT is also in $N-Pc$ but the boolean statesments only contain at most 3 variables in each equation. \\
+3-SAT is also in $N-Pc$ but the boolean statements only contain at most 3 variables in each equation. \\
 2-SAT is instead in $P$. \\
 Traveling salesman is in $N-Pc$. \\
 We now introduce a new complexity set, this is $BQP$, bounded error probability quantum polynomial, which takes polynomial time to solve on a quantum computer with a bounded error probability. \\
-We typically have error probibilities less than $30\%$, which means we may need to run the algorithm multiple times to get the correct answer. \\
-This includs things like the discrete log problem and factoring. \\
+We typically have error probabilities less than $30\%$, which means we may need to run the algorithm multiple times to get the correct answer. \\
+This includes things like the discrete log problem and factoring. \\
 Simulating a quantum system cannot be verified efficiently on a classical computer so any quantum system can be in $BQP$ but not in $NP$. \\
 \section{Quantum Computing}
 When moving to quantum computing we replace our binary $0$ and $1$ with quantum states $\ket{0}$ and $\ket{1}$, as our basis. We call these qubits. \\

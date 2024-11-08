@@ -8,23 +8,23 @@ We can instead say:
 \begin{align*}
 	\bm{R} &= \Tr{\rho\bm{\sigma}}
 \end{align*}
-But this definition has a diiferent sign attached to $v$ and $w$.
-\subsection{Inhomogenous broadening}
-So far we have assumed that all the two level systems we are looking at have the same transitional frequency $\omega_0$. This is known as homogenous broadening. I.e. we look at the width of our absorption graph, all atoms have the same linewidth $\gamma$.
+But this definition has a different sign attached to $v$ and $w$.
+\subsection{Inhomogeneous broadening}
+So far we have assumed that all the two level systems we are looking at have the same transitional frequency $\omega_0$. This is known as homogeneous broadening. I.e. we look at the width of our absorption graph, all atoms have the same linewidth $\gamma$.
 What we usually see in real systems is that these transition frequencies vary from atom to atom. This can be caused by many different effects.
 
-We first consider the broadening caused by the Doppler shift from the motion of the atoms, this is known as doppler broadening. From the perspective of a moving atom, the frequency of the incident optical field is shifted: $\omega \to \omega - \bm{k}\cdot\bm{v}$.
+We first consider the broadening caused by the Doppler shift from the motion of the atoms, this is known as Doppler broadening. From the perspective of a moving atom, the frequency of the incident optical field is shifted: $\omega \to \omega - \bm{k}\cdot\bm{v}$.
 Therefore the detuning seen by the atom will now be $\delta = \omega_0 - (\omega - \bm{k}\cdot\bm{v})$ but we can rewrite this as $\delta = (\omega_0 + \bm{k}\cdot\bm{v}) - \omega$.
 This means that from the perspective of the lab, the frequency of the transition is shifted by $\omega_0 \to \omega_0 + \bm{k}\cdot\bm{v}$. As a result of the motions of the atoms causing these shifts, we now have a distribution of frequencies $\omega_0$,
 and we see then that this causes our absorption spectrum to become broader.
 
 Looking instead at atomic ions in a crystal (e.x. color centers in diamonds). Due to imperfections in the crystal the environments around each atom is different (could be electric fields or mechanical strains).
-These different local imperfections lead to different transition frequencies $\omega_0$. This distribution is typically gaussian:
+These different local imperfections lead to different transition frequencies $\omega_0$. This distribution is typically Gaussian:
 \begin{align*}
 	g(\omega_0) &= \frac{1}{\sigma_\omega \sqrt{\pi}} e ^{-\frac{(\omega_0 - \bar{\omega}_0)^2}{\sigma_\omega^2}}
 \end{align*}
-(Note: this gaussian is essentially single tailed, i.e. we assume $\bar{\omega}_0\gg\sigma_\omega$ so $\int_0^\infty g(\omega_0) d\omega_0 = 1$ instead of an integral from $-\infty$ to $\infty$) \\
-Our abosrption then follows:
+(Note: this Gaussian is essentially single tailed, i.e. we assume $\bar{\omega}_0\gg\sigma_\omega$ so $\int_0^\infty g(\omega_0) d\omega_0 = 1$ instead of an integral from $-\infty$ to $\infty$) \\
+Our absorption then follows:
 \begin{align*}
 	P &= \frac{N}{V}\left[\mu\rho_{21} + \text{c.c.}\right] \\
 	P &= \frac{N}{V}\left[\mu\int_0^\infty\rho_{21}(\omega_0)d\omega_0 + \text{c.c.}\right] \\
@@ -37,15 +37,15 @@ For linear absorption we can see:
 	\chi_\text{inh}(\omega) &= \frac{N}{V} \int_0^\infty d\omega_0 g(\omega_0) \frac{\mu^2}{\epsilon_0\hbar} \frac{\omega_0 - \omega + i\gamma}{(\omega_0 - \omega)^2 + \gamma^2} \\
 	\alpha_\text{inh}(\omega) &=  \frac{\omega N \mu^2}{c V \epsilon_0\hbar} \int_0^\infty d\omega_0 g(\omega_0) \frac{\gamma}{(\omega_0-\omega)^2 + \gamma}
 \end{align*}
-If we say that the gaussian is very sharp (essentially a delta function) $\sigma_\omega \ll \gamma$ then we say that our system has a lorentzian absorption, and we call this homogeneously broadened.
-If instead the lorentzian is much sharper $\sigma_\omega \gg \gamma$ then we say our system has Gaussian absorption and is inhomogeneously broadened. Most of the time we will be somewhere in the middle of these two.
+If we say that the Gaussian is very sharp (essentially a delta function) $\sigma_\omega \ll \gamma$ then we say that our system has a Lorentzian absorption, and we call this homogeneously broadened.
+If instead the Lorentzian is much sharper $\sigma_\omega \gg \gamma$ then we say our system has Gaussian absorption and is inhomogeneously broadened. Most of the time we will be somewhere in the middle of these two.
 \subsection{Summary}
 We used the Maxwell-Bloch equations to describe the macroscopic behavior of optical interactions.\\
-We saw that the polarazation played a critical role in how our system reacted to the optical field. \\
-We saw tjat nonlinear abosrption lead to absorption saturationa and power broadening. \\
-Finally we looked a the rate equation approximation, which required $\rho_{21}$ following $\rho_{11}$ and $\rho_{22}$ instentenously.
+We saw that the polarization played a critical role in how our system reacted to the optical field. \\
+We saw that nonlinear absorption lead to absorption saturation and power broadening. \\
+Finally we looked a the rate equation approximation, which required $\rho_{21}$ following $\rho_{11}$ and $\rho_{22}$ instantaneously.
 \section{Laser theory}
-We know that laser refers to light amplification by stimulated emission of radiation. A more accurate but unfortunate acronym for this is light oscilation through stimulated emmision of radiation.
+We know that laser refers to light amplification by stimulated emission of radiation. A more accurate but unfortunate acronym for this is light oscillation through stimulated emission of radiation.
 We know that our amplification or gain implies a negative absorption coefficient. Since $\alpha \propto (\rho_{11} - \rho_{22})$ this requires that $\rho_{22} > \rho_{11}$, which is known as population inversion.
 
 We additionally need to have stimulated emission, which is governed by:
@@ -56,13 +56,13 @@ We additionally need to have stimulated emission, which is governed by:
 \end{align*}
 The stimulated term is the final term in the last equation $-w\rho_{22}$.
 
-We see that our atom makes a transition $\ket{2}\to\ket{1}$ which emits some light. This emitted light has the same frequency phase and propogation direction as the incident light.
+We see that our atom makes a transition $\ket{2}\to\ket{1}$ which emits some light. This emitted light has the same frequency phase and propagation direction as the incident light.
 This corresponds to an amplification of the incident light.
 
 In order to build a laser we need three things:\\
 1) An active medium: a system that provides gain via an atomic transition (could be liquid, solid, gas plasma, etc.) \\
-2) Pumping mechanism: something to cause population inversion (could be optical, mechanical, chemical, electical, etc.) \\
-3) An optical cavity/resonator: something to sustain the oscilation and define the spatial mode (typically a pair of mirrors) \\
+2) Pumping mechanism: something to cause population inversion (could be optical, mechanical, chemical, electrical, etc.) \\
+3) An optical cavity/resonator: something to sustain the oscillation and define the spatial mode (typically a pair of mirrors) \\
 
 This will require at least a three level scheme in order to have a steady state population inversion.
 In a three level scheme, we have a transition from $\ket{3}$ to $\ket{2}$ that releases energy, and we force a transition from $\ket{1}$ to $\ket{3}$ via some other process.
@@ -77,7 +77,7 @@ Defining:
 	E &= \frac{1}{2}\sum_n E_n(t) e^{i(\omega_n t - \phi_n)} U_n(z) + \text{c.c.}
 \end{align*}
 We assume that we have a traveling wave so $U_n(z) = e^{ik_n z}$. Note $\omega_n \neq k_n c$ ($k_n c$ is called the bare cavity resonance) \\
-We then can say our polartization is:
+We then can say our polarization is:
 \begin{align*}
 	P &= \frac{1}{2}\sum_n P_n e^{-i(\omega_n t - \phi_n)} U_n(z) \\
 	P_n &= \epsilon_0 \chi_n E_n
@@ -120,11 +120,11 @@ Therefore just looking at our intensity:
 \end{align*}
 Where we say $G_n$ is our gain rate $G_n = -\omega_n\chi_n''$. Although one might assume we have large gains in steady state, we can see that instead $G_n = \kappa_n$ during any steady state operation!
 
-We now calucluate $G_n$. We work in the rate equation appproximation $\gamma\gg\gamma_2$
+We now calculate $G_n$. We work in the rate equation approximation $\gamma\gg\gamma_2$
 \begin{align*}
 	\tilde{\rho}_{21} &= \frac{i}{2}\Omega_0 \frac{\rho_{22} - \rho_{11}}{i\delta + \gamma}
 \end{align*}
-If we ignore spontaneous emiision (assuming stimulated emission is much stronger than spontaneous emission):
+If we ignore spontaneous emission (assuming stimulated emission is much stronger than spontaneous emission):
 \begin{align*}
 	\dot{\rho}_{11} &= \lambda_1 - \gamma_1\rho_{11} + w(\rho_{22} - \rho_{11}) \\
 	\dot{\rho}_{22} &= \lambda_2 - \gamma_2\rho_{22} - w(\rho_{22} - \rho_{11}) \\
