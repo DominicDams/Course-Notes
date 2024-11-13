@@ -1,0 +1,84 @@
+These measures of entanglement are desirable because they seem to match the Von Neumann entropy for the singlet state. Entanglement in the modern view is considered a resource with which we can bypass some of our normal physical rules.
+We say that we restrict ourselves to LOCC, which corresponds to allowing only Local qubit Operations, and Classical Communication.
+In this model our actors are restricted, if Alice and Bob are our actors, then if they start with no entanglement, they can only produce seperable states.
+A result of analyzing this system is that entanglement of some state $\rho_{AB}$, cannot increase on average in the confines of LOCC.
+This puts restrictions on any measure of entanglement that we have access to. This can be terribly difficult to prove for a given measurement of entanglement. We also impose the condition that the entanglement of a Bell state should be 1.
+We can also use the number of terms in our Schmidt decomposition as a good measure of entanglement.
+
+We now want to define a physical map with the following properties:
+\begin{align*}
+	\rho' &= \mathcal{L}(\rho) &
+	\rho'\ ^\dagger &= \rho' \\
+	\rho' &\geq 0 &
+	\Tr{\rho'} &= 1 \\
+	\mathcal{L}(\alpha\rho_1 + \beta\rho_2) &= \alpha \mathcal{L}(\rho_1) + \beta\mathcal{L}(\rho_2) &
+	\forall H' \land \tilde{\rho} \in (H' \otimes H); (\mathcal{L} \otimes \unit)(\tilde{\rho}) &\geq 0
+\end{align*}
+For an operator $\mathcal{L}$ which satisfies all these conditions we call it a completely positive map.
+
+For an example we have: \\
+\begin{quantikz}
+	\lstick{$\ket{\psi}$} & \gate[2]{U} & \rstick{$\rho_0 = \Tr_{q_1}(\ket{\psi}\bra{\psi})$} \\
+	\lstick{$\ket{0}$} & &
+\end{quantikz} \\
+This clearly must correspond to some physical operation. If we choose for our example: \\
+\begin{quantikz}
+	\lstick{$\ket{\psi}= \alpha\ket{0} + \beta\ket{1}$} & \ctrl{1} & \rstick{$\rho_0 = \Tr_{q_1}(\ket{\psi}\bra{\psi})$} \\
+	\lstick{$\ket{0}$} &\targ{} &
+\end{quantikz} \\
+Where our output state will be:
+\begin{align*}
+	\rho_0 &= \alpha^2\ket{0}\bra{0} + \beta^2\ket{1}\bra{1} 
+\end{align*}
+We can then see that our operation can be written as (potentially):
+\begin{align*}
+	\mathbb{L}(\rho) &= P_0 \rho P_0 + P_1 \rho P_1
+\end{align*}
+In general any completely positive map will be of the form:
+\begin{align*}
+	\mathcal{L}(\rho) &= \sum_k A_k \rho A_k^\dagger &
+	\sum_k A_k^\dagger A_k &= 1
+\end{align*}
+This is known as the Kraus representation of the completely positive map, where the $A_k$ are the Kraus operators.
+Physically for our prior example these operators seem to correspond to taking a measurement of our system.
+
+If we look at the Schmidt decomposition of our state:
+\begin{align*}
+	\rho &= \sum_i p_i P_i \\
+	\rho &= \sum_i \sqrt{p_i} P_i \sqrt{p_i}
+\end{align*}
+So our Karus operators can be thought of as changing both the states and the probabilities:
+\begin{align*}
+	A_k \sqrt{p_i} \ket{\psi} &= \sqrt{q_{i,k}}\ket{\phi_{i,k}}
+\end{align*}
+
+For example we look at a set of Kraus operators:
+\begin{align*}
+	A_1 &= \begin{pmatrix}
+		1 & 0 \\
+		0& \sqrt{1-p}
+	       \end{pmatrix} \\
+	A_2 &= \begin{pmatrix}
+		0 & \sqrt{p} \\
+		0 & 0
+	       \end{pmatrix}
+\end{align*}
+These add up to the identity, so these correspond to a physical map. Physically this seems to correspond to spontaneous decay, where $A_1$ leaves $\ket{0}$ unchanged, and reduced $\ket{1}$ by a factor of $1-p$, and $A_2$ turns $\ket{1}$ to $\ket{0}$ with a factor of $p$.
+
+Another example is:
+\begin{align*}
+	A_1 &= \sqrt{p} X \\
+	A_2 &= \sqrt{q} Y \\
+	A_3 &= \sqrt{r} Z \\
+	A_4 &= \sqrt{1-p-q-r}\unit
+\end{align*}
+Where $A_1,A_2,A_3$ represent potential errors that occur, and $A_4$ represents the system proceeding without any error.
+\section{Physical Implementations of Quantum Computers}
+\subsection{Overview}
+We can see that all atoms are pretty similar to the Hydrogen atom (with some minor differences). We will begin with these familiar systems, looking at neutral atoms, and ions.
+We will then take a look at doing superconducting quantum computers. We won't cover quantum dots, NV centers, or optical quantum computers.
+\subsection{Physical Qubit}
+These are typically very small systems, that are typically manipulated via lasers. For more man-made systems (quantum dots, Superconducting qubits), we have considerably larger qubits, which are manuplulated with different tools.
+
+One advantage of the natural qubits, is that all the systems are identical, while the manmade systems, while each qubit is very similar, they have small differences.
+On the other hand the man-made qubits are typically in fixed, known locations, whereas for natural systems, we need to worry about where the atoms are in space.
