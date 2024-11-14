@@ -1,0 +1,95 @@
+\section{Three Level Systems}
+\subsection{Introduction}
+We say our system has a transition up from 1 to 2, and down from 2 to 3. Since the parity of the system changes due to dipole transitions, we cannot have a dipole transition from 1 to 3. 
+For this we will ignore all quadrapole and above transitions. We label our transitions between 2 and 3 with a '. We also know that 3 is in a higher energy state than 1.
+We say that there are two different E fields coupling the transition, since these energies can be very far detuned, or that there may be different polarizations required for each interaction.
+
+To make the system more symmetric, we choose our energy for 2 to be 0, which means our Hamiltonian is:
+\begin{align*}
+	H &= H_0 + V \\
+	H_0 &= \hbar \begin{pmatrix}
+		-\omega_0 & & \\
+			  & 0& \\
+			  && -\omega_0'
+		     \end{pmatrix}\\
+	V &= \frac{\hbar}{2} \begin{pmatrix}
+		0 & \Omega_0^* e^{i\omega t} & 0 \\
+		\Omega_0 e^{-i\omega t} & 0 & \Omega_0' e^{i\omega' t} \\
+		0 & \Omega_0'\ ^* e^{i\omega' t} & 0
+			     \end{pmatrix}
+\end{align*}
+In the interaction representation:
+\begin{align*}
+	\ket{\psi} &= \bar{c}_1 e^{i\omega_0 t} \ket{1} + \bar{c}_2\ket{2} + \bar{c}_3 e^{i\omega_0' t}\ket{3}
+\end{align*}
+Whereas in the field interaction representation:
+\begin{align*}
+	\ket{\psi} &= \tilde{c}_1 e^{i\omega t} \ket{1} + \tilde{c}_2\ket{2} + \tilde{c}_3 e^{i\omega' t}\ket{3} \\
+	\tilde{H} &= \hbar \begin{pmatrix}
+		-\delta & \frac{1}{2}\Omega_0^* & 0 \\
+		\frac{1}{2}\Omega_0 & 0 & \frac{1}{2}\Omega_0'
+		0	&\frac{1}{2}\Omega_0'\ ^*   & -\delta'
+			   \end{pmatrix}
+\end{align*}
+We call this system the $\Lambda$-type system.
+\subsection{Dark states and Coherent population trapping}
+If we start in a superposition of the two lower states:
+\begin{align*}
+	\ket{\psi(0)} &= c_1\ket{1} + c_3\ket{3}
+\end{align*}
+And then excite both transitions via optical fields, we can say:
+\begin{align*}
+	|c_2|^2 &= |c_{1\to2} + c_{3\to2}|^2
+\end{align*}
+If we excite this in such a way that $c_{1\to2} = - c_{3\to2}$ then clearly:\
+\begin{align*}
+	|c_2|^2 &= 0
+\end{align*}
+So we have no transition in this case. We call the state that causes this transition to be zero a ``dark state''. These state typically show up in experments (because it is an eigenstate state under the time evolution of our system).
+In this dark state we find the atom trapped in the lower state. We refer to this as coherent population trapping.
+We label this state $\ket{D}$. If $\delta = \delta'$ then this state is:
+\begin{align*}
+	\ket{D} &= \frac{1}{\sqrt{|\Omega_0|^2 + |\Omega_0'|^2}} (\Omega_0'\ket{1} - \Omega_0\ket{3})
+\end{align*}
+It is easy to show that $\ket{2}\tilde{V}\ket{D} = 0$, which clearly makes our Hamiltonian diagonal.
+This is called a Raman resonance or two photon resonance. This transition corresponds to a virtual energy level shifted downn by $\delta$. If we look at this with our field interaction hamiltonian explicitly:
+\begin{align*}
+	\tilde{H}\ket{D} &= \hbar\begin{pmatrix}
+		-\delta\Omega_0' \\
+		0 \\
+		\delta'\Omega_0
+			    \end{pmatrix}
+\end{align*}
+And if $\delta =\delta'$ then clearly $\tilde{H}\ket{D} = -\hbar \delta D$. This is then an eigenstate, and as a result a system that starts in this state must always remain in this state.
+
+We now take two ``Trivial'' limits.\\
+1) $\ket{\psi_A} = \ket{1}$, which means $\Omega_0=0$. Clearly since our optical field is only being applied to the side of the system with no occupation, then the $\ket{2}$ state must remain dark. \\
+2) $\ket{\psi_B} = \ket{3}$, which means $\Omega_0'=0$ and by the same logic this must be dark.
+
+With these two in hand, we now vary our fields $\Omega_0$ and $\Omega_0'$ slowly enough to maintain adiabatic follow $\ket{D}$. Doing this you can change from $\ket{1}$ to $\ket{3}$ without ever entering $\ket{2}$.
+We call this Stimulated Raman adiabatic passage (STIRAP). In this process you will gradually turn $\Omega_0'$ on and off, and then $\Omega_0$ on and off, with a period of time where these two overlap.
+This is in opposition to the intuitive pulse sequence which is the opposite order, but makes use of the $\ket{2}$ state.
+
+Since we already have an eigenstate $\ket{D}$, we want to look at a state orthogonal to $\ket{D}$. We propose a ``Bright'' state:
+\begin{align*}
+	\ket{B} &= \frac{1}{\sqrt{|\Omega_0|^2 + |\Omega_0'|^2}} (\Omega_0^*\ket{1} + \Omega_0'\ ^*\ket{3})
+\end{align*}
+This bright state in face is strongly coupled to the $\ket{2}$ state, so it is not an eigenstate of our system. It has an effective Rabi frequency $\Omega = \sqrt{\Omega_0|^2 + \Omega_0'|^2}$.
+This is effectively a two level system, with $\ket{B}$ coupled to $\ket{2}$ and a tertiary state $\ket{D}$ which is not coupled to our system at all! We have a new picture now:
+\begin{align*}
+	\tilde{H}_D &= \hbar \begin{pmatrix}
+		-\delta & 0 & 0 \\
+		0 & 0 & \frac{\Omega}{2} \\
+		0 & \frac{\Omega}{2} & -\delta
+			     \end{pmatrix}
+\end{align*}
+Where our basis states are (in order) $\ket{D},\ket{2},\ket{B}$. We then have eigenstate $\ket{+}$, $\ket{-}$ and $\ket{D}$.
+
+If we have spontaneous emission from 2, then sometimes we will decohere back to the $\ket{B}$ state when excited, and therefore over time we should find ourselves overwhelmingly transitioning to the $\ket{D}$ state.
+We refer to this phenomena as optical pumping.
+\subsection{Density Matrix for 3-level systems}
+We have:
+\begin{align*}
+	i\hbar \partial_t \rho  &= [H,\rho]
+\end{align*}
+We identify components of our density matrix, $\rho_{12},\rho_{32}$ represent our dipole coherence, $\rho_{11},\rho_{22},\rho_{33}$ are the populations, and $\rho_{13}$ is the non-radiative coherence/spin coherence. $\rho_{13}$ is related to the $\ket{D}$ state.
