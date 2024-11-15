@@ -1,0 +1,68 @@
+\section*{Exam Review}
+\subsection*{Free evolution of $\bm{R}$}
+The bloch vector precesses around the z axis with a frequency proportional to the detuning.
+This procession corresponds to an oscilating electric dipole.
+
+In the rest frame we are rotating with frequency $\omega_0$, whereas in the field interaction frame we are rotating at a rate $\delta$.
+\subsection*{Laser pumping}
+The population inversion, and gain grow linearly before flattening at the lasing threshold, and the intensity is zero until the lasing threshold then grows linearly. The lasing threshold is where the small signal gain is equal to the cavity loss
+\subsection*{Adiabatic Following}
+The adiabatic condition requires $\Omega$ to change little in a single period. This is equivalent to $\dot{\Omega} \ll \Omega^2$
+
+For Landua Lenner crossing We start with $\Omega$ anti parallel to $\bm{R}$ and by adaibatically rotating $\Omega$ we will rotate $\bm{R}$.
+\subsection*{Susceptability}
+The real part of $\chi$ has a pair of humps, crosses zero and is related to the index of refraction.
+The imaginary part of $\chi$ is a lorentzian, and is related to the gain.
+\subsection*{Rate Equation Approxiation}
+$\rho_{21}$ reaches steady state faster than $\rho_{11}$. THis will break down in Rabi oscilations.
+\subsection*{steady state TLS}
+Assuming $\Omega_0$ is real, we have:
+\begin{align*}
+	\dot{\tilde{\rho_{21}}} &= -\gamma\tilde{\rho}_{21} - i\delta\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11} \\
+	\dot{\rho}_{22} &= -\gamma_2\rho_{22} + \left(i\frac{\Omega_0}{2}\tilde{\rho}_{21} + \text{c.c}\right)
+\end{align*}
+In steady state $\dot{\rho} = 0$ so we can then solve this yielding:
+\begin{align*}
+	\rho_{22} &= \frac{1}{2} \frac{\Omega_0^2\gamma}{\gamma_2} \frac{1}{\gamma^2 + \delta^2 + \frac{\Omega_0^2\gamma}{\gamma_2}}
+\end{align*}
+And then we can say that we have a $\pi$ pulse to achieve population inversion. Additionally a four level system can provide steady state population inversion.
+\subsection*{Optical stark effect}
+We start with our Hamiltonian (and dressed states):
+\begin{align*}
+	\tilde{H} &= \frac{\hbar}{2} \begin{pmatrix}
+		-\delta & \Omega_0 \\
+		\Omega_0 & \delta
+				     \end{pmatrix} &
+	E_\pm &= \pm \frac{\hbar}{2}\Omega \\
+	\ket{+} &= \begin{pmatrix}
+		\sin\theta \\
+		\cos\theta
+	\end{pmatrix} &
+		\ket{-} &= \begin{pmatrix}
+			\cos\theta \\
+			-\sin\theta
+			   \end{pmatrix} \\
+			\tan\theta &= \frac{\Omega_0}{\delta + \Omega}
+\end{align*}
+The energy versus detuing curves look to be a pair of quadratics, with negative energy for $\ket{-}$ and positive energy for $\ket{+}$. They are both displaced from (0,0) by $\frac{\hbar\Omega_0}{2}$.
+You can see that if $\delta>0$ and $\delta \gg \Omega_0$, $\theta\to 0$, and if instead $\delta<0$, $\theta\to\frac{\pi}{2}$. If we have $\theta\to0$ then $\ket{-}\to\ket{1}$ and for the reverse $\ket{-}\to\ket{2}$, 
+therefore we have a trapping potnetial for the lower state with positive detuning (red shift) and for the higher state with lower detuning (blue shift).
+
+For the trapping potential:
+\begin{align*}
+	E_- &= -\frac{\hbar}{2}\sqrt{\delta^2 +\Omega_0^2} \\
+	E_- &\approx -\frac{\hbar}{2}\delta\left(1 +\frac{\Omega_0^2}{2\delta^2}\right)
+\end{align*}
+Somour shift is $-\frac{\hbar\Omega_0^2}{4\delta}$, which written in terms of the intensity is:
+\begin{align*}
+-\frac{\mu^2}{2\hbar\epsilon_0 c}\frac{I}{\delta}
+\end{align*}
+\subsection*{Ramsey interferometry}
+We perform a pair of time seperated $\frac{\pi}{2}$ pulses ($\frac{\pi}{2} - \tau - \frac{\pi}{2}$). We ignore population decay, but include decay of $\rho_{12}$, which is associated with $\gamma$.
+We can start by saying our Bloch vector will rotate into the y axis. We then have free evolution in the x-y plane, by an angle $\delta \tau$. We also have a total decay of the length, so $e^{-\gamma\tau}$.
+
+We then rotate about the x axis, by $\frac{\pi}{2}$, which simply turns the y component into a z component. Therefore our population is:
+\begin{align*}
+	\rho_{22} &= \frac{1 + e^{-\gamma\tau}\cos\delta \tau}{2}
+\end{align*}
+This will allow us to measure both $\delta$ and $\gamma$.
