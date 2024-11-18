@@ -1,0 +1,74 @@
+We have a state structure for the Hydrogen atom of 1 ground state and 4 excited states. If we incoorporate the fine structure interaction (electron spin), we have more states without energy spitting, i.e. we have 2 s state and 6 p state.
+If we instead look at the hyperfine structure (nuclear spin), which splts us to have 4 ground states that have an energy splitting, where one is lower than the other three. The lowest state is the singlet state, while the other three at triplet states.
+
+Spins will only directly interact with magnetic fields, rather than electric fields. This is a dipole interaction. This interaction is related to the intrinsic angular momentum of our particle, which generally can be represented by a vector of operators:
+\begin{align*}
+	\bm{J} &= \begin{pmatrix}
+		J_x \\
+		J_y \\
+		J_z
+		  \end{pmatrix}
+\end{align*}
+And in general for angular momenta we know:
+\begin{align*}
+	[J_i,J_j] &= i\har J_k \epsilon_{ijk}
+\end{align*}
+Which matches the properties of classical angular momenta. 
+
+From these it follows that $[J_i,J^2] = 0$. This implies that overall angular momenta has simultaneous eigenvalues with any individual angular momentum. Therefore:
+\begin{align*}
+	J_z \ket{m,J} &= m\hbar\ket{m,J} \\
+	J^2\ket{m,J} &= \hbar^2 J(J+1)\ket{m,J} \\
+	m &\in [-J, -J +1,\ldots, J-1, J]
+\end{align*}
+Clearly this can only be satisfied if $J \in \{\frac{m}{2} :m\in \mathbb{N}\}$. Classically we can add angular momenta simply, but for quantum mechanical angular momenta we need to instead add these according to:
+\begin{align*}
+	\bm{J} &= \bm{J}_1 \otimes \unit_2 + \unit_1 \otimes \bm{J}_2
+\end{align*}
+For this new quantity to be another angular momentum we need our relations to still hold. We know from classical mechanics that:
+\begin{align*}
+	|J_1 - J_2| \leq J \leq J_1 + J_2
+\end{align*}
+And as before we need our values of $J$ to be stepped in integers.
+
+For our system we have a hamiltonian proportional to:
+\begin{align*}
+	\mathcal{H} &\propto \bm{S}_\text{electron} \cdot\bm{S}_\text{nucleous}
+\end{align*}
+For eigenstates we need the spins to be aligned/antialigned. We can find the eigenvalues of $(\bm{S}_\text{electron} + \bm{S}_\text{nucleous})^2 = \bm{S}^2_\text{electron} + \bm{S}^2_\text{nucleous} + 2\bm{S}_\text{electron}\cdot\bm{S}_\text{nucleous}$. 
+Since both the electron and the nucleous have spin $\frac{1}{2}$ we can say $S_\text{electron} = S_\text{nucleous} = \frac{1}{2}$ and $S = \{0,1\}$. Therefore we can say(ignoring factors of $\hbar^2$):
+\begin{align*}
+	S(S+1) &= \frac{3}{2} + 2\bm{S}_\text{electron}\cdot\bm{S}_\text{nucleous} \\
+\end{align*}
+Which gives us the two posibilites:
+\begin{align*}
+	\bm{S}_\text{electron}\cdot\bm{S}_\text{nucleous} &= -\frac{3}{4} \\`
+	\bm{S}_\text{electron}\cdot\bm{S}_\text{nucleous} &= \frac{1}{4}
+\end{align*}
+We can quickly see that the following states must correspond to $S=1$ (higher energy):
+\begin{align*}
+	\ket{\psi} &= \ket{\uparrow_\text{el} \uparrow_\text{nu}} & m &= 1 \\ 
+	\ket{\psi} &= \ket{\downarrow_\text{el}\downarrow_\text{nu}} & m &= -1
+	\sqrt{2}\ket{\psi} &= \ket{\uparrow_\text{el} \downarrow_\text{nu}} + \ket{\downarrow_\text{el} \uparrow_\text{nu}} & m &= 0
+\end{align*}
+And the $S=0$ is then:
+\begin{align*}
+	\sqrt{2}\ket{\psi} &= \ket{\uparrow_\text{el} \downarrow_\text{nu}} - \ket{\downarrow_\text{el} \uparrow_\text{nu}} & m &= 0
+\end{align*}
+
+These triplet states will decay to the singlet state by emitting a photon with $\lambda \approx 21\text{cm}$. The decay time for a single atom is on the order of $10^7$ years.
+Unfortunately Hydrogen is too light for practical purposes, so we typically use heavier atoms. A common example is Cesium, which has one valence electron, so is somewhat analagous to the hydrogen atom.
+Our hyperfine splitting will be quite different here since the nuclear spin for cesium. Cesium has an overall nuclear spin of $I = \frac{7}{2}$ (for the most commonly used isotope).
+This measn our overall spin is either $F=3$ or $F=4$. We then have 7 degenerate states for $F=3$ and 9 degenerate states for $F=4$. We lift this degeneracy with a strong magnetic field we can then look at two specific states.
+To avoid issues caused by variations in the magnetic field we use $m=0$ for our states, as this state has no magnetic interaction.
+
+A general state in this system will undergo free evolution:
+\begin{align*}
+	\ket{\psi(0)} &= c_0 \ket{0} + c_1\ket{1} \\
+	\ket{\psi(t)} &= c_0\ket{0} + c_1 e^{-i\omega t}\ket{1}
+\end{align*}
+In order to counteract this we add a resonant laser field so:
+\begin{align*}
+	\forall n; \ket{0}\ket{n}\to\ket{1}\ket{n-1}
+\end{align*}
+But since this is a resonant laser field, it's standard time evolution exactly cancels our time evolution for our state so we recover a long lived state.
