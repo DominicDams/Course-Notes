@@ -11,7 +11,7 @@ Spins will only directly interact with magnetic fields, rather than electric fie
 \end{align*}
 And in general for angular momenta we know:
 \begin{align*}
-	[J_i,J_j] &= i\har J_k \epsilon_{ijk}
+	[J_i,J_j] &= i\hbar J_k \epsilon_{ijk}
 \end{align*}
 Which matches the properties of classical angular momenta. 
 
@@ -59,16 +59,26 @@ And the $S=0$ is then:
 These triplet states will decay to the singlet state by emitting a photon with $\lambda \approx 21\text{cm}$. The decay time for a single atom is on the order of $10^7$ years.
 Unfortunately Hydrogen is too light for practical purposes, so we typically use heavier atoms. A common example is Cesium, which has one valence electron, so is somewhat analagous to the hydrogen atom.
 Our hyperfine splitting will be quite different here since the nuclear spin for cesium. Cesium has an overall nuclear spin of $I = \frac{7}{2}$ (for the most commonly used isotope).
-This measn our overall spin is either $F=3$ or $F=4$. We then have 7 degenerate states for $F=3$ and 9 degenerate states for $F=4$. We lift this degeneracy with a strong magnetic field we can then look at two specific states.
-To avoid issues caused by variations in the magnetic field we use $m=0$ for our states, as this state has no magnetic interaction.
+Therefore our overall spin will be $F=\{3,4\}$. For each our $z$ spin will have a wide range, if $F=3$ we have 7 states, and if $F=4$ we have 9 states. These states are seperated by a $9.1926 \text{GHz}$ transition.
+This transition is used to define the second.
 
-A general state in this system will undergo free evolution:
+In order to remove the large amount of ambiguity between this states, we apply a magnetic field to our system to split the energy levels for all the different states.
+In order to keep our system robust against variations in the magnetic field we want to use the $m=0$ states.
+
+Looking only at our two level system, in the case of free evolution, we have:
 \begin{align*}
-	\ket{\psi(0)} &= c_0 \ket{0} + c_1\ket{1} \\
-	\ket{\psi(t)} &= c_0\ket{0} + c_1 e^{-i\omega t}\ket{1}
+	\mathbb{H} &= \hbar \begin{pmatrix}
+		\omega_0 & 0 \\
+		0 & \omega_1
+			    \end{pmatrix}
 \end{align*}
-In order to counteract this we add a resonant laser field so:
+We can see for a superposition input state we have:
 \begin{align*}
-	\forall n; \ket{0}\ket{n}\to\ket{1}\ket{n-1}
+	\ket{\psi(0)} &= c_0\ket{0} + c_1\ket{1} \\
+	\ket{\psi(t)} &= e^{-i\omega_0 t} \left(c_0\ket{0} + e^{-i(\omega_1-\omega_0)t} c_1\ket{1}\right)
 \end{align*}
-But since this is a resonant laser field, it's standard time evolution exactly cancels our time evolution for our state so we recover a long lived state.
+We can see that this state is rapidly changing. If we add in a reference laser:
+\begin{align*}
+	\forall n: \ket{0}\ket{n} \to \ket{1}\ket{n-1}
+\end{align*}
+If our reference laser ha

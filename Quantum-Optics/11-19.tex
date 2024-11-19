@@ -1,0 +1,96 @@
+\section*{Return to 3-level systems}
+We start with our Von Neumann equation for the field interaction picture:
+\begin{align*}
+	i\hbar\partial_t\tilde{\rho} &= [\tilde{H},\tilde{\rho}]
+\end{align*}
+We represent our decays with decoherence rates $\gamma_{ij} = \gamma_{ji}$ which is the decay of $\rho_{ij}$, and population decay rates $\gamma_i$ which is the decay of $\rho_{ii}$.
+Looking at for instance $\rho_{21}$:
+\begin{align*}
+	\dot{\tilde{\rho}_{21}} &= -(i\delta + \gamma_{21})\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11}) - i\frac{\Omega_0'}{2}\tilde{\rho_{31}} \\
+	\dot{\tilde{\rho}}_{23} &= -(i\delta' + \gamma_{23})\tilde{\rho}_{23} + i\frac{\Omega_0'}{2}(\rho_{22} - \rho_{33}) - i\frac{\Omega_0}{2}\tilde{\rho}_{13} \\
+	\dot{\tilde{\rho}}_{31} &= -(i(\delta-\delta') + \gamma_{31})\tilde{\rho}_{21} + i\frac{\Omega_0}{2} \tilde{\rho}_{32} - i\frac{\Omega_0'}{2}\tilde{\rho}_{21}
+\end{align*}
+This can be thought of as a set of coupled oscilators. Here the dipole oscilators are coupled to the spin oscilators.
+There are two different ways to describe the dynamics of the system, using the density operator $\rho$ (which gives you the density matrix equations) or using a physical operator (which gives you the Heisenberg equation).
+
+\subsection{Electromangetically Induced Transparency}
+We now look at the process of Electromagnetically induced transparency. If we have our system in the dark state, then the atoms will not absorb photons, and therefore they will be transparent to incoming optical fields.
+Generally we can think of EIP as what the dark state does to the field and CPT as what the dark state does to the atoms.
+
+In order to quantitatively evalueate the effect of EIP we now look to calculate $\chi$. We start by assuming that we started in the $\ket{1}$ state (rather than the dark state).
+If we have $|\Omega_0'| \gg |\Omega_0|$. In order to calculate the absorption of our field $\Omega_0$ we need to evaluate $\tilde{\rho}_{21}$ we do a perturbative expansion, with $\Omega_0$ as our small parameter (we keep all orders of $\Omega_0'$):
+\begin{align*}
+	\dot{\tilde{\rho}}_{21}^{(1)} &= -(i\delta + \gamma_{21})\tilde{\rho}_{21}^{(1)} + i\frac{\Omega_0}{2}(\rho_{22}^{(0)} - \rho_{11}^{(0)}) - i\frac{\Omega_0'}{2}\rho_{31}^{(1)} \\
+	\dot{\tilde{\rho}}_{31}^{(1)} &= -(i(\delta - \delta') + \gamma_{31})\tilde{\rho}_{31}^{(1)} - i\frac{\Omega_0'}{2}\tilde{\rho}_{21}^{(1)} \\
+	\dot{\tilde{\rho}}_{32}^{(0)} &= 0
+\end{align*}
+Rewritting this (using $\rho_{11}^{(0)} = 1$ and $\rho_{22}^{(0)} = 0$:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21}^{(1)} &= -(i\delta + \gamma_{21})\tilde{\rho}_{21}^{(1)} - i\frac{\Omega_0'}{2}\rho_{31}^{(1)} - i\frac{\Omega_0}{2} \\
+	\dot{\tilde{\rho}}_{31}^{(1)} &= -(i(\delta - \delta') + \gamma_{31})\tilde{\rho}_{31}^{(1)} - i\frac{\Omega_0'}{2}\tilde{\rho}_{21}^{(1)}
+\end{align*}
+Which is the equation for a pair of linearly coupled harmonic oscilators with a driving term corresponding to our ``probe'' field $\Omega_0$.
+If we now look at our steady state solution (our derivitives are zero):
+\begin{align*}
+	(i(\delta - \delta')+ \gamma_{31})\tilde{\rho}_{31}^{(1)} &= -i\frac{\Omega_0'}{2}\tilde{\rho}_{21}^{(1)} \\
+	(i\delta + \gamma_{21})\tilde{\rho}_{21}^{(1)} + i\frac{\Omega_0}{2} &= -i\frac{\Omega_0'}{2}\tilde{\rho}_{21}^{(1)}
+\end{align*}
+We say $\Delta = \delta-\delta'$, then:
+\begin{align*}
+	\tilde{\rho}_{31}^{(1)} &= -i\frac{\Omega_0'}{2} \frac{\tilde{\rho}_{21}^{(1)}}{i\Delta + \gamma_{31}} \\
+	\tilde{\rho}_{21}^{(1)} &= -i\frac{\Omega_0}{2}\frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}}
+\end{align*}
+Recall:
+\begin{align*}
+	P &= \frac{N}{V} \mu \tilde{\rho}_{21}e^{-i\omega t} + \text{c.c.} \\
+	P &= \frac{1}{2}P_0 e^{-i\omega t} + \text{c.c.} \\
+	P_0 &= \epsilon_c \chi E_0 \\
+	\chi &= \frac{P_0}{\epsilon_0 E_0} \\
+	\chi &= \frac{2N\mu}{\epsilon_0 V E_0} \tilde{\rho}_{21}
+\end{align*}
+So:
+\begin{align*}
+	\chi &= \frac{\mu^2}{\epsilon_0\hbar} \frac{N}{V} \frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}}
+\end{align*}
+If $\delta = \Delta = 0$:
+\begin{align*}
+	\chi'' &= \frac{\mu^2}{\epsilon_0 \hbar} \frac{N}{V} \frac{\gamma_{21}}{\gamma_{21}\gamma_{13} + \frac{\Omega_0'\ ^2}{4}}
+\end{align*}
+We then look at the ratio between the susceptability of our 3 level system and an equivalent 2 level system:
+\begin{align*}
+	\chi''\ ^{TLS} &= \frac{\mu^2}{\epsilon_0\hbar} \frac{N}{V} \frac{1}{\gamma_{21}} \\
+	\frac{\chi''}{\chi''\ ^{TLS}} &= \frac{\gamma_{21}\gamma_{31}}{\gamma_{21}\gamma_{31} + \frac{\Omega_0'\ ^2}{4}} \\
+	\frac{\chi''}{\chi''\ ^{TLS}} &= \frac{1}{1 + \frac{\Omega_0'\ ^2}{4\gamma_{21}\gamma{31}}} \\
+	\frac{\chi''}{\chi''\ ^{TLS}} &= \frac{1}{1 + C}
+\end{align*}
+Where $C = \frac{\Omega_0'\ ^2}{4\gamma_{21}\gamma{31}}$ is our cooperativity. We have no absorption when our cooperativity goes to infinity, which happens when $\gamma_{31}\to0$, which means our dark states are stable (it has no decoherence).
+This corresponds to a steep drop off of our absorption spectrum when $\delta$ goes to $0$.
+
+We now look at the abosrption spectrum. We assume that the cooperativity is small $C\ll 0$, so we can expand our $\chi''$:
+\begin{align*}
+	\frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}} &= \frac{1}{(i\delta + \gamma_{21}) \left( 1+ \frac{\Omega_0'\ ^2}{4}\frac{1}{(i\Delta + \gamma_{31})(i\delta + \gamma_{21})}\right)} \\
+	\frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}} &\approx \frac{1}{(i\delta + \gamma_{21})}\left( 1 - \frac{\Omega_0'\ ^2}{4} \frac{1}{i\Delta + \gamma_{31}} \frac{1}{i\delta + \gamma_{21}}\right)\\
+	\frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}} &\approx \frac{1}{(i\delta + \gamma_{21})}- \frac{\Omega_0'\ ^2}{4} \frac{1}{i\Delta + \gamma_{31}} \frac{1}{(i\delta + \gamma_{21})^2} \\
+	\frac{1}{i\delta + \gamma_{21} + \frac{\Omega_0'\ ^2}{4}\frac{1}{i\Delta + \gamma_{31}}} &\approx \frac{1}{(i\delta + \gamma_{21})}- \frac{\Omega_0'\ ^2}{4\gamma_{21}^2} \frac{1}{i\Delta + \gamma_{31}}
+\end{align*}
+Here we additionally assumed $\gamma_{31} \ll \gamma_{21}$ and $|\delta|\ll \gamma_{21}$.
+Which gives us an inverted Raman resonance, which we call the EIP. This has a width $2\gamma_{31}$ and is centered (for $\delta'=0$) at $\omega = \omega_0$.
+
+We now seek to explain this begavior without invoking the dark state.
+We start with our coherence:
+\begin{align*}
+	\dot{\tilde{\rho}}_{21} &= -(i\delta +\gamma_{21})\tilde{\rho}_{21} + i\frac{\Omega_0}{2}(\rho_{22} - \rho_{11}) - i\frac{\Omega_0'}{2}\tilde{\rho}_{31}
+\end{align*}
+Here we can see this can be thought of as destructive interference between the dipole transition and the Raman coherence.
+
+Alternatively, if we want to think of this in terms of $\ket{D}$ then we see an initial issue. The system does not start in the dark state, so why do we still see this effect? This happens because over time the system will decay to the dark state via optical pumping.
+Therefore it doesn't matter what the dark state is relative to our starting state, we will eventually arrive in the dark state, and so the relative phase between our fields shouldn't matter (as long as the relative phase is stable).
+The time to arrive at the dark state is on the order of the spontaneous emission rate.
+
+\subsection{Slow light}
+When we have transparency, then we need to have  astrong optical interaction (this can be seen from the need for strong cooperativity). If we look at the real part of our susceptability in the case of large $C$:
+This will be associated with an additional oscilation of $\chi'$ as you vary $\omega$. At $\omega_0$ this will also cause an extremely steep slope, so since:
+\begin{align*}
+	v_g &= \frac{c}{n + \omega\partial_\omega n}
+\end{align*}
+We will have a group velocity $v_g \ll c$.
