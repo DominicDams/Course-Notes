@@ -1,0 +1,112 @@
+In order to now construct gates, we consider interacting our laser field with our qubit. If the field interacts, rather than is there simply as a reference, we can then create a new hamiltonian:
+\begin{align*}
+	\mathcal{H} &= \hbar\begin{pmatrix}
+		0 & \frac{\Omega}{2} e^{i\omega t} \\
+		\frac{\Omega}{2} e^{-i\omega t} & \omega_r
+		       \end{pmatrix}
+\end{align*}
+Where $\Omega$ is the Rabi frequency and $\omega$ is the laser's frequency. In order to deal with our Hamiltonian's explicit time dependance, we move to the field interaction picture, so:
+\begin{align*}
+	\ket{\psi(t)} &= \tilde{c}_0 \ket{0} + \tilde{c}_1 e^{-i\omega t}
+\end{align*}
+Which changes our Hamiltonian to:
+\begin{align*}
+	\tilde{\mathcal{H}} &= \hbar\begin{pmatrix}
+		0 & \frac{\Omega}{2} \\
+		\frac{\Omega}{2} & \omega_r-\omega
+		       \end{pmatrix}
+\end{align*}
+So:
+\begin{align*}
+	\ket{\psi(t)} &- e^{-i\tilde{\mathcal{H}} t/\hbar}\ket{\psi(0)} \\
+	\ket{\psi(t)} &- U(t)\ket{\psi(0)} \\
+\end{align*}
+So then if $\omega_r = \omega$ (on resonance):
+\begin{align*}
+	U(t) &= \begin{pmatrix}
+		\cos\frac{\Omega t}{2} & -i\sin\frac{\Omega t}{2} \\
+		i\sin\frac{\Omega t}{2} & \cos\frac{\Omega t}{2}
+		\end{pmatrix}
+\end{align*}
+If we pick an even more special case $\Omega t = \frac{\pi}{2}$, then:
+\begin{align*}
+	U\left(\frac{\pi}{2\Omega}\right)  &= \frac{1}{\sqrt{2}}\begin{pmatrix}
+		1 & -i \\
+		-i & 1
+					      \end{pmatrix}
+\end{align*}
+Which is close to a Hadamard gate. This works for any pulse with ``pulse area'' $A = \int dt \Omega(t) = \frac{\pi}{2}$.
+If we instead choose a $\pi$ pulse $A = \pi$, so:
+\begin{align*}
+	U(A=\pi) &= \begin{pmatrix}
+		0 & -i \\
+		-i & 0
+		    \end{pmatrix}
+\end{align*}
+If we then look at a $2\pi$ pulse, we find:
+\begin{align*}
+	U(A=2\pi) &= -\unit
+\end{align*}
+Which is a global phase away from the $x$ gate.
+By applying this to a transition between our state and an ancilla level of our system, then this will be equivalent to a $z$ gate. I.e:
+\begin{align*}
+	U(A_{12}=2\pi) &= \begin{pmatrix}
+		1 & 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & -1
+			       \end{pmatrix}
+\end{align*}
+Where the part of the system we care about is the $z$ gate.
+
+We now look at a far detuned laser $|\Delta| \gg \Omega$. We look for the eigenvalues:
+\begin{align*}
+	\det \begin{pmatrix}
+		-\lambda & \frac{\Omega}{2} \\
+		\frac{\Omega}{2} -\Delta -\lambda
+	     \end{pmatrix} &= 0 \\
+	     -\lambda(-\lambda -\Delta) -\frac{\Omega^2}{4} &= 0 \\
+	     \lambda_\pm &= \frac{-\Delta \pm \sqrt{\Delta^2 + \Omega^2}}{2}
+\end{align*}
+Expanding the eignevalue that is close to zero:
+\begin{align*}
+	\lambda_+ &=-\frac{\Delta}{2} + \frac{\Delta}{2} \sqrt{1 + \frac{\Omega^2}{\Delta^2}} \\
+	\lambda_+ &=-\frac{\Delta}{2} + \frac{\Delta}{2} \left(1 + \frac{1}{2}\frac{\Omega^2}{\Delta^2}\right) \\
+	\lambda_+ &\approx\frac{\Delta}{2}\frac{1}{2}\frac{\Omega^2}{\Delta^2} \\
+	\lambda_+ &\approx\frac{\Omega^2}{4\Delta}
+\end{align*}
+This energy shift can be used to give a state an arbitrary phase shift. This is known as the AC stark shift.
+
+When working with neutral atoms, we want to drive transitions to higher states. These are typically transitions from S to P, so this is governed by an electric dipole interaction, which has Hamiltonian:
+\begin{align*}
+	H_\text{int} &= -\bm{d}\cdot\bm{E} \\
+	\bm{d} &= -e\bm{r}
+\end{align*}
+If we pick our $\bm{E}$ field to face along the $z$ direction (essentially vertically polarized light):
+\begin{align*}
+	\bm{E} &= E \hat{e}_z
+\end{align*}
+This laser drives a transition from $\ket{2}$ to $\ket{e'}$ and we also seperately drive a transition from $\ket{1}$ to $\ket{e}$.
+\begin{align*}
+	H_\text{int} &= eE\bm{r}\cdot\hat{e}_z \\
+	H_\text{int} &= eEz \\
+	\frac{1}{2}\Omega_1 &= \bra{1}ezE\ket{e'} \\
+	\frac{1}{2}\Omega_0 &= \bra{0}eZE\ket{e}
+\end{align*}
+We know that $\ket{0}$ has even z parity, therefore in order to have a non-zero $\Omega_0$ we need $\ket{e}$ to have odd z parity, and since $\ket{1}$ has odd z parity $\ket{e'}$ must have even z parity. \\
+If these are far detuned then this will not actually cause transitions, but instead will lead to energy shifts to $\ket{0}$ and $\ket{1}$.
+These cause spatially varying potentials, which allow you to trap neutral atoms. A typically trapping time can be as much as 100 seconds.
+
+In order to do two qubit gates we need a mechanism to cause neighboring qubits to interact with eachother. To do this we use Rydberg sttes, which are states with a very high $n$ quantum number (electrons are very far away from the atom here because $r \propto n^2$).
+In order to make this a stable-ish state we choose the state with the highest angular momentum $m=n-1$. Although this is very hard to drive, it can be done in multiple steps, or with a very strong laser.
+We choose these states to be the right distance, so if two neighboring atoms are both in Rydberg states they will interact, but if either isn't they won't.
+
+We perform this operation by first doing a $\pi$ pulse to transfer the first qubit from $\ket{1}$ to $\ket{r}$ (if the qubit is in $\ket{0}$ this will not drive any transition).
+Then we attempt to apply a $2\pi$ pulse to the second qubit from $\ket{1}$ to $\ket{r}$, but if the first qubit is in $\ket{r}$ we will shift the energy and the transition will not occur.
+Finally we apply another $\pi$ pulse to the first qubit to return from $\ket{r}$ to $\ket{1}$. Therefore we have the following mappings:
+\begin{align*}
+	\ket{00} &\to \ket{00} \\
+	\ket{11} &\to -\ket{11} \\
+	\ket{01} &\to -\ket{01} \\
+	\ket{10} &\to -\ket{10}
+\end{align*}
+This is enough, with our single qubit operations, to construct a CNOT gate, and thus we have all we need for our quantum computer.
