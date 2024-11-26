@@ -24,7 +24,7 @@ jobs:
       - name: Install LaTeX packages
         run: |
           sudo /usr/local/texlive/bin/x86_64-linux/tlmgr init-usertree
-          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber accents latexmk tex4ht mathtools pgfplots xargs xkeyval xstring etoolbox environ pgf tikz-cd
+          sudo /usr/local/texlive/bin/x86_64-linux/tlmgr install physics quantikz biber accents latexmk tex4ht mathtools pgfplots xargs xkeyval xstring etoolbox environ pgf tikz-cd caption
       - name: Checkout Project
         uses: actions/checkout@v4.2.1
         with:
