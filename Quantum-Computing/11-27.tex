@@ -1,0 +1,49 @@
+\section*{Thanksgiving Special!!!}
+We'll be doing a bit of review/Q and A today as a result of the large number of abscences for Thanksgiving.
+
+Question: Can you go over homework 5, looking at the Schmidt decomposition/POVMs
+
+Answer: Everything we do in quantum mechanics is about making predictions. Measurements will be described by some set of POVMs. This replaces the old system of projectors. Recall:
+\begin{align*}
+	\sum_n \Pi_n &= 1 &
+	\Pi_n^\dagger &= \Pi_n &
+	\Pi_n \geq 0
+\end{align*}
+Question two was of course not about prediction, but rather about retrodiction. We look at a state with classical randomness, being in either state $\ket{1}$ or $\ket{-}$.
+By using a set of three POVMs rather than a standard basis of 2 measurements we can get an improvement in distinguishability between the two states.
+
+Question: Are the set of Kraus operators the same for completely positive maps and for POVMs?
+
+Answer: They are the same set. This can be seen because the following relations apply to Kraus operators:
+\begin{align*}
+	\sum_n K_n^\dagger K_n &= 1 & 
+	K_n\rho K_n^\dagger \geq 0
+\end{align*}
+This will imply all the properties of the POVMs. Additionally of note is the fact that a POVM doesn't have a unique Kraus Operator representation, and these different representations will give different states after measurement.
+
+Question: Problem 5, looking at the Schmidt decomposition of:
+\begin{align*}
+	\ket{\psi} &= \frac{\ket{00} + \ket{01} + \ket{10} - \ket{11}}{2}
+\end{align*}
+
+Answer: We want to look at the density matrix of each state seperated out, so:
+\begin{align*}
+	\rho_A &= \frac{1}{2}\ket{+}\bra{+} + \frac{1}{2}\ket{-}\bra{-} \\
+	\rho_A &= \unit \\
+	\rho_B &= \unit
+\end{align*}
+So this is a maximally entangled state. We pick our basis in $A$ as $\ket{+},\ket{-}$:
+\begin{align*}
+	\bra{+}\ket{\psi} &= \frac{1}{\sqrt{2}}\ket{0} \\
+	\bra{-}\ket{\psi} &= \frac{1}{\sqrt{2}}\ket{1}
+\end{align*}
+So our Schmidt decomposition is then:
+\begin{align*}
+	\ket{\psi} &= \frac{1}{\sqrt{2}}\ket{+}\ket{0} + \frac{1}{\sqrt{2}}\ket{-}\ket{1}
+\end{align*}
+The size of the Schmidt decomposition can never be larger than the dimension of the smaller Hilbert space.
+
+Question: What will the final look like?
+
+Answer: It'll be looking at where errors happen in the quantum computers hosted by qBraid. The general idea is to run n $X$ gates to see how the error rate scales with the number of gates.
+Odd and even gates may have differing behavior.
