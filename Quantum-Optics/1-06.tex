@@ -1,0 +1,97 @@
+\chapter{Winter Term, Brian Smith}
+\section{Review}
+\subsection{Classical Mechanics}
+We can look at classical mechanics in terms of three different formalizims, all of these describe how classical particles move in space.
+
+The first is the Newtonian model in which we describe things in terms of forces applied, i.e. $\sum\bm{F}  = m\ddot{\bm{x}}$.
+As an example, take a particle moving with mass m in 1 dimension with an arbitrary potential, so:
+\begin{align*}
+	F &= -\partder{V}{x} \\
+	m\ddot{x} &= -\partder{V}{x}
+\end{align*}
+
+The second is the Lagrangian formulation in which $L = T -V$, the equations of motion determined from $\delta S = 0$ where $S = \int L dt$. In other words this turns our problem into a variational calculus  problem.
+\begin{align*}
+	\delta S  &= \int \left(\partder{L}{q} \delta q + \partder{L}{\dot{q}} \delta \dot{q}\right) dt \\
+	\delta S  &= \int \left(\partder{L}{q} \delta q - \frac{d}{dt}\partder{L}{\dot{q}} \delta q\right) dt \\
+	\delta S  &= \int \left(\partder{L}{q}  - \frac{d}{dt}\partder{L}{\dot{q}}\right)\delta q dt \\
+	\partial_q L &= \frac{d}{dt}\partder{L}{\dot{q}}
+\end{align*}
+
+As an example, take a particle moving with mass m in 1 dimension with an arbitrary potential, so:
+\begin{align*}
+	L &= \frac{m}{2}\dot{x}^2 - V(x) \\
+	\partder{L}{x} &= -\partder{V}{x} \\
+	\partder{L}{{\dot{x}}} &= m \dot{x} & \text{We call this term the conjugate momentum } p_x\\
+	m \ddot{x} &= -\partder{V}{x}
+\end{align*}
+So here we see the result matches what we saw for Newtonian mechanics.
+
+The third is the Hamiltonian formulation in which $H = \sum p_i \dot{q}_i - L$ (the legendre transform of the Lagrangian formulations). Here we first determine our conjugate momenta $p_j = \partder{L}{\dot{q}_j}$.
+Then we construct $H = p_j \dot{q}_j - L$. Now we minimize the action again in terms of $q_j$ and $p_j$, but that is unweildy, so:
+\begin{align*}
+	\partder{H}{q} &= -\partder{q}{L} - \partder{L}{\dot{q}} \partder{\dot{q}}{q} + \partder{}{q} (p \dot{q}) \\
+	\partder{H}{q} &= -\partder{q}{L} - \partder{L}{\dot{q}} \partder{\dot{q}}{q} + \partder{p}{q} \dot{q} + \partder{\dot{q}}{q} p \\
+	\partder{H}{q} &= -\partder{q}{L} - \partder{L}{\dot{q}} \partder{\dot{q}}{q} + \partder{\dot{q}}{q} p \\
+	\partder{H}{q} &= -\partder{L}{q} \\
+	\partder{H}{q} &= -\dot{p}
+\end{align*}
+We now look at our other equation of motion:
+\begin{align*}
+	\partder{H}{p} &= \partder{}{p} (p\dot{q}) - \partder{L}{p} \\
+	\partder{H}{p} &= \dot{q}
+\end{align*}
+Looking again at a particle with mass m in 1 dimension with an arbitrary potential:
+\begin{align*}
+	p &= m\dot{x} \\
+	H &= p\dot{x} - L \\
+	H &= \frac{p^2}{m} - \frac{p^2}{2m} + V(x) \\ 
+	H &= \frac{p^2}{2m}  + V(x) \\
+	\dot{x} &= \frac{p}{m} \\
+	-\dot{p} &= \partder{V}{x} \\
+	\ddot{x} &= \frac{\dot{p}}{m} \\
+	m\ddot{x} &= -\partder{V}{x}
+\end{align*}
+Which again matches the Newtonian approach.
+
+Alternatively we could use the Poisson formalism. We say the Poisson bracket is defined:
+\begin{align*}
+	\{f,g\} &= \sum_i \partder{f}{q_i}\partder{g}{p_i} - \partder{g}{q_i}\partder{f}{p_i}
+\end{align*}
+
+We can see that for any quantity:
+\begin{align*}
+	\{f,H\} &= \dot{f}
+\end{align*}
+
+If we now look at the motion of a pendulum:\\ 
+\includegraphics*[width=8cm]{images/1-06-fig1.png} \\
+We can quickly derive that:
+\begin{align*}
+	q &= l\theta \\
+	V &= mgy \\
+	p &= m\dot{\theta} \\
+	\omega &= \frac{g}{q} \\
+	H &= \frac{1}{2m} p^2 + \frac{m}{2} \omega q^2
+\end{align*}
+
+If we want to quantize a system we do two things: \\
+0) Determine $H$, $p$ and $q$ for our classical system, such that the Hamilton equations of motion give correct classical dynamics. These must be canonically conjugate variables such that $p_i = \partder{L}{\dot{q}_i}$. \\
+1) We then determine the Poisson brackets for $q_i$ and $p_i$. \\
+2) We then change our canonically conjugate variables to operators acting on a Hilbert space, with commutators given by $[\hat{a},\hat{b}] = i\hbar\{a,b\}$
+
+Now to quantize our pendulum:
+\begin{align*}
+	\hat{H} &= \frac{\hat{p}^2}{2m} + \frac{m\omega^2}{2}\hat{q}^2
+\end{align*}
+To solve this we use ladder/creation/raising/anihilation/lowering operators:
+\begin{align*}
+	\hat{a}^\dagger &= \sqrt{\frac{mw}{2\hbar}} \left(\hat{q} - \frac{i}{m\omega} \hat{p}\right) \\
+	\hat{a} &= \sqrt{\frac{mw}{2\hbar}} \left(\hat{q} + \frac{i}{m\omega} \hat{p}\right)
+\end{align*}
+These operators are non-Hermition, and therefore they can't represent an observable. If we say we have energy eigenstates $\hat{H}\ket{\psi} = E\ket{\psi}$, we claim that $\hat{H}\hat{a}^\dagger \ket{\psi} = (E + \hbar\omega)\ket{\psi}$.
+In order to show this we rewrite our Hamiltonian:
+\begin{align*}
+	\hat{q} &= \sqrt{\frac{2\hbar}{m\omega}} \frac{\hat{a} + \hat{a}^\dagger}{2} \\
+	\hat{p} &= \sqrt{\frac{2\hbar}{m\omega}} m\omega\frac{\hat{a} - \hat{a}^\dagger}{2i}
+\end{align*}
