@@ -12,7 +12,7 @@ jobs:
       - name: Install Packages
         uses: ConorMacBride/install-package@v1
         with:
-          apt: ghostscript poppler-utils cmake
+          apt: ghostscript poppler-utils cmake imagemagick
       - name: Install LaTeX
         run: |
           wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
