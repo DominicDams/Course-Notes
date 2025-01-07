@@ -1,0 +1,31 @@
+\documentclass[11pt]{book} % 11pt font
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{pgfplots}
+\usepackage{accents}
+\usepackage{geometry}
+\usepackage{caption}
+
+% my custom commands
+% ------------------
+% note command
+\newcommand{\note}[1]{\textsf{\textcolor{red}{#1}}}
+% multi-line comment command
+\newcommand{\comment}[1]{}
+\newcommand{\del}{\bm{\nabla}}
+\newcommand{\partder}[2]{\frac{\partial #1}{\partial #2}}
+\graphicspath{{./images}}
+
+
+% -------------------------
+% BEGINNING OF THE DOCUMENT
+% -------------------------
+\begin{document}
+
+\input{1-07}
+
+\end{document}
