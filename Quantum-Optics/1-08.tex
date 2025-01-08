@@ -1,0 +1,176 @@
+\section{Field Quantization}
+There are two standard approaches to field quantization:\\\\
+1) The standard approach (for high energy physics, Condensced matter theory (in which we would instead have an effective field theory)) involves writing down a Lagrangian density/Action in terms of a density:
+\begin{align*}
+	S &= \int dt L(\phi(\bm{x},t),\partial_\mu \phi(\bm{x},t),t) \\
+	S &= \int dt d^3 x \mathcal{L}(\phi(\bm{x},t),\partial_\mu \phi(\bm{x},t),t)
+\end{align*}
+Which allows you to determine the equations of motion for classical fields. If you follow this procedure for a scalar field of mass $m$, then you end up finding a lagrange density:
+\begin{align*}
+	\mathcal{L} &= (\partial_\mu\phi)(\partial^\mu\phi) - m^2\phi^2 \\
+	(-i\hbar\partial_t)^2\phi + c^2 (i\hbar\del)^2\phi &= m^2c^4\phi
+\end{align*}
+When we move towards a more complete theory of quantum mechanics, we realize that there are no particles, and rather all interactions are done by quantum fields, where the things we describe as particles are in fact excitations of quantum fields.
+We will see that a photon is an excitation of the electromagnetic field that occupies a specific mode of the EM field.
+
+Once we have our classical equations of motion here, we ``Raise'' fields and conjugate momenta into operators, and impose commutators:
+\begin{align*}
+	\hat{\phi}(\bm{x},t),&& \hat{\pi}(\bm{x},t) &= \partder{\mathcal{L}}{\dot{\phi}} \\
+	[\hat{\phi}(\bm{x},t),\hat{\pi}(\bm{x}',t)] &= i\hbar\delta(\bm{x} - \bm{x}')
+\end{align*}
+(This is correct for scalar fields, and massive vector fields, but must be modified for spinor fields and massless vector fields)
+\\\\
+2) We will now start our approach with a review of classical Electromagnetism:
+\subsection{Review of Classical Electromagnetism}
+We start with Maxwell's equation:
+\begin{align*}
+	\del\cdot\bm{B} &=0 & \del\cdot\bm{E} &+ \frac{\rho}{\epsilon_0} \\
+	\del\times\bm{B} &= \mu_0\bm{j} + \mu_0\epsilon_0\partial_t \bm{E} &
+	\del\times\bm{E} &= - \partial_t \bm{E} \\
+	\bm{H} &= \frac{1}{\mu_0} \bm{B} - \bm{M} &
+	\bm{D} &= \epsilon_0\bm{E} + \bm{P}
+\end{align*}
+and the Lorentz force law:
+\begin{align*}
+	\bm{F} &= q(\bm{E} + \bm{v}\times\bm{B})
+\end{align*}
+We can define the Hamiltonian(energy for free fields) and the Lagrangian:
+\begin{align*}
+	H &= \int d^3x \frac{\epsilon_0}{2}\left[\bm{E}^2 + c^2\bm{B}^2\right] \\
+	L &= \int d^3x \frac{\epsilon_0}{2}\left[\bm{E}^2 - c^2 \bm{B}^2\right]
+\end{align*}
+Where here we are looking at in vacua fields. We also have a pointing vector:
+\begin{align*}
+	\bm{S} &= \frac{1}{\mu_0}\bm{E}\cross\bm{B} \\
+	\bm{P} &= \int d^3 x \bm{S} \\
+	\bm{J} &= \frac{1}{\mu_0}\int d^3 x\bm{x} \cross (\bm{E}\cross\bm{B})
+\end{align*}
+Where $\bm{P}$ is linear momentum, and $\bm{J}$ is angular momentum. Finally we introduce scalar and vector potentials:
+\begin{align*}
+	\bm{B} &= \del\times\bm{A} \\
+	\bm{E} &= -\del\phi - \partial_t \bm{A}
+\end{align*}
+These potentials imply:
+\begin{align*}
+	\del\cdot\bm{B} &= 0 &
+	\del\cross\bm{E} &= -\partial_t \bm{B}
+\end{align*}
+These fields are invarient under the gauge transformation:
+\begin{align*}
+	\phi' &= \phi - \partial_t \chi \\
+	\bm{A}' &= \bm{A} +\del\chi
+\end{align*}
+And commonly we choose to either use the Lorentz gauge:
+\begin{align*}
+	\del\cdot\bm{A} &= \frac{1}{c^2} \partial_t\phi
+\end{align*}
+Which lets us then construct $A_\mu = (\phi/c,\bm{A})$ and $\partial_\mu =(\partial_t/c,\del)$, so we can then say $\partial_\mu A^\mu$ is a Lorentz scalar. 
+
+Or instead (which is the choice we will use in classical Electromagnetism) we can choose the Radiation or Coulomb Gauge:
+\begin{align*}
+	\del\cdot\bm{A} &= 0
+\end{align*}
+Which immediately implies:
+\begin{align*}
+	\phi(\bm{x},t) &= \frac{1}{4\pi\epsilon_0}\int d^3x' \frac{\rho(\bm{x}',t)}{|\bm{x} - \bm{x'}|}
+\end{align*}
+If we are in the free field ($\rho = 0$, $\bm{j} = 0$):
+\begin{align*}
+	\del\cdot\bm{E} &= \del\cdot(-\del\phi - \partial_t\bm{A}) \\
+	\nabla^2\phi &= 0
+\end{align*}
+And:
+\begin{align*}
+	\del\times\bm{B} &= \del\cross\del\cross\bm{A} \\
+	\del\times\bm{B} &= -\nabla^2\bm{A} \\
+	(\nabla^2 -\frac{1}{c^2}\partial_t^2)\bm{A} &= 0
+\end{align*}
+So in the Coulomb gauge we see that the vector potential obeys the wave equation. Additionally $\bm{A}$ will be a transverse field, so the direction of propogation is perpendicular to the field itself.
+Although this choice of gauge is not manifestly Lorentz invariant, i.e. the quantities change in different fields of reference, but we still see that our theory will obey relativity.
+Additionally since in quantum optics we typically don't deal with frames that are related to eachother by relativistic speeds, we don't need to worry about maintaining exact Lorentz invariants here.
+
+We now consider a free field in a cube of side $L$:
+
+We start by expanding the classical EM field into a set of orthonormal modes. Where each individual mode is a solution to Maxwell's equations (in a particular geometry/ source configuration).
+Here we choose to use plane waves as our modes, so:
+\begin{align*}
+	\bm{E} (\bm{x},t) &= \sum_{\bm{n}} \tilde{\bm{E}}_{\bm{n}}(t) e^{i\bm{k}_{\bm{n}}\cdot\bm{x}} + \compcon \\
+	\bm{k}_{\bm{n}} &= (n_x,n_y,n_z) \frac{2\pi}{L}
+\end{align*}
+These are equivalent to imposing periodic boundry conditions on the edge of the box. For a general problem, we can take $L$ to $\infty$ to include the entire universe. Similarly we find:
+\begin{align*}
+	\bm{B}(\bm{x},t) &= \sum_{\bm{n}} \tilde{\bm{B}}_{\bm{n}}(t) e_{i\bm{k}_{\bm{n}} \cdot\bm{x}} + \compcon \\
+	\bm{A}(\bm{x},t) &= \sum_{\bm{n}} \tilde{\bm{A}}_{\bm{n}}(t) e_{i\bm{k}_{\bm{n}} \cdot\bm{x}} + \compcon
+\end{align*}
+We can see that these must all be real valued fields, so $\tilde{\bm{E}}_{\bm{n}}^* = \tilde{\bm{E}}_{-\bm{n}}$, and also the same will be true for $\tilde{\bm{B}}_{\bm{n}}$ and $\tilde{\bm{A}}_{\bm{n}}$.
+
+From:
+\begin{align*}
+	\del\cdot\bm{B} &= 0 &
+	\del\cdot\bm{E} &= 0 &
+	\del\cdot\bm{E} &= 0
+\end{align*}
+We know that:
+\begin{align*}
+	\del\cdot\bm{F} (\bm{x},t) &= \sum_{\bm{n}} \del\cdot\left((\tilde{\bm{F}}_{\bm{n}}(t) e^{i\bm{k}_{\bm{n}}\cdot\bm{x}} + \compcon\right) \\
+	\del\cdot\bm{F} (\bm{x},t) &= \sum_{\bm{n}} i\bm{k}_{\bm{n}}\cdot\tilde{\bm{F}}_{\bm{n}}(t) e^{i\bm{k}_{\bm{n}}\cdot\bm{x}} + \compcon
+\end{align*}
+Which in order to hold for all choices of $\tilde{\bm{F}}_{\bm{n}}$ must imply:
+\begin{align*}
+	i\bm{k}_{\bm{n}}\cdot\tilde{\bm{F}}_{\bm{n}} &= 0 &
+	\tilde{\bm{F}}_{\bm{n},s} &= \bm{\epsilon}_{\bm{n},s} E_{\bm{n},s}(t) \\
+	\bm{\epsilon}_{\bm{n},s} \cdot\bm{k}_{\bm{n}} &= 0 &
+	\bm{\epsilon}_{\bm{n},i}\cdot\bm{\epsilon}_{\bm{n},j}^* &= \delta_{ij}
+\end{align*}
+
+So we have:
+\begin{align*}
+	\bm{E}(\bm{x},t) &= \sum_{s=1,2}\sum_{\bm{n}} \tilde{E}_{\bm{n},s}(t) \bm{\epsilon}_{\bm{n},s} e^{i\bm{k}_{\bm{n}}\cdot\bm{x}} + \compcon
+\end{align*}
+And with our knowledge that $\del\times\bm{E} = -\partial_t\bm{B}$:
+\begin{align*}
+	i\bm{k}_{\bm{n}} \times \tilde{\bm{E}}_{\bm{n},s} &= (-\partial_t \tilde{\bm{B}}_{\bm{n},s}(t)) \bm{\beta}_{\bm{n},s} \\
+\end{align*}
+And with $\del\times\bm{B} = \frac{1}{c^2}\partial_t \bm{E}$, 
+\begin{align*}
+	(ik_{\bm{n}} \times\bm{\beta}_{\bm{n},s})\tilde{\bm{B}}_{\bm{n},s} &= \frac{1}{c^2} (\partial_t \tilde{\bm{E}}_{\bm{n},s}(t))\bm{\epsilon}_{\bm{n},s}
+\end{align*}
+And saying $l = (\bm{n},s), -l = (-\bm{n},s)$, and $\bm{k} = \bm{\mathcal{k}}_{\bm{n}} |\bm{k}_{\bm{n}}|$ so
+\begin{align*}
+	\bm{\mathcal{k}}_{\bm{n}} \times\bm{\epsilon}_l &= -\bm{\beta}_l &
+	\bm{\mathcal{k}}_{\bm{n}} \times\bm{\beta}_l &= \bm{\epsilon}_l \\
+	ik_{\bm{n}} \tilde{E}_l(t) &= \dot{\tilde{B}}_l(t) & 
+	ik_{\bm{n}} \tilde{B}_l(t) &= \frac{\dot{\tilde{E}}_l}{c^2}
+\end{align*}
+From this we can see that we fixed our three basis vectors:
+\begin{align*}
+	\bm{\epsilon}_{\bm{n},1}\times\bm{\epsilon}_{\bm{n},2} &= \bm{\mathcal{k}}_{\bm{n}} \\
+	\bm{\mathcal{k}}_{\bm{n}} \times\bm{\epsilon}_{\bm{n},1} &= \bm{\epsilon}_{\bm{n},2} \\
+	\bm{\mathcal{k}}_{\bm{n}} \times\bm{\epsilon}_{\bm{n},2} &= -\bm{\epsilon}_{\bm{n},1}
+\end{align*}
+So we find:
+\begin{align*}
+	\bm{\beta}_{\bm{n},1} &= -\bm{\epsilon}_{\bm{n},2}
+\end{align*}
+And finally we see (recognizing that $k_l A_l = B_l$):
+\begin{align*}
+	\bm{E}(\bm{x},t) &= \sum_l \tilde{E}_l(t) \bm{\epsilon}_l e^{i\bm{k}_l\cdot\bm{x}} + \compcon \\
+	\bm{B}(\bm{x},t) &= \sum_l \tilde{B}_l(t) (-i\bm{k}_l\times\bm{\epsilon}_l) e^{i\bm{k}_l\cdot\bm{x}} + \compcon \\
+	\bm{A}(\bm{x},t) &= \sum_l \tilde{A}_l(t) \bm{\epsilon}_l e^{i\bm{k}_l\cdot\bm{x}} + \compcon
+\end{align*}
+
+Now we can apply the wave equation to any of our vector fields:
+\begin{align*}
+	\left(\nabla^2 - \frac{1}{c^2}\partial_t^2\right)\bm{F} &= 0 \\
+	\left(-k_l^2 - \frac{1}{c^2}\partial_t^2\right)\tilde{A}_l(t) &= 0
+\end{align*}
+So:
+\begin{align*}
+	\tilde{A}_l(t) &= A_l e^{i\omega_l t} & \omega_l &= c k_l
+\end{align*}
+And finally:
+\begin{align*}
+	\bm{E}(\bm{x},t) &= \sum_l i\omega_lA_l \bm{\epsilon}_l e^{i(\bm{k}_l\cdot\bm{x} -\omega_l t)} + \compcon \\
+	\bm{B}(\bm{x},t) &= \sum_l (i\bm{k}_l\times\bm{\epsilon}_l)A_l e^{i(\bm{k}_l\cdot\bm{x} - \omega_l t)} + \compcon \\
+	\bm{A}(\bm{x},t) &= \sum_l \bm{\epsilon}_l A_l e^{i(\bm{k}_l\cdot\bm{x} -\omega_l t)} + \compcon
+\end{align*}
