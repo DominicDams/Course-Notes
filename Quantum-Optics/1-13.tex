@@ -1,0 +1,104 @@
+We can define a unit vector:
+\begin{align*}
+	\bm{u}_l(\bm{x} &= \bm{\epsilon}_l e^{i\bm{k}_l\cdot\bm{x}}
+\end{align*}
+Which we call our ``plane wave mode''. We know:
+\begin{align*}
+	\del\times\bm{u}_l(\bm{x} &= i\bm{k}_l\times\bm{\epsilon}_l e^{i\bm{k}\cdot\bm{x}}
+\end{align*}
+These modes are orthonormal by construction:
+\begin{align*}
+	\frac{1}{V} \int d^3 x\bm{u}_l^*(\bm{x})\cdot\bm{u}_m(\bm{x}) &= \delta_{lm} \\
+	\frac{1}{V} \int d^3 x(\del\times\bm{u}_l^*(\bm{x}))\cdot(\del\times\bm{u}_m(\bm{x})) &= \delta_{lm}k_l^2
+\end{align*}
+We now have constructed a set of modes, which are solutions to Maxwell's equations. Since these are complete, and Maxwell's equations are linear we can write our solutions in terms of sums of these modes.
+Additionally we can choose a different set of modes, and this will be related to our current set of modes via a unitary transformation:
+\begin{align*}
+	v_l(\bm{x},t) &= U_{lm} \bm{u}_m
+\end{align*}
+We can write our fields in terms of our modes:
+\begin{align*}
+	\bm{E}(\bm{x},t) &= \sum_l i\omega_l A_l \bm{u}_l(\bm{x},t)+\compcon \\
+	\bm{B}(\bm{x},t) &= \sum_l i\bm{k}_l\times  \bm{u}_l(\bm{x},t)A_l+\compcon \\
+	\bm{E}(\bm{x},t) &= \sum_l A_l \bm{u}_l(\bm{x},t)+\compcon
+\end{align*}
+We now seek to write our Hamiltonian for this system:
+\begin{align*}
+	H_R &= \frac{\epsilon_0}{2}\int d^3 x (|E|^2 + c^2|B|^2) \\
+	H_R &= \frac{\epsilon_0}{2}\int d^3 x \left( \sum_l\sum_{l'} (i\omega_lA_l\bm{u}_l - i\omega_lA_l^* \bm{u}_l^*)\cdot(-i\omega_{l'}A_{l'}^* \bm{u}_{l'}^* + i\omega_{l'} A_{l'}\bm{u}_{l'}) + |B|^2\right)
+\end{align*}
+And we know that in our integral we can say:
+\begin{align*}
+	\bm{u}_l\cdot\bm{u}_{l'}^* \to \delta_{l,l'} \\
+	\bm{u}_l^*\cdot\bm{u}_{l'} \to \delta_{l,l'} \\
+	\bm{u}_l\cdot\bm{u}_{l'} \to \delta_{l,-l'} \\
+	\bm{u}_l^*\cdot\bm{u}_{l'}^* \to \delta_{l,-l'}
+\end{align*}
+Once we complete the algebra we find:
+\begin{align*}
+	H_R &= \frac{\epsilon_0}{2} \sum_{l,l'} \left[(i\omega_l)(-i\omega_{l'})\delta_{l,l'}V A_l A_{l'}^* + A_l A_{l'} (i\omega_l)(i\omega_{l'})V\delta_{l,-l'} +
+			(-i\omega_l)(i\omega_{l'}) V\delta_{l,l'} A_l^*A_{l'} + A_l^* A_{l'}^* (i\omega_l)(i\omega_{l'}) V\delta_{l,-l'} \right] \\
+	    &+ \frac{\epsilon_0c^2}{2}\sum_{l,l'} \left[(i\bm{k}_l)\cdot(-i\bm{k}_{l'}) V\delta_{l,l'} A_lA_{l'}^* + (i\bm{k}_l \times\bm{\epsilon}_l)\cdot(i\bm{k}_{l'}\times\bm{\epsilon}_{l'}) A_l A_{l'} \int e^{i(\bm{k}_l + \bm{k}_{l'})\cdot x} 
+	    +(-i\bm{k}_l)\cdot(i\bm{k}_{l'}) V\delta_{l,l'} A_l^*A_{l'} + (-i\bm{k}_l \times\bm{\epsilon}_l)\cdot(-i\bm{k}_{l'}\times\bm{\epsilon}_{l'}) A_l^* A_{l'}^* \int e^{-i(\bm{k}_l + \bm{k}_{l'})\cdot x} \right]
+\end{align*}
+The terms involving $\delta_{l,-l}$ will all cancel, while all the other terms are identical, so we are then left with:
+\begin{align*}
+	H_R &= 2\epsilon_0 \sum_l \omega_l^2V |A_l|^2 
+\end{align*}
+Where then:
+\begin{align*}
+	A_l &= \frac{1}{V} \int d^3 x \bm{u}_l^* (\bm{x},t) \cdot\bm{E}(\bm{x},t)
+\end{align*}
+Alternatively we could write this as:
+\begin{align*}
+	H_R &= 2\epsilon_0 \sum_l V |E_l|^2 
+\end{align*}
+We now introduce the terms:
+\begin{align*}
+	Q_l &= \sqrt{V\epsilon_0\omega_l}(A_l + A_l^*) \\
+	P_l &= \frac{1}{i}\sqrt{V\epsilon_0\omega_l}(A_l - A_l^*) \\
+	A_l &= \frac{Q_l + iP_l}{2\sqrt{V\epsilon_0\omega_l}} \\
+	A_l^* &= \frac{Q_l - iP_l}{2\sqrt{V\epsilon_0\omega_l}}
+\end{align*}
+So then:
+\begin{align*}
+	H_R &= 2\epsilon_0\sum_l V\omega_l^2\frac{Q_l^2 + P_l^2}{4V\epsilon_0\omega_l} \\
+	H_R &= \frac{1}{2}\sum_l \omega_l(Q_l^2 + P_l^2)
+\end{align*}
+It turns out that these two are canonically conjugate variables:
+\begin{align*}
+	\partder{H}{P_l} &= \omega_l P_l &
+	\partder{H}{Q_l} &= \omega_l Q_l \\
+	\dot{Q}_l &= \omega_l P_l &
+	\dot{P}_l &= -\omega_l Q_l
+\end{align*}
+\subsection{Canonical quaantization of the EM field}
+We now have our electric field writen as a sum of Harmonic oscilators. We have identified our canonically conjugate variable ($Q_l,P_l$), and now we impose our commutation relations on the corresponding operators:
+\begin{align*}
+	[\hat{Q}_l,\hat{P}_{l'}] &= i\hbar\delta_{l,l'}
+\end{align*}
+We hace our operator for $A$ now:
+\begin{align*}
+	\hat{A}_l &= \frac{1}{\sqrt{4 V \epsilon_0\omega_l}} (\hat{Q}_l + i\hat{P}_l) \\
+	\hat{A}_l^\dagger &= \frac{1}{\sqrt{4 V \epsilon_0\omega_l}} (\hat{Q}_l - i\hat{P}_l)
+\end{align*}
+We now define the scaled operators:
+\begin{align*}
+	\hat{a}_l &= \sqrt{\frac{2V\epsilon_0\omega_l}{\hbar}} A_l \\
+	\hat{a}_l^\dagger &= \sqrt{\frac{2V\epsilon_0\omega_l}{\hbar}} A_l^\dagger \\
+	[\hat{A}_l,\hat{A}_{l'}^\dagger] &= \frac{1}{4V\epsilon_0\omega_l}\left(-i[\hat{Q}_l,\hat{P}_{l'}] + i[\hat{P}_l,\hat{Q}_{l'}]\right) \\
+	[\hat{A}_l,\hat{A}_{l'}^\dagger] &= \frac{i}{2V\epsilon_0\omega_l}\delta_{l,l'}
+	[\hat{a}_l,\hat{A}_{l'}^\dagger] &= \delta_{l,l'}
+\end{align*}
+Where these $\hat{a}$ operators are our creation and annihilation operators for a specific mode $l$. These modes are ``vessels'' that contain excitions. These excitations are what we refer to as photons.
+
+We now rewrite our conjugate coordinates in terms of the creation and anihilation operators:
+\begin{align*}
+	\hat{Q}_l &= \sqrt{2\hbar} (\hat{a} + \hat{a}^\dagger) \\
+	\hat{P}_l &= -i\sqrt{2\hbar} (\hat{a} - \hat{a}^\dagger)
+\end{align*}
+So our Hamiltonian becomes:
+\begin{align*}
+	\hat{H}_R &= \sum_l \frac{\hbar\omega_l}{2}(\hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a}) \\
+	\hat{H}_R &= \sum_l \frac{\hbar\omega_l}{2}(2\hat{a}^\dagger\hat{a}^\dagger + 1)
+\end{align*}
