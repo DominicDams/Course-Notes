@@ -1,0 +1,34 @@
+\subsection*{Note: The following notes are from the lecture I missed}
+We now consider the field operators in terms of positive and negatic frequency components:
+\begin{align*}
+	\hat{\bm{A}}(\bm{x},t) &= \sum_l \hat{A}_l \bm{\epsilon}_l e^{i(\bm{k}_l\cdot\bm{x} - \omega_l t)} + \hercon \\
+	\hat{\bm{E}}(\bm{x},t) &= \sum_l i\omega_l\hat{A}_l \bm{\epsilon}_l e^{i(\bm{k}_l\cdot\bm{x} - \omega_l t)} + \hercon \\
+	\hat{\bm{A}}^{(+)}(\bm{x},t) &= \sum_l \hat{A}_l \bm{\epsilon}_l e^{i(\bm{k}_l\cdot\bm{x} - \omega_l t)} \\
+	\hat{\bm{A}}^{(-)}(\bm{x},t) &= \left[\hat{\bm{A}}^{(+)}(\bm{x},t)\right]^\dagger
+\end{align*}
+The intensity can be expressed:
+\begin{align*}
+	\hat{I}(\bm{x},t) &\propto \hat{\bm{E}}^{(-)}\cdot\hat{\bm{E}}^{(+)}
+\end{align*}
+We say that a normal ordering of our operators is of the form $(\hat{a}^\dagger)^m \hat{a}^n$, while an anit-normal ordering is of the form $\hat{a}^n(\hat{a}^\dagger)^m$.
+
+After a bit of algebra we can see that:
+\begin{align*}
+	\hat{\bm{E}} &= - \sum_l \sqrt{\frac{\hbar\omega_l}{2\epsilon_0 V}} \frac{1}{\sqrt{2\hbar}} \bm{\epsilon}_l 2\left[\hat{Q}_l\sin\phi_l + \hat{P}_L\cos\phi_l\right]
+\end{align*}
+Where $\hat{Q}$ and $\hat{P}$ are observables known as the field quadratures. When looking at the vaccuum state these both have zero expectation value, but non-zero variance. In fact:
+\begin{align*}
+	\Delta \hat{Q}_l\Delta\hat{P}_l \geq \frac{\hbar}{2}
+\end{align*}
+It turns out that quantizing the fields does not effect their mode structure.
+\subsection{Quantized states of the field}
+We say that we represent our observable quantities with Hermitian operators, and our states with elements of a Hilbert space. For each mode we say the field is described by a harmonic oscilator:
+\begin{align*}
+	\hat{H}_R &= \sum_l \hbar\omega_l\left(\hat{a}_l^\dagger\hat{a} + \frac{1}{2}\right)
+\end{align*}
+We say we have an overall energy eigenstate of the form:
+\begin{align*}
+	\ket{\{n_l\}} &= \ket{n_1}\ket{n_2}\ldots \\
+	\hat{H}_R\ket{\{n_l\}} &= \sum_l \hbar\omega_l\left(n_l + \frac{1}{2}\right)\ket{\{n_l\}}
+\end{align*}
+\subsection*{End of missed lecture}
