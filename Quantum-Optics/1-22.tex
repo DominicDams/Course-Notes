@@ -1,0 +1,66 @@
+If we take our box to be infinitely large, then our sum over $l$ values becomes an integral over $k$ vectors, and our $\frac{1}{2}$ term blows up (though it's not a problem for the stuff we deal with).
+\subsection{States of the quantized EM field}
+We begin with energy eigenstates, which are stationary, so that if you start in one of these states, we remain in that state for all time.
+
+In the Heisenberg picture we can describe our operators as evolving by:
+\begin{align*}
+	\frac{d}{dt} \hat{\sigma} &= \frac{i}{\hbar} [\hat{\sigma},\hat{H}] + \partder{\sigma}{t}
+\end{align*}
+Whereas in the Schroedinger picture we have:
+\begin{align*}
+	i\hbar \partial_t \ket{\psi} &= \hat{H}\ket{\psi} \\
+	\ket{\psi(t)} &= \hat{U}(t,t_0)\ket{\psi(t_0)} \\
+	\hat{U}(t,t_0) &= e^{-i\hat{H} \frac{t}{\hbar}}
+\end{align*}
+Our states live in a Hilbert space. Our energy eigenstates will be associated with harmonic oscillators for each mode $l$.
+The Hilbert space that we are working in is then a tensor product of all the individual modes, and therefore has an infinite number of degrees of freedom:
+\begin{align*}
+	\otimes_{l=1}^\infty \ket{n_l}_l
+\end{align*}
+Describes the energy eigenstates of our field.
+We define a number operator:
+\begin{align*}
+	\hat{n}_l &= \hat{a}^\dagger_l \hat{a}_l \\
+	\hat{N} &= \sum_l \hat{n}_l
+\end{align*}
+We call the eigenstates of number operators Fock states or photon number states. We can see that Maxwell's equations describe the photon in the same way that the Schroedinger equation describes a more classical particle.
+
+We compare this to a description of electrons. For the free dirac field (which describes electrons in the same way our Maxwell equations describe photons) we still find we have an infinite series of harmonic oscilators.
+For the dirac equation we find that we can only have a single electron occupying any given mode. This happens because we instead have an anticommutator relationship for electrons $\{\hat{a}_l,\hat{a}_{l'}^\dagger\} = \delta_{ll'}$.
+This is in contrast to the photon which obeys the commutator relationship $[\hat{a}_l,\hat{a}_{l'}^\dagger] = \delta_{ll'}$.
+
+We know that $\hat{q}$ and $\hat{p}$ are related to the amplitude of the field. We can write:
+\begin{align*}
+	\hat{\bm{E}} &= \sum_l i\sqrt{\frac{\hbar\omega}{2\epsilon_0 V}} \hat{a}_l \bm{\epsilon}_l e{i\phi_l} + \hercon \\
+	\hat{\bm{E}} &= \sum_l iE_l (2i\hat{q}_l \sin\phi_l - 2\hat{p}_l\cos\phi_l)
+\end{align*}
+These quadrature operators describe a phase space in which we can describe the $E$ field. The state of our field can be written as a sum over different expansion ceofficients:
+\begin{align*}
+	\ket{\psi} &= \sum_{\{C_{n_l}\}} C_{n_l} \ket{\{n_l\}}
+\end{align*}
+Carl Caves predicted that squeezed light in the empty port of an interferometer would improve performance for LIGO. He once said ``Hilber space is a big place''.
+Typically in quantum optics people either work in one or two modes at a time, or that work with one or two photons at a time. Both of these are well described by this equation.
+We now turn our attention to a limited number of photons spread across many modes.
+
+According to Willis Lamb (predictor and measurer of the Lamb shift). According to Lamb a photon is an excitation of the EM field in a particular mode. We can write the E field as:
+\begin{align*}
+	\hat{\bm{E}} &= \sum_l iE_l \bm{\epsilon}_L e^{i\phi_l} \hat{a}_l + \hercon
+\end{align*}
+If we put in a single photon state we find:
+\begin{align*}
+	\bra{1}_l \hat{\bm{E}} \ket{1}_l &= 0 \\
+	\bra{1}_l |\hat{E}|^2 \ket{1}_l &= \sum_{ll'} E_l E_{l'} \bm{\epsilon}_l\cdot\bm{\epsilon}_{l'} \bra{1}(\hat{a}_l^2 e^{2i\phi_l} + \hat{a}_l^\dagger\ ^2 e^{-i2\phi_{l}} + \hat{a}_l\hat{a}^\dagger_{l'} + \hat{a}^\dagger_l\hat{a}_{l'})\ket{1} \\
+	\bra{1}_l |\hat{E}|^2 \ket{1}_l &= \delta_{lm}\delta_{l'm} |E_m|^2
+\end{align*}
+Which implies that the total energy in the field from this is:
+\begin{align*}
+	\frac{\epsilon_0}{2}\int d^3 x\expval{|E|^2} &= \hbar\omega_m
+\end{align*}
+
+When we look at single photons we need to consider how the photon is emmitted. In order to properly consider an atom we introduce an interaction term to our Hamiltonian:
+\begin{align*}
+	\hat{H}_I &= \hbar \sum_l g_l(\hat{\sigma}_+\hat{a}_l + \hat{\sigma}_-\hat{a}^\dagger)_l
+\end{align*}
+The modes we choose generally will depend on the system we look at. If we put our atom in a cavity, then we can see that the modes the atom interacts with are simply the cavity modes. Additionally the transition will likely only be associated witha  single cavity mode.
+When we look at our atoms we can see that we have both homogeneous and inhomogeneous broadening affecting the emission. An homogeneously broadened emmiter emits one mode, while an inhomogeneously broadened emmitter emits a multimode mixture.
+These mixtures are incoherent, and therefore subsequent photons don't occupy the same modes which causes poor interference.
