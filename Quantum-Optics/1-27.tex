@@ -1,0 +1,137 @@
+\subsection{Single photon states}
+We start by considering a signle photon that may be distributed across multiple modes. 
+
+If we begin by considering a photon in a single mode (lets say mode $3$) we can write this state as:
+\begin{align*}
+	\ket{\psi} &= \hat{a}_3^\dagger\vac \\
+	\ket{\psi} &= \ket{1}_3
+\end{align*}
+Here all the measurable data you can find for a single photon depends on the mode. For solid state single photon emitters you will see that the emitter will not emit into the same mode each time.
+This will be an inghomogeneous broadening to our system. This can be described by a single photon mixed state/mixed mode:
+\begin{align*}
+	\rho &= \sum_{i,j} p_{ij}\ket{1}_i\bra{1}_j
+\end{align*}
+So far we've been using plane wave modes to represent the state of our system. For our lacalized/localizable system we would rather work with wave packet modes. These wave packet modes are non-monochromatic, and we can write:
+\begin{align*}
+	\bm{v}_m(\bm{x}) &= \sum_l U_{ml} \bm{u}_l(\bm{x}
+\end{align*}
+We want our transformation $U$ to be unitary in order to preserve orthogonality, magnitude and inner products. In our original system, our inner product was defined:
+\begin{align*}
+	\bm{a}\cdot\bm{b} &= \frac{1}{V} \int d^3 x \bm{a}^*\cdot\bm{b}
+\end{align*}
+We can express our old basis in terms of the new basis:
+\begin{align*}
+	\bm{u}_l  &= \sum_m U_{lm}^* \bm{v}_m
+\end{align*}
+So:
+\begin{align*}
+	\hat{\bm{E}} &= \sum_l i \mathcal{E}_l \sum_m U_{lm}^*\bm{v}_m e^{i\omega_l r} \hat{a}_l + \hercon \\
+	\hat{\bm{E}} &= \sum_m \bm{v}_m \sum_l i \mathcal{E}_l U_{lm}^* e^{i\omega_l r}\hat{a}_l + \hercon
+\end{align*}
+If we choose monochromatic waves then:
+\begin{align*}
+	\hat{\bm{E}} &= \sum_m \bm{v}_m\mathcal{E}_mi e^{i\omega_m r}\hat{b}_m + \hercon &
+	\hat{b}_m &= \sum_l U_{lm}^* \hat{a}_l
+\end{align*}
+We can see:
+\begin{align*}
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \sum_{l,l'} [U_{lm}^*\hat{a}_l,U_{m'l'}\hat{a}_{l'}^\dagger] \\
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \sum_{l,l'} U_{lm}^*U_{m'l'}[\hat{a}_l,\hat{a}_{l'}^\dagger] \\
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \sum_{l,l'} U_{lm}^*U_{m'l'}\delta_{ll'} \\
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \sum_{l,l'} U_{lm}^*U_{m'l'}\delta_{ll'} \\
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \sum_{l,l'} U_{lm}^*U_{m'l} \\
+	[\hat{b}_m,\hat{b}_{m'}^\dagger] &= \delta_{mm'}
+\end{align*}
+So our unitary mode transformations preserve bosonic commutators.
+
+We now look at pulse modes, which are non-monochromatic. Sometimes these are called temporal mmodes. For an atom we can express our spectral envelope:
+\begin{align*}
+	\tilde{A}(\omega) &\propto \frac{1}{\frac{\Gamma^2}{4} + (\omega - \omega_0)^2} \\
+	A(t) &= a(t)  e^{-i\omega_0 t} \\
+	a(t) &\propto e^{-\frac{t}{\tau}}
+\end{align*}
+These Lorentzian's are one of the modes we will commonly expand about, we will also commonly use the Hermite Gaussian pulses:
+\begin{align*}
+	v_m(t) &\propto HG_m(t) e{-\frac{t^2}{\tau^2}}
+\end{align*}
+We now rewrite $E$:
+\begin{align*}
+	\hat{\bm{E}} &= i\sum_k \sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}} \hat{x} e^{i(kz-\omega_k t} \hat{a}_k - \hercon \\
+	v_m &= \sum_k U_{mk} e^{ikz} \\
+	\psi_m(\tau) &= \sum_\omega \tilde{\psi}_m(\omega) e^{-i\omega\tau} & \tau &= t- \frac{z}{c}
+\end{align*}
+This yields:
+\begin{align*}
+	\hat{\bm{E}} &= i\sum_\omega \sqrt{\frac{\hbar}{2\epsilon_0 V}}\sqrt{\omega} \hat{x} e^{-i\omega\tau} \hat{a}_\omega - \hercon \\
+	e^{-i\omega\tau} &= \sum_m \tilde{\psi}_{m}^*(\omega) \psi_m(\tau) \\
+	\hat{\bm{E}} &= i\sum_\omega \sum_m \sqrt{\frac{\hbar}{2\epsilon_0 V}}\sqrt{\omega} \hat{x} \tilde{\psi}_{m}^*(\omega) \psi_m(\tau) \hat{a}_\omega - \hercon \\
+	\hat{\bm{E}} &= i\sqrt{\frac{\hbar}{2\epsilon_0 V}} \hat{x}\sum_m  \psi_m(\tau) \sum_\omega \sqrt{\omega}\tilde{\psi}_{m}^*(\omega) \hat{a}_\omega - \hercon
+\end{align*}
+If $tilde{\psi}_m^*(\omega)$ is nearly constant around some $\omega_0$ we can say:
+\begin{align*}
+	\hat{b}_m &= \sum_\omega \sqrt{\omega} \tilde{\psi}_m^*(\omega) \\
+	\hat{b}_m &= \sqrt{\omega_0} \sum_\omega \tilde{\psi}_m^*(\omega) \\
+	[\hat{b}_m, \hat{b}_{m'}^\dagger] &= \omega_0\delta_{mm'}
+\end{align*}
+Taking the continuum limit we see:
+\begin{align*}
+	\sum_\omega &\to \int \frac{d\omega}{2\pi} \\
+	\sum_k &\to \frac{L}{2\pi} \int dk \\
+	f(t) &= \int \frac{d\omega}{2\pi} e^{-i\omega t}\tilde{f}(\omega) \\
+	\tilde{f}(\omega) &= \int dt e^{i\omega t}f(t) \\
+	\hat{b}_m &= \int \frac{d\omega}{2\pi} \sqrt{\omega} \tilde{\psi}_m^*(\omega \hat{a}(\omega) \\
+	[\hat{a}(\omega),\hat{a}^\dagger(\omega')] &= 2\pi \delta(\omega - \omega') \\
+	[\hat{a}(t),\hat{a}^\dagger(t') &= \delta(t-t')
+\end{align*}
+We can see:
+\begin{align*}
+	e^{-i\omega\tau} &= \sum_m \psi_{m\omega}^* \psi_m(\tau) \\
+	\psi_m(\tau) &= \sum_{\omega'} \psi_{m\omega'} e^{-i\omega'\tau} \\
+	e^{-i\omega\tau} &= \sum_m \psi_{m\omega}^* \sum_{\omega'} \psi_{m\omega'} e^{-i\omega'\tau} \\
+	e^{-i\omega\tau} &= \sum_{\omega'}\delta_{\omega\omega'} e^{-i\omega'\tau} \\
+	e^{-i\omega\tau} &= e^{-i\omega\tau}
+\end{align*}
+Which is what we expect. 
+
+We now consider the commutator between two different non orthogonal modes:
+\begin{align*}
+	[\hat{a}_\psi, \hat{a}^\dagger_\phi] &= (\psi|\phi)
+\end{align*}
+Where $(\psi|\phi)$ is the overlap between the two modes.
+\subsection{Two photon states}
+We look at a simple two photon state:
+\begin{align*}
+	\frac{(\hat{a}_3^\dagger)^2}{\sqrt{2}}\vac &= \ket{2}_3
+\end{align*}
+Or:
+\begin{align*}
+	\hat{a}_3^\dagger \hat{a}_4^\dagger \vac &= \ket{1}_3\ket{1}_4
+\end{align*}
+But we can have a more complicated state:
+\begin{align*}
+	\hat{a}_\psi^\dagger\hat{a}_\phi^\dagger\vac
+\end{align*}
+\subsection{Single mode states}
+We say for a pure single mode state:
+\begin{align*}
+	\ket{\psi} &= \sum_n c_n \ket{n}
+\end{align*}
+Where we would describe this as a state of the photon number representation.
+
+We could instead use the quadrature representation:
+\begin{align*}
+	\bra{q}\ket{p} &= e^{-iqp} \\
+	\ket{q}\ket{\psi} &= \psi(q) \\
+	\ket{p}\ket{\psi} &= \tilde{\psi}(p)
+\end{align*}
+Where are $q$ and $p$ states are complete:
+\begin{align*}
+	1 &= \int dq \ket{q}\bra{q} \\
+	1 &= \int \frac{dp}{2\pi} \ket{p}\bra{p}
+\end{align*}
+And we can then write:
+\begin{align*}
+	\ket{\psi} &= \int \psi(q) \ket{q} dq \\
+	\ket{\psi} &= \int \frac{dp}{2\pi} \tilde{\psi}(p) \ket{p}
+\end{align*}
+Where we can say $|c_n|^2$ represents the chance of finding $n$ photons, $|psi|^2 dq$ represents the chance of finding a photon near x, and $|\tilde{\psi}|^2 dp$ is the chance of finding a photon with $p$
