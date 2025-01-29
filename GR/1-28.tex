@@ -1,0 +1,132 @@
+We now look to compute the travel time through a wormhole geometry as an example. We have our traveler begin at a coordinate radius $R$ and allow them to fall inward through the Wormhole.
+Therefore we say:
+\begin{align*}
+	u^r &= U
+\end{align*}
+So we have an initial radial 4-velocity. We now attempt to compute the time the traveler experiences traveling to $r=-R$. In order to have the total length of our 4-velocity equal to $-1$ we say:
+\begin{align*}
+	\bm{u} &= (\sqrt{1+ U^2},U,0,0)
+\end{align*}
+We can see from our prior work in this geometry:
+\begin{align*}
+	\partder{u^r}{\tau} &= 0
+\end{align*}
+So moving along the radius we see that the radial component is constant and therefore we can say:
+\begin{align*}
+	r(\tau) &= U\tau \\
+	\Delta\tau &= \frac{2R}{U}
+\end{align*}
+Recall from mechanics, that conservation laws give first integrals of EOM, which generally reduce the number of equations we need to solve.
+In GR we know that the four velocity's length is always conserved $g_{\alpha\beta} u^\alpha u^\beta = -1$.
+Symmetries in our spacetime will give us other conservation laws. From Newtonian mechanics we know that energy conservation arises from a potential that is invariant under time translation.
+Conserved linear momentum arrises from translation invariance. For angular momentum we see a conservation law will arise from rotational invariance (spherical symmetry).
+
+In GR we look at symmetries in spacetime. These occur when the metric is invariant under displacements in a given coordinate.
+The four vector $\xi = (0,1,0,0)$ which captures our symmetry is called the Killing vector associated with the symmetry.
+
+For example in flat space:
+\begin{align*}
+	dS^2 &= dx^2 + dy^2 + dz^2
+\end{align*}
+We can immediately see that we have killing vectors $(1,0,0)$, $(0,1,0)$, and $(0,0,1)$. We can see if we change coordinate to spherical coordinates we have:
+\begin{align*}
+	dS^2 &= dr^2 + r^2 d\theta^2 + r^2\sin^2\theta d\phi^2
+\end{align*}
+So we can see we have the killing vector $(0,0,1)$.
+
+These killing vectors are associated with constants of motion: 
+\begin{align*}
+	\bm{\xi}\cdot\bm{u} &= \text{const}
+\end{align*}
+If our metric (and therefore our Lagrangian) are independant of some coordinate $x^1$, then:
+\begin{align*}
+	\partder{\mathcal{L}}{x^1} &=0 \\
+	\frac{d}{d\sigma} \partder{\mathcal{L}}{\frac{dx^1}{d\sigma}} &= 0 \\
+	\partder{\mathcal{L}}{\frac{dx^1}{d\sigma}} &= -g_{1\beta} \frac{1}{\mathcal{L}} \frac{dx^\beta}{d\sigma} \\
+	\partder{\mathcal{L}}{\frac{dx^1}{d\sigma}} &= -g_{1\beta} \frac{dx^\beta}{d\tau} \\
+	\partder{\mathcal{L}}{\frac{dx^1}{d\sigma}} &= -g_{\alpha\beta} \xi^\alpha\frac{dx^\beta}{d\tau} \\
+	\partder{\mathcal{L}}{\frac{dx^1}{d\sigma}} &= -\bm{\xi}\cdot\bm{u}
+\end{align*}
+Looking now at null geodesics (the paths of photons). We can no longer use proper time to parameterize our paths since photons have $\Delta\tau = 0$. We choose our parameter to be $\lambda$, so:
+\begin{align*}
+	u^\alpha &= \frac{dx^\alpha}{d\lambda} \\
+	\bm{u}\cdot\bm{u} &= g_{\alpha\beta} \frac{dx^\alpha}{d\lambda} \frac{dx^\beta}{d\lambda} \\
+	\bm{u}\cdot\bm{u} &= 0
+\end{align*}
+We know in flat spacetime that:
+\begin{align*}
+	\frac{d^2x^\alpha}{d\lambda^2} &= 0
+\end{align*}
+We want to generalize this, and we want to be sure to maintain that: 1. in a local inertial frame our generalization reduces to this, and 2. that this takes the same form in all coordinate systems.
+
+We choose as our generalization:
+\begin{align*}
+	\frac{d^2x^\alpha}{d\lambda^2} &= -\Gamma^\alpha_{\beta\gamma} \frac{dx^\beta}{d\lambda}\frac{dx^\gamma}{d\lambda}
+\end{align*}
+
+\subsection{Shwarzchild geometry}
+We consider the geometry outside a spherical star:
+\begin{align*}
+	ds^2 &= -\left(1 -\frac{2GM}{c^2 r}\right)(cdt)^2 + \left(1- \frac{2GM}{c^2 r}\right)dr^2 + r^2 (d\theta^2 + \sin^2\theta d\phi^2)
+\end{align*}
+We refer to these coordinates as Schwarzchild coordinates. We can immediately see this is spherically symmetric, and that as $r\to\infty$ this becomes flat spacetime.
+Additionally we see there are coordinate singularities at $r=0$ and $r=\frac{2GM}{c^2}$. The singularity at $r=0$ can be ignored for physical reasons, and the other one is because of the choice of coordinates, and can be removed by changing coordinates.
+Also note that $r$ is not radial distance, but instead related to the surface area of a sphere of that radius. Also this is time independant. We can write killing vector:
+\begin{align*}
+	\xi &= (1,0,0,0)
+\end{align*}
+And the geometry at constant $r$ and $t$:
+\begin{align*}
+	d\Sigma^2 &= r^2(d\theta^2 + \sin^2\theta d\phi^2)
+\end{align*}
+Where we find another killing vector:
+\begin{align*}
+	\eta &= (0,0,0,1)
+\end{align*}
+We may assume that $M$ is the mass of the star, but we now want to interogate this by taking the non-relativistic limit:
+\begin{align*}
+	\frac{GM}{c^2 r} \ll 1 \\
+	ds^2 &\approx -\left(1 - \frac{2GM}{c^2r}\right)(cdt)^2 + \left(1+ \frac{2GM}{c^2 r}\right)dr^2 + r^2 (d\theta^2 + \sin^2\theta d\phi^2)
+\end{align*}
+Which is the static weak field metric for the Newtonian gravitational potential
+
+Looking at the Schwarzchild radius $r = \frac{2GM}{c^2}$.
+
+Now we look at the effect on light of killing vectors moving away from the singularity of a shwarzchild geometry.
+If we have an emission event at fixed radius R emitting a light signal with frequency $\omega_*$ and an infinitely distant observer sees it with frequence $\omega_\infty$.
+We know the energy of this photon is $E=\hbar\omega$. And we have a symmetry related to this:
+\begin{align*}
+	\xi &= (1,0,0,0) \\
+	\bm{\xi}\cdot\bm{p} &= \text{const}
+\end{align*}
+We want to move to orthonormal basis for our observers, in these frames we will have each observers velocity vector be $u = (1,0,0,0)$.
+
+Therefore we say an observer moving with velocity $\bm{u}_\text{obs}$ will measure an energy:
+\begin{align*}
+	E &= -\bm{p}\cdot\bm{u}_\text{obs} \\
+	E &= \hbar\omega
+\end{align*}
+For any observer we will have four velocity:
+\begin{align*}
+	\bm{u}_\text{obs}\cdot\bm{u}_\text{obs} &= -1
+\end{align*}
+In the observers frame:
+\begin{align*}
+	u_\text{obs}^i &= 0 \\
+	g_{tt}(r) u^t_\text{obs}\ ^2 &= -1 \\
+	u^t_\text{obs} &= \left(1- \frac{2GM}{c^2 r}\right)^{-\frac{1}{2}}
+\end{align*}
+So for our stationary observer:
+\begin{align*}
+	\bm{u}_\text{obs} &= \left(1- \frac{2GM}{c^2 r}\right)^{-\frac{1}{2}}\bm{\xi}
+\end{align*}
+So:
+\begin{align*}
+	\hbar\omega_* &= \left(1- \frac{2GM}{c^2 r}\right)^{-\frac{1}{2}}(\bm{\xi}\cdot\bm{p})_R \\
+	\hbar\omega_\infty &= (\bm{\xi}\cdot\bm{p})_\infty
+\end{align*}
+But this is a conserved quantity, so:
+\begin{align*}
+	(\bm{\xi}\cdot\bm{p})_R &= (\bm{\xi}\cdot\bm{p})_\infty \\
+	\omega_\infty &= \omega_* \sqrt{1 - \frac{2GM}{c^2 R}}
+\end{align*}
