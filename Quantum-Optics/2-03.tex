@@ -1,0 +1,146 @@
+\subsection{Coherent states continued}
+We can see that the probability to find $n$ photons is:
+\begin{align*}
+	P_\alpha(n) &= e^{-|\alpha|^2} \frac{(|\alpha|^2)^n}{n!} \\
+	\expval{\hat{n}} &= |\alpha|^2
+\end{align*}
+Which is a Poisson distribution, with:
+\begin{align*}
+	P_\alpha(n) &= e^{-\bar{n}} \frac{\bar{n}^n}{n!}
+\end{align*}
+Where we also know that the standard deviation must be $\sqrt{\bar{n}}$ from the properties of the Poisson distribution.
+
+From now on we will shift our definition of $q$ and $p$, such that:
+\begin{align*}
+	\hat{q} &= \frac{\hat{a} + \hat{a}^\dagger}{\sqrt{2}} \\
+	\hat{p} &= \frac{\hat{a} - \hat{a}^\dagger}{i\sqrt{2}} \\
+	[\hat{q},\hat{p}] &= i
+\end{align*}
+So then:
+\begin{align*}
+	\hat{a} &= \frac{\hat{q} + i\hat{p}}{\sqrt{2}} \\
+	\hat{a}^\dagger &= \frac{\hat{q} - i\hat{p}}{\sqrt{2}}
+\end{align*}
+Therefore we can say:
+\begin{align*}
+	\bra{q}\ket{\alpha} &= \bra{q}\hat{D}(\alpha)\ket{0} \\
+	\bra{q}\ket{\alpha} &= \bra{q}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}\hat{q} - i\hat{p}\frac{\alpha + \alpha^*}{\sqrt{2}}}\ket{0} \\
+	\bra{q}\ket{\alpha} &= \bra{q}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}\hat{q}}e^{- i\hat{p}\frac{\alpha + \alpha^*}{\sqrt{2}}}e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}\ket{0} \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q}\bra{q}e^{- i\hat{p}\frac{\alpha + \alpha^*}{\sqrt{2}}}\ket{0} \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q}\bra{q}e^{- i\hat{p}\frac{\alpha + \alpha^*}{\sqrt{2}}}\int \frac{dp'}{2\pi}\ket{p'}\bra{p'}\ket{0} \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q}\int \frac{dp'}{2\pi}e^{- i\hat{p'}\frac{\alpha + \alpha^*}{\sqrt{2}}}\bra{q}\ket{p'}\bra{p'}\ket{0} \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q}\int \frac{dp'}{2\pi}e^{- i\hat{p'}\frac{\alpha + \alpha^*}{\sqrt{2}}}e^{ip'q}\psi_0(p') \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q}\int \frac{dp'}{2\pi}e^{ip'(q-q_\alpha)}\psi_0(p') & q_\alpha &= \sqrt{2}\Re\alpha \\
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha - \alpha^*}{\sqrt{2}}q} \psi_0(q - q_\alpha)
+\end{align*}
+And clearly:
+\begin{align*}
+	\bra{q}\ket{\alpha} &= e^\frac{-(\alpha - \alpha^*)(\alpha + \alpha^*)}{4}e^{\frac{\alpha + \alpha^*}{i\sqrt{2}}p} \psi_0(p - p_\alpha) & p_\alpha &= \sqrt{2}\Im\alpha
+\end{align*}
+We know the overlap between two coherent states is:
+\begin{align*}
+	\bra{\beta}\ket{\alpha} &= e^{-\frac{|\alpha|^2 + |\beta|^2}{2} + \beta^*\alpha} \\
+	|\bra{\beta}\ket{\alpha}|^2 &= e^{-|\alpha-\beta|^2}
+\end{align*}
+We additionally know that coherent states are overcomplete. Where we say that a complete set of states we can say:
+\begin{align*}
+	1 &= \sum_n \ket{n}\bra{n} \\
+	1 &= \int dq \ket{q}\bra{q} \\
+	1 &= \int \frac{dp}{2\pi} \ket{p}\bra{p}
+\end{align*}
+For coherent states we find:
+\begin{align*}
+	1 &- \in \frac{d^2\alpha}{\pi}\ket{\alpha}\bra{\alpha}
+\end{align*}
+
+\subsection{Wigner Representation}
+We will now introduce the Wigner representation which is an example of a quasi-probability distribution.
+
+For a classical probability distribution:
+\begin{align*}
+	\int \frac{dp}{2\pi} P(q,p) &= P(q) \\
+	\int dq P(q,p)&= P(p) \\
+	\int\int \frac{dp}{2\pi}dq P(q,p) &= 1 \\
+	P(q,p) &\in \mathbb{R} \\
+	P(q,p) & \geq 0
+\end{align*}
+We define the Wigner function:
+\begin{align*}
+	W_\psi(q,p) &= \frac{1}{2\pi} \int dq' \bra{q - \frac{q'}{2}}\ket{\psi}\bra{\psi}\ket{q + \frac{q'}{2}} e^{ipq'} \\
+	W_\rho(q,p) &= \frac{1}{2\pi} \int dq' \bra{q - \frac{q'}{2}}\hat{\rho}\ket{q + \frac{q'}{2}} e^{ipq'} \\
+	W_\rho(q,p) &= \frac{1}{2\pi} \int \frac{dp'}{2\pi} \bra{p - \frac{p'}{2}}\hat{\rho}\ket{p + \frac{p'}{2}} e^{-ipq'}
+\end{align*}
+Which is equivalent to the expectation value of a displaced parity operator.
+
+We can immediately see that since this is the expectation value of the displaced parity operator, it must always have real values.
+We can also see that this is normalized, and the marginals are our expected marginals.
+\begin{align*}
+	W(p,q) &\in \mathbb{R} \\
+	\int\int \frac{dp}{2\pi}dq W(q,p) &= 1 \\
+	\int \frac{dp}{2\pi} W(q,p) &= \bra{q}\hat{\rho}\ket{q} \\
+	\int dq W(q,p)&= \bra{p}\hat{\rho}\ket{p}
+\end{align*}
+And similarly for any set of well defined orthogonal marginals. 
+
+For the overlap of two states:
+\begin{align*}
+	\Tr{\hat{\rho_1}\hat{\rho_2}} &= \int\int \frac{dpdq}{2\pi} W_{\rho_1}(q,p)W_{\rho_2}(p,q)
+\end{align*}
+Additionally we can calculate the expectation value of an observable:
+\begin{align*}
+	\Tr{\hat{\rho}\hat{\Pi}} &= \int \int \frac{dqdp}{2\pi} W_\rho(q,p) W_\Pi(q,p)
+\end{align*}
+Additionally we can see:
+\begin{align*}
+	\Tr{\hat{\rho}^2} &= \int\int \frac{dqdp}{2\pi} W_\rho^2(q,p)
+\end{align*}
+We can use this to generate a matrix representation via:
+\begin{align*}
+	\rho_{mn} &=\Tr{\hat{\rho}\ket{m}\bra{n}}
+\end{align*}
+We can also find:
+\begin{align*}
+	|W(q,p)| &\leq \frac{1}{\pi}
+\end{align*}
+
+We investigate the Wigner function in practice now by considering the Wigner function of the vaccuum state:
+\begin{align*}
+	W_0(q,p) &=\frac{1}{2\pi} \int dq' \psi_0\left(q- \frac{q'}{2}\right)\psi_0^*\left(q + \frac{q'}{2}\right) e^{ipq'} \\
+	W_0(q,p) &=\frac{1}{\pi} e^{-(q^2 + p^2)}
+\end{align*}
+
+Now turning to a coherent state, we can see that since this is really simply shifting our function in phase space, we can easily see:
+\begin{align*}
+	W_\alpha(q,p) &= \frac{1}{\pi} e^{-((q-q_\alpha)^2 + (p-p_\alpha)^2)} 
+\end{align*}
+
+Now looking at number states (beyond the vaccuum state):
+\begin{align*}
+	W_n(q,p) &=\frac{1}{2\pi} \int dq' \bra{q - \frac{q'}{2}}\ket{n}\bra{n}\ket{q + \frac{q'}{2}} e^{iq'p} \\
+	W_n(q,p) &= \frac{1}{\pi}(-1)^n e^{-(q^2 + p^2)}L_n(2(q^2 + p^2))
+\end{align*}
+Where $L_n$ is the $n$th Laguerre polynomial:
+\begin{align*}
+	L_0 &= 1 \\
+	l_1 &= 1-x \\
+	L_2 &= \frac{1}{2}(x^2 - 4x +2)
+\end{align*}
+Etcetera.
+So:
+\begin{align*}
+	W_1(q,p) &= -\frac{e^{-(q^2 + p^2)}}{\pi} (1 - 2(q^2 + p^2))
+\end{align*}
+Interestingly we know:
+\begin{align*}
+	W_1(0,0) &= -\frac{1}{\pi}
+\end{align*}
+We turn now to cat states which are macroscopic states entangled with microscopic systems. When we talk about this in terms of our states in quantum optics we say our cat states are states like $\ket{\alpha} + \ket{-\alpha}$. We see the Wigner function will be:
+\begin{align*}
+	W_\text{c.s.}(q,p) &= \frac{1}{2\pi} \int dq'\bra{q - \frac{q'}{2}}(\ket{\alpha} + \ket{-\alpha}(\bra{\alpha} + \bra{-\alpha})\ket{q + \frac{q'}{2}} 
+\end{align*}
+Which clearly includes a pair of terms for our individual Wigner functions for $\ket{\alpha}$ and $\ket{-\alpha}$, while we see the other two terms give us interference effects.
+
+If we assume $\alpha$ is real, then we will see that we have a sum of coherent states in the $q$ representation, but interference effects in the $p$ state. 
+Alternatively if we look at a mixture $\rho = \ket{\alpha}\bra{\alpha} + \ket{-\alpha}\bra{-\alpha}$ which doesn't see any interference effects.
+
+We say that the negativity of the Wigner function is one way to describes how quantum a state is.

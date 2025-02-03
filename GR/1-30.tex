@@ -1,0 +1,39 @@
+We now look at particle motion in the Schwazchild geometry. We say that the metric will be independant of $t$ and $\phi$. I.e. we have constants:
+\begin{align*}
+	\bm{\xi}\cdot\bm{u} &= \text{const} &
+	\xi &= (1,0,0,0) \\
+	\bm{\eta}\cdot\bm{u} &= \text{const} &
+	\eta &= (0,0,0,1)
+\end{align*}
+We say:
+\begin{align*}
+	e &= -\bm{\xi}\cdot\bm{u} \\
+	e &= \left(1- \frac{2M}{r}\right) \frac{dt}{d\tau}
+\end{align*}
+Which is our conserved energy per unit mass. And we also have:
+\begin{align*}
+	l &= \bm{\eta}\cdot\bm{u} \\
+	l &= r^2\
+	sin^2\theta \frac{d\phi}{d\tau}
+\end{align*}
+Which is our conserved angular momentum per unit mass.
+
+Since the four velocity must be normalized we can say:
+\begin{align*}
+	\bm{u}\cdot\bm{u} &= -1 \\
+	\bm{u}\cdot\bm{u} &= g_{\alpha\beta} u^\alpha u^\beta \\
+	\bm{u}\cdot\bm{u} &= -\left(1 - \frac{2M}{r}\right)(u^t)^2 + \left(1 - \frac{2M}{r}\right)^{-1}(u^r)^2 + r^2(u^\phi)^2
+\end{align*}
+Where we have picked coordinates where we are rotating in the plane $\theta = \frac{\pi}{2}$. Inserting our known constants of motion:
+\begin{align*}
+	\bm{u}\cdot\bm{u} &= -\left(1 - \frac{2M}{r}\right)e^2 + \left(1 - \frac{2M}{r}\right)^{-1}\left(\frac{dr}{d\tau}\right)^2 + \frac{l^2}{r^2}\\
+	\frac{e^2 - 1}{2} &= \frac{1}{2}\left(\frac{dr}{d\tau}\right)^2 + \frac{1}{2}\left[\left(1-\frac{2M}{r}\right)\left(1+ \frac{l^2}{r^2}\right) - 1\right] \\
+	\varepsilon &= \frac{e^2 - 1}{2} \\
+	\varepsilon &= \frac{1}{2}\left(\frac{dr}{d\tau}\right)^2 + \frac{1}{2}\left[\left(1-\frac{2M}{r}\right)\left(1+ \frac{l^2}{r^2}\right) - 1\right]
+\end{align*}
+We then define an effective potential:
+\begin{align*}
+	V_\text{eff} &= \frac{1}{2}\left[\left(1-\frac{2M}{r}\right)\left(1+ \frac{l^2}{r^2}\right) - 1\right] \\
+	V_\text{eff} &= -\frac{M}{r} + \frac{l^2}{2r^2} - \frac{Ml^2}{r^3} \\
+	\varepsilon &= \frac{1}{2}\left(\frac{dr}{d\tau}\right)^2 + V_\text{eff}(r)
+\end{align*}
