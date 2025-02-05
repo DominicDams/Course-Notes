@@ -1,0 +1,115 @@
+\subsection{Squeezed state}
+We have two more single mode states to introduce at this point. The first of which is the thermal state, which can be well described classically. For an interesting quantum state we now turn to squeezed states.
+
+We introduce these squeezed states with the squeezing operator:
+\begin{align*}
+	\hat{S}(\xi) &- e^{\frac{\xi^*\hat{a}^2 - \xi\hat{a}^\dagger\ ^2}{2}}
+	\xi &= r e^{i\theta}
+\end{align*}
+We note that $\hat{S}$ is unitary, so $\hat{S}^\dagger \hat{S} = 1$ and $\hat{S}^\dagger(\xi) = \hat{S}(-\xi)$. We now looke at:
+\begin{align*}
+	\hat{S}^\dagger(\xi) \hat{a}\hat{S}(\xi)
+\end{align*}
+Noteing:
+\begin{align*}
+	\ket{\xi} &= \hat{S}(\xi)\ket{0}
+\end{align*}
+So we can think of this as the Heisenberg picture evolution of $\hat{a}$. For contrast with coherent states:
+\begin{align*}
+	\hat{D}^\dagger(\alpha)\hat{a}\hat{D}(\alpha) &=\hat{a} + \alpha \\
+	\hat{D}^\dagger(\alpha)\hat{a}^\dagger\hat{D}(\alpha) &=\hat{a}^\dagger + \alpha^*
+\end{align*}
+Where we used:
+\begin{align*}
+	e^{\hat{A}} \hat{B} e^{-\hat{A}} &= \hat{B} +  [\hat{A},\hat{B}] + \frac{1}{2} [\hat{A},[\hat{A},\hat{B}]] + \ldots \\
+\end{align*}
+For the squeezing operator we see:
+\begin{align*}
+	\hat{S}^\dagger(\xi)\hat{a}\hat{S}(\xi) &= \hat{a}\cosh(r)  - \hat{a}^\dagger e^{i\theta} \sinh(r) \\
+	\hat{S}^\dagger(\xi)\hat{a}^\dagger\hat{S}(\xi) &= \hat{a}^\dagger\cosh(r)  - \hat{a} e^{-i\theta} \sinh(r)
+\end{align*}
+And clearly:
+\begin{align*}
+	\hat{S}^\dagger \hat{q}\hat{S} &= \frac{1}{\sqrt{2}}\left( (\hat{a} + \hat{a}^\dagger) \cosh(r) - (\hat{a} e^{-i\theta} + \hat{a}^\dagger e^{i\theta})\sinh(r)\right) \\
+	\hat{S}^\dagger \hat{p}\hat{S} &= \frac{1}{\sqrt{2}i}\left( (\hat{a} - \hat{a}^\dagger) \cosh(r) + (\hat{a} e^{-i\theta} - \hat{a}^\dagger e^{i\theta})\sinh(r)\right)
+\end{align*}
+If we choose $\theta = 0$ then we have:
+\begin{align*}
+	\hat{S}^\dagger \hat{q}\hat{S} &= \hat{q}(\cosh(r) - \sinh(r)) \\
+	\hat{S}^\dagger \hat{q}\hat{S} &= \hat{q}e^{-r} \\
+	\hat{S}^\dagger \hat{p}\hat{S} &= \hat{p}(\cosh(r) + \sinh(r)) \\
+	\hat{S}^\dagger \hat{p}\hat{S} &= \hat{p}e^r
+\end{align*}
+Therefore when we look at our squeezed states:
+\begin{align*}
+	W_\xi(q,p) &= \frac{1}{2\pi}\int dq' \bra{q-\frac{q'}{2}}\ket{\xi}\bra{\xi}\ket{q + \frac{q'}{2}} e^{ipq'}
+\end{align*}
+Since:
+\begin{align*}
+	\bra{q}\ket{\psi} &= \bra{q}\hat{S}\ket{0} \\
+	\bra{q}\ket{\psi} &= \bra{q}\hat{S}\int dq'\ket{q'}\bra{q'}\ket{0} \\
+	\hat{q}\hat{S}\ket{q} &= e^{-r} q\hat{S}\ket{q}
+\end{align*}
+Which means that this is still an eigenstate of $\hat{q}$ but with eigenvalue $qe^{-r}$, so:
+\begin{align*}
+	\bra{q}\ket{\psi} &= \bra{q e^{-r}}\ket{0} \\
+	W_\xi(q,p) &= \frac{1}{2\pi}\int dq' \bra{(q-\frac{q'}{2})e^{-r}}\ket{0}\bra{0}\ket{e^{r}(q + \frac{q'}{2})} e^{ipq'}
+\end{align*}
+So we can see that this will be the vaccuum state with $q\to qe^{-r}$, and $p\to pe^{r}$. So our Wigner function becomes:
+\begin{align*}
+	W_\xi(q,p) &= W_0(qe^{r},pe^{-r})
+\end{align*}
+We now look at the variances of the quadratures:
+\begin{align*}
+	\Delta q^2 &= \bra{\xi}\hat{q}^2\ket{\xi} - \bra{\xi}\hat{q}\ket{\xi}^2 \\
+	\Delta q^2 &= \bra{0}e^{-2r}\hat{q}2\ket{0} - \bra{0}e^{-r}\ket{0}^2 \\
+	\Delta q^2 &= e^{-2r}(\bra{0}\hat{q}2\ket{0} - \bra{0}\ket{0}^2) \\
+	\Delta q^2 &= e^{-2r}\Delta_0 q^2 \\
+	\Delta p^2 &= e^{2r}\Delta_0 p^2
+\end{align*}
+
+\subsection{Coherent state representation}
+We now introduce another representation of our states. We want to use coherent states to represent our state, this is sometimes call the Glauber-Sadershan, or P-function representation.
+
+We consider a density operator $\hat{\rho}$:
+\begin{align*}
+	\hat{\rho} &= \int d^2\alpha P(\alpha,\alpha^*)\ket{\alpha}\bra{\alpha}
+\end{align*}
+Where we can say:
+\begin{align*}
+	p_\alpha &= \frac{\alpha - \alpha^*}{\sqrt{2}i} &
+	q_\alpha &= \frac{\alpha + \alpha^*}{\sqrt{2}}
+\end{align*}
+Our representation is initially quite strange as it appears to be a diagonal representation of our state, but since the coherent states are non-orthogonal we can see that isn't exactly the case:
+\begin{align*}
+	\bra{-\beta}\hat{\rho}\ket{\beta} &= \int d^2\alpha P(\alpha,\alpha^*) \bra{-\beta}\ket{\alpha}\bra{\alpha}\ket{\beta} \\
+	P(\alpha,\alpha^*) &= \frac{e^{|\alpha|^2}}{2\pi}\int \bra{-\beta}\hat{\rho}\ket{\beta} e^{|\beta|^2} e^{-\beta\alpha^* + \beta^*\alpha} d^2\beta
+\end{align*}
+Therefore:
+\begin{align*}
+	P_{\alpha_0}(\alpha,\alpha^*) &= \frac{e^{|\alpha|^2}}{2\pi} \int d^2\beta \bra{-\beta}\ket{\alpha_0}\bra{\alpha_0}\ket{\beta} e^{|\beta|^2} e^{-\beta\alpha^*} e^{\beta^*\alpha} \\
+	P_{\alpha_0}(\alpha,\alpha^*) &= \frac{e^{|\alpha|^2}}{2\pi} \int d^2\beta e^{-\beta(\alpha^*-\alpha_0^*)} e^{\beta^*(\alpha-\alpha_0)} \\
+	P_{\alpha_0}(\alpha,\alpha^*) &= \delta(\alpha - \alpha_0)
+\end{align*}
+We can see that for a Fock state:
+\begin{align*}
+	P_n(\alpha,\alpha^*) &= \frac{e^{|\alpha|^2}}{n!} \frac{\partial^n}{\partial \alpha^n}\frac{\partial^n}{\partial\alpha^*\ ^n} \delta(\alpha)
+\end{align*}
+Which is something that clearly cannot be measured. In order to suppliment this representation we additionally include the (Husini) Q-function representation:
+\begin{align*}
+	Q_\rho(\alpha,\alpha^*) &= \frac{\bra{\alpha}\hat{\rho}\ket{\alpha}}{2\pi}
+\end{align*}
+Clearly we can see:
+\begin{align*}
+	Q_{\alpha_0}(\alpha,\alpha^*) &= \frac{|\bra{\alpha}\ket{\alpha_0}|^2}{2\pi}
+\end{align*}
+We can then see:
+\begin{align*}
+	Q_\rho(\alpha,\alpha^*) &= \frac{1}{2\pi} \int d^2\alpha' W_\rho(\alpha', \alpha'\ ^*) e^{-(\alpha - \alpha')^2} e^{-(\alpha^* - \alpha'\ ^*)^2} \\
+	W_\rho(\alpha,\alpha^*) &= \frac{1}{2\pi} \in d^2\alpha' P(\alpha',\alpha'\ ^*) e^{-(\alpha-\alpha')^2} e^{-(\alpha^* - \alpha'\ ^*)^2}
+\end{align*}
+Which allows us to compute:
+\begin{align*}
+	\Tr{\hat{\rho}\hat{\sigma}} &= \int d^2\alpha P_\rho(\alpha)Q_\sigma(\alpha)
+\end{align*}
+Where we can charactorize a detector by inputting coherent states and calculating $Q$, and try to determine the input state via reversing this integral.
