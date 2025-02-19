@@ -1,0 +1,105 @@
+We can tell that these systems will arrise from things with Hamiltonians of the form $\hat{H} = \hat{a}_1\hat{a}_2 + \hercon$
+
+We can say:
+\begin{align*}
+	\hat{S}^\dagger \hat{q}_\pm \hat{S} &= e^{\mp r} \hat{q}_\pm \\
+	\hat{S}^\dagger \hat{p}_\pm \hat{S} &= e^{\pm r} \hat{p}_\pm \\
+\end{align*}
+
+Looking now at the Wigner representation:
+\begin{align*}
+	W_{12}(q_1,p_1;q_2,p_2) &= \frac{1}{4\pi^2} \int dq'\int dq'' \bra{q_1 - \frac{q'}{2}}\bra{q_2 - \frac{q''}{2}} \ket{\xi}_{12}\bra{\xi}_{12}\ket{q_1 + \frac{q'}{2}}\ket{q_2 + \frac{q''}{2}} e^{ip_1q'} e^{ip_2q''}
+\end{align*}
+In order to evaluate this we want to look at the $q_\pm$ basis:
+\begin{align*}
+	\bra{q_+}\bra{q_-}\ket{\xi} &= \psi_0(q_+ e^{-r})\psi_0(q_- e^r)
+\end{align*}
+Looking at the quadratures in terms of creation and annihilation operators:
+\begin{align*}
+	\hat{q}_\pm &= \frac{\hat{a}_1 \pm \hat{a}_2}{2} + \frac{\hat{a}_1^\dagger \pm \hat{a}_2^\dagger}{2}
+\end{align*}
+We can recognize that this is the same as a 50:50 beamsplitter transformation. We can also observe that the squeezed state seems to be simply the two seperate squeezed states (with perpendicular squeezing) combined at a beamsplitter.
+Interestingly, the two seperate states that we have combined are not entangled, but the combined state is entangled. From this we can see that entanglement is a product of the mode basis that we are looking at the system with.
+
+We can use our beamsplitter here to determine the Wigner function by looking at this as a change of basis for our Wigner function:
+\begin{align*}
+	q_1 &= \frac{q_+ + q_-}{\sqrt{2}} \\
+	q_2 &= \frac{q_+ - q_-}{\sqrt{2}} \\
+	p_1 &= \frac{p_+ + p_-}{\sqrt{2}} \\
+	p_2 &= \frac{p_+ - p_-}{\sqrt{2}}
+\end{align*}
+So then:
+\begin{align*}
+	\bra{q_1}\bra{q_2}\ket{\xi} &= \psi_0(\frac{q_1 + q_2}{\sqrt{2}} e^{-r})\psi_0(\frac{q_1 - q_2}{\sqrt{2}} e^r)
+\end{align*}
+
+\subsection{Beamsplitter transoformations}
+We now look at how our Wigner function transforms with a pair of general two mode states in a beamsplitter. We first note that a beamsplitter transformation is equivalent to a mode basis change.
+After a 50:50 beamsplitter we transform our creation and annihilation operators:
+\begin{align*}
+	\hat{a}_1 &l\to \frac{1}{\sqrt{2}} (\hat{a}_3 -\hat{a}_4) \\
+	\hat{a}_1 &l\to \frac{1}{\sqrt{2}} (\hat{a}_3 -\hat{a}_4) \\
+	\hat{a}_3 &= \frac{1}{\sqrt{2}} (\hat{a}_1 +\hat{a}_2) \\
+	\hat{a}_4 &= -\frac{1}{\sqrt{2}} (\hat{a}_1 -\hat{a}_2) \\
+\end{align*}
+And similarly the quadratures transfom as:
+\begin{align*}
+	\hat{q}_3 &= \frac{\hat{q}_1 + \hat{q}_2}{\sqrt{2}}
+	\hat{q}_4 &= \frac{\hat{q}_1 - \hat{q}_2}{\sqrt{2}}
+\end{align*}
+And our Wigner functions become:
+\begin{align*}
+	W_{12}(q_1,p_1;q_2,p_2) &\to W_{34}(q_3,p_3;q_4,p_4) \\
+	W_{12}(q_1,p_1;q_2,p_2) &\to W_{12}(\frac{\hat{q}_3 - \hat{q}_4}{\sqrt{2}},\frac{\hat{p}_3 - \hat{p}_4}{\sqrt{2}},\frac{\hat{q}_3 + \hat{q}_4}{\sqrt{2}},\frac{\hat{p}_3 + \hat{p}_4}{\sqrt{2}})
+\end{align*}
+A Wigner function of two arbitrary modes being seperable:
+\begin{align*}
+	W_{nm}(q_m,p_m;q_n,p_n) &=W_m(q_m,p_m)W_n(q_n,p_n)
+\end{align*}
+Implies that the state is seperable!
+
+If we combine a state $\ket{\psi}$ with a coherent state $\ket{\alpha}$ on a (genera) beamsplitter we find:
+\begin{align*}
+	W_\text{in}(q_1,p_1;q_2,p_2) &= W_\psi(q_1,p_1)W_\alpha(q_2,p_2) \\
+	W_\text{out}(q_3,p_3;q_4,p_4) &= W_\psi(tq_3 - rq_4,tp_3-rp_4)W_\alpha(rq_3+tq_4,rp_3 +tp_4)
+\end{align*}
+And we can see:
+\begin{align*}
+	W_3(q_3,p_3) &= \int dq_4\int dp_4 W_\text{out}(q_3,p_3;q_4,p_4) \\
+	W_3(q_3,p_3) &= \int dq_4\int dp_4 W_\psi(tq_3 - rq_4,tp_3-rp_4)W_\alpha(rq_3+tq_4,rp_3 +tp_4)
+\end{align*}
+If we choose $t\approx 1$, $r\ll 1$, then $W_\alpha(rq_3+tq_4,rp_3 +tp_4) \approx \delta( rq_3 + t q_4 -q_0)\delta(rp_3 + tp_4 - p_0)$, then we see:
+\begin{align*}
+	W_3(q_3,p_3) &\approx W_\psi\left( q_3 - \frac{r}{t^2} (q_0-rq_3), t\left(p_3 - \frac{r}{t^2} (p_0-rp_3)\right)\right) \\
+	W_3(q_3,p_3) &\approx W_\psi\left( q_3 - \frac{r}{t^2} q_0), p_3 - \frac{r}{t^2} p_0\right)
+\end{align*}
+Which gives as a mechanism to displace our input state in phase space.
+
+If we now consider instead inputting a single photon state and vaccuum:
+\begin{align*}
+	\ket{\psi}_\text{in} &= \ket{1}\ket{0} \\
+	\ket{\psi}_\text{out} &= \frac{\ket{1}\ket{0} + \ket{0}\ket{1}}{\sqrt{2}}
+\end{align*}
+Which is an entangled state. Similarly for any other photon number state with vaccuum we find this is still an entangled state.
+We can define a class of states that has a singular P function, then mixing that with vaccuum (or some other states).
+We say that Gaussian states are states with Gaussian Wigner functions (this includes the vaccuum state, coherent states, squeezed states, and thermal states).
+It turns out that using Gaussian states and Gaussian operations (operations that leave Gaussian states Gaussian), you cannot perform quantum computations.
+The motivation is that these are very easy to classicaly simulate, and therefore shouldn't be able to do quantum computation with collapsing the complexity class QP into P.
+
+\subsection{Photodetection}
+We have direct detection which measures:
+\begin{align*}
+	\int d^2 r \int dt' \expval{\hat{E}^-\hat{E}^+}
+\end{align*}
+There are different detectors we will use for different wavelengths, with Si detectors being useful for visible light, and InGaAs detectors being useful for NIR.
+For simplicity we assume our spatial and temporal response functions will be tophat functions here.
+
+\subsection{Balanced Homodyne}
+We additionally can use a technique called balanced homodyne detection to measure light.
+In this we have a beamsplitter with an unkown state and a local oscilator incident on it, and then we take the difference between the currents measured on the output of the beamsplitter. What we measure is then:
+\begin{align*}
+	\expval{i_3  - i_4} &= \expval{\hat{a}_3^\dagger\hat{a}_3 - \hat{a}_4^\dagger\hat{a}_4}
+	\expval{i_3  - i_4} &= \frac{1}{2}\expval{(\hat{a}_1^\dagger +\hat{a}_2^\dagger)(\hat{a}_1 + \hat{a}_2) - (\hat{a}_1^\dagger - \hat{a}_2^\dagger)(\hat{a}_1 - \hat{a}_2)}
+	\expval{i_3  - i_4} &= \expval{\hat{a}_1^\dagger\hat{a}_2 + \hat{a}_2^\dagger\hat{a}_1} \\
+	\expval{i_3  - i_4} &= |\alpha| \bra{\psi}(\hat{a}_2 e^{-i\theta} + \hat{a}_2^\dagger e^{i\theta}\ket{\psi}
+\end{align*}
