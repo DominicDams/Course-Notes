@@ -1,0 +1,107 @@
+Our condition that $S_\alpha u^\alpha =0$ should hold in all frames.
+
+We now turn our attention to the precession of a gryoscope moving in an orbit in Schwarzchild spacetime. We assume that our spin starts pointing along the $r$ direction. We can see that (working in the equatorial plane):
+\begin{align*}
+	S^\alpha u_\alpha &= -\left(1- \frac{2M}{r}\right) S^t u^ + R S^\phi u^\phi \\
+	S^t &= \frac{R^2 S^\phi u^\phi}{u^t} \left(1 - \frac{2M}{r}\right)^{-1} \\
+	S^t &=  R^2 \Omega\left(10\frac{2M}{r}\right)^{-1} S^\phi
+\end{align*}
+If we look at the radial component:
+\begin{align*}
+	\frac{dS^r}{d\tau} &= -\Gamma^r_{\beta\gamma} s^\beta u^\gamma \\
+	\frac{dS^\phi}{d\tau} &= -\Gamma^\phi_{\beta\gamma} s^\beta u^\gamma \\
+	\frac{dS^r}{dt}\frac{dt}{d\tau} + \Gamma^r_{tt} s^t u^t + \Gamma^r_{\phi\phi} S^\phi u^\phi &= 0 \\
+	\frac{dS^r}{dt}u^t + \frac{M}{R^2}\left(1- \frac{2M}{r}\right) R^2 \Omega\left(1- \frac{2M}{r}\right)^{-1}  s^t u^t + (R-2M)\Omega S^\phi u^t &= 0 \\
+	\frac{ds^r}{dt} - (R-3M)\Omega s^\phi &= 0 \\
+	\frac{ds^\phi}{dt} + \frac{\Omega}{R} s^r &= 0 \\
+	\frac{d^2 s^\phi}{dt^2} + \left(1-\frac{3M}{r}\right)\Omega^2s^\phi &= 0
+\end{align*}
+Which gives us a harmonic oscilator in $\phi$ with frequency $\Omega' = \sqrt{1 - \frac{3M}{r}}\Omega$ so:
+\begin{align*}
+	s^r &= S_* \sqrt{1-\frac{2M}{R}}\cos\Omega' t \\
+	s^\phi &= -S_*\sqrt{1-\frac{2M}{R}}\frac{\Omega}{\Omega' R}\sin\Omega' t
+\end{align*}
+We then after one orbit we have:
+\begin{align*}
+	\frac{S^r}{S_*} &= \cos \frac{2\pi \Omega'}{\Omega} \\
+	\frac{S^r}{S_*} &= \cos 2\pi\sqrt{1-\frac{3M}{R}} \\
+	\Delta\phi &= 2\pi \left(1-\sqrt{1-\frac{3M}{R}}\right)
+\end{align*}
+For small $\frac{M}{R}$ we can say:
+\begin{align*}
+	\Delta\phi &\approx \frac{3\pi GM}{c^2 R}
+\end{align*}
+Which is approximately $8.4"$ per year for earth. This has been confirmed by experiment up to $0.5$.
+
+\subsection{Outside a slowly rotating body}
+We consider here only leading order effects from the rotation. We don't consider second order effects like changes to the spherical shape of our body.
+GR wull predict changes to our metric entirely from the first order impact of the spinning object.
+It can be shown that:
+\begin{align*}
+	ds^2 &= ds_\text{Schwartzchild}^2 - \frac{4G J}{c^3 r^2} \sin^2\theta (rd\phi)(cdt) + \mathcal{O}(J^2)
+\end{align*}
+We have our new quantity $\frac{GJ}{c^3 r^2}$ which governs the effects of the rotation. If we are rotating with angular speed $\Omega$ we have:
+\begin{align*}
+	J &\propto I\Omega \\
+	J &\propto mR^2\Omega \\
+	J &\propto mRV
+\end{align*}
+So:
+\begin{align*}
+	\frac{GJ}{c^3 r^2} &\propto \frac{GM}{c^2 R} \frac{V}{c}
+\end{align*}
+We now consider the case of a radially infalling gyroscope in this metric. We additionally choose for our gyroscope to fall along the axis of rotation of our central body.
+Finally we choose the direction of the gyroscope to be perpendicular to the axis of rotation.
+We want to find the precession rate to leading order in $\frac{1}{c}$, which happens to be a $\frac{1}{c^3}$ contribution.
+If we work in cartesian coordinates:
+\begin{align*}
+	ds^2 &= ds_\text{Schwartzchild}^2 - \frac{4G J}{c^3 r^2} (cdt) \frac{xdy - ydx}{r} + \mathcal{O}(J^2)
+\end{align*}
+We use our equation for precession now:
+\begin{align*}
+	\frac{dS^\alpha}{d\tau} + \Gamma^\alpha_{\beta\gamma} S^\beta u^\gamma &= 0
+\end{align*}
+In the Schwartzchild geometry our fators of $\frac{GM}{Pc^2r}$ will become $\frac{GM}{c^2 r} \frac{GJ}{c^3 r^2}$, which we can then ignore as the correction is too small.
+Therefore we consider:
+\begin{align*}
+	ds^2 &= ds_\text{flat}^2 - \frac{4GJ}{c^3 r^2} (cdt) \frac{xdy - ydx}{r}
+\end{align*}
+We have a four velocity that should simply be $u = (u^t,0,0,u^z)$ and $s = (0,S^x,S^y,0)$.
+We now need to compute our Christofel symbols:
+\begin{align*}
+	g_{\alpha\delta} \Gamma^\delta_{\beta]gamma} &= \frac{1}{2} \left(\partder{g_{\alpha\beta}}{x^\gamma} + \partder{g_{\alpha\gamma}}{x^\beta} - \partder{g_{\beta\gamma}}{x^\alpha}\right)
+\end{align*}
+And we have metric elements:
+\begin{align*}
+	g_{tt} &= -c^2 & g_{xx} = g_{yy} = g_{zz} &= 1 \\
+	g_{tx} &= \frac{2GJy}{c^2 z^3} & g_{ty} &= -\frac{2GJz}{c^2z^3}
+\end{align*}
+So then our only surviving derivitives become:
+\begin{align*}
+	\partder{g_{tx}}{y} &= \frac{2GJ}{c^2z^3} \\
+	\partder{g_{ty}}{x} &= -\frac{2GJ}{c^2z^3}
+\end{align*}
+And some terms relating to $z$ which we will here ignore calculating since they don't appear in our computations. We can see:
+\begin{align*}
+	g_{tt}\Gamma^t_{\beta\gamma} + g_{tx} \Gamma^x_{\beta\gamma} + g_{ty} \Gamma^y_{\beta\gamma} + g_{tz} \Gamma^z_{\beta\gamma} &= -c^2\Gamma^t_{\beta\gamma}
+\end{align*}
+Because we are looking at paths where $x=y=0$L
+\begin{align*}
+	\Gamma^t_{\beta\gamma} &= 0
+\end{align*}
+And:
+\begin{align*}
+	g_{xt}\Gamma^t_{\beta\gamma} + g_{xx}\Gamma^x_{\beta\gamma} + \ldots &= \Gamma^x_{\beta\gamma}
+\end{align*}
+So:
+\begin{align*}
+	\Gamma^x_{\beta\gamma} &= \frac{1}{2}\left(\partder{g_{x\beta}}{x^\gamma} + \partder{g_{x\gamma}}{x^\beta} - \partder{g_{\beta\gamma}}{x}\right)
+\end{align*}
+If $\beta = t$ we can say:
+\begin{align*}
+	\Gamma^x_{ty} &= \frac{2GJ}{c^2z^3} & \Gamma^y_{tx} &= -\frac{2GJ}{c^2z^3}
+\end{align*}
+So:
+\begin{align*}
+	\frac{dS^x}{dt} &= -\frac{2GJ}{c^2z^3}S^y & \frac{dS^y}{dt} &= \frac{2GJ}{c^2z^3} S^x
+\end{align*}
