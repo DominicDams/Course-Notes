@@ -1,0 +1,64 @@
+We can additionally include a gain factor to see:
+\begin{align*}
+	i_- &= \expval{\int dt' \left[g_1 E_1^-(t')E_1^+(t') - g_2 E_2^-(t')E_2^+(t')\right]} \\
+	i_- &= \frac{1}{2} |\epsilon|^2\expval{\int dt' \left[g_1 (\hat{a}^\dagger(t') + \hat{b}^\dagger(t'))(\hat{a}(t') + \hat{b}(t')) - g_2 (\hat{a}^\dagger(t') - \hat{b}^\dagger(t'))(\hat{a}(t') - \hat{b}(t'))\right]}
+\end{align*}
+If we match our gains (and absorb $\epsilon$ into it) we can say this becomes:
+\begin{align*}
+	i_- &= g\int dt' \expval{\hat{a}^\dagger(t')\hat{b}(t') + \hat{b}^\dagger(t')\hat{a}(t')}
+\end{align*}
+Acting $\hat{b}$ on our coherent state we see:
+\begin{align*}
+	i_- &= g\int dt' \bar{\alpha}_{b\psi}\bra{\rho}_{a\phi}\hat{a}^\dagger(t')\hat{b}(t') + \hat{b}^\dagger(t')\hat{a}(t')\ket{\alpha}_{b\psi}\ket{\rho}_{a\phi} \\
+	i_- &= g\int dt' \bra{\rho}_{a\phi}\hat{a}^\dagger(t')\alpha\psi(t') + \alpha^*\psi^*(t')\hat{a}(t')\ket{\rho}_{a\phi} \\
+	i_- &= g|\alpha|^2\int dt' \bra{\rho}_{a\phi}\hat{a}^\dagger(t')e^{i\theta}\psi(t') + e^{-i\theta}\psi^*(t')\hat{a}(t')\ket{\rho}_{a\phi}
+\end{align*}
+With some Fourier analysis we can see:
+\begin{align*}
+	i_- &= g|\alpha|^2\int dt' \bra{\rho}_{a\phi}\sum_m\phi_m^*(t')\hat{a}_{m\phi}^\dagger(t')e^{i\theta}\psi(t') + e^{-i\theta}\psi^*(t')\sum_m \phi_m(t')\hat{a}_{m\phi}\ket{\rho}_{a\phi} \\
+	i_- &= g|\alpha|^2\sum_m\int dt' \bra{\rho}_{a\phi}\phi_m^*(t')\hat{a}_{m\phi}^\dagger(t')e^{i\theta}\psi(t') + e^{-i\theta}\psi^*(t') \phi_m(t')\hat{a}_{m\phi}\ket{\rho}_{a\phi}
+\end{align*}
+We can see that some of these terms are mode overlaps. If we assume that we are in one mode in our choice of mode labels then we can say the sum disappears (since only one term will survive) so:
+\begin{align*}
+	i_- &= g|\alpha|^2\bra{\rho}_{a\phi}(\psi|\phi)\hat{a}_{\phi}^\dagger(t')e^{i\theta} + e^{-i\theta}(\phi|\psi) \hat{a}_{\phi}\ket{\rho}_{a\phi} \\
+	i_- &= g|\alpha|^2|(\psi|\phi)|\bra{\rho}_{a\phi}\hat{a}_{\phi}^\dagger(t')e^{i\sigma} + e^{-i\sigma}\hat{a}_{\phi}\ket{\rho}_{a\phi} \\
+	i_- &= \sqrt{2}g|\alpha|^2|(\psi|\phi)|\bra{\rho}_{a\phi}\hat{q}_{\phi}(\sigma)\ket{\rho}_{a\phi}
+\end{align*}
+So we can only get information if our LO has some overlap with the mode of our unknown state. Additionally we can see that the info we do get is related to some quadrature.
+We can use this to then calculate the quantum state of our system using quantum state tomography.
+
+We know we can write our expectation values as:
+\begin{align*}
+	\expval{\hat{Q}} &= \Tr{\hat{Q}\hat{\rho}} \\
+	\expval{\hat{Q}} &= 2\pi \int dqdp W_q(q,p)W_\rho(q,p)
+\end{align*}
+Where $\hat{Q}$ will project along an axis associated with $Q$. By varying the angle of $Q$ you can extract the wigner function of the state. To truly understand this we need to consider the expectation value of the projectors for our measurement of $Q$.
+Generating the Wigner function using these sorts of measurements is known as the inverse radon transform.
+\subsection{More measurements}
+One additional measurement type is the click/no-click detector. Rather than measuring a current proportional to our state, we have a pair of differing measurement opeartors for the click events:
+\begin{align*}
+	\hat{\Pi}_\text{click} &= 1 - \hat{\Pi}_\text{nc} \\
+	\hat{\Pi}_\text{nc} &= \vac\vacb
+\end{align*}
+This models avalanche photodioides (APD), photomultiplier tubes (PMT), micro channel plates, SNSPDs
+
+There are also photon number resolving detectors (PNR), these have measurement operators:
+\begin{align*}
+	\hat{\Pi}_n &= \ket{n}\bra{n}
+\end{align*}
+These can get up to 100 photon state potentially. These are primarilly done with transition edge sensors (TES), but can also be done using beam-splitter networks and a large number of click/no-click detectors.
+TES sensors have a very slow rise time, and long dead times, but high quantum efficiency.
+
+\subsection{Quantum Efficiency}
+We now consider what detectors are realistically achievable. We define a figure of merit for our sensors that we call our quantum efficiency $\eta$.
+If we model our detector as a perfect detector with loss directly before the detector, than the transmittivity of our beamsplitter that models this loss is $t=\sqrt{\eta}$.
+
+In order to model the effect the insertion of vaccuum has on our homodyne measurements (quadrature measurements) we need to propogate our input fields forward through our beamsplitter:
+\begin{align*}
+	\Tr{\hat{\rho}\ket{q}\bra{q}} &= \Tr{\hat{B}(\hat{\pho}\otimes\vac\vacb)(\hat{\Pi}\otimes\hat{1})}
+\end{align*}
+We take the partial trace to ignore the state related to the loss:
+\begin{align*}
+	W_3 &= \int dq_4\int dp_4 W_\rho(-r q_4 + t q_3, -rp_4 + tp_3) W_0(rq_3 + tq_4, rp_3 + tp_4)
+\end{align*}
+Which is a convolution with the vaccuum state. And clearly if our quantum efficiency drops below $0.5$ then we will not be able to see a negative value for the Wigner function.
