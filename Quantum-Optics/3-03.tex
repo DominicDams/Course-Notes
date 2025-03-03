@@ -1,0 +1,83 @@
+\subsection{Two-Photon states}
+These states can be used to violate Bell's inequalities. Violations of these Bell's inequalaties directly implies entanglement (which in Quantum Information Theory is considered a resource that can be used).
+We will begin by focusing on spectral/temporal modes.
+
+Clearly looking at a single mode (labelled $\phi$), our two photon state is clearly $\ket{2}_\phi$. In terms of our wave packet creation operator:
+\begin{align*}
+	\ket{2}_\phi &= \frac{(\hat{a}^\dagger_\phi)^2}{\sqrt{2}} \vac & \hat{a}_\phi^\dagger &= \int \frac{d\omega}{2\pi} \hat{a}^\dagger(\omega)\phi(\omega)
+\end{align*}
+Looking now at orthogonal modes (here we choose the Hermite Gauss modes $\phi_n(t)$). We can see clearly there are many states we can generate for two photons. In general the state is:
+\begin{align*}
+	\ket{\psi} &= \sum_{ij} c_{ij} \hat{a}^\dagger_{\phi_i} \hat{a}^\dagger_{\phi_j} \vac
+\end{align*}
+Where there are extra factors of $\sqrt{2}$ in the $i=j$ terms that need to be carefully tracked here.
+
+For a two photon state, with photons that can distinguished by another degree of freedom, we can say:
+\begin{align*}
+	\ket{\psi}_{1,2} &= \int \frac{d\omega_1}{2\pi}\int \frac{d\omega_2}{2\pi} \psi_{12}(\omega_1,\omega_2) \hat{a}^\dagger_1(\omega_1) \hat{a}_2^\dagger(\omega_2)\vac
+\end{align*}
+Where $\psi_{12}$ is our joint spectral amplitude. A factorable JSA implies will look like a circle in $\omega_1, \omega_2$ space. 
+This means there's no correlations, no entanglement, and that our JSA can be written $\psi{12}(\omega_1,\omega_2) = \psi_1(\omega_1)\psi_2(\omega_2)$.
+If we are in a system where we can no longer distinguish the photons, we can still have entanglement, but instead of having the photons carry the entanglement, we have the modes carrying the entanglement.
+For example the state: $\ket{\psi} = c_{00} \ket{2}\ket{0} + c_{11}\ket{0}\ket{2}$ is an entangled state between the first and second mode. In fact we can have entanglement here for a single photon!
+
+If we work with a JSA that looks more like a peapod/cigar in terms of $\omega_1,\omega_2$ then we know we have entanglement. We say this can be expressed in terms of a correlation bandwidth $\Delta_-$ and a bandwidth $\Delta_+$.
+If we measure the spectrum of a single photon of our two photon system we'll see a bandwidth $\Delta_+$, but if we instead look at both photons we see that for a given $\omega_1$ our $\omega_2$ bandwidth is $\Delta_-$.
+
+Looking at this in the temporal domain instead we have:
+\begin{align*}
+	\ket{\psi}_{1,2} &= \int dt_1\int dt_2 \tilde{\psi}(t_1,t_2) \hat{a}_1^\dagger(t_1)\hat{a}_2^\dagger(t_2)\vac
+\end{align*}
+Where we can retrieve this by taking fourier transforms. Clearly if $\psi_{12}$ is factorable $\tilde{\psi}$ will also be factorable. 
+In the temporal basis the time spread of the photons are related to $\frac{1}{\Delta_-}$ while the correlations are related to $\frac{1}{\Delta_+}$.
+A lack of correlation in $|\psi_{12}|^2$ does not imply a lack of correlation between the states. 
+Lets say our JSA is:
+\begin{align*}
+	\psi_{12}(\omega_1,\omega_2) &= \psi_1(\omega_1)\psi_2(\omega_2) e^{i\omega_1\omega_2 \Delta^2}
+\end{align*}
+In the temporal domain for our second photon this becomes:
+\begin{align*}
+	\psi_1(\omega_1)\tilde{\psi}_2(t_2 + \omega_1\Delta^2)
+\end{align*}
+Which gives us correlations between the frequency of one photon and the time of arrival of another. Physically this state can be generated using a chirped pump into a seperable downconversion source.
+
+Given our JSA we can always decompose this into a set of modes. It turns out there exists a special decomposition, the Schmidt decomposition, which lets us write this in terms of paired up orthogonal modes.
+This is equivalent to a singular value decomposition in terms of discrerte matricies. Neither of these generalize to more than two dimensions as these decompositions are no longer unique.
+We assume that our JSA is gaussian and we have central frequencies $\omega_{\{1,2\}} = \omega_{0\{1,2\}} + \nu^{\{\ ,}\ '\ ^\}$. So:
+\begin{align*}
+	\psi(\nu,\nu') &= \frac{1}{\sqrt{\pi\Delta_+\Delta_-}} e^{- \frac{(\nu + \nu')^2}{4\Delta_+^2} - \frac{(\nu-\nu')^2}{4\Delta_-^2}}
+\end{align*}
+Identifying terms in the Mehler identity:
+\begin{align*}
+	u &= \frac{\Delta_+ - \Delta_-}{\Delta_+ +\Delta_-} \lor \frac{\Delta_+ +\Delta_-}{\Delta_+ - \Delta_-} \\
+	x &= \frac{\nu}{\sqrt{\Delta_+\Delta_-}} & y &= \frac{\nu'}{\sqrt{\Delta_+\Delta_-}} 
+\end{align*}
+So:
+\begin{align*}
+	\psi(\nu,\nu') &= \frac{1}{\sqrt{\pi\Delta_+\Delta_-}} \sum_n \sqrt{\pi}\sqrt{1-u^2} u^n \psi_n\left(\frac{\nu}{\sqrt{\Delta_+\Delta_-}}\right)\psi_n\left(\frac{nu'}{\sqrt{\Delta_+\Delta_-}}\right) \\
+	\psi(\nu,\nu') &= \sum_n \sqrt{\Delta_+\Delta_-\lambda_n} \psi_n\left(\frac{\nu}{\sqrt{\Delta_+\Delta_-}}\right)\psi_n\left(\frac{nu'}{\sqrt{\Delta_+\Delta_-}}\right) & \lambda_n &= u^{2n}(1-u^2) \\
+	\psi(\nu,\nu') &= \sum_n \sqrt{\lambda_n}\phi_n(\nu)\phi_n(\nu') & \phi_n(\nu) &= \frac{\psi_n\left(\frac{\nu}{\sqrt{\Delta_+\Delta_-}}\right)}{(\Delta_+\Delta_-)^\frac{1}{4}}
+\end{align*}
+Where $\psi_n$ are Hermite Gaussians, and $\sum_n \lambda_n = 1$.
+
+We can define a Schmidt rank for our state:
+\begin{align*}
+	K &= \frac{1}{\sum_n \lambda_n^2}
+\end{align*}
+Where we can see for a seperable state $K=1$ and for all other states $K>1$. To better understand this quantity we take the partial trace of our state over system 2:
+\begin{align*}
+	\rho_1(\nu) &= \Tr_2\{\ket{\psi}_{1,2}\bra{\psi}_{1,2}\} \\
+	\rho_1(\nu) &= \Tr_2\{\sum_{m,n} \sqrt{\lambda_m\lambda_n} (\ket{1}_m \bra{1}_n)\otimes(\ket{1}_m\ket{1}_n)\} \\
+	\rho_1(\nu) &= \sum_{m,n} \sqrt{\lambda_m\lambda_n} (\ket{1}_m \bra{1}_n)\otimes(\ket{1}_m\ket{1}_n) \delta_{mn} \\
+	\rho_1(\nu) &= \sum_{m} \lambda_m \ket{1}_m \bra{1}_m
+\end{align*}
+Which is a mixture of our Shmidt modes! Our purity is clearly $\sum_n \lambda_n^2$ which is one over our Shmidt rank. This Shmidt rank is therefore the number of modes needed to represent our state (approximately). 
+
+For non-Gaussian systems we can still say this is true with a slightly different form:
+\begin{align*}
+	\psi(\nu,\nu') &= \sum_n \sqrt{\lambda_n} \phi_n(\nu)\psi(\nu') \\
+	\int d\nu \phi_n(\nu)\phi_m^*(\nu') &= \delta_{mn} & \int d\nu \psi_n(\nu)\psi_m^*(\nu) &= \delta_{nm}
+\end{align*}
+Where $\psi$ and $\phi$ have no orthogonality relationship in general. We have identical modes for any system symmetric about interchange of $\nu$ and $\nu'$
+
+It turns our that our Schmidt rank is a measure of entanglement (though it is an unbounded measure).
