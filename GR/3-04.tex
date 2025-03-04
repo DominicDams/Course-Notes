@@ -1,0 +1,138 @@
+If we look now in rectangular coordinates (or a local inertial frame) then we see that the components will not change during parrallel transport. Therefore in a local inertial frame:
+\begin{align*}
+	(\del_t \bm{v})^\alpha &= t^\beta \partder{v^\alpha}{x^\beta}
+\end{align*}
+So in a local inertial frame our covaruant derivitive becomes:
+\begin{align*}
+	\nabla_\beta v^\alpha &= \partder{v^\alpha}{x^\beta}
+\end{align*}
+But if instead we look in any other coordinate system this doesn't work. For example working in polar coordinates in flat spacetime. Since our basis vectors are changing in flat spacetime we get changes from parallel transport.
+For parrallel transport changes in components will be linear in components. So to first order in displacements $dx^\alpha = \epsilon t^\alpha$, the components of $v^\alpha_\parallel$ will involve two terms:
+1) the components of $v^\alpha$ at the displaced position, and 2) the changes in components in basis vectors. Therefore:
+\begin{align*}
+	v^\alpha_\parallel(x^\delta) &= v^\alpha(x^\delta + \epsilon t^\delta) + C^\alpha_{\beta\gamma}(x^\delta) v^\gamma(x^\delta) \epsilon t^\beta
+\end{align*}
+Therefore we can say:
+\begin{align*}
+	\nabla_\beta v^\alpha &= \partder{v^\alpha}{x^\beta} + C^\alpha_{\beta\gamma} v^\gamma
+\end{align*}
+
+In a local inertial frame our geodesics are straight lines. We can look at the four velocity of a particle traveling here, and we can see that the four velocity of our particle always points along the same direction (the worldline).
+We can infer from this that $u^\alpha$ is always tangent to our worldline, and the covariant derivative will always be zero:
+\begin{align*}
+	(\del_u \bm{u})^\alpha &= u^\beta (\partder{u^\alpha}{x^\beta} + C^\alpha_{\beta\gamma} u^\gamma) \\
+	0 &= u^\beta (\partder{u^\alpha}{x^\beta} + C^\alpha_{\beta\gamma} u^\gamma) \\
+\end{align*}
+But this is the same as our geodesic equation if we recognize that $\Gamma^\alpha_{\beta\gamma} = C^\alpha_{\beta\gamma}$. Therefore our covariant derivatives are directly related to our christofell symbols:
+\begin{align*}
+	\nabla_\alpha v^\beta &= \partder{v^\beta}{x^\alpha} \Gamma^\beta_{\alpha\gamma} v^\gamma
+\end{align*}
+Note that this form is basis dependant (and this is in a coordinate basis). This also lets us define a geodesic in terms of the covariant derivative. We say then that a geodesic is a curve whose tangent vector vanishes in it's own direction i.e. $\del_u \bm{u} = 0$.
+
+We consider for example a stationary observer in Schwarzchild spacetime. It's acceleration in a LIF is:
+\begin{align*}
+	a^\alpha &= \frac{u^\alpha}{\tau}
+\end{align*}
+While in general we define it as:
+\begin{align*}
+	\bm{a} &= \del_u\bm{u}
+\end{align*}
+Since a stationary observer is not traveling along a geodesic our acceleration here must be non-zero.
+We first check our covariant derivative in a local inertial frame:
+\begin{align*}
+	\del_u &= u^\alpha \del_\alpha \\
+	\del_u &= \frac{dx^\alpha}{d\tau} \partder{}{x^\alpha} \\
+	\del_u &= \frac{d}{d\tau} \\
+	\bm{a} &= \frac{\bm{u}}{d\tau}
+\end{align*}
+Which is what we expect. In Sch. coords we can say:
+\begin{align*}
+	u^\alpha &= (u^t,0,0,0) \\
+	u^t &= \left(1 - \frac{2M}{r}\right)^{-\frac{1}{2}}
+\end{align*}
+So then:
+\begin{align*}
+	a^\alpha &= u^\beta \del_\beta u^\alpha \\
+	a^\alpha &= u^t \del_t u^\alpha \\
+	a^\alpha &= u^t \left(\partder{u^\alpha}{t} + \Gamma^\alpha_{t\gamma} u^\gamma\right) \\
+	a^\alpha &= u^t \left(\partder{u^\alpha}{t} + \Gamma^\alpha_{tt} u^t\right) \\
+	a^\alpha &= \Gamma^\alpha_{tt} u^tu^t \\ 
+	a^\alpha &= \frac{\Gamma^\alpha_{tt}}{\sqrt{1-\frac{2M}{r}}}
+\end{align*}
+And we know in Schwarzchild coordinates the only non-zero term for $\Gamma^\alpha_{tt}$ is $\Gamma^r_{tt}= \left(1-\frac{2M}{r}\right)\frac{M}{r^2}$:
+\begin{align*}
+	a^\alpha &= (0,\frac{M}{r^2},0,0)
+\end{align*}
+And this is suprisingly finite at the horizon! But the norm of this four vector is infinite at the horizon, so we don't need to worry about this finite value.
+
+We can look at our covariant derivatives in two forms:
+\begin{align*}
+	\nabla_\alpha f &= \partder{f}{x^\alpha} & \nabla_u f &= u^\alpha \partder{f}{x^\alpha}
+\end{align*}
+Using Liebnez rule we can extend this to tensors:
+\begin{align*}
+	\nabla_\gamma (v^\alpha w^\beta) &= v^\alpha(\nabla_\gamma w^\beta) + (\nabla_\gamma v^\alpha)w^\beta \\
+	\nabla_\gamma t^{\alpha\beta} &= \partder{t^{\alpha\beta}}{x^\gamma} + \Gamma^\alpha_{\gamma\delta} t^{\delta\beta} + \Gamma^\beta_{\gamma\delta} t^{\alpha\delta}
+\end{align*}
+And for higher order tensors we simply add more terms with the Christoffell symbols. Looking at the derivitive of covariant vectors and tensors:
+\begin{align*}
+	\nabla_\alpha v_\beta &= \partder{v_\beta}{x^\alpha} - \Gamma^\gamma_{\alpha\beta} v_\gamma
+	\nabla_\gamma t^\alpha_\beta &= \partder{t^\alpha_\beta}{x^\gamma} + \Gamma^\alpha_{\gamma\delta} t^\delta_\beta + \Gamma^\delta{\gamma\beta} t^\alpha_\delta
+\end{align*}
+Our covariant derivitve of the metric is then:
+\begin{align*}
+	\nabla_\gamma g_{\alpha\beta} &= \partder{g_{\alpha\beta}}{x^\gamma} - \Gamma^\delta_{\gamma\alpha} g_{\delta\beta} - \Gamma^\delta_{\gamma\beta} g_{\alpha\delta} \\
+	\nabla_\gamma g_{\alpha\beta} &= 0
+\end{align*}
+Because it is zero in one frame and thus must be zero in all frames.
+
+We know that our covariant derivative compares vectors at one point with one that was propogates parallelly to that point from a nearby point along our curve.
+Therefore:
+\begin{align*}
+	\del_t \bm{v} = 0  &\to \text{v is parallel propogated along t}
+\end{align*}
+Looking at constant vector fields, i.e. those vector fields that don't change under any kind of parallel transport, we can say:
+\begin{align*}
+	\nabla_\alpha v^\beta &= 0
+\end{align*}
+
+Returning to freely falling frames, we consider what happens to our orthonormal basis vectors in the coordinate frame. From our four velocity we know that in the orthonomal basis that our time component is the same as our four velocity:
+\begin{align*}
+	\bm{e}_{\hat{t}} &= \bm{u}
+\end{align*}
+The other three basis vectors must be mutually orthogonal. At a particular time we can always pick a set of mutually orthogonal vectors to construct our basis. We want to choose these three vectors such that they parallel propogate, so:
+\begin{align*}
+	\del_u e_{\hat{alpha}} &= 0
+\end{align*}
+Which matches our gyroscopic equations!
+\subsection{Curvature and EFE}
+We know already that we want to use the Einstein field equations to relate the curvature of spacetime to the matter energy density of our system.
+
+Local curvature cannot be measured with a single particle since in it's own local inertial frame the particle won't see any effects of curvature, but it can see how the curvature effects other particles.
+
+Looking first in Newtonian gravity, we see that our first particles EOM is:
+\begin{align*}
+	\frac{d^2x}{dt^2} &= -\delta^{ij}\partder{\Phi(x^k)}{x^j}
+\end{align*}
+If we then describe the position of our second particle by the vector connecting them $\bm{\xi}$, so our EOM is then:
+\begin{align*}
+	\frac{d^2(x^i +\xi^i)}{dt^2} &= -\delta^{ij} \partder{\Phi(x^k + \xi^k}{x^i}
+\end{align*}
+In the limit where $|\bm{\xi}|$ is small, we can expand this to first order:
+\begin{align*}
+	\partder{\Phi(x^i + \xi^i}{x^j} &= \partder{\Phi(x^i)}{x^j} + \partder{}{x^k}\left(\partder{\Phi(x^i)}{x^j}\right)\xi^k
+\end{align*}
+So:
+\begin{align*}
+	\frac{d^2(\xi^i)}{dt^2} &= -\delta^{ij} \frac{\partial^2\Phi(x^k}{\partial x^i\partial x^k}\xi^k
+\end{align*}
+And our tensor $\frac{\partial^2\Phi(x^k}{\partial x^i\partial x^k}$ measures differential acceleration. This is the tidal acceleration tensor.
+
+The field equation for Newtonian gravity is therefore:
+\begin{align*}
+	\nabla^2\Phi &= 4\pi G\mu
+\end{align*}
+Which can be expressed in terms of second derivatives of our potential, which defines our tidal accelerations.
+\begin{align*}
+	\delta^{ij} \frac{\partial^2\Phi(x^k}{\partial x^i\partial x^k} &= 4\pi G\mu
+\end{align*}
