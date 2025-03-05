@@ -1,0 +1,121 @@
+We simplify this picture now by limiting ourselves to two modes (instead of the infinite number of modes here). The modes we are going to choose are the different polarization modes.
+For this system we have set all other properties of our modes to be fixed (physically this could be light propogating through a single mode optical fiber). We can describe this state:
+\begin{align*}
+	\ket{\psi} &= C_{HH} \ket{HH} + C_{HV} \ket{HV} + C_{VH} \ket{VH} + C_{VV}\ket{VV}
+\end{align*}
+
+We now define an inseperable state, as a state of two sub-systems $1,2$ where the state cannot be factored into a state $\ket{1}\ket{2}$. Examples of this are things like bell states, or the hydrogen atom.
+Notably the hydrogen atom is inseperable but not typically considered entangled.
+
+We will here define an entangled state as a state where the two systems can become space-like seperated and the state remains inseperable.
+
+For mixed states $\hat{\rho}_{12} = \hat{\rho}_1 \otimes \hat{\rho}_2$ is a seperable state, $\hat{\rho}_{12} = \sum_j p_j \hat{\rho}_{1j}\otimes\hat{\rho}_{2j}$ is also a seperable state, while all other states are inseperable.
+
+For our polarization states we say that theres the obvious basis $\ket{H}$ and $\ket{V}$, but additionally we have diagonal $\ket{\pm} = \frac{\ket{H}\pm\ket{V}}{\sqrt{2}}$ and circular $\ket{R/L} = \frac{\ket{H} \mp i\ket{V}}{\sqrt{2}}$.
+These are called mutually unbiased basis(MUBs) because the basis vectors ``spread'' probabilities out evenly going from one basis to another.
+We can measure the polarization by sending the photon through a polarizing beamsplitter and using a click detector to determine if it projected to the horizontal or verticle state.
+You can measure in other basis by using waveplates before the beamsplitters to change the state before it reaches the beamsplitter.
+These waveplates are typically arranged quarter-half-quarter for a generaly measurement (though for our MUBs we only need a quarter and/or a half wave plate).
+
+We define a measurement operator for the beamsplitter:
+\begin{align*}
+	\hat{\Sigma}_3 &= \ket{H}\bra{H} - \ket{V}\bra{V}
+\end{align*}
+Which is analagous to the pauli z matrix. With this in mind we can define:
+\begin{align*}
+	\hat{\Sigma}_1 &= \ket{+}\bra{+} - \ket{-}\bra{-} \\
+	\hat{\Sigma}_1 &= \ket{H}\bra{V} + \ket{V}\bra{H} \\
+	\hat{\Sigma}_2 &= \ket{R}\bra{R} - \ket{L}\bra{L} \\
+	\hat{\Sigma}_2 &= -i(\ket{H}\bra{V} - \ket{V}\bra{H})
+\end{align*}
+Which are clearly identical to the pauli matricies. 
+
+The singlet state is the antisymetric state under interchange:
+\begin{align*}
+	\ket{\psi^-} &= \frac{\ket{HV} - \ket{VH}}{\sqrt{2}}
+\end{align*}
+And we also have the triplet states (symmetric under interchange):
+\begin{align*}
+	\ket{\psi^+} &= \frac{\ket{HV} + \ket{VH}}{\sqrt{2}} \\
+	\ket{\phi^+} &= \frac{\ket{HH} + \ket{VV}}{\sqrt{2}} \\
+	\ket{\phi^-} &= \frac{\ket{HH} - \ket{VV}}{\sqrt{2}}
+\end{align*}
+These four states define a basis for any two photon polarization state.
+Since this spans the whole space, then all states have an overlap with at least one bell state.
+
+If we now take a singlet state, and measure both photons independantly in the $H$ $V$ basis then we will see:
+\begin{align*}
+	P(H,H) &= 0 \\
+	P(H,V) &= \frac{1}{2} \\
+	P(V,V) &= 0 \\
+	P(V,H) &= \frac{1}{2}
+\end{align*}
+We say we have a correlation function:
+\begin{align*}
+	\expval{\hat{\Sigma}_3^{(1)} \hat{\Sigma}_3^{(2)}} &= \expval{\ket{HH}\bra{HH} + \ket{VV}\bra{VV} - \ket{HV}\bra{HV} - \ket{VH}\bra{VH}}
+\end{align*}
+Which for our singlet state is:
+\begin{align*}
+	\expval{\hat{\Sigma}_3^{(1)} \hat{\Sigma}_3^{(2)}} &= -1
+\end{align*}
+Which means they are anti-correlated. 
+It turns out all the correlations are basis-independant for the bell states, and that all the $\psi$ states are anticorrelated ($-1$) and the $\phi$ states are correlated ($1$).
+
+We define our rotated states:
+\begin{align*}
+	\ket{\theta} &= \cos\theta \ket{H} + \sin\theta \ket{V} \\
+	\ket{\theta_\perp} &= -\sin\theta\ket{H} + \cos\theta\ket{V}
+\end{align*}
+So our rotated measurements are:
+\begin{align*}
+	\hat{\Sigma}_3(\theta) &= \ket{\theta}\bra{\theta} - \ket{\theta_\perp}\bra{\theta_\perp}
+\end{align*}
+We can invert our relationships so:
+\begin{align*}
+	\ket{H} &= \cos\theta\ket{\theta} - \sin\theta\ket{\theta_\perp} \\
+	\ket{V} &= \sin\theta\ket{\theta} + \cos\theta\ket{\theta_\perp}
+\end{align*}
+So our bell state in this basis is (after a bit of algebra):
+\begin{align*}
+	\ket{\psi^-} &= \frac{\ket{\theta\theta_\perp} - \ket{\theta_\perp\theta}}{\sqrt{2}}
+\end{align*}
+We can say that correlations between measurement outcomes for entangled/seperable states persist in all ``matched'' measurement basis. For matched basis we mean each observer chooses the same basis.
+
+In the 1930s Einstein-Podolsky-Rosen proposed that quantum mechanics was incomplete and that there must exist some hidden variable/hidden degree of freedom for our system, that explains quantum mechanics determanistically.
+In order to do this they introduced a state called the EPR state. This is a two mode infinitely squeezed vacuum state:
+\begin{align*}
+	\ket{\psi} &= \int dp_1\int dp_2 \delta(p_1 + p_2)
+\end{align*}
+In 1960s (around the invention of the laser), Bell (considering the work of Bohm on hidden variable theories) showed that there are incompatabilities between locatlity and hidden variable theories. To understand this we consider this in terms of the Bell game:
+
+This game has a number of rules, 1) Locality - mo influence can travel faster than the speed of light 
+2) Realism - all objects have pre-existing inherent properties that determine measurement outcomes 
+3) Free will/ measurement independance - measurement bases of two observers are independant
+
+The game is played thusly. With a source and two players, Alice and Bob. Each player when they take measurements will get the result $\pm 1$. Each player can independantly rotate their basis (by an amount between $0$ and $\frac{\pi}{2}$).
+We calculate our correlation function:
+\begin{align*}
+	C(\theta,\phi) &= \expval{\hat{\Sigma}_3(\theta)\hat{\Sigma}_3(\phi)} \\
+	C(\theta,\phi) &= P(\ket{\theta\phi} + P(\ket{\theta_\perp\phi_\perp}) - P(\ket{\theta\phi_\perp}) - P(\ket{\theta_\perp\phi})
+\end{align*}
+After lots of algebra it turns out:
+\begin{align*}
+	C_{\psi^-}(\theta,\phi) &= -\cos[2(\theta-\phi)]
+\end{align*}
+When our source emits the single state.
+
+We say:
+\begin{align*}
+	S &= \expval{\hat{\Sigma}(\theta)\hat{\Sigma}(\phi)} + \expval{\hat{\Sigma}(\theta')\hat{\Sigma}(\phi)} + \expval{\hat{\Sigma}(\theta)\hat{\Sigma}(\phi')} - \expval{\hat{\Sigma}(\theta')\hat{\Sigma}(\phi')} \\
+	S &= \expval{\hat{\Sigma}(\theta)(\hat{\Sigma}(\phi) + \hat{\Sigma}(\phi')} + \expval{\hat{\Sigma}(\theta')(\hat{\Sigma}(\phi) - \hat{\Sigma}(\phi')}
+\end{align*}
+For a classical system (realism) we can say:
+\begin{align*}
+	|S| &\leq 2
+\end{align*}
+But for the singlet state:
+\begin{align*}
+	\theta &= 0 & \theta' &= \frac{\pi}{4} & \phi &= \frac{\pi}{8} & \phi' &= -\frac{\pi}{8}
+	S &= -2\sqrt{2}
+\end{align*}
+Which violates the Bell inequality, and therefore one of our rules in the game must be wrong!
