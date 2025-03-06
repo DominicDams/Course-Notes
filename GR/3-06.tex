@@ -1,0 +1,151 @@
+Moving to general relativity, we now look at the equation of Geodesic deviation.
+We say $\bm{\chi}$ is our displacement vector between two nearby geodesics.
+We want to look at the derivative of $\chi$ w.r.t. the proper time:
+\begin{align*}
+	\frac{df}{d\tau} &= \partder{f}{x^\alpha} u^\alpha \\
+	\frac{df}{d\tau} &= \bm{u}\cdot\del f \\
+	\frac{df}{d\tau} &= \nabla_u f
+\end{align*}
+So a derivitve w.r.t. proper time is the same as a covariant derivative in the direction of the four velocity. Therefore:
+\begin{align*}
+	\bm{v} &= \nabla_u \bm{\chi}
+\end{align*}
+Since we want a second derivitive then:
+\begin{align*}
+	\bm{w} &= \nabla_u \bm{v} \\
+	\bm{w} &= \nabla_u\nabla_u \bm{\chi}
+\end{align*}
+Wehere $\bm{v}$ and $\bm{w}$ are both clearly vectors. If we use our definition for the covariant derivitive:
+\begin{align*}
+	v^\alpha &= \frac{d\chi^\alpha}{d\tau} + \Gamma^\alpha_{\beta\gamma} u^\beta \chi^\gamma \\
+	w^\alpha &= \frac{dv^\alpha}{d\tau} + \Gamma^\alpha_{\beta\gamma} u^\beta v^\gamma
+\end{align*}
+After some additional differentiation/index tracking and taking a first order deviation of our geodesic equation in $\chi$, We find our result is linear in $\chi$, proportional to two factors of $u$ and involving derivitives of the christofell symbols:
+\begin{align*}
+	w^\alpha &= - R^\alpha_{\beta\gamma\delta} u^\beta\chi^\gamma u^\delta
+\end{align*}
+We call this the equation for geodesic deviation. We can compute $R$:
+\begin{align*}
+	R^\alpha_{\beta\gamma\delta} &= \partder{\Gamma^\alpha_{\beta\delta}}{x^\gamma} - \partder{\Gamma^\alpha_{\beta\gamma}}{x^\delta} + \Gamma^\alpha_{\beta\epsilon}\Gamma^\epsilon_{\beta\delta} - \Gamma^\alpha_{\delta\epsilon}\Gamma^\epsilon_{\beta\gamma}
+\end{align*}
+We call this the Reimann curvature tensor. This can be represented by a $4\times4\times4\times4$ matrix, with 20 indpenedant components, dimensioms of inverse length squared, and a charactoristic length scale $L$.
+
+If we look at the Schwarzchild geometry and calculate this for a freely falling frame:
+\begin{align*}
+	R_{\hat{\tau}\hat{r}\hat{\tau}\hat{r}} &= - \frac{2M}{r^3} \\
+	R_{\hat{\theta}\hat{\phi}\hat{\theta}\hat{\phi}} &= \frac{2M}{r^3} \\
+	R_{\hat{\tau}\hat{\theta}\hat{\tau}\hat{\theta}} &= \frac{M}{r^3} \\
+	R_{\hat{\tau}\hat{\phi}\hat{\tau}\hat{\phi}} &= \frac{M}{r^3} \\
+	R_{\hat{r}\hat{\theta}\hat{r}\hat{\theta}} &= -\frac{M}{r^3} \\
+	R_{\hat{r}\hat{\phi}\hat{r}\hat{\phi}} &= -\frac{M}{r^3}
+\end{align*}
+So then:
+\begin{align*}
+	\frac{d^2 \chi^{\hat{r}}}{d\tau^2} &= \frac{2M}{r^3} \chi^{\hat{r}} \\
+	\frac{d^2 \chi^{\hat{\theta}}}{d\tau^2} &= -\frac{M}{r^3} \chi^{\hat{\theta}} \\
+	\frac{d^2 \chi^{\hat{\phi}}}{d\tau^2} &= \frac{M}{r^3} \chi^{\hat{\phi}} \\
+\end{align*}
+Interestingly at the horizon, we have tidal forces scale with $\frac{1}{M^2}$ so we experience less tidal forces at the horizon of a larger black hole, than at a smaller one.
+
+We now define our Ricci curvature tensor (which shows up in the Einstein equation). This is defined:
+\begin{align*}
+	R_{\alpha\beta} &= R^\gamma_{\alpha\gamma\beta} \\
+	R_{\alpha\beta} &= \partial_\gamma \Gamma^\gamma_{\alpha\beta} - \partial_\beta \Gamma^\gamma_{\alpha\gamma} + \Gamma^\gamma_{\alpha\beta}\Gamma^\delta_{\gamma\delta} - \Gamma^\gamma_{\alpha\delta}\Gamma^\delta_{\beta\gamma}
+\end{align*}
+The vacuum Einstein equation says:
+\begin{align*}
+	R_{\alpha\beta} &= 0
+\end{align*}
+This tensor is symmetric, so we have 10 second order partial differential equations. We have only 10 components in $g_{\alpha\beta}$, with our field equation completely determinging $g_{\alpha\beta}$, but we need freedom for 4 coordinate transformations.
+Therefore there must be 4 differential identities relating components of $R_{\alpha\beta}$ and so we should only have 6 independant components.
+
+We now look at the special case of linearized gravity. In general Einsteins equations are non-linear, but if we look at only small amounts of curvature we can approximate it as linear.
+We look at nearly flat cartesian space, so our metric is:
+\begin{align*}
+	g_{\alpha\beta} &= \eta_{\alpha\beta} + h_{\alpha\beta}(\bm{x})
+\end{align*}
+Where we will consider $h$ to be small enough that $h^2$ is zero.
+We find our Christofell symbols:
+\begin{align*}
+	\Gamma^\alpha_{\beta\gamma} &= \frac{1}{2} g^{\alpha\beta}(\partial_\gamma h_{\delta\beta} + \partial_\beta h_{\delta\gamma} - \partial_\delta h_{\beta\gamma})
+\end{align*}
+In order to determine the inverse metric we say:
+\begin{align*}
+	g^{\mu\nu} &= \eta^{\mu\nu} + (\delta g)^{\mu\nu} \\
+	\delta(g^{-1} g) &= \delta(g^{-1}) g + g^{-1} \delta(g) \\
+	0 &= \delta(g^{-1}) g + g^{-1} \delta(g) \\
+	\delta(g^{-1}) g &=  - g^{-1} \delta(g) \\
+	(\delta g)^{\mu\nu} &= -(\eta^{\mu\alpha} + (\delta g)^{\mu\alpha})h_{\alpha\beta} (\eta^{\beta\nu} + (\delta g)^{\beta\nu}) \\
+	g^{\mu\nu} &= \eta^{\mu\nu} - h^{\mu\nu}
+\end{align*}
+So:
+\begin{align*}
+	\Gamma^\alpha_{\beta\gamma} &= \frac{1}{2} (\eta^{\alpha\delta} - h^{\alpha\delta})(\partial_\gamma h_{\delta\beta} + \partial_\beta h_{\delta\gamma} - \partial_\delta h_{\beta\gamma}) \\
+	\Gamma^\alpha_{\beta\gamma} &= \frac{1}{2} \eta^{\alpha\delta}(\partial_\gamma h_{\delta\beta} + \partial_\beta h_{\delta\gamma} - \partial_\delta h_{\beta\gamma}) \\
+\end{align*}
+Since the Christofell symbols are zero for flat space we can write this as a perturbation to our flat space Chirstofell symbols:
+\begin{align*}
+	\delta\Gamma^\alpha_{\beta\gamma} &= \frac{1}{2} \eta^{\alpha\delta}(\partial_\gamma h_{\delta\beta} + \partial_\beta h_{\delta\gamma} - \partial_\delta h_{\beta\gamma}) \\
+\end{align*}
+And our perturbations to the curvature should be:
+\begin{align*}
+	\delta R_{\alpha\beta} &= \partial_\gamma \delta\Gamma^\gamma_{\alpha\beta} - \delta\partial_\beta \Gamma^\gamma_{\alpha\gamma} \\
+	\delta R_{\alpha\beta} &= \frac{1}{2} \eta^{\gamma\delta} \left( \partial_\gamma\partial\beta h_{\delta\alpha} + \partial_\gamma\partial_\alpha h_{\delta\beta} - \partial_\gamma\partial_\delta h_{\alpha\beta} 
+				-\partial_\beta\partial_\gamma h_{\delta\alpha} - \partial_\beta\partial_\alpha h_{\delta\gamma} + \partial_\beta\partial_\delta h_{\alpha\beta}\right) \\
+	\delta R_{\alpha\beta} &= \frac{1}{2} \eta^{\gamma\delta} \left( \partial_\gamma\partial_\alpha h_{\delta\beta} - \partial_\gamma\partial_\delta h_{\alpha\beta} 
+				 - \partial_\beta\partial_\alpha h_{\delta\gamma} + \partial_\beta\partial_\delta h_{\alpha\beta}\right)
+\end{align*}
+After a bit more simplification we say:
+\begin{align*}
+	\delta R_{\alpha\beta} &= \frac{1}{2}\left[ - \Box h_{\alpha\beta} + \partial_\alpha v_\beta + \partial_\beta v_\alpha\right] \\
+	0 &= \frac{1}{2}\left[ - \Box h_{\alpha\beta} + \partial_\alpha v_\beta + \partial_\beta v_\alpha\right] \\
+	\Box &= \eta^{\alpha\beta} \partial_\alpha\partial_\beta & v_\alpha &= \partial_\gamma g^\gamma_\alpha - \frac{1}{2}\partial_\alpha h^\gamma_\gamma
+\end{align*}
+Where we can raise and lower indicies using the Minkowski metric since we're working in linearized gravity.
+
+We have taken a look at the situation where flat space would be cartesian space. There are small changes we can make that will leave $\eta$ unchanged. These correspond to changes to the functional form of $h$.
+If we change coordinates by the following:
+\begin{align*}
+	x'\ ^\alpha &= x^\alpha + \xi^\alpha(x)
+\end{align*}
+Where $\xi$ is on the order of $h$. Our metric can be written:
+\begin{align*}
+	g'_{\alpha\beta} &= \partder{x^\gamma}{x'\ ^\alpha} \partder{x^\delta}{x'\ ^\beta} g_{\gamma\delta}
+\end{align*}
+And clearly $x^\alpha = x'\ ^\alpha - \xi^\alpha(x'\ ^\beta)$. Therefore:
+\begin{align*}
+	g'_{\alpha\beta} &= \left(\delta_\alpha^\gamma -\partder{\xi^\gamma}{x^\alpha}\right)\left(\delta_\beta^\delta - \partder{\xi^\delta}{x^\beta}\right)(\eta_{\gamma\delta} + h_{\gamma\delta}) \\
+	g'_{\alpha\beta} &= \left(\delta_\alpha^\gamma -\partder{\xi^\gamma}{x^\alpha}\right)\left(\eta_{\gamma\beta} +h_{\gamma\beta} - \partder{\xi^\delta}{x^\beta}\eta_{\gamma\delta}\right) \\
+	g'_{\alpha\beta} &= \eta_{\alpha\beta} + h_{\alpha\beta} - \partial_\beta \xi_\alpha - \partial_\alpha\xi^\gamma\eta_{\gamma\beta} \\
+	g'_{\alpha\beta} &= \eta_{\alpha\beta} + h_{\alpha\beta} - \partial_\beta \xi_\alpha - \partial_\alpha\xi_\beta
+\end{align*}
+Which is equivalent to changing our perturbations:
+\begin{align*}
+	h'_{\alpha\beta} &= h_{\alpha\beta} - \partial_\alpha\xi_\beta - \partial_\beta\xi_\alpha
+\end{align*}
+Which is a gauge transformation for our linearized relativistic equations. If we choose our gauge such that $v'_\alpha =0$ (Lorentz gauge) then we can say:
+\begin{align*}
+	\delta R_{\alpha\beta} &= -\frac{1}{2} \Box h_{\alpha\beta}
+\end{align*}
+So our vacuum field equation for linearized relativity is:
+\begin{align*}
+	\Box h_{\alpha\beta} &= 0
+\end{align*}
+With our Lorentz gauge condition:
+\begin{align*}
+	v_\alpha &= \partial_\beta h^\beta_\alpha - \frac{1}{2} \partial_\alpha h^\beta_\beta \\
+	0 &= \partial_\beta h^\beta_\alpha - \frac{1}{2} \partial_\alpha h^\beta_\beta
+\end{align*}
+
+This field equation is equivalent to the wave equation for Maxwell's equations. We can choose plane wave solutions:
+\begin{align*}
+	f(x) &= a e^{i\bm{k}\cdot\bm{x}} \\
+	\Box f(x) &= -\bm{k}\cdot\bm{k} f
+\end{align*}
+Which in order to make this zero implies $k$ is a null vector. $k = (|K|,k)$ and we say $\omega_k = k^t$.
+Physical solutions must be real, so we see:
+\begin{align*}
+	f(x) &= |a|\cos(\bm{k}\cdot\bm{x} + \delta) \\
+	f(x) &= |a|\cos(-\omega_k t + K\cdot X + \delta)
+\end{align*}
+Which are waves with frequency $\omega_k$ and wavelength $\frac{2\pi}{\omega_k}$ traveling in the direction of the wave vector, with speed 1.
