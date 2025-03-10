@@ -1,0 +1,64 @@
+If we invent for ourselves a local hidden variable explination for quantum mechanics, with hidden vraiables $(\lambda_1,\lambda_2,\ldots) = \lambda$ with our probability of measurement outcome:
+\begin{align*}
+	p(\lambda) \geq 0 & \int p(\lambda) d\lambda = 1
+\end{align*}
+Then we can see that our S function will be:
+\begin{align*}
+	x &= \Sigma^A_3(\theta) & y &= \Sigma^A_3(\theta') & u &= \Sigma^B_3(\phi) & v &= \Sigma^B_3(\phi') \\
+	&&&&&&S &= \int p(\lambda) [\expval{x(\lambda)(u(\lambda) + v(\lambda))} + \expval{x(\lambda)(u(\lambda) + v(\lambda))}] d\lambda
+\end{align*}
+\subsection{Measures of Entanglement}
+The Schmidt rank $K = \frac{1}{\sum_n \lambda_n^2}$ for a state with Shmidt decomposition $\ket{\Psi} = \sum_n \sqrt{\lambda_n}\ket{\phi_n}\ket{\psi_n}$ is a measure of the number of modes that are needed to faithfully express $\ket{\Psi}$.
+This only applies to pure states. For mixed states we consider the Peres-Horodecki entanglement criteria, which states that any state expressable as:
+\begin{align*}
+	\hat{\rho}_{AB} &= \sum p_{jk} \hat{\rho}_j \otimes \hat{\sigma}_k
+\end{align*}
+is not entangled, but by utilizing the partial transpose ($\hat{\rho}_{AB}^\Gamma$) we can see that the operator:
+\begin{align*}
+	\hat{\rho}_{AB}^\Gamma
+\end{align*}
+May not in general be positive, for all input states, and the states that are not positive after this operation are entangled states. We can define our measures of entanglement:
+\begin{align*}
+	N(\rho) &= \frac{\sum (|\lambda_j| - \lambda_j)}{2}
+\end{align*}
+Where $\lambda_j$ are the eignevalus of $\rho^\Gamma$. But to properly be a measure we need to take the log of this. Another measure we could use is the concurence.
+\subsection{No Cloning}
+All state evolution in quantum mechanics is unitary. In order to clone a state we need to take a starting system:
+\begin{align*}
+	\ket{\Psi} &= \ket{\psi}\ket{e}
+\end{align*}
+And we want to have some operator do the following:
+\begin{align*}
+	\hat{U}\ket{\Psi} &= \ket{\psi}\ket{\psi}
+\end{align*}
+For any $\ket{\psi}$. If $U$ is unitary we should be able to say:
+\begin{align*}
+	\bra{\Psi} \hat{U}^\dagger \hat{U} \ket{\Phi} &= \bra{\psi}\bra{\psi}\ket{\phi}\ket{\phi} \\
+	\bra{\Psi} \hat{U}^\dagger \hat{U} \ket{\Phi} &= \bra{\Psi}\ket{\Phi} \\
+	\bra{\Psi} \hat{U}^\dagger \hat{U} \ket{\Phi} &= \bra{\psi}\ket{\phi} \\
+	\bra{\psi}\bra{\psi}\ket{\phi}\ket{\phi} &= \bra{\psi}\ket{\phi}
+\end{align*}
+But this is only true when $\bra{\psi}\ket{\phi} = 1$ or $\bra{\psi}\ket{\phi} = 0$, therefore there must be no general cloning operation.
+\section{Teleportation and Swapping}
+We first say that subsystem A is in the state $\ket{\psi}_A = c_H \ket{H} + c_V \ket{V}$. System B is in a bell state superposition with system C $\ket{\psi^+}_{BC} = \frac{\ket{HV} + \ket{VH}}{\sqrt{2}}$.
+We place system A and system B on a beamsplitter, where the transmitted output for A goes to a V polarizer and then a detector, and the reflected output goes to an H polarizer and then a detector.
+If we look at coincidence counts we find:
+\begin{align*}
+	\ket{cc}\bra{cc} &= \left(\frac{1}{2}( A_V^\dagger A_H^\dagger - B_V^\dagger B_H^\dagger + A_H^\dagger B_V^\dagger - A_V^\dagger B_H^\dagger)\right)\vac\vacb\ldots \\
+	\ket{cc}\bra{cc} &= \frac{1}{2}\left(\ket{H_AV_A}\ket{0} -  \ket{0}\ket{HV} + \sqrt{2}\ket{\psi^-}\right)
+\end{align*}
+So then:
+\begin{align*}
+	\bra{cc}\ket{\Psi}_{ABC} &= \frac{1}{2} (c_H\ket{H}_C - c_V\ket{V}_C)
+\end{align*}
+So we have  a $\frac{1}{4}$ chance of generating a coincidence count, and when generated we know that our state after measurement will be $\ket{\psi}_C = c_H\ket{H}_C - c_V\ket{V}_C$.
+With a final unitary operation applied to our C state then we will have moved the state over from A to C.
+
+If we instead consider a system of four fields, where A and B are generated together, and C and D are generated together. We say our input states are both generated as $\ket{\psi^+}$ states.
+We send B and C into our beamsplitter, and we see that:
+\begin{align*}
+	\bra{cc}\ket{\psi} &= \frac{1}{4}(\ket{HV}_BC - \ket{V}_BC)(\ket{HV}_AB + \ket{VH}_AB)(\ket{HV}_CD + \ket{VH}_CD) \\
+	\bra{cc}\ket{\psi} &= \frac{1}{4}(\ket{VH}_{AD} - \ket{HV}_{AD}) \\
+	\bra{cc}\ket{\psi} &= -\frac{\sqrt{2}}{4}\ket{\psi^-}_{AD}
+\end{align*}
+So we have a $\frac{1}{8}$ chance of generating this state, and when we do we have generated an entangled state between $A$ and $D$
