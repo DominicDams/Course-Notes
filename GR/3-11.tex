@@ -1,0 +1,128 @@
+We now want to choose a new gauge condition, which keeps $v_\alpha = 0$ and  we want:
+\begin{align*}
+	h'_{\alpha\beta} &= h_{\alpha\beta } - \partial_\alpha \xi_\beta - \partial_\beta \xi_\alpha
+\end{align*}
+So:
+\begin{align*}
+	v_\alpha' &= -\eta^{\beta\delta}\partial_\beta\partial_\delta\xi_\alpha - \eta^{\beta\delta}\partial_\beta\partial_\alpha \xi_\delta + \frac{1}{2}\eta^{\beta\delta}(\partial_\alpha\partial_\delta\xi_\beta + \partial_\alpha\partial_\beta \xi_\delta) \\
+	v_\alpha' &= -\eta^{\beta\delta}\partial_\beta\partial_\delta\xi_\alpha
+\end{align*}
+Which will only vanish if we have $\Box\xi_\alpha = 0$. This lets us make 4 components of $h_{\alpha\beta}$ vanish. We choose to set $h_{ti} = 0$ and $h_\beta^\beta = 0$. From our vector we can see:
+\begin{align*}
+	v_t &= \omega_k a_{tt} e^{ikx} \\
+	v_i &= ik^j a_{ji} e^{ikx}
+\end{align*}
+So for these to be zero:
+\begin{align*}
+	a_{tt} &= 0 & k^j a_{ji} &= 0
+\end{align*}
+If we align our z axis with $k$ then:
+\begin{align*}
+	a_{zi} &= 0 \\
+	h_{\alpha\beta} &= \begin{pmatrix}
+		0 & 0& 0 & 0 \\
+		0 & a & b & 0 \\
+		0 & b & -a & 0 \\
+		0 & 0 & 0 & 0
+	\end{pmatrix} e^{-i\omega (z - t)}
+\end{align*}
+If we have a plane wave in the z-direction then we can say:
+\begin{align*}
+	h_{\alpha\beta} &= \begin{pmatrix}
+		0 & 0& 0 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & -1 & 0 \\
+		0 & 0 & 0 & 0
+	\end{pmatrix} f(t-z)
+\end{align*}
+So:
+\begin{align*}
+	ds^2 &= -dt^2 + (1+ f(t-z))dx^2 + (1-f(t-z))dy^2 + dz^2
+\end{align*}
+ \subsection{Detection of Gravity waves}
+ Consider two test masses @ rest, A and B. They are located at:
+ \begin{align*}
+	 x_{(A)}^i &= (0,0,0) & x_{(B)}^i &= (x_B,y_B,z_B) \\
+	 u_{(A)}^\alpha &= u_{(B)}^\alpha = 0
+ \end{align*}
+ Now we solve our geodesic equations just in terms of deviations to our Christoffel symbols, and since we start spatial at rest we only care about $\delta \Gamma^i_{tt}$. Therefore:
+ \begin{align*}
+	 \Gamma^i_{tt} &= \frac{1}{2} g^{i\delta}( \partial_t g_{\delta t} + \partial_t g_{\delta t} - \partial_\delta g_{tt}) \\`
+	 \Gamma^i_{tt} &= 0
+ \end{align*}
+ Which means that the coordinates aren't changing between these two masses. If we look at the distance between these two points rather than coordinate difference we can see a different picture.
+ If we choose a wave traveling in the z-direction and our masses seperated by a coordinate distance $L_*$ in the x direction. Therefore:
+ \begin{align*}
+	 L(t) &= \int_0^{L_*} dx \sqrt{1 + h_{xx}(t,0)} \\
+	 L(t) &= L_* (1 + \frac{1}{2}h_{xx}(t,0)) \\
+	 \frac{\delta L(t)}{L_*} &= \frac{1}{2}h_{xx}(t,0)
+ \end{align*}
+ If we say $f(t-z) = a\sin(\omega(t-z) + \delta)$ then we can say:
+ \begin{align*}
+	 \frac{\delta L(t)}{L_*} &= \frac{1}{2}a\sin(\omega t + \delta)
+ \end{align*}
+ If we look at a general spatial seperation given by $\bm{n}$ then our fractional strain is:
+ \begin{align*}
+	 \frac{\delta L(t)}{L_*} &= \frac{1}{2}h_{ij}(t,0) n^i n^j
+ \end{align*}
+ If we now define a new coordinate system that mixes our x and y coordinates:
+ \begin{align*}
+	 X &= (1 + \frac{1}{2} a\sin\omega t)x & Y &= (1- \frac{1}{2} a\sin\omega t)y \\
+	 ds^2 &= dX^2 + dY^2 + \mathcal{O}(a^2)
+ \end{align*}
+ In these coordinate we can easily compute distances using Euclidean geometry. Here we will see oscilations in the length along x and y over time.
+ We now consider rotated coordinates:
+ \begin{align*}
+	 x &= \frac{x' + y'}{\sqrt{2}} & y &= \frac{x'-y'}{\sqrt{2}} \\
+	h_{\alpha\beta} &= \begin{pmatrix}
+		0 & 0& 0 & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 0 \\
+		0 & 0 & 0 & 0
+	\end{pmatrix} f(t-z)
+ \end{align*}
+ These two different views correspond to two different choices of polarizations. We can define a general polarization choice with:
+ \begin{align*}
+	h_{\alpha\beta} &= \begin{pmatrix}
+		0 & 0& 0 & 0 \\
+		0 & f_+(t-z) & f_\times(t-z) & 0 \\
+		0 & f_\times(t-z) & -f_+(t-z) & 0 \\
+		0 & 0 & 0 & 0
+	\end{pmatrix}
+ \end{align*}
+ Which describes a general gravitational wave.
+
+ In LIGO a Michaelson interferometer is employed to measure these waves. The round trip distance across the arms are labeled $L_x$ and $L_y$. We can say $\Delta L = L_x - L_y$ and for constructive interference $\Delta L = n\lambda$ 
+ and for destructive it is $\Delta L = \left(n+ \frac{1}{2}\right)\lambda$. If we consder $+$ polarized gravity waves:
+ \begin{align*}
+	 \frac{\delta L_x(t)}{L_x} &= \frac{1}{2}a\sin\omega t \\
+	 \frac{\delta L_y(t)}{L_y} &= -\frac{1}{2}a\sin\omega t
+ \end{align*}
+ For LIGO we expect these to be:
+ \begin{align*}
+	 \frac{\delta L_x(t)}{L_x} &\approx 10^{-23}
+ \end{align*}
+
+ We now look at the energy in a newtonian gravitational field. It is:
+ \begin{align*}
+	 E &= -\frac{1}{8\pi G} \left[\del\phi\right]^2
+ \end{align*}
+ In GR this would correspond to a first derivitive of the metric, which we can always set to be zero! If we look in asymptotically flat spacetime, then we can look at the energy contained in radiation in this flat spacetime.
+ This should be in the case where the curvature scale is much much larger than the wavelength of our radiation.
+ We would expect that our energy dencity should be $E_{GW} \propto a^2\omega^2$, the exact result is:
+ \begin{align*}
+	 E &= \frac{\omega^2 a^2}{32\pi}
+ \end{align*}
+ This energy will be very small when considered in traditional units.
+ \subsection{Sources of Curvature}
+ We call the quantity that generates our curvature the stress energy tensor:
+ \begin{align*}
+	 T^{\alpha\beta} &= \begin{pmatrix}
+		 \text{Energy Density} & \text{Energy flux} \\
+		 \text{Momentum density} & \text{Stress tensor}
+			    \end{pmatrix}
+ \end{align*}
+ More concretely:
+ \begin{align*}
+	 T^{tt} &= \epsilon & T^{it} &=\pi^i & T^{ij} &= \text{ith component of force per unit area exerted across a surface normal in the direction j}
+ \end{align*}
