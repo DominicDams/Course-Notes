@@ -1,0 +1,161 @@
+We take for consideration a perfect fluid. In such a case our stress energy tensor becomes $T^{\alpha\beta} = \text{diag}(\rho,p,p,p)$. If we add a 4-velocity to our fluid $\bm{u}(x)$, then our stress-energy tensor will depend on $\bm{u}$,$\rho$ and $p$:
+\begin{align*}
+	T^{\alpha\beta} &= A u^\alpha u^\beta + B \eta^{\alpha\beta}
+\end{align*}
+And it turns out that we have:
+\begin{align*}
+	T^{\alpha\beta} &= (\rho + p)u^\alpha u^\beta + p\eta^{\alpha\beta}
+\end{align*}
+For example dust will have a vanishing pressure on it.
+
+\subsection{Local conservation of energy-momentum in curved space}
+In curved space we can still look at a stress energy tensor:
+\begin{align*}
+	T^{\alpha\beta} &= (\rho + p)u^\alpha u^\beta + pg^{\alpha\beta}
+\end{align*}
+We also want to add conservation laws:
+\begin{align*}
+	\nabla_\beta T^{\alpha\beta} &= 0
+\end{align*}
+Which corresponds to ``local'' conservation fo energy and momentum. This is not a true conservation law, for instance energy is not conserved in dynamic spacetimes. 
+
+We now introduce Einstein's equations:
+\section{Einstein Field equations}
+If we have a source $T^{\alpha\beta}$ we know that the other side must be a symmetric rank-2 tensor. The important quantities we have that may show up here are the metric, the Ricci tensor and the Ricci curvature. So our general combination:
+\begin{align*}
+	R_{\alpha\beta} + \lambda g_{\alpha\beta}R &= \kappa T_{\alpha\beta}
+\end{align*}
+We want this to be consistent with local conservation laws, which requires:
+\begin{align*}
+	\kappa \nabla_\beta T_{\alpha\beta} &= 0 \\
+	\nabla(R_{\alpha\beta} + \lambda g_{\alpha\beta} R) &= 0
+\end{align*}
+We also have the Bianchi identity:
+\begin{align*}
+	\nabla_\beta(R^{\alpha\beta} - \frac{1}{2} g^{\alpha\beta} R) &= 0
+\end{align*}
+For both of these to be satisfied we require $\lambda = -\frac{1}{2}$.
+
+In order to determine $\kappa$ we look at the newtonian limit, so $\kappa = 8\pi G$:
+\begin{align*}
+	R_{\alpha\beta} - \frac{1}{2} g_{\alpha\beta} R  &= 8\pi G T_{\alpha\beta} \\
+	G_{\alpha\beta} &= R_{\alpha\beta} - \frac{1}{2} g_{\alpha\beta} R \\
+	G_{\alpha\beta} &= 8\pi G T_{\alpha\beta}
+\end{align*}
+\subsection{Gravity Waves in EFE}
+We say:
+\begin{align*}
+	R_{\alpha\beta} - \frac{1}{2} g_{\alpha\beta} R  &= 8\pi G T_{\alpha\beta} \\
+	g_{\alpha\beta} &= \eta_{\alpha\beta} + h_{\alpha\beta}
+\end{align*}
+If we assum velocities in our source are small, then the stress energy tensor will be dominated by the rest-mass energy density $\mu$:
+\begin{align*}
+	T^{\alpha\beta} &= \mu u^\alpha u^\beta
+\end{align*}
+But we will delay this substitution until the end. We pick our gauge (the Lorentz gauge). We also introduce the trace-reversed gauge where:
+\begin{align*}
+	\bar{h}_{\alpha\beta} &= h_{\alpha\beta} - \frac{1}{2}\eta_{\alpha\beta} h^\gamma_\gamma
+\end{align*}
+Our gauge condition in the new gauge becomes:
+\begin{align*}
+	\partder{\bar{h}_{\alpha\beta}}{x^\gamma} &= 0
+\end{align*}
+In the Lorentz gauge we say:
+\begin{align*}
+	\delta R_{\alpha\beta} &= -\frac{1}{2}\Box h_{\alpha\beta} \\
+	\delta R &= -\frac{1}{2}\Box h_\gamma^\gamma
+\end{align*}
+So in the trace reversed gauge we have:
+\begin{align*}
+	\Box \bar{h}_{\alpha\beta} &= -16\pi T_{\alpha\beta}
+\end{align*}
+So each component of $\bar{h}_{\alpha\beta}$ obeys a wave equation with a source $j$. We consider a $\delta$ function source:
+\begin{align*}
+	j &= \delta(t)\delta(\bm{x})
+\end{align*}
+Spherical symmetry means $g(t,\bm{x})$ only depends on $t$ and $r$:
+\begin{align*}
+	\partial_t^2 g + \frac{1}{r^2} \partial_r r^2\partial_r g &= 0
+\end{align*}
+So our solution is a combination of inward and outward waves:
+\begin{align*}
+	g(t,r) &= \frac{1}{r}(O(t-r) _ I(t+r))
+\end{align*}
+We only care about the outgoing waves so we can simply integrate both sides over a small region $\epsilon$ to see:
+\begin{align*}
+	\int_\epsilon d^3 x \left[ -\partial_t^2 g + \nabla^2 g\right] &= \int_\epsilon d^3 x \delta(t) \delta(\bm{r}) \\
+	\int_\epsilon d^3 x \left[ -\partial_t^2 g + \nabla^2 g\right] &= \delta(t)
+\end{align*}
+We see that for small $r$ g diverges as $\frac{1}{r}$ but volume decreases as $4\pi r$ so it becomes finite.
+Additionally $\partial_t^2 g \to 0$ as $\epsilon\to0$ so we can just look at $\nabla^2 g$:
+\begin{align*}
+	-4\pi O(t) &= \delta(t) \\
+	g(t,r) &= -\frac{\delta(t)}{4\pi r}
+\end{align*}
+In linearized gravity:
+\begin{align*}
+	f(t,\bm{x}) &= \int dt' d^3 x' g(t-t', \bm{x} - \bm{x}')j(t',\bm{x}') & t' &= t - |\bm{x} - \bm{x}' \\
+	f(t,\bm{x}) &= -\frac{1}{4\pi} \int d^3 x' \frac{j(t',\bm{x}')}{|\bm{x} - \bm{x}'|}
+\end{align*}
+If our source is periodice with frequency $\omega$:
+\begin{align*}
+	j(t,\bm{x}) &= j_\omega(\bm{x}) \cos\omega t
+\end{align*}
+With a wavelength $\frac{2\pi}{\omega} \gg R_\text{source}$. Since this long wavelength means we have low frequencies, we also have low velocities. Our general solution becomes:
+\begin{align*}
+	f(t,\bm{x}) &= -\frac{1}{4\pi} \in d^3 x' \frac{j_\omega(\bm{x}') \cos \omega(t- |\bm{x} - \bm{x}'}{|\bm{x} - \bm{x}'|}
+\end{align*}
+If we look in the far field where $|\bm{x} - \bm{x}'| \to r$ we can say:
+\begin{align*}
+	f(t,\bm{x}) &= -\frac{1}{4\pi r} \int d^3x' j(t-r,\bm{x}')
+\end{align*}
+Which is our solution for long wavelengths and large $r$. Our metric corrections are therefore:
+\begin{align*}
+	\bar{h}_{\alpha\beta}(t,\bm{x}) &= 4\int d^3 x' \frac{T^{\alpha\beta}(t',\bm{x}')}{|\bm{x} - \bm{x}'|} \\
+	\bar{h}_{\alpha\beta}(t,\bm{x}) &= -\frac{1}{4\pi r} \int d^3x' T_{\alpha\beta}(t-r,\bm{x}')
+\end{align*}
+It turns out:
+\begin{align*}
+	\partial_i\partial_j T^{ij} &= \partial_t^2 T^{TT} 
+\end{align*}
+So:
+\begin{align*}
+	\int d^3 x T^{ij} &= \frac{1}{2} \partial_t^2\int d^3 x x^i x^j  T^{tt}
+\end{align*}
+With $T^{\alpha\beta} = \mu u^\alpha u^\beta$:
+\begin{align*}
+	I^{ij} &= \int d^3 x \mu x^i x^j \\
+	\bar{h}^{ij}(t,\bm{x} &= \frac{2}{r} \ddot{I}^{ij}(t-r)
+\end{align*}
+If we now look to estimate the order of magnitude we see for a binary star merger (where both components have equal mass):
+\begin{align*}
+	I &\approx MR^2
+\end{align*}
+Taking time derivatives we simply add factors of the period, so:
+\begin{align*}
+	\ddot{I}^{ij} &\approx \frac{MR^2}{P^2}
+\end{align*}
+Using Kepler's laws to relate period and orbital radius:
+\begin{align*}
+	\frac{V^2}{R} &= \frac{M}{(2R)^2}
+\end{align*}
+So:
+\begin{align*}
+	\bar{h}^{ij} &= \frac{2}{r}\ddot{I}^{ij} \\
+	\bar{h}^{ij} &\approx \frac{M}{r} \left(\frac{M}{P}\right)^\frac{2}{3}
+\end{align*}
+Which gives us something in the range of $10^{-21}$ to $10^{-24}$.
+
+If we say our orbital velocity is $\Omega = \frac{2\pi}{P}$. We choose coordinates 
+\begin{align*}
+	x(t) &= R\cos\Omega t& y(t) &= R\sin\Omega t & z(t) &= 0
+\end{align*}
+We can show:
+\begin{align*}
+	I^{xx} &= MR^2 (1 + \cos 2\Omega) t & I^{xy} &= MR^2\sin2\Omega t & I^{yy} &= MR^2(1-\cos2\Omega t) \\
+	\bar{h}^{ij} &= \frac{-8\Omega^2 MR^2}{r} \begin{pmatrix}
+		\cos2\Omega(t-r) & \sin2\Omega(t-r) & 0 \\
+		\sin2\Omega(t-r) & -\cos2\Omega(t-r) & 0 \\
+		0 & 0 & 0
+						  \end{pmatrix}
+\end{align*}
