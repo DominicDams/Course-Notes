@@ -1,0 +1,145 @@
+\chapter{Spring Term, Brian Smith}
+\section*{Overview}
+This quarter we will look into interactions betweeen quantum light and quantum matter. This includes cavity QED, non-linear optics, spontaneous emission, etc. Primarily we will cover non-linear optics.
+If time permits we will deal with the quantum treatment of gain.
+\section{Light Matter Interactions}
+\subsection{Maxwell Equations}
+We start by looking at the Maxwell equations:
+\begin{align*}
+	\del\cdot\bm{E} &= \frac{\rho_f}{\epsilon_0} & \del\cdot\bm{B} &= 0 \\
+	\del\times\bm{E} &= -\partial_t \bm{B} & \del\times\bm{B} &= \mu_u\bm{J}_f + \mu_0\epsilon_0 \partial_t \bm{E}
+\end{align*}
+And because of linearity it sufices to look at just point charges, so:
+\begin{align*}
+	\rho(\bm{x},t) &= \sum_j q_j \delta(\bm{x}-\bm{x}_j(t)) \\
+	J(\bm{x},t) &= \sum_j q_j \bm{v}_j(t) \delta(\bm{x}-\bm{x}_j(t)) & \bm{v}_j(t) &= \frac{d\bm{x}_j}{dt}
+\end{align*}
+And we finally need the force law:
+\begin{align*}
+	m_j\frac{d^2\bm{x}_j}{dt^2} &= q_j(\bm{E}(\bm{x}_j,t) + \bm{v}_j(t)\times\bm{B}(\bm{x}_j,t))
+\end{align*}
+In order to simplify this we write $\bm{E}$ and $\bm{B}$ in terms of parallel and perpendicular components:
+\begin{align*}
+	\bm{E} &= \bm{E}_\perp + \bm{E}_\parallel \\
+	\del\cdot\bm{E}_\perp &= 0 & \del\times\bm{E}_\parallel &= 0
+\end{align*}
+And similarly for $\bm{B}$. Plugging this into Maxwell's equations:
+\begin{align*}
+	\del\cdot\bm{E}_\parallel &= \frac{\rho_f}{\epsilon_0} & \del\cdot\bm{E}_\perp &= 0 \\
+	\bm{B}_\parallel &= 0 & \del\cdot\bm{B}_\perp &= 0\\
+	\del\times\bm{E}_\parallel &= 0 & \del\times\bm{E}_\perp &= -\partial_t\bm{B}_\perp \\
+	\del\times\bm{E}_\perp &= \mu_0 \bm{J} + \mu_0\epsilon_0\partial_t(\bm{E}_\perp + \bm{E}_\parallel)
+\end{align*}
+We immediately find:
+\begin{align*}
+	\bm{E}_\parallel(\bm{x},t) &= \sum_j \frac{q_j (\bm{x} - \bm{x}_j(t))}{4\pi\epsilon_0 |\bm{x} - \bm{x}_j(t)|^3}
+\end{align*}
+Which is just the Coulomb field. Therefore our longitudinal field is the ``static'' Coulomb field. In order to deal with quickly moving times, we need to deal with the retarded time in this equation.
+If we look in the far field limit, then this will go to zero, so both longitudinal fields will be zero.
+
+We now look at the transverse fields (which correspond to radiation fields), these are the components that will survive far from the charges. We intoduce our $\bm{A}$ and $\phi$ fields(working in the Coulomb gauge):
+\begin{align*}
+	\bm{E} &= -\del\phi -\partial_t\bm{A} \\
+	\bm{B} &= \del\times\bm{A} \\
+	\del\cdot\bm{A} &= 0\\
+\end{align*}
+And so:
+\begin{align*}
+	\del\cdot\bm{E} &= -\nabla^2\phi -\partial_t (\del\cdot\bm{A} \\
+	-\nabla^2\phi &= \frac{\rho}{\epsilon_0} \\
+	\del\cdot\bm{B} &= \del\cdot\del\times\bm{A} = 0 \\
+	\del\times\bm{E} &= -\del\times\del\phi - \partial_t \del\times\bm{A} \\
+	- \partial_t \del\times\bm{A} = -\partial_t \bm{B} \\
+	\del\times\bm{B} &= \mu_0\bm{J} + \mu_0\epsilon_0\partial_t(-\del\phi -\partial_t\bm{A} \\
+	\del\times\del\times\bm{A} &= \mu_0\bm{J} -\mu_0\epsilon_0 (\partial_t \del\phi - \partial_t^2 \bm{A}) \\
+	-\nabla^2\bm{A} + \del(\del\cdot\bm{A}) + \mu_0\epsilon_0\partial_t \bm{A} &= \mu_0\bm{J} -\frac{1}{c^2}\partial_t \del\phi \\
+	-\nabla^2\bm{A} + \mu_0\epsilon_0\partial_t \bm{A} &= \mu_0\bm{J} -\frac{1}{c^2}\partial_t \del\phi
+\end{align*}
+Where the last equation is a wave equation for $\bm{A}$ with sources $-\mu_0\bm{J}_f$ and $\frac{1}{c^2}\partial_t\del\phi$. We break up $\bm{A}$ and $\bm{J}$ into parallel and perpendicular components.
+Just like with the $\bm{B}$ field the parallel field will be zero (this is a given in the Coulomb gauge). We also recognize that $\del\phi = -\bm{E}_\parallel$, therefore we can say:
+\begin{align*}
+	\left[\nabla^2 - \frac{1}{c^2}\partial_t^2\right] \bm{A}_\perp &= -\mu_0\bm{J}_\perp \\
+	0 &= \mu_0\bm{J}_\parallel + \frac{1}{c^2} \partial_t\bm{E}_\parallel
+\end{align*}
+The second equation corresponds to a continuity equation for charge, while the first equation gives us a wave equation for transverse waves. Therefore our radiation in the far field only depends on the transverse motion of the charges.
+
+\subsection{Hamiltonian for light matter interaction}
+Our total Hamiltonian for the system of charges and fields will be:
+\begin{align}
+	H &= \sum_j \left(\frac{m_j v_j^2}{2} + \frac{\epsilon_0}{2}\int d^3\bm{x} \left[|\bm{E}(\bm{x},t)|^2 + c^2 |\bm{B}(\bm{x},t)|^2\right]\right)
+\end{align}
+We can break this into components so:
+\begin{align*}
+	H_{\text{em}\perp} &= \frac{\epsilon_0}{2}\int d^3x \left[|\bm{E}_\perp(\bm{x},t)|^2 + |\bm{B}_\perp(\bm{x},t)|^2\right]
+\end{align*}
+But we treated this last term, so we can then choose a set of plane wave modes labeled by $\bm{k},\sigma$ and say:
+\begin{align*}
+	\bm{u}_{\bm{k},\sigma}(\bm{x},t) &= \bm{e}_{\bm{k},\sigma} e^{i(\bm{k}\cdot\bm{x} - \omega_{\bm{k}} t)} \\
+	\bm{E}_\perp &= \sum_{\bm{k},\sigma} \alpha_{\bm{k},\sigma} \bm{e}_{\bm{k},\sigma} e^{i(\bm{k}\cdot\bm{x} - \omega_k t)} + \compcon \\
+	\bm{A}_\perp &= \sum_{\bm{k},\sigma} \alpha_{\bm{k},\sigma} \frac{\bm{e}_{\bm{k},\sigma}}{i\omega_k} e^{i(\bm{k}\cdot\bm{x} - \omega_k t)} + \compcon
+\end{align*}
+So then:
+\begin{align*}
+	\hat{H}_{\text{em}\perp} &= \sum_{\bm{k},\sigma} \hbar\omega_k \left(\hat{a}_{\bm{k},\sigma}^\dagger\hat{a}_{\bm{k},\sigma} + \frac{1}{2}\right)
+\end{align*}
+We now look to find the longitudinal Hamiltonian:
+\begin{align*}
+	H_{\text{em}\parallel} &= \frac{\epsilon_0}{2}\int d^3x \left[|\bm{E}_\parallel(\bm{x},t)|^2\right] \\
+	H_{\text{em}\parallel} &= \sum_{i,j}\frac{\epsilon_0}{2}\int d^3x \frac{q_i q_j}{16\pi^2\epsilon_0^2} \frac{(\bm{x} - \bm{x}_i(t))\cdot(\bm{x} - \bm{x}_j(t))}{|\bm{x} - \bm{x}_i(t)|^3|\bm{x} - \bm{x}_j(t)|^3}
+\end{align*}
+But we immediately see that the self energy term diverges (if $i=j$ we have an integral $\propto \int \frac{dr}{r^2}$). In order to have a sensible energy we drop these terms, so:
+\begin{align*}
+	H_{\text{em}\parallel} &= \sum_{i\neq j}\frac{\epsilon_0}{2}\int d^3x \frac{q_i q_j}{16\pi^2\epsilon_0^2} \frac{(\bm{x} - \bm{x}_i(t))\cdot(\bm{x} - \bm{x}_j(t))}{|\bm{x} - \bm{x}_i(t)|^3|\bm{x} - \bm{x}_j(t)|^3} \\
+	H_{\text{em}\parallel} &= \sum_{i\neq j}\frac{q_i q_j}{8\pi\epsilon_0}\frac{1}{|\bm{x}_i-\bm{x}_j|}
+\end{align*}
+Which is simply the Coulomb interaction between particles.
+
+So our total Hamiltonian becomes:
+\begin{align*}
+	H &= \sum_j \frac{1}{2}m_j v_j^2 + H_{\text{em}\parallel} + H_{\text{em}\perp}
+\end{align*}
+To quantize this we want to find canonically conjugate variables. We know we can write $H$ as:
+\begin{align*}
+	H &= \sum_j \frac{1}{2m_j} \left[\bm{p}_j - q_j \bm{A}(\bm{x_j},t)\right]^2 + H_{\text{em}\parallel} + H_{\text{em}\perp} + \sum_j q_j \phi(\bm{x_j},t)
+\end{align*}
+We can write:
+\begin{align*}
+	H_{\text{em}\perp} &= \sum_{\bm{k},\sigma} \frac{\hbar\omega_k}{2} (Q^2_{\bm{k},\sigma} + P_{\bm{k},\sigma}^2)
+\end{align*}
+And additionally:
+\begin{align*}
+	H &= \left[\sum_j \frac{p_j^2}{2m_j} + H_{\text{em}\parallel}\right] + H_{\text{em}\perp} + \sum_j \left[-\frac{q_j}{m_j} \bm{p}_j\cdot\bm{A}(\bm{x},t) + \frac{q^2_j}{2m_j} \bm{A}\cdot\bm{A} + q_j \phi(\bm{x}_j,t)\right] \\
+	H_I &= \sum_j \left[-\frac{q_j}{m_j} \bm{p}_j\cdot\bm{A}(\bm{x},t) + \frac{q^2_j}{2m_j} \bm{A}\cdot\bm{A} + q_j \phi(\bm{x}_j,t)\right]
+\end{align*}
+Where $H_I$ is our interaction term. Here we've split our Hamiltonian into a matter field, a radiation field and an interaction field. We now make the long wavelength (dipole approximation).
+This corresponds to saying that $\bm{A}(\bm{x}_j,t) \approx \bm{A}(t)$, for the light matter interaction. This could be consider a ``low energy approximation'' (i.e. we don't properly consider the case of gamma rays here).
+
+We now do a gauge transformation. 
+\begin{align*}
+	\bm{A}' &= \bm{A} + \del\chi \\
+	\phi' &= \phi - \partial_t \chi
+\end{align*}
+We are free to choose a gauge function:
+\begin{align*}
+	\chi(\bm{x},t) &= -\bm{x}\cdot\bm{A}(t) \\
+	\del\chi &= -\bm{A} \\
+	\partial_t \chi &= \bm{x}\cdot\bm{E}_\perp 
+	\bm{A}' &= 0 \\
+	\phi' &= \phi - \bm{x}\cdot\bm{E}_\perp \\
+	\bm{A} &= -\del\chi
+\end{align*}
+So we can then say:
+\begin{align*}
+	H_I &= -\sum_j q_j\bm{x}_j\cdot\bm{E}
+\end{align*}
+Which we often write in terms of our dipole($\bm{d}_j = q_j\bm{x}_k$):
+\begin{align*}
+	H_I &= -\sum_j \bm{d}_j\cdot\bm{E}
+\end{align*}
+So then:
+\begin{align*}
+	H_p &= \sum_j \frac{p_j^2}{2m_j} + H_{\text{em}\parallel} \\
+	H_R &= H_{\text{em}\perp} \\
+	H &= H_p + H_R + H_I 
+\end{align*}
+We can think of $H_p$ as the hamiltonian for matter (think hydrogen atom from introductory quantum), $H_R$ is the hamiltonian for the fields like we dealt with last term, and $H_I$ allows us to exchange energy between the atom and fields.
