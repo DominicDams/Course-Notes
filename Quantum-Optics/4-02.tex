@@ -1,0 +1,112 @@
+We can find our eigenstates for $\hat{H}_p$:
+\begin{align*}
+	\hat{H}_p \ket{E} &= E\ket{E}
+\end{align*}
+Which will be our standard solutions for Hydrogen/Helium/etc. We call these the ``bare'' states of the material system.
+
+Our radiation field will have solutions:
+\begin{align*}
+	\hat{H}_R &= \sum_l \hbar\omega_l \left(\hat{a}_l^\dagger\hat{a}+l +\frac{1}{2}\right) \\
+	\hat{a}^\dagger_l\hat{a}\ket{n_l} &= n_l\ket{n_l} \\
+	\hat{H}_R\ket{\{n_l\}} &= \sum_l \hbar\omega_l\left(n_l + \frac{1}{2}\right)
+\end{align*}
+These are the ``bare'' states of the electrommagnetic field.
+We will now treat our interaction as a perturbation of the bare states of the field and the matter:
+\begin{align*}
+	\hat{E} \otimes \ket{\{n_l\}}
+\end{align*}
+In order to quantize our interaction we say:
+\begin{align*}
+	\hat{\bm{E}}_\perp(\bm{x},t) &= \sum_l \mathcal{E}_l \bm{u}_l(\bm{x},t) \hat{a}_l + \hercon
+\end{align*}
+We will now focus on one ``atom'' (or superconducting qubit, molecule, etc.). We say:
+\begin{align*}
+	\hat{H}_p &= \sum_i E_i \ket{i}\bra{i} \\
+	&= \sum_i E_i \hat{\sigma}_{ii} \\
+	\hat{\sigma}_{ij} &= \ket{i}\bra{j} \\
+	\hat{\bm{d}} &= e\hat{\bm{x}} \\
+	&= e\sum_{ij} \ket{i}\bra{i}\hat{\bm{x}} \ket{j}\bra{j} \\
+	&= \sum_{ij} \bm{d}_{ij}\hat{\sigma}_{ij} \\
+	\bm{d}_{ij} &= e\bra{i}\hat{\bm{x}}\ket{j}
+\end{align*}
+We choose to work in terms of plane wave modes (dropping the distinction for our perpendicular modes):
+\begin{align*}
+	\bm{E}(\bm{x},t) &= i\sum_{\bm{k},l} \bm{e}_{\bm{k},l}\mathcal{E}_{\bm{k}}\left(\hat{a}_{\bm{k},l} e^{i(\bm{k}\cdot\bm{x} -\omega_kt)}  + \hercon\right) \\
+	\hat{H}_I &= \sum_{ij}\sum_{\bm{k},l} \hbar\left(\frac{-i\bm{d}_{ij}\cdot\bm{e}_{\bm{k},l} \mathcal{E}_{\bm{k}}}{\hbar}\right) \hat{\sigma}_{ij}\left[\hat{a}_{\bm{k},l} e^{i(\bm{k}\cdot\bm{x} -\omega_k t)} +\hercon\right) \\
+	\Omega_{\bm{k},l}^{ij} &= \frac{-i\bm{d}_{ij}\cdot\bm{e}_{\bm{k},l}\mathcal{E}_{\bm{k}}}{\hbar}
+\end{align*}
+We note that the lifetime of atomic states here will be related to vacuum fluctuations that appear in second order perturbation theory.
+
+\subsection{Jaynes Cummings Model}
+We now consider only two level atomic systems that interact with one mode of the electrommagnetic field.
+We further simplify this by setting zero energy centrally, between the ground and excited energies. Therfore our energies are:
+\begin{align*}
+	E_g &= -\frac{\hbar\omega_{eg}}{2} & E_e &= \frac{\hbar\omega_{eg}}{2}
+\end{align*}
+So:
+\begin{align*}
+	\hat{H}_p &= \frac{\hbar\omega_{eg}}{2}\hat{\sigma}_3
+\end{align*}
+And we introduce raising and lowering operators:
+\begin{align*}
+	\hat{\sigma}_+ &= \ket{e}\bra{g} & \hat{\sigma}_- &= \ket{g}\bra{e}
+\end{align*}
+And then we can write:
+\begin{align*}
+	\hat{H}_I &= \hbar\Omega(\hat{\sigma}_+ +\hat{\sigma}_-)(\hat{a}_\omega e^{-i\omega t} + \\hat{a}_\omega^\dagger e^{i\omega t}) \\
+	\Omega &= \frac{-i\bm{d}_{eg} \bm{e}_k \mathcal{E}_k}{\hbar} & \mathcal{E}_k &= \sqrt{\frac{\hbar\omega_k}{2\epsilon_0 V}}
+\end{align*}
+So then:
+\begin{align*}
+	\hat{H}_{J.C.} &= \frac{\hbar\omega_{eg}}{2} \hat{\sigma}_3 + \hbar\omega\hat{a}_\omega^\dagger\hat{a}_\omega + \hbar\Omega(\hat{\sigma}_+ + \hat{\sigma}_-)(\hat{a}_\omega e^{-i\omega t} + \hat{a}_\omega^\dagger e^{i\omega t})
+\end{align*}
+If we time evolve our system without including our perturbations we can say our raising and lowering operators evolve as:
+\begin{align*}
+	\hat{\sigma}_\pm(t) &= \hat{\sigma}(0) e^{\pm i\omega_{eg} t}
+\end{align*}
+So then:
+\begin{align*}
+	\hat{H}_{J.C.} &= \frac{\hbar\omega_{eg}}{2} \hat{\sigma}_3 + \hbar\omega\hat{a}_\omega^\dagger\hat{a}_\omega + \hbar\Omega\left(\hat{\sigma}_- \hat{a}e^{-i(\omega + \omega_{eg})t} + \hat{\sigma}_+\hat{a} e^{-i(\omega - \omega_{eg})t}
+		\hat{\sigma}_-\hat{a}^\dagger e^{i(\omega - \omega_{eg})t} + \hat{\sigma}_+\hat{a}^\dagger e^{i(\omega + \omega_{eg})t}\right)
+\end{align*}
+Taking the rotating wave approximation (which physically here kills off terms that don't conserve energy):
+\begin{align*}
+	\hat{H}_{J.C.} &= \frac{\hbar\omega_{eg}}{2} \hat{\sigma}_3 + \hbar\omega\hat{a}_\omega^\dagger\hat{a}_\omega + \hbar\Omega\left(\hat{\sigma}_+\hat{a} e^{-i(\omega - \omega_{eg})t} + \hat{\sigma}_-\hat{a}^\dagger e^{i(\omega - \omega_{eg})t}\right) \\
+	\hat{H}_{J.C.} &= \frac{\hbar\omega_{eg}}{2} \hat{\sigma}_3 + \hbar\omega\hat{a}_\omega^\dagger\hat{a}_\omega + \hbar\Omega\left(\hat{\sigma}_+\hat{a} e^{i\Delta t} + \hat{\sigma}_-\hat{a}^\dagger e^{-i\Delta t}\right) \\
+	\Delta &= \omega_{eg} - \omega
+\end{align*}
+We note that $\hat{P}_e = \ket{e}\bra{e} + \ket{g}\bra{g}$ is conserved (which is just saying we have one atom), as well as $\hat{N}_{ex} = \ket{e}\bra{e} + \hat{a}^\dagger \hat{a}$ (which says the number of excitations is conserved).
+Using this we break up our Hamiltonian into:
+\begin{align*}
+	\hat{H}_1 &= \hbar\omega\hat{N}_{ex} + \hbar\left(\frac{\omega_{eg}}{2} - \omega\right)\hat{P}_e \\
+	\hat{H}_2(0) &= -\hbar\Delta\ket{g}\bra{g} + \hbar\Omega(\hat{\sigma}_+\hat{a} + \hat{\sigma}_-\hat{a}^\dagger) \\
+	[\hat{H}_1,\hat{H}_2] &= 0
+\end{align*}
+While $\hat{H}_1$ will only lead to phase variations, $\hat{H}_2$ will cause dynamics.
+
+We now consider the example of an on resonance ($\Delta=0$) and initial state $\ket{\psi(0)} = \ket{e}\ket{n}$. We now want to determine $\ket{\psi(t)}$:
+\begin{align*}
+	\ket{\psi(t)} &= c_g(t) \ket{g}\ket{n+1} + c_e(t)\ket{e}\ket{n}
+\end{align*}
+We move to the interaction picture where:
+\begin{align*}
+	i\hbar\partial_t\ket{\psi(t)}_I &= \hat{\tilde{H}}_I\ket{\psi(t)}_I \\
+	\hat{\tilde{H}}_I &= -\hbar\Delta\ket{g}\bra{g} + \hbar\Omega(\hat{\sigma}_+\hat{a} + \hat{\sigma}_-\hat{a}^\dagger)
+\end{align*}
+So our Schroedinger equation becomes:
+\begin{align*}
+	i\hbar \dot{\tilde{c}}_g\ket{g}\ket{n+1} + i\hbar\dot{\tilde{c}}_e\ket{e}\ket{n} &= \hbar\Omega\left[\tilde{c}_g\sqrt{n+1}\ket{e}\ket{n} + \tilde{c}_e\sqrt{n+1}\ket{g}\ket{n+1}\right] \\
+	i\hbar\dot{\tilde{c}}_g &= \hbar\Omega\sqrt{n+1}\tilde{c}_e & i\hbar\dot{\tilde{c}}_e &= \hbar\Omega\sqrt{n+1}\tilde{c}_g
+\end{align*}
+Which we can solve by looking at second dervitives, so:
+\begin{align*}
+	\ddot{\tilde{c}}_g &= -\Omega^2(n+1)\tilde{c}_g \\
+	\tilde{c}_g(t) &= \sin(\Omega\sqrt{n+1}t)
+\end{align*}
+For on resonance the energy of both our states are identical so there is no additional phase imposed by the interaction picture so we can say:
+\begin{align*}
+	\ket{\psi(t)} &= -i\sin(\Omega\sqrt{n+1}t)\ket{g}\ket{n+1} +\cos(\Omega\sqrt{n+1}t)\ket{e}\ket{n}
+\end{align*}
+This experiences Rabi oscilations, even if we don't include any photons in our initial state.
+
+We now look at the initil state $\ket{\psi(0)} = (c_e(0)\ket{e} + c_g(0)\ket{g})(\sum_n c_n\ket{n})$ which turns out to only have nearest neighbor interactions between the modes.
