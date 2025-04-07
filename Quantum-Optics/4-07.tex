@@ -1,0 +1,79 @@
+
+We can express our total Hamiltonian in terms of our two operators:
+\begin{align*}
+	\hat{H} &= \hat{H}_1 + \hat{H}_2
+\end{align*}
+Where $\hat{H}_2$ is the interaction term, and $\hat{H}_1$ is diagonal in our basis.
+
+We now start in the state (with $\Delta = 0$):
+\begin{align*}
+	\ket{\psi_\text{atom}(0)} &= c_g\ket{g} + c_e\ket{e} \\
+	\ket{\psi_\text{field}(0)} &= \sum_n c_n \ket{n} \\
+	\ket{\psi(t)} &= \sum_n \{\left[c_ec_n\cos(\sqrt{n+1}\Omega t) - ic_gc_{n+1}\sin(\sqrt{n+1}\Omega t)\right]\ket{e} \\
+				&+ \left[-ic_ec_{n-1}\sin(\sqrt{n+1}\Omega t) + c_gc_n\cos(\sqrt{n+1}\Omega t)\right]\ket{g}\}\ket{n}
+\end{align*}
+We can rewrite this as:
+\begin{align*}
+	\ket{\psi(t)} &= \ket{\psi_g(t)}\ket{g} + \ket{\psi_e(t)}\ket{e}
+\end{align*}
+If we start with the atom in the excited state then:
+\begin{align*}
+	\ket{\psi_g(t)} &= \sum_n c_{n+1} \cos(\sqrt{n+1}\Omega t) \ket{n} &  \ket{\psi_e(t)} &= -i\sum_n c_n \sin(\sqrt{n+1}\Omega t)
+\end{align*}
+And we say our population inversion is defined as:
+\begin{align*}
+	W(t) &= \bra{\psi_e(t)}\ket{\psi_e(t)} - \bra{\psi_g(t)}\ket{\psi_g(t)} \\
+	&= \sum_n |c_n|^2\cos(2\sqrt{n+1}\Omega t)
+\end{align*}
+If we now use a laser we can say:
+\begin{align*}
+	|c_n|^2 &= \frac{e^{-|\alpha|^2}}{n!} |\alpha|^{2n} \\
+	|\alpha|^2 &= \bar{n} \\
+	W(t) &= e^{-\bar{n}} \sum_n \frac{\bar{n}^n}{n!} \cos(2\sqrt{n+1}\Omega t)
+\end{align*}
+This function will decay to zero and then later will revive the inversion:\\
+\includegraphics*[width=12cm]{4-07-1}\\
+We can say our colapse time is approximately:
+\begin{align*}
+	T_c &\approx \frac{1}{\Delta\Omega_{\bar{n}}} \\
+	    &\approx \frac{1}{2\Omega(\sqrt{\bar{n} + \Delta n} - \sqrt{\bar{n} - \Delta n}} \\
+	    &\approx \frac{1}{2\Omega} \\
+	\Omega_{\bar{n}} &= 2\Omega\sqrt{\bar{n} +1}
+\end{align*}
+In order to find when we expect the revival we look at when two neighboring frequencies are about $2\pi$ appart:
+\begin{align*}
+	(\Omega_{\bar{n}+1} - \Omega_{\bar{n}})t_r &\approx 2\pi \\
+	t_r &= \frac{\pi}{\Omega(\sqrt{\bar{n}+2} - \sqrt{\bar{n}+1}} \\
+	t_r &= \frac{2\pi\sqrt{\bar{n}}}{\Omega}
+\end{align*}
+
+Returning to our Jaynes-Cummings Hamiltonian:
+\begin{align*}
+	\hat{H} &= \hat{H}_0 + \hat{H}_I \\
+	\hat{H}_0 &= \sum_l \hbar\omega_l\hat{a}_l^\dagger\hat{a}_l + \frac{\hbar\omega_{eg}}{2}\hat{\sigma}_3 \\
+	\hat{H}_I &= \hbar\sum_l (\Omega_l \hat{\sigma}_+\hat{a}_l + \Omega_l^* \hat{\sigma}_-\hat{a}^\dagger_l)
+\end{align*}
+In the interaction picture, our states will evolve acording:
+\begin{align*}
+	\ket{\psi(t)}_I &= \hat{U}_0^\dagger(t) \ket{\psi_s(0)} \\
+	\hat{U}_0 &= e^{-i\hat{H}_0 t/\hbar} \\
+	i\hbar \partial_t \ket{\psi_I(t)} &= \hat{\tilde{H}}_I\ket{\psi_I(t)} \\
+	\hat{\tilde{H}}_I(t) &= \hat{U}_0^\dagger(t)\hat{H}_I\hat{U}_0(t)
+\end{align*}
+So we have in the interaction picture:
+\begin{align*}
+	\hat{\tilde{H}}_I(t) &= \hbar\sum_l (\Omega_l\hat{\sigma}_+\hat{a}_l e^{i\Delta_l t} + \Omega_l^*\hat{\sigma}_-\hat{a}_l^\dagger e^{-i\Delta_l t})
+\end{align*}
+
+If we now start in the state:
+\begin{align*}
+	\ket{\psi(0)} &= \ket{e}\ket{n} \\
+	\ket{\psi_I(t)} &=  c_e(t)\ket{e}\ket{n} + c_g(t)\ket{g}\ket{n+1} \\
+	i\hbar(\dot{c}_e\ket{e}\ket{n} + \dot{c}_g\ket{g}\ket{n+1}) &= \hbar\Omega e^{i\Delta t} c_g \sqrt{n+1}\ket{e}\ket{n} + \hbar\Omega^*e^{-i\Delta t}c_e \sqrt{n+1}\ket{g}\ket{n+1}
+\end{align*}
+Which we can solve, finding:
+\begin{align*}
+	c_e(t) &= e^{i\frac{\Delta t}{2}}\left(\cos\frac{\Omega_n(\Delta)t}{2} - i \frac{\Delta}{\Omega_n(\Delta)} \sin\frac{\Omega_n(\Delta t}{2}\right) \\
+	c_e(t) &= e^{-i\frac{\Delta t}{2}}\left(\frac{2i\Omega\sqrt{n+1}}{\Omega_n(\Delta)}\sin\frac{\Omega_n(\Delta)t}{2}\right) \\
+	\Omega_n(\Delta) &= \sqrt{\Delta^2 + 4|\Omega|^2(n+1)}
+\end{align*}
