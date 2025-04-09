@@ -1,0 +1,93 @@
+Looking at our ``bare'' states:
+\begin{align*}
+	\ket{e}\ket{n} & \ket{g}\ket{n+1}
+\end{align*}
+We can see these are the eigenstates of $\hat{H}_0$:
+\begin{align*}
+	\hat{H}_0 \ket{e}\ket{n} &= \left(\frac{\hbar\omega_0}{2} + \hbar\omega n\right) \ket{e}\ket{n} \\
+	\hat{H}_0 \ket{g}\ket{n +1} &= \left(-\frac{\hbar\omega_0}{2} + \hbar\omega (n+1)\right) \ket{g}\ket{n+1} \\
+\end{align*}
+In order to find the eigenstates of $\hat{H}$ we seek to diagonalize $\hat{H}_1$ in the basis given by $\hat{H}_0$. We note that in this basis $\hat{H}_1$ has no non-zero diagonal elements! Looking at the off diagonals:
+\begin{align*}
+	\bra{e}\bra{n} \hat{H}_1\ket{g}\ket{n+1} &= \hbar\Omega\sqrt{n+1}
+\end{align*}
+So in the ``bare'' state basis we can write this as:
+\begin{align*}
+	\hat{H}_1 &= \hbar\Omega\sqrt{n+1}\begin{pmatrix}
+		0 & 1\\
+		1 & 0
+		     \end{pmatrix}
+\end{align*}
+So we can then write our Hamiltonian (for the nth eigenspace of $\hat{H}$ corresponding to the $\hat{N}_e$ symmetry):
+\begin{align*}
+	\hat{H}_n &= \hbar \begin{pmatrix}
+		n\omega + \frac{\omega_0}{2} & \Omega\sqrt{n+1} \\
+		\Omega\sqrt{n+1} & (n+1)\omega - \frac{\omega_0}{2}
+			 \end{pmatrix}
+\end{align*}
+Which has eigenvalues:
+\begin{align*}
+	E_{\pm n} &= \hbar\omega\left(n+\frac{1}{2}\right) \pm \frac{\hbar\Omega_n(\Delta)}{2}
+\end{align*}
+With eigenstates:
+\begin{align*}
+	\ket{n+} &= \cos\frac{\phi_n}{2} \ket{e}\ket{n} + \sin\frac{\phi_n}{2} \ket{g}\ket{n+1} \\
+	\ket{n-} &= -\sin\frac{\phi_n}{2} \ket{e}\ket{n} + \cos\frac{\phi_n}{2} \ket{g}\ket{n+1} \\
+	\phi_n &= \arctan\frac{2\Omega\sqrt{n+1}}{\Delta} \\
+	&= \arctan\frac{\Omega_n(0)}{\Delta}
+\end{align*}
+Where we have:
+\begin{align*}
+	\sin\frac{\phi_n}{2} &= \sqrt{\frac{\Omega_n(\Delta)-\Delta}{2\Omega_n*(\Delta)}} & \cos\frac{\phi_n}{2} &= \sqrt{\frac{\Omega_n(\Delta)+ \Delta}{2\Omega_n(\Delta}}
+\end{align*}
+The energy difference of bare states:
+\begin{align*}
+	\Delta E_\text{bare} &= \hbar(\omega_0-\omega) \\
+	&= \hbar\Delta
+\end{align*}
+On the other hand the dressed states differ by:
+\begin{align*}
+	\Delta E_\text{dressed} &= E_+ - E_- \\
+	&= \hbar\Omega_n(\Delta) \\
+	&= \hbar\sqrt{4\Omega^2(n+1) + \Delta^2}
+\end{align*}
+Which means that our energies split more as we increase the parameter $\Omega$ of our system. In the case where $\Delta = 0$ (on resonance) then:
+\begin{align*}
+	\ket{n+} &= \frac{\ket{e}\ket{n} + \ket{g}\ket{n+1}}{\sqrt{2}} \\
+	\ket{n-} &= \frac{-\ket{e}\ket{n} + \ket{g}\ket{n+1}}{\sqrt{2}} \\
+	\Delta E &= 2\hbar\Omega\sqrt{n+1}
+\end{align*}
+We can clearly see (going back to a non-zero $\Delta$) that:
+\begin{align*}
+	\ket{e}\ket{n} &= \cos\frac{\phi_n}{2}\ket{n+} - \sin\frac{\phi_n}{2}\ket{n-} \\
+	\ket{g}\ket{n+1} &= \sin\frac{\phi_n}{2}\ket{n+} + \cos\frac{\phi_n}{2}\ket{n-}
+\end{align*}
+And our time evolution is given by:
+\begin{align*}
+	\ket{n\pm(t)} &= e^{-i\omega_\pm(n) t} \ket{n\pm(0)}
+\end{align*}
+Given our initial condition:
+\begin{align*}
+	\ket{\psi(0)} &= \sum_n c_n \ket{e}\ket{n}
+\end{align*}
+We time evolve by doing substitutions:
+\begin{align*}
+	\ket{\psi(0)} &= \sum_n c_n \left(\cos\frac{\phi_n}{2}\ket{n+} - \sin\frac{\phi_n}{2}\ket{n-}\right) \\
+	\ket{\psi(t)} &= \sum_n c_n \left(\cos\frac{\phi_n}{2}e^{-i\omega_+(n) t}\ket{n+} - \sin\frac{\phi_n}{2}e^{-i\omega_-(n) t}\ket{n-}\right)
+\end{align*}
+In order to look at our physical (``bare'') states we transform back:
+\begin{align*}
+	\ket{\psi(t)} &= \sum_n c_n \Bigl(\cos\frac{\phi_n}{2}e^{-i\omega_+(n) t}\left[\cos\frac{\phi_n}{2} \ket{e}\ket{n} + \sin\frac{\phi_n}{2} \ket{g}\ket{n+1} \right] \\
+		& - \sin\frac{\phi_n}{2}e^{-i\omega_-(n) t}\left[-\sin\frac{\phi_n}{2} \ket{e}\ket{n} + \cos\frac{\phi_n}{2} \ket{g}\ket{n+1} \right]\Bigr)
+\end{align*}
+From which we can calculate our inversion:
+\begin{align*}
+	W_n(t) &= \Big|\cos^2\frac{\phi_n}{2} e^{-i\omega_+(n) t} + \sin^2\frac{\phi_n}{2} e^{-i\omega_-(n) t}\Big|^2 - \Big|\cos\frac{\phi_n}{2}\sin\frac{\phi_n}{2}\left(e^{-i\omega_+(n)t} - e^{-i\omega_-(n)t}\right)\Big|^2 \\
+	&= \cos^4\frac{\phi_n}{2} + \sin^4\frac{\phi_n}{2} + 2\left(\frac{\sin\phi_n}{2}\right)^2\cos\Omega_n(\Delta) t - \left(\frac{\sin\phi_n}{2}\right)^2\left(2\sin\frac{\Omega_n(\Delta) t}{2}\right)^2 \\
+	&= \cos^4\frac{\phi_n}{2} + \sin^4\frac{\phi_n}{2} + \frac{1}{2}\sin^2\phi_n\left(\cos\Omega_n(\Delta) t +\cos\Omega_n(\Delta) t - 1\right) \\
+	&= \cos^4\frac{\phi_n}{2} + \sin^4\frac{\phi_n}{2} + \frac{1}{2}\sin^2\phi_n\left(2\cos\Omega_n(\Delta) t  - 1\right)
+\end{align*}
+And in the case where $\Delta=0$ we recover:
+\begin{align*}
+	W_n(t) &= \cos\Omega_n(\Delta) t
+\end{align*}
