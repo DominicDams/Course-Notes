@@ -1,0 +1,84 @@
+\section{Spontaneous Emission}
+We can model spontaneous emission in a similar way to our Jaynes Cummings model, where we now move to many modes of the electromagnetic field. Therefore we start in the state $\ket{e}\vac$ and evolve to a state $\ket{g}\ket{1_{\bm{k},j}}$, where $\bm{k},j$ labels our mode.
+This gives us a final state:
+\begin{align*}
+	\ket{\psi_I(t)} &= c_e(t)\ket{e}\vac + \sum_{\bm{k},j} c_{g,\bm{k},j}(t) \ket{g}\ket{1_{\bm{k},j}}
+\end{align*}
+We can show that our amplitudes are:
+\begin{align*}
+	c_e(t) &= e^{-\frac{\Gamma t}{2}} \\
+	c_{g,\bm{k},j} &= -\Omega_{\bm{k},j}(\bm{x}_0) \frac{1-e^{-i (\omega_0-\omega_k)t} e^{-\frac{\Gamma t}{2}}}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}}
+\end{align*}
+We now introduce $\ket{\gamma_0}$ which is:
+\begin{align*}
+	\ket{\gamma_0} &= \sum_{\bm{k},j} \frac{\Omega_{\bm{k},j}(\bm{x}_0)}{(\omega_0-\omega_k) + i\frac{\Gamma}{2}} \ket{1_{\bm{k},j}}
+\end{align*}
+And as $t\gg \frac{1}{\Gamma}$ we find our state will approach $\ket{g}\ket{\gamma_0}$
+
+We now look at $\bm{\psi}_\gamma(\bm{x},t) = \vacb\hat{\bm{E}}^{(+)}*\bm{x},t)\ket{\gamma_0}$, which should roughly represent the modes of the electric field. In order to calculate this we remember:
+\begin{align*}
+	\hat{\bm{E}}^{(+)}(\bm{x},t) &= \sum_{\bm{k}',j'} \sqrt{\frac{\hbar\omega_{k'}}{2\epsilon_0 V}} e^{i(\bm{k}'\cdot\bm{x} - \omega_{k'} t)} \bm{e}_{\bm{k}',j'} \hat{a}_{\bm{k}',j'}
+\end{align*}
+Which means:
+\begin{align*}
+	\vacb\hat{a}_{\bm{k}',j'}\ket{1_{\bm{k},j}} &= \delta_{\bm{k},\bm{k}'}\delta_{j,j'} \\
+	\bm{psi}_\gamma(\bm{x},t)&= \sum_{\bm{k},j} \frac{\Omega_{\bm{k},j} \mathcal{E}_k}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}} e^{i(\bm{k}\cdot\bm{x} -\omega_k t)} \bm{e}_{\bm{k},j} \\
+	&= \sum_{\bm{k},j} \frac{(\bm{d}_{eg}\cdot\bm{e}_{\bm{k},j})\bm{e}_{\bm{k},j}}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}}\frac{\mathcal{E}_k^2}{\hbar} e^{i(\bm{k}\cdot\bm{x} -\omega_k t)}  \\
+	&= \sum_{\bm{k},j} \frac{(\bm{d}_{eg}\cdot\bm{e}_{\bm{k},j})\bm{e}_{\bm{k},j}}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}}\frac{\omega_k}{2\epsilon_0 V} e^{i(\bm{k}\cdot\bm{x} -\omega_k t)}
+\end{align*}
+Which (for our $\omega_k$ dependance) is a Lorentzian (which is the fourier transform of an exponetial decay).
+If we orient our axis along the distance between our dipole and our measurement location, so $\bm{x} - \bm{x}_0 = \Delta r \hat{z}$. We now choose our dipole to be within the x-z plane, with angle $\eta$.
+Therefore $\bm{d}_{eg} = d_{eg} (\sin\eta \hat{x} + \cos\eta \hat{z})$. This means that $\bm{k}$ must be in it's most general form $\bm{k} = k(\sin\theta\cos\phi\hat{x} = \sin\theta\sin\phi\hat{y} + \cos\theta\hat{z}$. We can then say:
+\begin{align*}
+	\bm{e}_{\bm{k},1} &= \sin\theta\hat{x} - \cos\theta\hat{y} \\
+	\bm{e}_{\bm{k},2} &= \cos\theta\cos\phi\hat{x} +\cos\theta\sin\phi\hat{y} - \sin\theta\hat{z} \\
+	\bm{d}_{eg}\cdot\bm{e}_{\bm{k},1} &= d_{eg}\sin\phi\sin\eta \\
+	\bm{d}_{eg}\cdot\bm{e}_{\bm{k},2} &= d_{eg}(\cos\theta\cos\phi\sin\eta - \sin\theta\cos\eta)
+\end{align*}
+So then our function becomes (moving to the continuum limit for our mode space $\sum_{\bm{k}} \to \frac{V}{(2\pi)^3}\int d^3k$):
+\begin{align*}
+	\bm{\psi}_\gamma(\bm{x},t) &= \frac{1}{(2\pi)^32\epsilon_0} \sum_j \int_0^\infty k^2 dk \int_0^\pi \sin\theta d\theta \int_0^{2\pi} d\phi 
+		\frac{(\bm{d}_{eg}\cdot\bm{e}_{\bm{k},j})\bm{e}_{\bm{k},j}}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}}\omega_k e^{i(k\Delta r\cos\theta -\omega_k t)}
+\end{align*}
+In the case where we look along the dipole instead of the more general case we can then say:
+\begin{align*}
+	\eta &= 0 & \bm{d}_{eg}\cdot\bm{e}_{\bm{k},1} &= 0 & \bm{d}_{eg}\cdot\bm{e}_{\bm{k},2} &= -\sin\theta
+\end{align*}
+So:
+\begin{align*}
+	\bm{\psi}_\gamma(\bm{x},t) &= \frac{1}{(2\pi)^32\epsilon_0} \int_0^\infty k^2 dk \int_0^\pi \sin\theta d\theta \int_0^{2\pi} d\phi 
+		\frac{(-\sin\theta)\bm{e}_{\bm{k},2}}{(\omega_0 - \omega_k) + i\frac{\Gamma}{2}}\omega_k e^{i(k\Delta r\cos\theta -\omega_k t)}
+\end{align*}
+The first two components of this integral go to zero so we see:
+\begin{align*}
+	\psi_{3\gamma}(\bm{x},t) &= \frac{d_{eg}}{(2\pi)^2 2\epsilon_0} \int_0^\infty \left(\frac{\omega}{c}\right)^2 \frac{d\omega}{c} \int_0^\pi \sin\theta d\theta \frac{\omega}{(\omega_0-\omega) + i\frac{\Gamma}{2}} \sin^2\theta e^{i\omega\left(\frac{r}{c} - t\right)}\\
+	&= \frac{d_{eg}}{6\pi^2\epsilon_0c^3} \int_0^\infty \frac{\omega^3 d\omega}{(\omega_0-\omega + i\frac{\Gamma}{2}} e^{-i\omega\left(t-\frac{r}{c}\right)} \\
+\end{align*}
+If we say that the Lorentzian is very narrow, then we see:
+\begin{align*}
+	\psi_{3\gamma}(\bm{x},t) &= \frac{d_{eg}\omega_0^3 }{6\pi^2\epsilon_0c^3} \int_0^\infty \frac{d\omega}{(\omega_0-\omega + i\frac{\Gamma}{2}} e^{-i\omega\left(t-\frac{r}{c}\right)}
+\end{align*}
+Which gives us an exponential decay in the retarded time.
+
+Alternatively we can derive spontaneous emmission via:
+\begin{align*}
+	\dot{c}_e &= -\frac{d+{eg}^2}{6\pi^2\epsilon_0\hbar c^3} \int_0^\infty \omega^3d\omega\int_0^t e^{i(\omega_0-\omega)(t-t')} c_e(t') dt'
+\end{align*}
+Which last time we switched our order of integration to find the solution to this. If we instead assum that $c_e(t)$ varies slowly compared to $T=\frac{1}{\omega_0-\omega}$. This lets us rewrite our integral:
+\begin{align*}
+	\dot{c}_e &\approx -\frac{d+{eg}^2c_e(t)}{6\pi^2\epsilon_0\hbar c^3} \int_0^\infty \omega^3d\omega\int_0^t e^{i(\omega_0-\omega)(t-t')} dt' \\
+	&= -\frac{d+{eg}^2c_e(t)}{6\pi^2\epsilon_0\hbar c^3} \int_0^\infty \omega^3d\omega\int_{-\infty}^t \theta(\tau) e^{i(\omega_0-\omega)\tau} d\tau \\
+	&= -\frac{d+{eg}^2c_e(t)}{6\pi^2\epsilon_0\hbar c^3} \pi\omega_0^3 + \frac{i\Gamma c_e(t)}{2\pi\omega_0^3}\int_0^\infty \frac{\omega^3}{\omega - \omega_0} d\omega \\
+	&= -\frac{d+{eg}^2c_e(t)}{6\pi^2\epsilon_0\hbar c^3} \pi\omega_0^3 + \frac{i\Gamma c_e(t)}{2\pi\omega_0^3}\int_0^\infty \frac{\omega^3}{\omega - \omega_0} d\omega \\
+	&= -\left[\frac{\Gamma}{2} -i\delta\right]c_e(t) \\
+	\delta &= \frac{\Gamma}{2} \frac{I}{\pi\omega_0^3} \\
+	I &= \int_0^\infty \frac{\omega^3}{\omega - \omega_0} d\omega
+\end{align*}
+Where $\frac{\Gamma}{2}$ describes our spontaneous emmission rate, and $\delta$ describes the lamb shift (which is an energy shift to our excited state).
+The issue we see here is that $I$ diverges, but we can fix this by imposing a physical cutoff/renormalizing. We then make our integral:
+\begin{align*}
+	I &\approx \omega_0^2 \int_0^{\omega_c} \frac{\omega d\omega}{\omega - \omega_0} \\
+	I &\approx 2\omega_0^3 \ln\frac{\omega_c}{\omega_0} \\
+	\omega_c &= \frac{mc^2}{\hbar}
+\end{align*}
+Where our cutoff frequency is related to the region where our non-relativistic theory fails.
