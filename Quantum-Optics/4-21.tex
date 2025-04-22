@@ -1,0 +1,76 @@
+\section{Cavity QED}
+We have the Hamiltonian for cavity QED:
+\begin{align*}
+	\hat{H} &= \hbar\omega_c \hat{a}_c^\dagger\hat{a}_c + \frac{\hbar\omega_0}{2}\hat{\sigma}_3 + \hbar g_c (\hat{\sigma}_+\hat{a}_c + \hat{\sigma}_- \hat{a}_c^\dagger) + \sum_{k\neq c} \hbar g_k (\hat{\sigma}_+\hat{a}_k + \hat{\sigma}_-\hat{a}_k)
+\end{align*}
+\subsection{Modeling Decay with Fermi's Golden rule}
+If we transition from an initial state $\ket{i}$ to some final state $\ket{f}$ via a Hamiltonian with sinusoidal time dependance we can say:
+\begin{align*}
+	\hat{H}_I &= \hat{H}_1 e^{-i\omega t} + \hat{H}_1^* e^{i\omega t} \\
+\end{align*}
+Fermi's golden rule says
+\begin{align*}
+	c_f(t) &= -\frac{i}{\hbar}\int_0^t \bra{f}\hat{H}_I\ket{i} e^{i\omega_{fi} t'}dt' \\
+	c_f(t) &= -\frac{i}{\hbar}\int_0^t \bra{f}\hat{H}_1\ket{i} e^{-i(\omega -\omega_{fi}) t'} +\bra{f}\hat{H}_1^*\ket{i} e^{i(\omega +\omega_{fi}) t'} dt' \\
+	c_f(t) &= -\frac{i}{\hbar} \bra{f}\hat{H}_1\ket{i} \left(\frac{e^{-i(\omega -\omega_{fi}) t}-1}{i(\omega_{fi}-\omega)} +\frac{e^{i(\omega +\omega_{fi}) t'}-1}{i(\omega_{fi} + \omega)}\right) \\
+	c_f(t) &= -\frac{i}{\hbar} \bra{f}\hat{H}_1\ket{i} \frac{2e^{i(\omega_{fi}-\omega) t}\sin \frac{(\omega_{fi}-\omega)t}{2}}{\omega_{fi}-\omega}
+\end{align*}
+For $\ket{f} = \ket{1_k}\ket{g}$ we have:
+\begin{align*}
+	c_{gk}(t) &= -i\frac{2}{\hbar}\hbar g_k e^{i\Delta t} \frac{\sin\frac{\Delta t}{2}}{\Delta}
+\end{align*}
+With this in mind our probability to find the system in the excited state after time t is:
+\begin{align*}
+	P_e &= 1- \sum_k P_{gk} & P_{gk} &=|c_{gk}|^2 = 4|g_k|^2 \frac{\sin^2\frac{\Delta t}{2}}{\Delta^2}
+\end{align*}
+We put this in terms of a sinc function:
+\begin{align*}
+	P_{gk} &= \frac{4|g_k|^2 t}{\Delta}\sinc\frac{\Delta t}{2}\sin \frac{\Delta t}{2}
+\end{align*}
+So in the long time limit where sinc acts like a delta function:
+\begin{align*}
+	P_{gk} &= 2\pi|g_k|^2 t\delta(\omega_{fi} -\omega)
+\end{align*}
+And our decay rate is:
+\begin{align*}
+	\Gamma_{gk} &= 2\pi|g_k|^2 \delta(\omega_{fi} -\omega)
+\end{align*}
+So our transition rule becomes:
+\begin{align*}
+	\Gamma_{if} &= \frac{2\pi}{\hbar^2}|\bra{i}H_1\ket{f}|^2 \delta(\omega_{fi}-\omega)
+\end{align*}
+We can see that our state of an atom in the cavity (with strong coupling) the cavity looks like:
+\begin{align*}
+	\Gamma_\text{cav} &= \frac{2\pi}{\hbar^2} |\expval{\bm{d}\cdot\bm{E}}|^2 \rho_\text{cav}(\omega) \\
+	\rho_\text{cav} &= \frac{1}{\pi} \frac{\frac{k}{2}}{\left(\frac{k}{2}\right)^2 + (\omega-\omega_\text{cm})^2} & \omega_\text{cm} &= m\frac{\pi}{L} c
+\end{align*}
+Which in the limit where $\omega\approx\omega_0\approx\omega_m$:
+\begin{align*}
+	\Gamma_\text{cav} &= \Gamma_\text{free} \frac{3}{4\pi^2} \frac{!}{V}\lambda^3_0
+\end{align*}
+Which is the Purcell enhancement to emit into a cavity mode.
+If we are off resonance $\omega_m\not\approx \omega_0$:
+\begin{align*}
+	\Gamma_\text{cav} &= \Gamma_\text{free} \frac{3}{16\pi^2} \frac{\lambda^3_0}{QV}
+\end{align*}
+Which means that our cavity will suppress off resonance emission.
+
+If we now extend our model to have two atoms in the cavity, we add a multiple copies of the last two terms of our Jaynes Cummings Hamiltonian:
+\begin{align*}
+	\hat{H} &= \hbar\omega_c \hat{a}_c^\dagger\hat{a}_c + \sum_i \left(\frac{\hbar\omega_0}{2}\hat{\sigma}_3^i + \hbar g_c (\hat{\sigma}_+^i\hat{a}_c + \hat{\sigma}_-^i \hat{a}_c^\dagger) 
+		+ \sum_{k\neq c} \hbar g_k (\hat{\sigma}_+^i\hat{a}_k + \hat{\sigma}_-^i\hat{a}_k)\right)
+\end{align*}
+Which we call the Dicke model. The states in this model can be in the overall ground state $\ket{gg\ldots g}\vac$. There are also excited states in atoms and in fields that are then coupled to eachother.
+Since we have no way of exciting a single atom in this system, we need to symmeterize our first excited state of the atoms. We use the symmeterization operator $\hat{S}$:
+\begin{align*}
+	\hat{S}\ket{e,g,g\ldots}\vac 
+\end{align*}
+If we take the state $\ket{e^{J+M}, g^{J-M}}$. We define:
+\begin{align*}
+	\hat{\sigma}^\pm &= \sum_i \hat{\sigma}_\pm^i \\
+	\hat{\sigma}^z &= \sum_i \hat{\sigma}_3^i \\
+	\hat{\sigma}^2 &= \frac{1}{2}(\hat{\sigma}_+\hat{\sigma}_- + \hat{\sigma}_-\hat{\sigma}_+) + (\hat{\sigma}^z)^2 \\
+	\hat{\sigma}^z\ket{JM} &= M\ket{JM} \\
+	\hat{\sigma}^\pm \ket{JM} &= \sqrt{(J\mp M)(J\pm M +1)}\ket{J\pm 1,M}
+\end{align*}
+These states are the Dicke states, and 
