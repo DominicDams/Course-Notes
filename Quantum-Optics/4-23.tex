@@ -1,0 +1,141 @@
+\section{Nonlinear Optics}
+When we say we're dealing with non-linear optics, it means that the response of the material medium depends non-linearly on the incident field strength.
+Typically we think of the electric field as inducing a dipole moment on the atoms, that will then radiate at the same frequency as the incident electric field.
+Modeling this as an atom held together by a spring is called the Lorentz model.
+Nonlinear effects come from a non-linear restoring force on the atom.
+\subsection{Maxwell Equations in Media}
+Our in media equations are:
+\begin{align*}
+	\del\cdot\bm{D} &= \rho_f & \del\cdot\bm{B} &= 0 \\
+	\del\times\bm{E} &= -\partial_t \bm{B} & \del\times\bm{H} &= \bm{J}_f + \partial_t \bm{D}
+\end{align*}
+And these obey the constiutive relations:
+\begin{align*}
+	\bm{D} &= \epsilon_0\bm{E} + \bm{P} & \bm{B} &\approx \mu_0\bm{H}
+\end{align*}
+Where we have ignored the magnatization of the materials because they are typically very low near optical frequencies. Additionally $\bm{P}$ is the polarization of our medium.
+We will typically expand $\bm{P}$ as a power series in the incident field. In linear optics it doesn't matter whether we pick $\bm{D}$ or $\bm{E}$ as our fundamental field.
+It turns out that when we try to quantize this, in order to get the correct result we need to choose $\bm{D}$ as our fundamental field!
+Most texts unfortunately choose to use the $\bm{E}$ field, and we will here start by following that approach, and expanding $\bm{P}$ in terms of $\bm{E}$.
+Expanding $\bm{P}$ we see:
+\begin{align*}
+	\bm{P}(\bm{E}) &= \bm{P}^{(1)} + \bm{P}^{(1)}(\bm{x},t) + \bm{P}^{(2)}(\bm{x},t) + \ldots \\
+	\bm{P}^{(n)} &\propto \epsilon_0 \chi^{(n)} \bm{E}^n
+\end{align*}
+For example we look at the linear polarization:
+\begin{align*}
+	P^{(1)}_j(\bm{x},t) &= \epsilon_0\sum_k \chi_{jk}^{(1)} E_k(\bm{x},t)
+\end{align*}
+Here $\chi$ doesn't have any spatial or temporal dependances. In this first order approximation we have:
+\begin{align*}
+	D_i &= \epsilon_0 E_i + \epsilon_0 \chi^{(1)_{ij}}E_j \\
+		&= \epsilon_{ij} E_j
+\end{align*}
+So in the linear regieme, in free space, we have our wave equations:
+\begin{align*}
+	\del\times\del\times\bm{E} &= -\nabla^2\bm{E} + \del(\del\cdot\bm{E}) \\
+	&= -\partial_t \del\times\bm{B} \\
+	&= -\mu_0\partial_t^2\bm{D} \\
+	\del\cdot\bm{D} &= \epsilon_0 \del\cdot\bm{E} + \epsilon_0\del\cdot\chi^{(1)}\bm{E} \\
+	&= 0 \\
+	-\nabla^2\bm{E} - \del(\del\cdot \chi^{(1)}\bm{E}) &= -\mu_0\partial_t^2(\epsilon_0\bm{E} + \epsilon_0\chi^{(1)}\bm{E} \\
+	-\nabla^2\bm{E} + \mu_0\epsilon_0\partial_t^2(1 + \chi^{(1)}) \bm{E} &= -\del(\del\cdot\chi^{(1)}\bm{E}) \\
+	-\nabla^2\bm{E} + \frac{1}{c^2}(1 + \chi^{(1)}) \partial_t^2\bm{E} &= -\del(\del\cdot\chi^{(1)}\bm{E})
+\end{align*}
+If we have a non-spatially varying $\chi^{(1)}$, then this becomes a wave equation (assuming we choose our polarizations such that they diagonalize $\chi^{(1)}$. We can then say the wave equation for each component becomes:
+\begin{align*}
+	\left(\nabla^2 - \frac{n_j^2}{c^2}\partial_t^2\right)E_j &= 0 & n_j^2 &= 1 + \chi^{(1)}_j
+\end{align*}
+This will not vary for amorphous materials, but for crystaline materials, the lattice can cause there to be differences in the $\chi^{(1)}$ depending on the orientation of the crystal.
+We now look to relax the time independance of the $\chi^{(1)}$ (relaxing the spatial independance shows up in waveguide optics).
+We can redo our derivation using $\bm{P}$ instead of looking at $\chi^{(1)}$. Then we end up finding:
+\begin{align*}
+	-\nabla^2\bm{E} + \mu_0\epsilon_0 \partial_t^2\bm{E} &= -\mu_0\partial_t^2\bm{P} + \frac{1}{\epsilon_0} \del(\del\cdot\bm{P})
+\end{align*}
+If we have $\del(\del\cdot\bm{P})\not=0$ then we have spin orbit coupling. We usually set this to zero, which means there will be no spin orbit coupling and we have our equation become:
+\begin{align*}
+	\left(\nabla^2\bm{E} - \frac{1}{c^2}\partial_t^2\right)\bm{E} &= \mu_0\partial_t^2\bm{P}
+\end{align*}
+We now work in the frequency domain.
+And we pick our field in the frequency domain to be:
+\begin{align*}
+	E_\omega \hat{x} e^{ikz} 2\pi\delta(\omega-\omega_0)
+\end{align*}
+We say our induced polarization is:
+\begin{align*}
+	\tilde{P}_i &= \epsilon_0 \tilde{\chi}^{(1)}_{ij} \tilde{E}_j \\
+	&= \epsilon_0 \tilde{\chi}^{(1)}_{ij} E_\omega \delta_{jx} e^{ikz} 2\pi\delta(\omega-\omega_0)
+\end{align*}
+Our frequency dependance in $\chi$ leads to dispersion in our index of refraction. Back in the temporal domain:
+\begin{align*}
+	P_i &= \epsilon_0 \tilde{\chi}^{(1)}_{ij} E_\omega \delta_{jx} e^{i(kz-\omega_0 t)}
+\end{align*}
+Which gives us:
+\begin{align*}
+	\left(\nabla^2 - \frac{1}{c^2}(1 + \chi^{(1)}(\omega_0))\partial_t^2\right)\bm{E} &= 0 \\
+	\left(\nabla^2 - \frac{n^2(\omega_0)}{c^2}\partial_t^2\right)\bm{E} &= 0 \\
+\end{align*}
+Looking just at how this is transformed by moving into the frequency domain
+\begin{align*}
+	\left(\nabla^2 + \frac{\omega^2}{c^2}\right) \tilde{\bm{E}} &= -\mu_0\omega^2\tilde{\bm{P}}
+\end{align*}
+If we work in the reciprical space for $\bm{x}$ as well we find:
+\begin{align*}
+	k^2 - \frac{\omega^2}{c^2}n^2(\omega) &= 0
+\end{align*}
+Going back to real space in $\bm{x}$, now working for non-monochromatic $\bm{E}$ fields:
+\begin{align*}
+	\bm{P}(\bm{x},t) &= \int_0^\infty \frac{d\omega}{2\pi} \epsilon_0 \tilde{chi}^{(1)} (\omega) \tilde{\bm{E}} e^{i\omega t} \\
+	\bm{P}(\bm{x},t) &= \epsilon_0\int_{-\infty}^\infty \chi^{(1)}(t-t') \bm{E}(\bm{x},t') dt'
+\end{align*}
+But this has an issue of causality, we can't have the response occur in before the wave is incident, so we change our response to be:
+\begin{align*}
+	\chi^{(1)} &\to \chi^{(1)}(t-t')\theta(t-t')
+\end{align*}
+Which gives us the Kramers-Kronig relations. In frequency space we must have:
+\begin{align*}
+	\tilde{\chi}^{(1)}(\omega) &= \int d\omega' \tilde{\chi}^{(1)}(\omega') \left[ \frac{1}{2}\delta(\omega'-\omega) + i P \frac{1}{\omega'-\omega}\right] \\
+	\tilde{\chi}^{(1)}(\omega) &= \frac{\tilde{\chi}^{(1)}(\omega)}{2} + i P \int \frac{\tilde{\chi}^{(1)}(\omega')d\omega'}{\omega'-\omega}
+\end{align*}
+So we can then impose:
+\begin{align*}
+	\tilde{\chi}^{(1)} &= \tilde{\chi}_R + i\tilde{\chi}_I \\
+	\tilde{\chi}_R &= -\frac{2}{\pi} P\int \frac{\omega' \tilde{\chi}_I}{\omega'^2 - \omega^2} \\
+	\tilde{\chi}_I &= \frac{2\omega}{\pi} P\int \frac{\tilde{\chi}_R}{\omega'^2 - \omega^2} \\
+\end{align*}
+\subsection{Lorentz Model of Linear Dispersion}
+If we have an incident electric field $\bm{E}(t) = E_0 \hat{x} e^{i(kz-\omega t)}$. We assume that our electron is on a spring with frequency $\omega_0 = \sqrt{\frac{k}{m}}$. We also add a damping force, so our sum of forces becomes:
+\begin{align*}
+	\sum F &= -kx -\gamma m\dot{x}- e E(t) = m\ddot{x}
+\end{align*}
+We assume $x(t)= x_0 e^{-i\omega t}$, so:
+\begin{align*}
+	\dot{x} &= -i\omega x & \ddot{x} &= i\omega^2 x
+\end{align*}
+So we have:
+\begin{align*}
+	-kx -\gamma(-i\omega)mx - eE &= -m\omega^2 x \\
+	-eE_0 &= \left(-m\omega^2 + k - i\gamma m\omega\right)x_0
+\end{align*}
+So:
+\begin{align*}
+	x_0 &= \frac{-e\frac{E_0}{m}}{\omega_0^2 - \omega^2 - i\gamma\omega}
+\end{align*}
+If we have a dilute gas of density $N$ atoms per unit volume, then we have polarization:
+\begin{align*}
+	P &= N(-ex_0) \\
+	  &= \frac{Ne^2E_0/m}{\omega_0^2 - \omega^2 - i\gamma\omega}
+\end{align*}
+If we expand this about resonance ($\omega\approx\omega_0$):
+\begin{align*}
+	P &\approx \frac{Ne^2E_0/m}{2\omega_0(\omega_0-\omega) - i\gamma\omega_0} \\
+	  &\approx \frac{Ne^2 E_0}{2m\omega_0} \frac{1}{\omega_0-\omega -i\frac{\gamma}{2}}
+\end{align*}
+Looking at the real and imaginary parts:
+\begin{align*}
+	\Re{P} &\approx \frac{Ne^2 E_0}{2m\omega_0} \frac{\omega_0-\omega }{(\omega_0-\omega)^2 +\frac{\gamma^2}{4}} \\
+	\Im{P} &\approx \frac{Ne^2 E_0}{2m\omega_0} \frac{\gamma/2}{(\omega_0-\omega)^2 +\frac{\gamma^2}{4}} \\
+\end{align*}
+These will look like: \\
+\includegraphics*{4-23-1} \\
+And our disperserion will vary depending on the direction we are displaced from the central frequency, while the absorption will be Lorentzian!
