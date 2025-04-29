@@ -1,0 +1,99 @@
+\subsection*{Homework hint}
+In order to evaluate the density of states for the cavity we say:
+\begin{align*}
+	\rho(\omega) &= \frac{1}{\pi} \frac{\kappa/2}{(\kappa/2)^2 + (\omega - \omega_c)^2}
+	&\approx \frac{1}{\pi\kappa/2} \frac{1}{1 + 4\left(\frac{\omega}{\kappa} - \frac{\omega_c}{\kappa}\right)^2} \\
+	&\approx \frac{\omega_c}{\pi \kappa/2\omega_0} \frac{1}{4Q^2}
+	&= \ldots
+\end{align*}
+\subsection*{Back to scheduled programming}
+In general we can write our polarization:
+\begin{align*}
+	P_i &= \epsilon_0 E_i + \epsilon_0 \chi^{(1)}_{ij} E_j + \epsilon_0 \chi^{(2)}_{ijk} E_j E_k + \epsilon_0 \chi^{(3)}_{ijkl} E_{j}E_kE_l + \ldots
+\end{align*}
+Our $\chi^{(n)}$ $n>1$ are known as the non-linear susceptabilities. We can then write our polarization:
+\begin{align*}
+	\bm{P} &= \bm{P}^{(0)} + \bm{P}^{(1)} + \bm{P}^{(2)} + \ldots
+\end{align*}
+Where $P^{(0)}$ corresponds to a (DC) ferro-electic term. $P^{(1)}$ corresponds to linear optics, and gives a refractive index/absorption/gain for the medium. All higher terms correspond to nonlinear optical effects.
+We know that $\chi^{(n)}$ does not occur for all materials, when $n$ is even. In amorphous/inversion-symmetric materials $P^{(2k)}=0$. Therefore we only expect $\chi^{(2)},\chi^{(4)}\ldots$ to be non-zero for crystaline materials.
+For now we will assume that $chi$ is frequency independant.
+
+Note, in order to work in terms of the actual fundamental field, we need to express:
+\begin{align*}
+	P_i + \eta^{(1)}_{ij} D_j + \eta^{(2)}_{ijk}D_jD_k + \ldots
+\end{align*}
+Now moving on to a simple example of a material with a non-zero second order respondonse function. We begin with an incident field given by $E_{in} = E_0 \cos\omega_0 t$ and so:
+\begin{align*}
+	P^{(2)}_i &= \epsilon_0 \chi^{(2)}_{ixx} E_0^2\cos^2\omega_0 t \\
+	&= \epsilon_0 \chi^{(2)}_{ixx} \frac{E_0^2}{2}(1+\cos2\omega_0 t)
+\end{align*}
+Which gives us both a DC polarization (non-time varying), and a field at twice the incident frequency. We know from our wave equation:
+\begin{align*}
+	\left(\nabla^2 - \frac{1}{c^2} \partial_t^2\right)\bm{E} &= \mu_0 \partial_t \bm{P}
+\end{align*}
+If we bring over the linear polarization we can write this:
+\begin{align*}
+	\left(\nabla^2 - \frac{n^2`}{c^2} \partial_t^2\right)\bm{E} &= \mu_0 \partial_t \bm{P}^{(2)}
+\end{align*}
+From which we can see there will be a non-zero DC sourcing term, which is known as "rectification". We will also be a sourcing term for fields at twice the initial frequency. We can write our output field as:
+\begin{align*}
+	\bm{E}_\text{out} &= \bm{E}_{\omega_0} +  \bm{E}_{2\omega_0} + \bm{E}_\text{DC}
+\end{align*}
+We know:
+\begin{align*}
+	(P^{(2)}_{2\omega_0})_i &= \frac{\epsilon_0}{2}\chi^{(2)}_{ixx} E_0^2\cos2\omega_0t \\
+	\mu_0\partial_t^2 (P^{(2)}_{2\omega_0})_i &= -\mu_0(2\omega_0)^2(P^{(2)}_{2\omega_0})_i \\
+	&= -\mu_0 4\omega_0^2\epsilon_0\frac{\chi^{(2)}_{ixx}}{2} E_0^2\cos2\omega_0 t \\
+	\left(\nabla^2 - \frac{n^2`}{c^2} \partial_t^2\right)(E_{2\omega_0})_i &= -\frac{2\omega_0^2 \chi^{(2)}_{ixx}}{c^2} E_0^2 \cos 2\omega_0 t
+\end{align*}
+We can see here we have radiation at $2\omega_0$, this is refered to as second harmonic generation (SHG).
+
+Asside, for a CW laser in an EOM we can generate a "side-band" which is at a different frequency than our initial laser. If we use the EOM to apply a time dependant phase to our light, such that:
+\begin{align*}
+	E_\text{out}(t) &= E_0 \cos\omega_0 t e^{i\phi_0\cos\Omega t} \\
+	&\approx \frac{E_0}{2}(e^{i\omega_0 t} + e^{-i\omega_0 t})\left(1 + i\phi_0\cos\Omega t\right) \\
+	&\approx \frac{E_0}{2}(e^{i\omega_0 t} + e^{-i\omega_0 t})\left(1 + i\frac{\phi_0}{2}(e^{i\Omega t} + e^{-i\Omega t}\right)
+\end{align*}
+Which gives side bands at $\omega_0 + \Omega$ and $\omega_0 - \Omega$. This is destinct because here we are causing it via varying the index of refraction, as opposed to SHG in which we instead have a material property cause the modification to the frequency distribution.
+
+If we instead have an input field at two seperate frequencies (or alternatively two different input fields). For now we will ignore the direction of the fields in order to investigate just the frequency mixing:
+\begin{align*}
+	P_{11} &= \epsilon_0 \chi^{(2)}E_1^2 \\
+	P_{22} &= \epsilon_0 \chi^{(2)}E_2^2 \\
+	P_{12} &= \epsilon_0 \chi^{(2)} (E_1E_2 + E_2E_1) \\
+	&= \frac{\epsilon_0 E_1 E_2}{4} 2(e^{i\omega_1 t} + e^{-i\omega_1 t})(e^{i\omega_2 t} + e^{-i\omega_2 t}) \\
+	&= \frac{\epsilon_0 E_1 E_2}{2} \left[ 2\cos (\omega_1 +\omega_2)t + 2\cos (\omega_1 -\omega_2)t\right]
+\end{align*}
+Which are terms corresponding to sum and difference frequency generation (SFG and DFG). Although it appears as if we will always get SHG,SFG, and DFG, in actuallity these will not all be efficient processes.
+In order to have these occur we need to satisfy phase matching conditions, which are related to $\chi^{(1}(\omega)$. Looking at our wave equation in frequency space(ignoring polarization for simplicity):
+\begin{align*}
+	\left(\nabla^2 + \frac{n^2(\omega)\omega^2}{c^2}\right) \tilde{E}(\bm{x},\omega) &= -\frac{\omega^2}{\epsilon_0 c^2} \tilde{P}_{NL}(\bm{x},\omega)
+\end{align*}
+If we assume we have a slowly varying amplitude compared to the frequency/wavelength, we can say:
+\begin{align*}
+	\tilde{E} &= \tilde{A}e^{ikz}
+\end{align*}
+Which means:
+\begin{align*}
+	\left(\partial_z^2 + \frac{n^2(\omega)\omega^2}{c^2}\right) \tilde{E}(\bm{x},\omega) &= -\frac{\omega^2}{\epsilon_0 c^2} \tilde{P}_{NL}(\bm{x},\omega) \\
+	&= \left(\partial_z - i\frac{\omega n}{c}\right)\left(\partial_z + i\frac{\omega n}{c}\right) \tilde{A} e^{ikz} \\
+	&= \left(\partial_z - i\frac{\omega n}{c}\right)e^{ikz}\left(ik\tilde{A} + \partial_z \tilde{A} + i\frac{\omega n}{c}\tilde{A}\right) \\
+	&= \left(\partial_z - i\frac{\omega n}{c}\right)e^{ikz}\left(2ik\tilde{A} + \partial_z \tilde{A}\right) \\
+	&= e^{ikz}\left(2ik\partial_z \tilde{A} + \partial_z^2\tilde{A}\right) \\
+	&\approx e^{ikz}2ik\partial_z \tilde{A}
+\end{align*}
+So:
+\begin{align*}
+	2ike^{ikz} \partial_t \tilde{A} &= -\frac{\omega^2}{\epsilon_0 c^2}\tilde{P}_{NL} \\
+	\partial_t \tilde{A} &= -\frac{i\omega^2}{2\epsilon_0 c^2k(\omega)}\tilde{P}_{NL} e^{-ik(\omega)z} \\
+	\partial_t \tilde{A} &= -\frac{i\omega}{2\epsilon_0 cn(\omega)}\tilde{P}_{NL} e^{-ik(\omega)z} \\
+\end{align*}
+We now assume that our field occupies some distinct frequency bands:\\
+\includegraphics*{4-28-1}\\
+We can then write our outcoming wave as:
+\begin{align*}
+	E^{(+)}(z,t) &= \int_0^\infty \tilde{A} e^{i(kz-\omega t)} \\
+	&= \sum_l A_l e^{i(k_l z - \omega_l t)} & k_l &= \frac{n(\omega_l)\omega_l}{c} \\
+	A_l &= \int_{\text{over "l" band}} \frac{d\omega}{2\pi} \tilde{A} e^{i[(k(\omega)- k_l)z - (\omega-\omega_l)t]}
+\end{align*}
