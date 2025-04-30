@@ -1,0 +1,82 @@
+We now look at $\partial_z A_l$:
+\begin{align*}
+	\partial_z A_l &= \int \frac{d\omega}{2\pi} \left[\partial_z \tilde{A} + i\tilde{A}(k(\omega)-k_l)\right] e^{i[(k(\omega)-k_l)z - (\omega - \omega_l)  t]} \\
+	&= S_{NL} + S_L \\
+	S_{NL} &=  \int \frac{d\omega}{2\pi} \frac{i\omega}{2\epsilon_0 c n(\omega)} e^{-ikz} \tilde{P}_{NL}e^{i[(k(\omega)-k_l)z - (\omega - \omega_l)  t]} \\
+	&=  \int \frac{d\omega}{2\pi} \frac{i\omega}{2\epsilon_0 c n(\omega)} e^{-ik_lz} \tilde{P}_{NL}e^{-i(\omega - \omega_l) t} \\
+	&\approx  \frac{i\omega_l}{2\epsilon_0 cn(\omega_l} e^{-ik_l z}\int \frac{d\omega}{2\pi} \tilde{P}_{NL} e^{-i(\omega-\omega_l)t} \\
+	&\approx  \frac{i\omega_l}{2\epsilon_0 cn(\omega_l} e^{-ik_l z} P_l^{NL}(z,t) \\
+	S_L &= \int \frac{d\omega}{2\pi} i\tilde{A}(k(\omega)-k_l) e^{i[(k(\omega)-k_l)z - (\omega - \omega_l)  t]} \\
+	&\approx \int \frac{d\omega}{2\pi} i\tilde{A}k_l'(\omega-\omega_l) e^{-i(\omega - \omega_l)  t} e^{i(k-k_l)z} \\
+	&\approx -k_l'\partial_t\int \frac{d\omega}{2\pi} \tilde{A}e^{-i(\omega - \omega_l)  t} \\
+	&\approx -\frac{1}{v_{gl}}\partial_t A_l \\
+	\partial_z A_l +\frac{1}{v_{gl}} \partial_t A_l &= \frac{i\omega_l}{2\epsilon_0 n(\omega_l)} e^{-ik_lz} P_l^{NL}
+\end{align*}
+This equation will describe the evolution of our fields from a non-linear interaction.
+
+\subsection{Example: 3 wave mixing}
+We start by saying our nonlinear term is caused by a non-zero $\chi^{(2)}$, looking in the band description of the fields, we can write:
+\begin{align*}
+	E &= \sum_l A_l e^{i(k_l z - \omega_l t)} \\
+	E^2 &= \sum_{lm} A_lA_m^* E^{i(k_l-k_m)z}e^{-i(\omega_l - \omega_m) t}
+\end{align*}
+(Note we have terms with all combinations of complex conjugation in the second line)
+
+We can describe SFG in terms of three bands where $\omega_1 + \omega_2 = \omega_3$, so an input fields in $\omega_1$ and $\omega_2$ causes the generation of a field at $\omega_3$.
+We often depict these with energy diagrams including a ``virtual level'' which is non-physical, but show the conservation of energy.\\
+\includegraphics*[width=12cm]{4-30-1} \\
+We start by making the monochromatic approximation, where $\partial_t A_l = 0$, considering the case of SFG:
+\begin{align*}
+	P_3^{NL}(z) &= \epsilon_0 \chi^{(2)}A_1A_2 e^{i(k_1 + k_2)z} \\
+	P_2^{NL} &= \epsilon_0 \chi^{(2)} A_3 A_1^* e^{i(k_3-k_1)z}
+\end{align*}
+So then:
+\begin{align*}
+	\partial_z A_3 &= \frac{i\omega_3}{2\epsilon_0 cn_3} e^{-ik_3z} \epsilon_0 \chi^{(2)} A_1A_2 e^{i(k_1 + k_2)z} \\
+	&= \frac{i\omega_3\chi^{(2)}}{2cn_3} e^{-ik_3z} e^{i\Delta k z}A_1A_2  & \Delta k &= k_1 + k_2 - k_3 \\
+	\partial_z A_2 &= \frac{i\omega_2\chi^{(2)}}{2cn_2} e^{-ik_3z} e^{-i\Delta k z}A_3A_1^* \\
+	\partial_z A_1 &= \frac{i\omega_1\chi^{(2)}}{2cn_1} e^{-ik_3z} e^{-i\Delta k z}A_3A_2^*
+\end{align*}
+If we pick the special case of second harmonic, where $\omega_1=\omega_2=\frac{1}{2}\omega_3$, then:
+\begin{align*}
+	\partial_z A_1 &= \frac{i\omega_1\chi^{(2)}}{2cn_1} e^{-i\Delta kz} A_3 A_1^* \\
+	\partial_z A_3 &= \frac{i\omega_3\chi^{(2)}}{2cn_3} e^{i\Delta kz} A_1^2
+\end{align*}
+We can solve this in a couple ways. We first concider the ``undepleted pump'' approximation. In this approximation $A_1$ is constant. Therefore:
+\begin{align*}
+	\partial_z A_3 &= \frac{i\omega_3\chi^{(2)}}{2cn_3} e^{i\Delta kz} A_1^2 \\
+	A_3 &= \frac{i\omega_3\chi^{(2)}}{2cn_3} A_1^2 \frac{e^{i\Delta kL} - 1}{i\Delta k} \\
+	&= \frac{i\omega_3\chi^{(2)}}{2cn_3} A_1^2 2 e^{i\frac{\Delta k L}{2}} L\text{sinc} \frac{\Delta k L}{2}
+\end{align*}
+Where $\text{sinc}\frac{\Delta k L}{2} e^{i \frac{\Delta k L}{2}}$ is called the phase matching function.
+If $\Delta k=0$ we say we are phase matched. In order to have this in our current process, we need $n_1 = n_3$. If we are not phase matched we will not effecient generation.
+In a normal material we have a monotonically increasing index of refraction as we change frequency. In order to get phase matching we typically take advantage of birefringence.
+We can have type I in which $\omega_1$ and $\omega_2$ along the ordinary axis, and $\omega_3$ is along the extraordinary. Type II will have $\omega_1$ ordinary and $\omega_2$ and $\omega_3$ along the extraordinary.
+
+In order to model this we look to the Sellemeir equations, which describe our indicies of refraction in terms of temperature and wavelength.
+
+If we now want to look at generating things with a finite bandwidth:
+\begin{align*}
+	\Delta k &= 2k_1 -k_3 & \omega_1 &= \omega_{10} \pm \nu/2 & \omega_3 &= \omega_{30} \pm \nu \\
+	\Delta k &\approx 2(k_{10} \pm k_{10}' \nu/2) - k_{30} \mp k_{30}'\nu \\
+	&\approx k_{10}' \nu - k_{30}'\nu \\
+	&\approx \left(\frac{1}{v_1} - \frac{1}{v_3}\right)\nu
+\end{align*}
+So:
+\begin{align*}
+	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big| I_1^2 \text{sinc}^2\left(\frac{L}{2}\left(\frac{1}{v_1} - \frac{1}{v_3}\right)\nu\right)
+\end{align*}
+We define $\tau = \frac{L}{v_l}$ which is the time it takes a pulse at frequency $\omega_l$ to propogate through our material, so:
+\begin{align*}
+	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big| I_1^2 \text{sinc}^2\frac{\nu (\tau_1-\tau_3)}{2}
+\end{align*}
+So our bandwidth is:
+\begin{align*}
+	\Delta\nu &= \frac{2\pi}{\tau_1-\tau_3}
+\end{align*}
+If we now return to the more general case of Sum Frequency Generation:
+\begin{align*}
+	\partial_z A_3 &= \frac{i\omega_3}{2\epsilon_0 cn_3} e^{-ik_3 z} \epsilon_0 \chi^{(2)} 2 A_1 A_2 e^{i(k_1 + k_2)z} \\
+	\partial_z A_2 &= \frac{i\omega_2}{2\epsilon_0 cn_2} \epsilon_0 \chi^{(2)} 2 A_3 A_1^* e^{-i\Delta k z} \\
+	\partial_z A_3 &= \frac{i\omega_1}{2\epsilon_0 cn_1} \epsilon_0 \chi^{(2)} 2 A_3 A_2^* e^{-i\Delta k z}
+\end{align*}
