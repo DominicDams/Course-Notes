@@ -1,0 +1,68 @@
+From our non-linear material we can observe three different ``3-wave mixing'' process, SHG, SFG, and DFG (sometimes called optical parametric amplification). These are governed by our coupled wave equations.
+
+We could (but will not for time) concider the case of a depleted pump. In this case we must obey conservation of energy, so:
+\begin{align*}
+	n_3 A_3^*\partial_z A_3 + \compcon &= - n_1\left[A_1\partial_z A_1^* + \compcon\right] \\
+	n_3 |A_3|^2  + n_1 |A_1|^2 &= n_1 A_1(0)
+\end{align*}
+So then:
+\begin{align*}
+	\partial_z |A_3|^2 &= \frac{-i\omega_1\chi^{(2)}}{n_1 c} \left[A_(0)^2 - |A_3|^2\right] e^{i(2\phi_1-  \phi_3)}
+	|A_3| &= A_{10}\tanh -i\int \frac{\omega_1\chi^{(2)}}{b_1 c} e^{i\Delta\phi}
+\end{align*}
+
+If we repeat our undepleted calculation for SFG we find:
+\begin{align*}
+	|A_3|^2 &= \Big|\frac{\Omega_3\chi^{(2)}}{cn_3}\Big|^2|A_1|^2 \sinc^2 \frac{\Delta k z}{2}
+\end{align*}
+\subsection{DFG/OPA/phase sensative amplifier}
+In DFG we start with $\omega_3$ and $\omega_1$ and generate at the difference frequency $\omega_2$ and more of the lower frequency light $\omega_1$.
+This can be useful if you have a strong laser at $\omega_3$, a weak laser at $\omega_1$ and want a strong laser at $\omega_1$.
+
+We start by making the undepleted pump assumption for $A_3$. We then have:
+\begin{align*}
+	\partial_z A_1 &= \frac{i\omega_1\chi^{(2)}}{n_1 c} e^{i\Delta k z} A_3 A_2^* \\
+	\partial_z A_2 &= \frac{i\omega_2\chi^{(2)}}{n_2 c} e^{i\Delta k z} A_3 A_1^* \\
+	g_1 &= \frac{\omega_1 \chi^{(2)}}{n_1 c} A_3 & g_2 &= \frac{\omega_2\chi^{(2)} A_3}{n_2 c} \\
+	\partial_z A_1 &= ig_1 e^{i\Delta k z} A_2^* \\
+	\partial_z A_2 &= ig_2 e^{i\Delta k z} A_1^*
+\end{align*}
+With initial conditions: $A_1(0) = A_{10}$ and $A_2(0) = 0$. Clearly if $A_{10} = 0$ we get no output (which will not be true in the quantum case).
+
+We assume perfect phase matching $\Delta k=0$, then:
+\begin{align*}
+	\partial_z A_1 &= ig_1 A_2^* \\
+	\partial_z A_2 &= ig_2 A_1^* \\
+	\partial_z^2 A_1 &= ig_1 \partial_z A_2^* \\
+	&= ig_1 (-ig_2^* A_1) \\
+	&= g_1 g_2^* A_1 \\
+	&= \frac{\omega_1\omega_2|\chi^{(2)}|^2 |A_3|^2}{n_1n_2c^2}A_1 \\
+	&= g^2A_1 \\
+	A_1(z) &= a_{1+} e^{gz} + a_{1-} e^{-gz} \\
+	A_2(z) &= a_{2+} e^{gz} + a_{2-} e^{-gz}
+\end{align*}
+In order to match our initial conditions:
+\begin{align*}
+	a_{2+} + a_{2-} &= 0 \\
+	a_{1+} + a_{1-} &= A_{10}
+\end{align*}
+So:
+\begin{align*}
+	A_2(z) &= 2a_{2+} \sinc(gz)
+\end{align*}
+And using our derivitive and the linear independance of solutions we can say:
+\begin{align*}
+	A_1(z) &= A_{10}\cosh(gz) \\
+	A_2(z) &= \frac{ig_2A_{10}}{g}\sinc(gz) 
+\end{align*}
+If we concider taking $gL\gg 1$ then we see:
+\begin{align*}
+	A_1(L) &\approx A_{10} e^{gL} \\
+	A_2(L) &\approx ig \frac{cn_1}{\omega_1\chi^{(2)}} \frac{A_{10}}{A_3} e^{gL}
+\end{align*}
+We now turn our attention to ``degenerate'' OPA, where $\omega_1=\omega_2$:
+\begin{align*}
+	A_2(L) &= i\frac{g_2 A_{10}}{g} \sinc gL \\
+	&= iA_{10}\sqrt{\frac{n_1\omega_2}{n_2\omega_1}} \arg(A_3\chi^{(2)})\sinc gL
+\end{align*}
+This accumulated phase can cause the ouput field to experience interference! We can explicitly see this in degenerate OPA.

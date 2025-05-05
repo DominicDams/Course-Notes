@@ -64,11 +64,11 @@ If we now want to look at generating things with a finite bandwidth:
 \end{align*}
 So:
 \begin{align*}
-	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big| I_1^2 \text{sinc}^2\left(\frac{L}{2}\left(\frac{1}{v_1} - \frac{1}{v_3}\right)\nu\right)
+	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big|^2 I_1^2 \text{sinc}^2\left(\frac{L}{2}\left(\frac{1}{v_1} - \frac{1}{v_3}\right)\nu\right)
 \end{align*}
 We define $\tau = \frac{L}{v_l}$ which is the time it takes a pulse at frequency $\omega_l$ to propogate through our material, so:
 \begin{align*}
-	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big| I_1^2 \text{sinc}^2\frac{\nu (\tau_1-\tau_3)}{2}
+	|A_3|^2 &= \Big|\frac{\omega_3\chi^{(2)}}{2cn_3}\Big|^2 I_1^2 \text{sinc}^2\frac{\nu (\tau_1-\tau_3)}{2}
 \end{align*}
 So our bandwidth is:
 \begin{align*}
@@ -76,7 +76,7 @@ So our bandwidth is:
 \end{align*}
 If we now return to the more general case of Sum Frequency Generation:
 \begin{align*}
-	\partial_z A_3 &= \frac{i\omega_3}{2\epsilon_0 cn_3} e^{-ik_3 z} \epsilon_0 \chi^{(2)} 2 A_1 A_2 e^{i(k_1 + k_2)z} \\
-	\partial_z A_2 &= \frac{i\omega_2}{2\epsilon_0 cn_2} \epsilon_0 \chi^{(2)} 2 A_3 A_1^* e^{-i\Delta k z} \\
-	\partial_z A_3 &= \frac{i\omega_1}{2\epsilon_0 cn_1} \epsilon_0 \chi^{(2)} 2 A_3 A_2^* e^{-i\Delta k z}
+	\partial_z A_3 &= \frac{i\omega_3}{\epsilon_0 cn_3} e^{i\Delta k z} \epsilon_0 \chi^{(2)} A_1 A_2 \\
+	\partial_z A_2 &= \frac{i\omega_2}{\epsilon_0 cn_2} \epsilon_0 \chi^{(2)} A_3 A_1^* e^{-i\Delta k z} \\
+	\partial_z A_3 &= \frac{i\omega_1}{\epsilon_0 cn_1} \epsilon_0 \chi^{(2)} A_3 A_2^* e^{-i\Delta k z}
 \end{align*}
