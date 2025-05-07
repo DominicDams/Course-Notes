@@ -1,0 +1,72 @@
+\subsection*{Asside: Optical Isolator}
+These work via the Faraday/Kerr effect. An electric field propogative from a material exposed to a DC magnetic field will experience birefringence as it passes through the medium.
+Because the magnetic field is a pseudo-vector field, light propogating backwards through this material will experience the same rotation, instead of the opposite rotation. Using this along with polarizers, you can build an isolator.
+\subsection{Four wave mixing}
+So far we have considered $P^{NL} = \epsilon_0\chi^{(2)} E^2 + \epsilon_0\chi^{(3)} E^3$. Since $\chi^{(2)}$ appears only for non-centro-symmetric materials, so for centro-symmetric materials we will only have the $\chi^{(3)}$ term.
+Interestingly interfaces will be non-centro-symmetric so there will be a $\chi^{(2)}$ nonlinearity at boundries, this can be used for something called non-linear microscopy.
+
+Since $\chi^{(3)}$ appears for all materials it is a more fundamental non-linearity, we recall:
+\begin{align*}
+	\partial_z A_l + \frac{1}{v_{gl}} \partial_t A_l &= \frac{i\omega_l}{2\epsilon_0 cn_l} e^{-ik_l z} P_l^{NL}
+\end{align*}
+So for monochromatic fields, looking at the third order non-linearity:
+\begin{align*}
+	\partial_z A_l(z) &= \frac{i\omega_l \chi^{(3)}}{2cn_l} E^3 & E &= \sum_l A_l(z) e^{i(k_l z - \omega_l t)}
+\end{align*}
+If we pump at $\omega_1$ and $\omega_2$ (and a weak seed at $\omega_4$), then our output will be at four frequencies $\omega_1$ $\omega_2$ $\omega_3$ and $\omega_4$. Which must satisfy:
+\begin{align*}
+	\omega_1 + \omega_2 &= \omega_3 + \omega_4
+\end{align*}
+We now seek to find $P^{(3)}_3$:
+\begin{align*}
+	\omega_3 &= \omega_1 + \omega_2 - \omega_4 \\
+	P_3^{(3)} &= 3!\epsilon_0 \chi^{(3)} A_1 A_2 A_4^* e^{i(k_1 + k_2 - k_4)z} \\
+	P_4^{(3)} &= 3!\epsilon_0 \chi^{(3)} A_1 A_2 A_3^* e^{i(k_1 + k_2 - k_3)z}
+\end{align*}
+Turning to the case of third harmonic generation, we only have two fields, and:
+\begin{align*}
+	\omega_2 &= 3\omega_1 \\
+	P_2^{(3)} &= \epsilon_0\chi^{(3)} A_1^3 e^{i3k_1 z}
+\end{align*}
+Looking at our equations for monochromatic light:
+\begin{align*}
+	\partial_z A_1 &= \frac{i\omega_1}{2c n_1} \chi^{(3)} e^{-ik_1 z} 3A_2 A_1^* A_1^* e^{i(k_2-2k_z)z} \\
+	\partial_z A_2 &= \frac{i\omega_2}{2c n_2} \chi^{(3)} e^{-ik_2 z} A_1^3!e^{i3k_1z} 
+\end{align*}
+We have a $\Delta k = k_2-3k_1$ like before, so:
+\begin{align*}
+	\partial_z A_1 &= \frac{i3!\omega_1}{2c n_1} \chi^{(3)} e^{i\Delta k z} A_2 A_1^* A_1^* \\
+	\partial_z A_2 &= \frac{i\omega_2}{2c n_2} \chi^{(3)} e^{-i\Delta k z} A_1^3
+\end{align*}
+We make the undepleted pump approximation here, so that:
+\begin{align*}
+	A_2(z) &= \frac{i\omega_2 \chi^{(3)}A_1^3}{2cn_2}e^{-i\frac{\Delta k z}{2}} \text{sinc}\left(\frac{\Delta k z}{2}\right)
+\end{align*}
+Which looks very similar to SHG. The key difference being that this scales with the pump cubed instead of the pump squared.
+
+Turning back to our initial three wave mixing process, we can see, that since if $A_3$ and $A_4$ start at zero, then the derivitive must be zero, and therefore they will always remain zero.
+So in (classical) four wave mixing we need a seed field to casuse it to produce light. We now make the undepleted pump approximation for $A_1$ and $A_2$, so:
+\begin{align*}
+	\partial_z A_3 &= g_3 A_4^* e^{i\Delta kz} \\
+	\partial_z A_4 &= g_4 A_3^* e^{i\Delta kz}
+\end{align*}
+Which are identical to our equations for the parametric amplifier. If we have perfect phase matching ($\Delta k =0$), then:
+\begin{align*}
+	\partial_z A_3 &= g_3 A_4^* \\
+	\partial_z A_4 &= g_4 A_3^* 
+\end{align*}
+Which gives us:
+\begin{align*}
+	\partial_z^2 A_3 &= g_3g_4^* A_3 \\
+	\partial_z^2 A_4 &= g_4g_3^* A_4
+\end{align*}
+We can construct an OPO (optical parametric oscilator) in analogy to a laser, with a non-linear material in a cavity, being pumped by another optical field (or pair of optical fields). This essentially creates laser-like light.
+These are often called ``DOPA''s or ``NOPA''s (these are non-colinear and tunable).
+
+If we put in just a single field $\omega_1$ Then we can see:
+\begin{align*}
+	P_1^{(3)} &= \epsilon_0 \chi^{(3)} 6A_1A_1A_1^* \\
+	\partial_z A_1 &= \frac{i3\omega_1 \chi^{(3)}}{cn_1}I_1A_1
+\end{align*}
+But this can be thought of as a modification to the index of refraction when we move back to the temporal domain. This is because the $i\omega$ acts like a time derivitve. Therefore we have an intensity dependant refractive index.
+We call this effect self-phase modulation.
