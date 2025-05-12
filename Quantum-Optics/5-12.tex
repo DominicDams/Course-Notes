@@ -1,0 +1,133 @@
+\section{Pulsed Laser Physics}
+Up until now we have focused on light sources where the light is monochromatic, and therefore we are dealing with continuous wave operation lasers.
+If we relax this we will be looking at ``broad band'' (pulsed light). Here the pulse implies that the amplitude is time dependant.
+An example might be a flash for flash photography. We want to focus on coherent pulses.
+\subsection{Coherence}
+The classic experiment demonstrating spatial coherence is Young's double slit experiment.\\
+\includegraphics*[width=12cm]{5-12-1}\\
+The intensity at the measurement location is given by:
+\begin{align*}
+	|E|^2 &= |E_1 e^{i\phi_1} + E_2 e^{i\phi_2}|^2 \\
+	&= |E_1|^2 + |E_2|^2 + 2\Re{E_1 E_2^* \cos(\phi_1-\phi_2)}
+\end{align*}
+Which for random phases just gives us $|E|^2 = |E_1|^2 + |E_2|^2$.
+
+Alternatiely if we create a Michaelson interferometer, we see:
+\begin{align*}
+	I &= \frac{1}{4}\left(|E(t)|^2 + |E(t+\tau)|^2 + 2\Re{E(t)E^*(t+\tau)}\right)
+\end{align*}
+We define the visability:
+\begin{align*}
+	V &= \frac{\expval{E_1E_2^*}}{\sqrt{\expval{|E_1|^2}\expval{|E_2|^2}}} \\
+	&= |g_{ij}^{(1)}|
+\end{align*}
+Which is a measurement of our coherence.
+
+For an ideal monochromatic laser we say the electric field is:
+\begin{align*}
+	E(t) &= E_0 \cos\omega_0 t
+\end{align*}
+And this gives us an intensity for our Michaelson interferometer:
+\begin{align*}
+	T(t,\tau) &= \frac{|E_0|^2}{4}\left(2\frac{1}{2} + 2\Re{\frac{1}{T}\int dt \cos\omega_0 t\cos\omega_0(t+\tau)}\right) \\
+	T(t,\tau) &= \frac{|E_0|^2}{4}\left(1 + \cos(\omega_0\tau)\right)
+\end{align*}
+Where this has been averaged over the detector response time.
+
+If we now pass our laser through a shutter of length $T$ (not the detector time):
+\begin{align*}
+	E_T(t)&= E_0 \cos \omega_0 t TH_T(t)
+\end{align*}
+We look at the spectrum before and after our shutter:
+\begin{align*}
+	\tilde{I}(\omega) &= |\tilde{E}(\omega)|^2
+\end{align*}
+Which before the shutter is:
+\begin{align*}
+	\tilde{I}(\omega) &= \frac{|E_0|^2}{4} 2\pi\left(\delta(\omega + \omega_0) + \delta(\omega - \omega_0)\right)
+\end{align*}
+And after the shutter becomes:
+\begin{align*}
+	\tilde{E}_T(\omega) &= \frac{E_0}{2} t\left[\sinc\frac{(\omega - \omega_0)T}{2} + \sinc\frac{(\omega + \omega_0)T}{2}\right]
+\end{align*}
+If we assume that $\omega_0 \gg \frac{1}{T}$ then these will be seperate peaks of width $\delta\omega\approx\frac{1}{T}$ and centers at $\omega_0$ and $-\omega_0$.
+
+We now look at a coherent optical pulse, which will be a solution to the slowly varying envelope approximation. We recall our Maxwell equations:
+\begin{align*}
+	\del\cdot\bm{D} &= 0 & \del\cdot\bm{B} &= 0 \\
+	\del\times\bm{E} &= -\partial_t \bm{B} & \del\times\bm{B} &= \mu_0\partial_t \bm{D} \\
+	\bm{D} &= \epsilon_0 \bm{E} + \bm{P}
+\end{align*}
+In terms of an envelope and a carrier we can write our electric field:
+\begin{align*}
+	E(t) &= A(t) e^{-i\omega_0 t} + \compcon
+\end{align*}
+Where $A$ is our envelope function, and $\omega_0$ is our carrier frequency. For our wave traveling through space we also include a spatial dependance:
+\begin{align*}
+	E(z,t) &= A_0(z,t) e^{i(k_0 z - \omega_0 t)} & A_0(z,t) &= \int \frac{d\omega}{2\pi} \tilde{A}(z,\omega) e^{i[(k(\omega)- k(\omega_0)) z - (\omega-\omega_0)t}
+\end{align*}
+We want a wave equation so we say:
+\begin{align*}
+	\del\times\del\times\bm{E} &= -\partial_t \del\times\bm{B} \\
+	&= -\mu_0\partial_t^2\bm{D} \\
+	&= -\mu_0\partial_t^2(\epsilon_0 \bm{E} + \epsilon_0\chi^{(1)} \bm{E} + \bm{P}^{NL}) \\
+	&= -\frac{1}{c^2} \partial_t^2 (1+\chi^{(1)})\bm{E} + \bm{P}^{NL})
+	&= -\nabla^2\bm{E} + \del(\del\cdot\bm{E})
+\end{align*}
+If we set the divergencce of our polarization equal to zero (making $\del\cdot\bm{D} = \epsilon_0\del\cdot\bm{E}$). So:
+\begin{align*}
+	\left(\nabla^2 - \frac{n^2}{c^2}\partial_t^2\right)\bm{E} &= -\mu_0\partial_t^2\bm{P}^{NL}
+\end{align*}
+We reduce to a one dimensional problem along $z$ and neglect the polarization saying:
+\begin{align*}
+	E(z,t) &= \sum_l A_l(z,t) e^{i(k_l z - \omega_l t)} \\
+	A_l(z,t) &= \int_{\text{Band l}} \frac{d\omega}{2\pi} \tilde{A}(z,\omega) e^{i[(k(\omega) - k_l)z - (\omega - \omega_l)t]}
+\end{align*}
+To simplify the problem we move to fourier space, where:
+\begin{align*}
+	\tilde{E}(z,\omega) &= \tilde{A}(z,\omega)e^{i(k(\omega)z-\omega t)} \\
+	\left(\partial_z^2 + \frac{n^2}{c^2} \omega^2\right)\tilde{A}(z,\omega) e^{ik(\omega)z} &= \mu_0\omega^2\tilde{P}^{NL}(z,\omega)
+\end{align*}
+We now make the slowly varying envelope approximation:
+\begin{align*}
+	\partial_z^2\tilde{A}(z,\omega) &= \partial_z e^{ik(\omega)z}\left(\partial_z \tilde{A} + ik(\omega)\tilde{A}\right) \\
+	&= e^{ik(\omega) z}\left[ik(\omega)(\partial_z \tilde{A} + ik(\omega)\tilde{A}) + (\partial_z^2\tilde{A} + ik(\omega)\partial_z \tilde{A})\right] \\
+	&= e^{ik(\omega) z}\left[-k(\omega)^2\tilde{A} + 2ik(\omega)\partial_z \tilde{A}\right]
+\end{align*}
+Where we have used the approximation to drop the second derivitive term. Therefore:
+\begin{align*}
+	e^{ik(\omega)z}\left(2ik(\omega)\partial_z -\left(k^2(\omega) - \frac{n^2}{c^2} \omega^2\right)\right)\tilde{A}(z,\omega) &= \mu_0\omega^2\tilde{P}^{NL}(z,\omega)
+\end{align*}
+But $k(\omega) = \frac{n(\omega)\omega}{c}$ so:
+\begin{align*}
+	\partial_z \tilde{A}(z,\omega) e^{ik(\omega)z} &= \frac{\mu_0\omega^2}{2ik(\omega)}\tilde{P}^{NL}(z,\omega)
+\end{align*}
+We use this to construct $A_l$:
+\begin{align*}
+	\partial_t A_l &= \int_{Bl} \frac{d\omega}{2\pi} e^{\ldots} \left[\partial_z \tilde{A} + i(k(\omega) - k_l)\tilde{A}\right] \\
+	&= \int_{Bl} \frac{d\omega}{2\pi} e^{\ldots} \left[\partial_z \tilde{A} + ik'_l(\omega-\omega_l)\tilde{A} + \frac{ik''_l}{2}(\omega-\omega_l)^2\tilde{A}\right]
+\end{align*}
+And:
+\begin{align*}
+	\int_{Bl} \frac{d\omega}{2\pi} e^{\ldots} \partial_z \tilde{A} &= \int_{Bl} \frac{d\omega}{2\pi}e^{\ldots} \frac{\mu_0 \omega^2}{2ik(\omega)} e^{-ik(\omega) z} \tilde{P}^{NL} \\
+	&= e^{-ik_l z}\int_{Bl} \frac{d\omega'}{2\pi} e^{-i\omega' t} \frac{\mu_0 (\omega' + \omega_l)^2}{2ik(\omega' + \omega_l)} \tilde{P}(^{NL}(z,\omega' + \omega_l) \\
+	&= e^{-i(k_lz- \omega_l t)} \frac{\mu_0}{2ik_l} \partial_t^2 P_l
+\end{align*}
+Also:
+\begin{align*}
+	\int\frac{d\omega}{2\pi} e^{\ldots} ik'_l(\omega- \omega_l)\tilde{A} &= - k_l'\partial_t \int \frac{d\omega}{2\pi} e^{\ldots} \tilde{A} \\
+	&= -k_l'\partial_t A_l
+\end{align*}
+Finally:
+\begin{align*}
+	\int\frac{d\omega}{2\pi} e^{\ldots} i\frac{k''_l}{2}(\omega- \omega_l)^2\tilde{A} &= - \frac{ik_l''}{2}\partial_t^2 A_l
+	&= -k_l'\partial_t A_l
+\end{align*}
+We know:
+\begin{align*}
+	k'_l &= \frac{dk}{d\omega}\Big|_{\omega=\omega_l} = \frac{1}{v_{gl}}
+\end{align*}
+Which is the group velocity, we also have a group velocity dispersion (GVD). Putting everything togetther:
+\begin{align*}
+	\partial_z A_l + \frac{1}{v_{gl}} \partial_t A_l + i\frac{k''_l}{2}\partial_t^2 A_l &= \mu_0 \partial_t^2 P_l^{NL} e^{-ik_lz}
+\end{align*}
