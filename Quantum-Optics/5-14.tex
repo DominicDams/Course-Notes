@@ -1,0 +1,68 @@
+We now move into the ``pulse reference frame''
+\begin{align*}
+	z' &= z & \tau &= t- \frac{z}{v_g}
+	\partial_z &- \partial_{z'} -\frac{1}{v_g}\partial_\tau & \partial_t &= \partial_\tau
+\end{align*}
+So we have our new set of equations:
+\begin{align*}
+	\partial_{z'} A_l - \frac{1}{v_g} \partial_\tau A_l + \frac{1}{v_g}\partial_\tau A_l + i\frac{k''_l}{2}\partial_\tau^2 A_l &= -\frac{i\mu_0\omega_l^2}{2k_l}P_l^{NL} e^{-ik_l z} \\
+	\partial_{z'} A_l + i\frac{k''_l}{2}\partial_\tau^2 A_l &= -\frac{i\mu_0\omega_l^2}{2k_l}P_l^{NL} e^{-ik_l z} \\
+\end{align*}
+We now consider second harmonic generation with a pulse as the input:
+\begin{align*}
+	P_2^{(2)} &= \epsilon_0\chi^{(2)} A_1^2 e^{i2k_1 z} \\
+	\partial_{z'} A_2 + i\frac{k''_l}{2}\partial_\tau^2 A_2 &= -\frac{i\mu_0\omega_2^2}{2k_2}P_2^{NL} e^{-ik_2 z} \\
+	\partial_{z'} A_2 + i\frac{k''_l}{2}\partial_\tau^2 A_2 &= -\frac{i\omega_2^2\chi^{(2)}}{2c^2k_2}A_1^2 e^{-i(k_2-2k_1)z}
+\end{align*}
+If we assume phase matching we see:
+\begin{align*}
+	\partial_{z'} A_2 + i\frac{k''_l}{2}\partial_\tau^2 A_2 &= -\frac{i\omega_2\chi^{(2)}}{2cn_2}A_1^2
+\end{align*}
+Which is the same as before other than an additional term corresponding to the group velocity dispersion of the material. We call this spreading based on frequency ``chirp''.
+There are a couple effects here. First the different propogation velocities of the different frequencies causes temporal spread in the generated light , called ``group velocity walkoff''.
+
+We now look at what's known as a transform limited pulse. If we look at the spectrum of our light we have some bandwidth $\Delta\omega$ and the time domain will have a bandwidth $\tau$.
+Our transform limited pulse will go as $\tau \approx \frac{1}{\Delta\omega}$, this is the smallest bandwidth we can have, and adding a phase that depends quadraticly on frequency will cause us to have a longer pulse.
+We can also define a coherence length $L = nc\tau$. If the coherence length is shorter than the material we expect to need to deal with dispersive effects, and if it isn't, we don't.
+
+We consider self phase modulation:
+\begin{align*}
+	P^{(3)}_1 &= 6\epsilon_0\chi^{(3)} A_1^2A_1^* e^{ik_1 l} \\
+	\partial_{z'} A_1 + i\frac{k''_1}{2}\partial_\tau^2 A_1 &= -\frac{i3\mu_0\omega_1}{n_1 c}|A_1|^2 A_1 \\
+	\left[\partial_{z'} + i\left(\frac{k_1''}{2}\partial_\tau^2 + \Gamma|A_1|^2\right)\right]A_1 &= 0
+\end{align*}
+This is example of a non-linear Schroedinger equation (with time and space swapped).
+We can see that the $\Gamma |A_1|^2$ term leads to an intensity dependant refractive index.
+
+If we consider the case where the dispersion is too weak for consideration, we then have:
+\begin{align*}
+	\partial_{z'}A_1 &= - i\Gamma|A_1|^2A_1 \\
+	\partial_{z'} |A_1|^2 &= A_1^*\partial_{z'} + \compcon \\
+	&= A_1^*(-i\Gamma|A_1|^2A_1) + \compcon \\
+	&= -i\Gamma|A_1|^4 + \compcon \\
+	&= 0
+\end{align*}
+So the only variation must be in the phase, so we can say:
+\begin{align*}
+	A_1 &= |A_1| e^{-i\Gamma|A_1|^2 z'}
+\end{align*}
+This phase modulation will shift different parts of our pulse in differnt ways, where the regions where the magnitude is linear in time have a frequency shift. We call this a time lense.
+Since self-phase modulation allows us to broaden the bandwidth, we can then shorten the pulse length.
+
+We will have soliton soltions to our non-linear Schroedinger equation when $\partial_\tau^2 A_1 = -\frac{2\Gamma}{k_1''} |A_1|^2$. If we propose as an ansatz:
+\begin{align*}
+	A_1 &= \text{sech}
+\end{align*}
+Which it turns out implies that $\Gamma$ must be negative to have soliton formation
+
+We now look at cross phase modulation. We have two pulses going into our material (one weak and one strong). We can see that our equations of motion are:
+\begin{align*}
+	\partial_{z'} A_1 + i\frac{k''_1}{2}\partial_\tau^2 A_1 &= -i\Gamma_1 |A_1|^2A_1 - 2i\Gamma_1|A_2|^2A_1 \\
+	\partial_{z'} A_2 + i\frac{k''_2}{2}\partial_\tau^2 A_2 &= -i\Gamma_2 |A_2|^2A_2 - 2i\Gamma_2|A_1|^2A_2
+\end{align*}
+If $A_2\gg A_1$ we can use $A_1$ to modulate the phase on $A_2$. Our equation of motion is (neglecting self phase modulation because cross phase can be much larger, and neglecting dispersion):
+\begin{align*}
+	\partial_{z'} A_2 &= -2i\gamma_2|A_1|^2 A_2 \\
+	A_2 &\to A_2 e^{i\phi_2}
+\end{align*}
+Which only works well when we have group velocity matching.
