@@ -1,0 +1,98 @@
+\section{Quantum Non-linear Optics}
+\subsection{Motivation}
+We are working with very reduced time, and want to explain SPDC as quickly as possible so this may go quickly. SPDC is a DFG process in a $\chi^{(2)}$ material where we send in $\omega_3$ and generate $\omega_1$ and $\omega_2$ where $\omega_1 + \omega_2 = \omega_3$.
+In the case where we seed this with a weak field $\omega_1$ we called this an OPA. We typically call $\omega_1$ the signal field, $\omega_2$ the idler field, and $\omega_3$ the pump field. 
+
+In classical non-linear optics we had:
+\begin{align*}
+	\partial_z A_1 &- \frac{i\omega_1 \chi^{(2)}}{n_1 c}e^{i\Delta k z} A_3 A_2^* \\
+	\partial_z A_2 &- \frac{i\omega_2 \chi^{(2)}}{n_2 c}e^{i\Delta k z} A_3 A_1^*
+\end{align*}
+If we input nothing for $A_1$ and $A_2$ then classically we would expect to see no generated fields.
+
+Moving onto quantum mechanics we input vacuum fields to $\omega_1$ and $\omega_2$ which generate our fields.
+\subsection{Field quantization in dielectric media}
+The Maxwell equations are:
+\begin{align*}
+	\del\cdot\bm{D} &= & \del\cdot\bm{B} &= 0 \\
+	\del\times\bm{E} &= -\partial_t \bm{B} & \del\times\bm{B} &= \mu_0 \partial_t\bm{D} \\
+	\bm{D} &= \sum_n \epsilon^{(n)}(\omega) \bm{E}^{\otimes n} \\
+	\bm{E} &= \sum_n \eta^{(n)} \bm{D}^{\otimes n}
+\end{align*}
+In order to quantize our system we have to make a decision between writing things in terms of $\bm{E}$ or $\bm{D}$. In the case of free space, there is a simple linear relationship between $\epsilon$ and $\eta$, so it doesn't matter which we pick.
+For the free field we can say:
+\begin{align*}
+	\mathcal{L} &= \frac{\epsilon_0}{2} \left(|E|^2 - c^2|B|^2\right)
+\end{align*}
+In the Coulomb Gauge($\phi=0$) we can satisfy this with a harmonic oscilator where the role of position is played by $A_j$ and momentum by $\Pi_j = E_j$. In a dielectric medium we need a different Hamiltonian.
+It turns out that $E$ cannot be the fundamental field, but instead is a derived field with $D$ being the fundamental field. We will see that the quantized excitations of the $D$ field is a polariton, which can then generate a photon at the boundry of a material.
+These are shared excitions of the EM field and the material excitations.
+
+It can be shown that the $D$ field can be written as:
+\begin{align*}
+	\hat{\bm{D}} &= \sum_{\bm{k},s} i\mathcal{D}_{\bm{k}} \bm{e}_{\bm{k},s} e^{i(\bm{k}\cdot\bm{x} - \omega_{\bm{k}} t} \hat{a}_{\bm{k},s} + \hercon \\
+	\mathcal{D}_{\bm{k}} &= \sqrt{\frac{\epsilon_0}{2} \frac{\hbar\omega_{\bm{k}}}{V} \frac{v_{g\bm{k}}n_{\bm{k}}^3}{c}}
+\end{align*}
+Additionally we can write the $\bm{B}$ field:
+\begin{align*}
+	\hat{\bm{B}} &+ \sum_{\bm{k},s} \mathcal{A}_{\bm{k}} (i\bm{k}\times\bm{e}_{\bm{k},s}) e^{i(\bm{k}\cdot\bm{x} - \omega_{\bm{k}}t)} \hat{a}_{\bm{k},s} + \hercon \\
+	\mathcal{A}_{\bm{k}} &= \sqrt{\frac{\hbar}{2\epsilon_0V\omega_{\bm{k}}} \frac{v_{g\bm{k}}}{n_{\bm{k}} c}} \\
+	\hat{\bm{E}} &= \sum_{\bm{k},s} i\mathcal{E}_{\bm{k}} \bm{e}_{\bm{k},s} e^{i(\bm{k}\cdot\bm{x} - \omega_{\bm{k}}t)} \hat{a}_{\bm{k},s} + \hercon \\
+	\mathcal{E} &= \sqrt{\frac{\hbar\omega_{\bm{k}}}{2\epsilon_0 V}\frac{v_{g\bm{k}}}{cn_{\bm{k}}}}
+\end{align*}
+Where $E$ and $D$ are only parrallel in isotropic materials. We have our Hamiltonian:
+\begin{align*}
+	\hat{H} &= \int d^3 x \left(\frac{|\hat{\bm{B}}|^2}{2\mu_0} + \sum_n \frac{1}{n+1} \hat{\bm{D}}\cdot\eta^{(n)}\hat{\bm{D}}^{\otimes n}\right)
+\end{align*}
+Which for second order materials ignoring the tensor nature of $\eta$ we can say:
+\begin{align*}
+	\hat{H} &= \int d^3 x \left(\frac{|\hat{\bm{B}}|^2}{2\mu_0} + \frac{1}{2} \eta^{(1)}|\hat{\bm{D}}|^2 + \frac{1}{3} \eta^{(2)} \hat{\bm{D}}^3\right)
+\end{align*}
+If we use the orthogonality of plane-wave modes as well as the classic commutators for creation and annihilation operators:
+\begin{align*}
+	\hat{H} &= \sum_{\bm{k},s} \hbar\omega_{\bm{k}} \left(\hat{a}_{\bm{k},s}^\dagger\hat{a}_{\bm{k},s} + \frac{1}{2}\right) + \hat{H}^{(2)}
+\end{align*}
+If we ignored the non-linear term we can see these excitations as essentially identical to what we dealt with for in vacuua quantum optics. It will correspond to propogations of polaritons.
+Our non-linear terms will correspond to interactions between field modes.
+
+This can be solved either by treating $\hat{H}^{(2)}$ as a perturbation, or by using this Hamiltonian to derive explicit time evolution of $\hat{a}$.
+For simplicitly we will focus on the first approach.
+
+\subsection{SPDC}
+We now look to find the output of SPDC. We say our input state is $\ket{\Psi_0} = \ket{\alpha}_3\ket{0}_1\ket{0}_2$. We know $\ket{\psi_f} = \hat{U}(t)\ket{\psi_0}$ and:
+\begin{align*}
+	\hat{U}(t) &= e^{-\frac{i}{\hbar} \int_{t_0}^{t_f} \hat{H}(t')dt'} \\
+	&\approx 1 - \frac{i}{\hbar} \int \hat{H}(t')dt'
+\end{align*}
+And in the interaction picture we can therefore write:
+\begin{align*}
+	\ket{\psi_f} &\approx \left(1 - \frac{i}{\hbar} \int dt' \hat{H}(t')\right) \ket{\psi_0} \\
+	&\approx \ket{\psi_0} - \frac{i}{\hbar} \int dt' \int d^3 x \frac{1}{3} \eta^{(2)} \hat{D}^3\ket{\alpha}_3
+\end{align*}
+We now rewrite $D$ focusing only on the terms involving $\omega_1$, $\omega_2$ and $\omega_3$. If we neglect all other terms (which won't contribute because they don't satisfy conservation of energy/phase matching):
+\begin{align*}
+	\hat{\bm{D}} &= \hat{\bm{D}}_1 + \hat{\bm{D}}_2 + \hat{\bm{D}}_3
+\end{align*}
+We want to only look at terms obeying energy conservation, so we need to include only terms of the form:
+\begin{align*}
+	\hat{\bm{D}}^3 &= i\mathcal{D}_1\mathcal{D}_2\mathcal{D}_3^* \hat{a}_1\hat{a}_2\hat{a}_3^\dagger e^{-i [(k_1 + k_2 -k_3)z  -(\omega_1 + \omega_2 - \omega_3)t]} + \hercon
+\end{align*}
+There are $3!$ of these terms coming from the $\hat{\bm{D}}^3$ terms. Plugging this into our interaction Hamiltonian:
+\begin{align*}
+	-\frac{i}{\hbar}\hat{H}^{(2)} &= -\frac{i}{\hbar} \int dt' e^{i(\omega_1 + \omega_2 - \omega_3)t'} \frac{i3!\eta^{(2)}}{3} \mathcal{D}_1\mathcal{D}_2\mathcal{D}_3^* \hat{a}_1\hat{a}_2\hat{a}_3^\dagger \int e^{-\Delta k z} d^3 x + \hercon
+\end{align*}
+Where the time integral will turn our first exponential into a delta function corresponding to energy conservation, and the spacial integral will become a sinc function corresponding to phase matching. Acting this on our input state:
+\begin{align*}
+	-\frac{i}{\hbar}\hat{H}^{(2)}\ket{\psi_0} &\propto \alpha_3(\bm{k})\ket{\alpha}_3\ket{1}_2\ket{1}_1 
+\end{align*}
+So:
+\begin{align*}
+	\ket{\psi_f} &\approx \ket{\psi_0} - \frac{2\eta^{(2)}}{\hbar}\alpha_3(\bm{k})\mathcal{D}_1^*\mathcal{D}_2^* \mathcal{D}_3 \phi_{pm}(\Delta k\cdot V)\ket{\alpha}_3\ket{1}_2\ket{1}_1 \\
+	\phi_pm(\Delta k\cdot V) &= \int_V d^3 x e^{i\Delta \bm{k}\cdot \bm{x}}
+\end{align*}
+Where our phase matching function should become $\phi_{pm} = V\sinc \frac{\Delta \bm{k}\cdot \bm{V}}{2}$. If we make the undepleted pump assumption, then:
+\begin{align*}
+	-\frac{i}{\hbar}\hat{H}^{(2)} &= - \frac{i}{\hbar} \delta_{\omega_1+\omega_2,\omega_3} 2\eta^{(2)}\mathcal{D}_1\mathcal{D}_2\mathcal{D}_3^*\alpha_3^*\phi_{pm}(\Delta k)\hat{a}_1\hat{a}_2 - \hercon \\
+	&= \xi_{12}\hat{a}_1\hat{a}_2 - \xi^*_{12}\hat{a}_1^\dagger\hat{a}_2^\dagger
+\end{align*}
+So SPDC corresponds to a 2 mode squeezing process (or degenerate SPDC is a single mode squeezer).
